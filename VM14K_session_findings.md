@@ -39,11 +39,11 @@ artifact is therefore not the output of the published pipeline.
 **Caveats to state in any writeup:**
 - Their code expects CSV columns `optionA..optionG`; the release is JSONL with an `options` array.
   A transpose is required — *the published code cannot read the published data as-is.*
-- Their code raises `ValueError: np.nan is an invalid document` on the release (see item 5).
+- Their code raises `ValueError: np.nan is an invalid document` on the release (see item 3).
 
 ---
 
-## 5. The dedup code misses very short questions (min_df=5)
+## 3. The dedup code misses very short questions (min_df=5)
 
 `TfidfVectorizer(min_df=5, max_df=0.8)`:
 
@@ -57,7 +57,7 @@ structurally invisible to this dedup.
 
 ---
 
-## 6. Repo provenance (three strata)
+## 4. Repo provenance (three strata)
 
 (From `git log` on the clone.)
 
@@ -66,10 +66,3 @@ structurally invisible to this dedup.
 | pipeline code | 22 May – 3 Jun 2025 | `DataCleaning/`, `Deduplication/`, `Evaluation/`, `Inference/` | the paper's code; unmodified since |
 | docs suite | 4 Jul 2025 | `docs/*.md` | authored by `cursoragent`, branch `cursor/write-documentation-from-content-0f99`, ~3 weeks post-arXiv; auto-generated |
 | Eval-vLLM | Nov 2025 | `Eval-vLLM/` incl. `Data/VM14K.jsonl` | additive; different contributor; ~5 months post-arXiv; not the harness behind Tables 2–3 |
-
-The paper-critical files (`benchmark_analysis.ipynb`, `deduplication.py`, `dedup_utils.py`,
-`final_transform.ipynb`) were each committed once and never revised — so this session's findings
-against them need no commit-pinning caveat. arXiv v1 announced 13 Jun 2025.
-
-"Initial commit (fresh start)" implies a discarded prior history — **HYPOTHESIS**, weak inference
-from a commit message; do not over-read.
