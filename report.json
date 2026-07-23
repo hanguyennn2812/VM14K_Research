@@ -1,0 +1,29 @@
+{
+  "input": "data-processed-shuffled0.jsonl",
+  "normaliser": "C:\\Users\\nguye\\Downloads\\vm14k\\dedup_utils.py",
+  "rows_in": 12488,
+  "zero_vector_questions": 11,
+  "before": {
+    "rows": 12488,
+    "unique_keys": 11163,
+    "dup_groups": 1125,
+    "redundant": 1325,
+    "contra_groups": 67
+  },
+  "after_level1": {
+    "rows": 11164,
+    "unique_keys": 11163,
+    "dup_groups": 1,
+    "redundant": 1,
+    "contra_groups": 0
+  },
+  "after_all": {
+    "rows": 10956,
+    "unique_keys": 10955,
+    "dup_groups": 1,
+    "redundant": 1,
+    "contra_groups": 0
+  },
+  "rows_removed": 1532,
+  "residual_exact_duplicates": 1
+}
