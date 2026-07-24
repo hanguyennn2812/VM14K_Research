@@ -1,6 +1,6 @@
 {
-  "input": "data-processed-shuffled0.jsonl",
-  "normaliser": "C:\\Users\\nguye\\Downloads\\vm14k\\dedup_utils.py",
+  "input": "data/raw/data-processed-shuffled0.jsonl",
+  "normaliser": "scripts/analysis/dedup_utils.py",
   "rows_in": 12488,
   "zero_vector_questions": 11,
   "before": {

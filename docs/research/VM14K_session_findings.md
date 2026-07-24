@@ -1,6 +1,6 @@
 Repo state: `Venera-AI/VM14K-Megarepo` @ `2c15604` (HEAD at time of clone).
 First commit: `611a5d3 "Initial commit (fresh start)"`.
-Data file: `data-processed-shuffled0.jsonl`, 12,488 rows.
+Data file: `data/raw/data-processed-shuffled0.jsonl`, 12,488 rows.
 Authors' normalizer: `Deduplication/dedup_utils.normalize_vietnamese`.
 
 ---

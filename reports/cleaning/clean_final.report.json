@@ -1,0 +1,59 @@
+{
+  "pipeline": "clean_all.py (consolidated stages 01-11)",
+  "input": {
+    "path": "F:\\VM14K_Research\\data\\baseline\\clean.jsonl",
+    "rows": 10956,
+    "sha256": "b1835e2989e11dadcdf659cb3b51ff8df64f1885d4e1c1f3d23475186437663e"
+  },
+  "output": {
+    "path": "F:\\VM14K_Research\\data\\cleaned\\clean_final.jsonl",
+    "rows": 10642,
+    "sha256": "ccc36131163a59dfee4b5780fc276ff5b811084cff59fee92810e045ccd6bd8d"
+  },
+  "quarantine": {
+    "path": "F:\\VM14K_Research\\data\\quarantine\\quarantine_all.jsonl",
+    "rows": 313,
+    "sha256": "33ecf5364f872c07581ef698f39b18a19fb856832c3ee1cacef46aa061a18227"
+  },
+  "stage_removal_counts": {
+    "01_residual_exact_dedup": 1,
+    "02_structural_validity": 14,
+    "03_unique_options": 199,
+    "06_missing_context": 12,
+    "07_placeholder_options": 66,
+    "10_option_marker_corruption": 22
+  },
+  "total_removed": 314,
+  "quarantine_reason_counts": {
+    "fewer_than_2_options": 12,
+    "blank_question": 2,
+    "duplicate_option_text": 199,
+    "visual: generic stem with parasite-image choices": 5,
+    "visual: pneumonia type from absent image": 1,
+    "visual: gross lung-cancer type from absent image": 1,
+    "visual: reaction (1) in absent Krebs-cycle diagram": 1,
+    "visual: generic stem with surgical-instrument choices": 1,
+    "visual: diagnosis from absent referenced image": 1,
+    "audio: listening item has no audio or transcript": 2,
+    "punctuation_only_placeholder": 32,
+    "option_label_placeholder": 34,
+    "concatenated_options": 9,
+    "mislabeled_option_position": 8,
+    "empty_marker_only_option": 4,
+    "placeholder_exposed_by_entity_decode": 1
+  },
+  "final_invariants": {
+    "ids_unique": true,
+    "questions_non_blank": true,
+    "at_least_two_options": true,
+    "answer_index_in_range": true,
+    "answer_letter_matches_index": true,
+    "medical_topic_non_empty": true,
+    "text_is_nfc": true,
+    "no_outer_whitespace": true,
+    "no_duplicate_options": true,
+    "no_placeholder_options": true,
+    "no_break_tags": true,
+    "no_html_entities": true
+  }
+}

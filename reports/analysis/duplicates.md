@@ -3,7 +3,7 @@
 Same normalised question AND same normalised option set (any order).
 
 Normalisation: dedup_utils.normalize_vietnamese (authors' code)
-Line numbers refer to data-processed-shuffled0.jsonl.
+Line numbers refer to data/raw/data-processed-shuffled0.jsonl.
 
 Groups: 1125   Rows: 2450
 
