@@ -1,0 +1,850 @@
+{
+  "source": "data/raw/data-processed-shuffled0.jsonl",
+  "normaliser": "dedup_utils.normalize_vietnamese (authors' code)",
+  "rule": "Level-1 keep-first: group by (normalize(question), sorted(normalize(options))); within a contradiction group (marked-correct text disagrees), the row with the lowest file line number survives.",
+  "n_contradiction_groups": 67,
+  "survivor_ids": [
+    "d2152e9da25b4f50bf3363f15cae5c06",
+    "8b9c685693c044978144079f5b488ec7",
+    "2d01b27a6ea74ab9a216efba9ae953ac",
+    "73f9b056cb6c4895b69dc25fb6712424",
+    "32acc6b9ceb6419284deb9c2f5b488f2",
+    "cedee93db5ad4f5fb6b941bba7f41658",
+    "08531b190cb54171a26246bad79d9070",
+    "bf58f600f30c456ba73604bfbe613fe5",
+    "5f5c7174642f4d69878c48127234c59b",
+    "58fb5401cd394be9876864e3a546e3d8",
+    "7189980ee4d94e14a3b5f17b7a9737df",
+    "39b635d7fb20449191857daf6526817c",
+    "d44ffd9e328f476ca18d7e406156300e",
+    "04f2f9c846cd42e4937ef632b5ee4bee",
+    "8e560bf180564a129dac549cd8da3dbc",
+    "2205accd66ee4dc28eb62cd9f8162550",
+    "d2ec8e0f269045c19243478369450383",
+    "f52a452b322148fc8f07140ebff66aea",
+    "f6d2cc6fb30647a6bd038dad445a2dd2",
+    "76c400d1a93d41698b8f1161cc79b80f",
+    "46f15e95ab5e4d1a87e44f75b3e8aacb",
+    "55b9d99aad8547f1924bfd93fcb1eb15",
+    "f39860007f5245828140a02ba145f75a",
+    "b0e48ac276a74892ab682f015636fb47",
+    "23779a51e431493e80cc6c74fb3f1a4b",
+    "5fd1e29e4fd348fa825f6bd40994ddd3",
+    "d848f95395014a1084b355e51e258f94",
+    "511e85d8c3ee4cc08ede89422f28a0ae",
+    "258718715ea74c95bd729a8c2c589504",
+    "6b8c025ecc1a41babce92fa95f440f3c",
+    "ced9f1b8285e47feacbae114d1e7ead6",
+    "960805aeec28484abe928083f3504bab",
+    "33c851fcd74740f0baa8ecc7fd3de6c9",
+    "30db384134b7421498b7ca5e1c084478",
+    "566812ae558c47208c08c1b24c55533d",
+    "a83cb7446f9d407781b883866265f6af",
+    "95ee81d4e95f42cfb18f48988bba45c4",
+    "880d6f41c5e141119799f95346afce72",
+    "70049746aea1478eba5a721962ed4929",
+    "de12ad67647d41918f80e5abe1bd16eb",
+    "b276cc9b9d6947d188d6709f540ef7d7",
+    "aac1e3e4fed84a0cb4cb3ce37ee7e856",
+    "afda36c2732540378e7216e6b294b40e",
+    "2e4b6520025a4202a14ca144f69f00f4",
+    "fa71cdf70f0b47c7b6571ed8d240580e",
+    "05b642bb70f24ff3af8a1b96f10c992e",
+    "6945f8d1e54249ba97c9a6815c2431bb",
+    "8a3564e6ead04c2a9571a3f34be84017",
+    "40f195bb763e40f589014308f3afef53",
+    "3d98af5133f94e7b8882e79e0825e4be",
+    "b98e35a36e874b3b8cc6131833be5f80",
+    "1eeff47ead10426998d56518a6706257",
+    "c06671caa0a64e9c867ec75555bfb2cb",
+    "a8d408dd91fb4b328a11581979a412a5",
+    "a028e874f7c448038e0d6b3d5c7cad70",
+    "cd635edcc7334a0eb8e0d44b41984313",
+    "11e2e656db6a4a0795516f5dbc4297bc",
+    "1ae1080a6df7425e97f05ad153160ca9",
+    "3885a07dee0f45ec84411def21fd2cdb",
+    "004756f0fc124700af61fe0f6528092d",
+    "2a4e2ffb7470475f842f77a4a0c647c5",
+    "454be956b8434e00bda52c8f3e1e3b6d",
+    "dd30112ad5f3401185934c6b0ad88900",
+    "4f4afc942d01484ea68ab165057f69fb",
+    "097dfa27b2ec4f2f8ff90585732a93c0",
+    "f5866d8529014b2892bec9dfa19c6685",
+    "35a827edd9f140c5894be547281942c3"
+  ],
+  "survivors": [
+    {
+      "id": "d2152e9da25b4f50bf3363f15cae5c06",
+      "kept_line": 47,
+      "kept_answer": "D",
+      "dropped_lines": [
+        672
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "8b9c685693c044978144079f5b488ec7",
+      "kept_line": 51,
+      "kept_answer": "D",
+      "dropped_lines": [
+        830
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "2d01b27a6ea74ab9a216efba9ae953ac",
+      "kept_line": 56,
+      "kept_answer": "D",
+      "dropped_lines": [
+        1031
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "73f9b056cb6c4895b69dc25fb6712424",
+      "kept_line": 176,
+      "kept_answer": "B",
+      "dropped_lines": [
+        11999
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "32acc6b9ceb6419284deb9c2f5b488f2",
+      "kept_line": 196,
+      "kept_answer": "A",
+      "dropped_lines": [
+        1674,
+        10425
+      ],
+      "dropped_answers": [
+        "C",
+        "C"
+      ]
+    },
+    {
+      "id": "cedee93db5ad4f5fb6b941bba7f41658",
+      "kept_line": 289,
+      "kept_answer": "D",
+      "dropped_lines": [
+        2015
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "08531b190cb54171a26246bad79d9070",
+      "kept_line": 298,
+      "kept_answer": "B",
+      "dropped_lines": [
+        2155
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "bf58f600f30c456ba73604bfbe613fe5",
+      "kept_line": 301,
+      "kept_answer": "D",
+      "dropped_lines": [
+        2299
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "5f5c7174642f4d69878c48127234c59b",
+      "kept_line": 307,
+      "kept_answer": "B",
+      "dropped_lines": [
+        11701
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "58fb5401cd394be9876864e3a546e3d8",
+      "kept_line": 759,
+      "kept_answer": "A",
+      "dropped_lines": [
+        6418
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "7189980ee4d94e14a3b5f17b7a9737df",
+      "kept_line": 844,
+      "kept_answer": "C",
+      "dropped_lines": [
+        6420
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "39b635d7fb20449191857daf6526817c",
+      "kept_line": 857,
+      "kept_answer": "A",
+      "dropped_lines": [
+        6423
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "d44ffd9e328f476ca18d7e406156300e",
+      "kept_line": 923,
+      "kept_answer": "D",
+      "dropped_lines": [
+        11817
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "04f2f9c846cd42e4937ef632b5ee4bee",
+      "kept_line": 1025,
+      "kept_answer": "D",
+      "dropped_lines": [
+        6087
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "8e560bf180564a129dac549cd8da3dbc",
+      "kept_line": 1315,
+      "kept_answer": "A",
+      "dropped_lines": [
+        2007
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "2205accd66ee4dc28eb62cd9f8162550",
+      "kept_line": 1371,
+      "kept_answer": "D",
+      "dropped_lines": [
+        5039,
+        5079,
+        5163
+      ],
+      "dropped_answers": [
+        "D",
+        "D",
+        "B"
+      ]
+    },
+    {
+      "id": "d2ec8e0f269045c19243478369450383",
+      "kept_line": 1577,
+      "kept_answer": "D",
+      "dropped_lines": [
+        1610,
+        1620,
+        10583
+      ],
+      "dropped_answers": [
+        "A",
+        "D",
+        "C"
+      ]
+    },
+    {
+      "id": "f52a452b322148fc8f07140ebff66aea",
+      "kept_line": 1671,
+      "kept_answer": "D",
+      "dropped_lines": [
+        10750
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "f6d2cc6fb30647a6bd038dad445a2dd2",
+      "kept_line": 1675,
+      "kept_answer": "B",
+      "dropped_lines": [
+        6839
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "76c400d1a93d41698b8f1161cc79b80f",
+      "kept_line": 1767,
+      "kept_answer": "A",
+      "dropped_lines": [
+        1768,
+        1769
+      ],
+      "dropped_answers": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "46f15e95ab5e4d1a87e44f75b3e8aacb",
+      "kept_line": 1772,
+      "kept_answer": "A",
+      "dropped_lines": [
+        1773
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "55b9d99aad8547f1924bfd93fcb1eb15",
+      "kept_line": 1852,
+      "kept_answer": "C",
+      "dropped_lines": [
+        6976
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "f39860007f5245828140a02ba145f75a",
+      "kept_line": 1854,
+      "kept_answer": "A",
+      "dropped_lines": [
+        6349
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "b0e48ac276a74892ab682f015636fb47",
+      "kept_line": 1922,
+      "kept_answer": "D",
+      "dropped_lines": [
+        6174
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "23779a51e431493e80cc6c74fb3f1a4b",
+      "kept_line": 1925,
+      "kept_answer": "B",
+      "dropped_lines": [
+        6175
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "5fd1e29e4fd348fa825f6bd40994ddd3",
+      "kept_line": 1944,
+      "kept_answer": "C",
+      "dropped_lines": [
+        6176
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "d848f95395014a1084b355e51e258f94",
+      "kept_line": 2097,
+      "kept_answer": "B",
+      "dropped_lines": [
+        2098,
+        2099
+      ],
+      "dropped_answers": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "511e85d8c3ee4cc08ede89422f28a0ae",
+      "kept_line": 2109,
+      "kept_answer": "A",
+      "dropped_lines": [
+        2110
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "258718715ea74c95bd729a8c2c589504",
+      "kept_line": 2770,
+      "kept_answer": "B",
+      "dropped_lines": [
+        9441,
+        11557
+      ],
+      "dropped_answers": [
+        "B",
+        "A"
+      ]
+    },
+    {
+      "id": "6b8c025ecc1a41babce92fa95f440f3c",
+      "kept_line": 2850,
+      "kept_answer": "C",
+      "dropped_lines": [
+        11949
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "ced9f1b8285e47feacbae114d1e7ead6",
+      "kept_line": 3185,
+      "kept_answer": "B",
+      "dropped_lines": [
+        7883
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "960805aeec28484abe928083f3504bab",
+      "kept_line": 3277,
+      "kept_answer": "C",
+      "dropped_lines": [
+        11956
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "33c851fcd74740f0baa8ecc7fd3de6c9",
+      "kept_line": 3417,
+      "kept_answer": "B",
+      "dropped_lines": [
+        3895
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "30db384134b7421498b7ca5e1c084478",
+      "kept_line": 3428,
+      "kept_answer": "D",
+      "dropped_lines": [
+        11913
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "566812ae558c47208c08c1b24c55533d",
+      "kept_line": 3566,
+      "kept_answer": "B",
+      "dropped_lines": [
+        7077
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "a83cb7446f9d407781b883866265f6af",
+      "kept_line": 3613,
+      "kept_answer": "B",
+      "dropped_lines": [
+        11799
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "95ee81d4e95f42cfb18f48988bba45c4",
+      "kept_line": 3722,
+      "kept_answer": "A",
+      "dropped_lines": [
+        6190
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "880d6f41c5e141119799f95346afce72",
+      "kept_line": 3888,
+      "kept_answer": "B",
+      "dropped_lines": [
+        8080
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "70049746aea1478eba5a721962ed4929",
+      "kept_line": 4009,
+      "kept_answer": "B",
+      "dropped_lines": [
+        4612
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "de12ad67647d41918f80e5abe1bd16eb",
+      "kept_line": 4054,
+      "kept_answer": "C",
+      "dropped_lines": [
+        7964,
+        11911
+      ],
+      "dropped_answers": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "b276cc9b9d6947d188d6709f540ef7d7",
+      "kept_line": 4126,
+      "kept_answer": "D",
+      "dropped_lines": [
+        9642
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "aac1e3e4fed84a0cb4cb3ce37ee7e856",
+      "kept_line": 4531,
+      "kept_answer": "B",
+      "dropped_lines": [
+        4544,
+        11239,
+        11252
+      ],
+      "dropped_answers": [
+        "D",
+        "B",
+        "D"
+      ]
+    },
+    {
+      "id": "afda36c2732540378e7216e6b294b40e",
+      "kept_line": 4538,
+      "kept_answer": "A",
+      "dropped_lines": [
+        9624,
+        11246
+      ],
+      "dropped_answers": [
+        "B",
+        "A"
+      ]
+    },
+    {
+      "id": "2e4b6520025a4202a14ca144f69f00f4",
+      "kept_line": 4546,
+      "kept_answer": "C",
+      "dropped_lines": [
+        8938,
+        11254
+      ],
+      "dropped_answers": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "fa71cdf70f0b47c7b6571ed8d240580e",
+      "kept_line": 4712,
+      "kept_answer": "C",
+      "dropped_lines": [
+        4844,
+        5599
+      ],
+      "dropped_answers": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "05b642bb70f24ff3af8a1b96f10c992e",
+      "kept_line": 4736,
+      "kept_answer": "A",
+      "dropped_lines": [
+        4849,
+        5624
+      ],
+      "dropped_answers": [
+        "D",
+        "A"
+      ]
+    },
+    {
+      "id": "6945f8d1e54249ba97c9a6815c2431bb",
+      "kept_line": 4744,
+      "kept_answer": "C",
+      "dropped_lines": [
+        4858,
+        5631
+      ],
+      "dropped_answers": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "8a3564e6ead04c2a9571a3f34be84017",
+      "kept_line": 5152,
+      "kept_answer": "B",
+      "dropped_lines": [
+        5802
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "40f195bb763e40f589014308f3afef53",
+      "kept_line": 5869,
+      "kept_answer": "B",
+      "dropped_lines": [
+        5870
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "3d98af5133f94e7b8882e79e0825e4be",
+      "kept_line": 6093,
+      "kept_answer": "C",
+      "dropped_lines": [
+        11996
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "b98e35a36e874b3b8cc6131833be5f80",
+      "kept_line": 6437,
+      "kept_answer": "B",
+      "dropped_lines": [
+        6438
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "1eeff47ead10426998d56518a6706257",
+      "kept_line": 6571,
+      "kept_answer": "B",
+      "dropped_lines": [
+        6714
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "c06671caa0a64e9c867ec75555bfb2cb",
+      "kept_line": 6581,
+      "kept_answer": "A",
+      "dropped_lines": [
+        6681
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "a8d408dd91fb4b328a11581979a412a5",
+      "kept_line": 6645,
+      "kept_answer": "B",
+      "dropped_lines": [
+        12053
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "a028e874f7c448038e0d6b3d5c7cad70",
+      "kept_line": 6769,
+      "kept_answer": "C",
+      "dropped_lines": [
+        12014
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "cd635edcc7334a0eb8e0d44b41984313",
+      "kept_line": 6842,
+      "kept_answer": "A",
+      "dropped_lines": [
+        8115
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "11e2e656db6a4a0795516f5dbc4297bc",
+      "kept_line": 6949,
+      "kept_answer": "A",
+      "dropped_lines": [
+        11937
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "1ae1080a6df7425e97f05ad153160ca9",
+      "kept_line": 9175,
+      "kept_answer": "D",
+      "dropped_lines": [
+        9216
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "3885a07dee0f45ec84411def21fd2cdb",
+      "kept_line": 9176,
+      "kept_answer": "D",
+      "dropped_lines": [
+        9217
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "004756f0fc124700af61fe0f6528092d",
+      "kept_line": 9194,
+      "kept_answer": "D",
+      "dropped_lines": [
+        9224
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "2a4e2ffb7470475f842f77a4a0c647c5",
+      "kept_line": 9198,
+      "kept_answer": "D",
+      "dropped_lines": [
+        9226
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "454be956b8434e00bda52c8f3e1e3b6d",
+      "kept_line": 9496,
+      "kept_answer": "B",
+      "dropped_lines": [
+        11559
+      ],
+      "dropped_answers": [
+        "A"
+      ]
+    },
+    {
+      "id": "dd30112ad5f3401185934c6b0ad88900",
+      "kept_line": 9760,
+      "kept_answer": "B",
+      "dropped_lines": [
+        9791
+      ],
+      "dropped_answers": [
+        "D"
+      ]
+    },
+    {
+      "id": "4f4afc942d01484ea68ab165057f69fb",
+      "kept_line": 10686,
+      "kept_answer": "D",
+      "dropped_lines": [
+        10716,
+        11372,
+        11414
+      ],
+      "dropped_answers": [
+        "D",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "097dfa27b2ec4f2f8ff90585732a93c0",
+      "kept_line": 10726,
+      "kept_answer": "D",
+      "dropped_lines": [
+        11441
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    },
+    {
+      "id": "f5866d8529014b2892bec9dfa19c6685",
+      "kept_line": 11390,
+      "kept_answer": "D",
+      "dropped_lines": [
+        11407
+      ],
+      "dropped_answers": [
+        "B"
+      ]
+    },
+    {
+      "id": "35a827edd9f140c5894be547281942c3",
+      "kept_line": 12273,
+      "kept_answer": "D",
+      "dropped_lines": [
+        12298
+      ],
+      "dropped_answers": [
+        "C"
+      ]
+    }
+  ]
+}
