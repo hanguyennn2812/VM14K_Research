@@ -38,6 +38,19 @@ Stage order and what each one does:
     position, or empty marker-only options (ID-specific, hand-audited).
 11. Strip redundant self-referential "A./B./C./D." option prefixes where,
     and only where, the leaked letter matches the option's own position.
+12. Re-run the stage-01 exact-duplicate rule *after* stages 04/05/08/09/11
+    have modified text in place. Those stages can make two previously
+    distinct rows collide on the normalized (question, sorted options) key;
+    stage 01 (which runs first, before any text edit) cannot see that. This
+    is BUG-1 from the Phase 0 audit: two such new duplicate groups were
+    measured in clean_final.jsonl that were not present in the baseline.
+
+Every row in the final output also gets a `contradiction_pending_review`
+boolean: true for rows whose id is one of the 67 IDs in
+reports/analysis/contradiction_survivor_ids.json (BUG-2) — rows the
+authors' Level-1 dedup kept by file order alone, from a group where the
+marked-correct answer disagreed across copies. Their answer key has not
+been human-verified; exclude them from any test split.
 
 See docs/cleaning/CLEANING.md for the full narrative, worked examples, and
 the reasoning behind each rule.
@@ -501,6 +514,86 @@ def stage11_strip_redundant_prefixes(rows: list[Row]) -> list[Row]:
 
 
 # --------------------------------------------------------------------------
+# Stage 12 — re-run the stage-01 exact-dedup rule after text-modifying stages
+# --------------------------------------------------------------------------
+
+
+def full_key(row: Row) -> tuple[str, tuple[str, ...]]:
+    return (
+        normalize_vietnamese(row["question"]),
+        tuple(sorted(normalize_vietnamese(o) for o in row["options"])),
+    )
+
+
+def stage12_post_normalisation_dedup(rows: list[Row]) -> tuple[list[Row], list[Quarantined]]:
+    kept_by_key: dict[tuple[str, tuple[str, ...]], Row] = {}
+    output: list[Row] = []
+    removed: list[Row] = []
+
+    for row in rows:
+        k = full_key(row)
+        prior = kept_by_key.get(k)
+        if prior is None:
+            kept_by_key[k] = row
+            output.append(row)
+            continue
+        kept_answer = normalize_vietnamese(prior["options"][prior["answer_index"]])
+        dropped_answer = normalize_vietnamese(row["options"][row["answer_index"]])
+        if kept_answer != dropped_answer:
+            raise RuntimeError(
+                f"stage12: refusing to remove contradictory duplicate id={row['id']}"
+            )
+        removed.append(row)
+
+    assert_stage_count("stage12_post_normalisation_dedup", 2, len(removed))
+    # Same rationale as stage01: fully recoverable by re-running stages
+    # 01-11 on the unchanged data/baseline/clean.jsonl, so not quarantined.
+    return output, []
+
+
+def full_key_dup_groups(rows: list[Row]) -> int:
+    groups: dict[tuple[str, tuple[str, ...]], int] = defaultdict(int)
+    for row in rows:
+        groups[full_key(row)] += 1
+    return sum(1 for count in groups.values() if count > 1)
+
+
+# --------------------------------------------------------------------------
+# Contradiction-pending-review flag (BUG-2)
+# --------------------------------------------------------------------------
+
+
+def load_contradiction_survivor_ids(path: Path) -> set[str]:
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"{path} not found — run scripts/analysis/gen_contradiction_survivor_ids.py first"
+        )
+    data = json.loads(path.read_text(encoding="utf-8"))
+    ids = set(data["survivor_ids"])
+    if len(ids) != 67:
+        raise RuntimeError(
+            f"expected 67 contradiction survivor ids, found {len(ids)} in {path} "
+            "(the derivation changed scope — investigate before proceeding)"
+        )
+    return ids
+
+
+def mark_contradiction_pending_review(rows: list[Row], survivor_ids: set[str]) -> int:
+    pending = 0
+    for row in rows:
+        flag = row["id"] in survivor_ids
+        row["contradiction_pending_review"] = flag
+        if flag:
+            pending += 1
+    if pending != 62:
+        raise RuntimeError(
+            f"expected 62 contradiction_pending_review=true rows, found {pending} "
+            "(the audited count changed — investigate before proceeding)"
+        )
+    return pending
+
+
+# --------------------------------------------------------------------------
 # Final invariants, run once on the accepted output
 # --------------------------------------------------------------------------
 
@@ -547,6 +640,10 @@ def final_invariants(rows: list[Row]) -> dict[str, bool]:
             and all(not ENTITY_PATTERN.search(o) for o in row["options"])
             for row in rows
         ),
+        "full_key_dup_groups_zero": full_key_dup_groups(rows) == 0,
+        "contradiction_pending_review_present": all(
+            isinstance(row.get("contradiction_pending_review"), bool) for row in rows
+        ),
     }
 
 
@@ -572,6 +669,12 @@ def parse_args() -> argparse.Namespace:
         "--report",
         type=Path,
         default=REPO_ROOT / "reports" / "cleaning" / "clean_final.report.json",
+    )
+    parser.add_argument(
+        "--contradiction-survivor-ids",
+        type=Path,
+        default=REPO_ROOT / "reports" / "analysis" / "contradiction_survivor_ids.json",
+        help="IDs whose answer key was chosen by file order (see BUG-2).",
     )
     parser.add_argument(
         "--force",
@@ -632,6 +735,14 @@ def main() -> None:
 
     rows = stage11_strip_redundant_prefixes(rows)
 
+    rows_before_stage12 = len(rows)
+    rows, q = stage12_post_normalisation_dedup(rows)
+    stage_counts["12_post_normalisation_dedup"] = rows_before_stage12 - len(rows)
+    all_quarantined += q
+
+    survivor_ids = load_contradiction_survivor_ids(args.contradiction_survivor_ids.resolve())
+    pending_count = mark_contradiction_pending_review(rows, survivor_ids)
+
     invariants = final_invariants(rows)
     if not all(invariants.values()):
         raise RuntimeError(f"final invariants failed: {invariants}")
@@ -670,6 +781,7 @@ def main() -> None:
         "quarantine_reason_counts": dict(
             Counter(reason for _, _, reason in all_quarantined)
         ),
+        "contradiction_pending_review_true_count": pending_count,
         "final_invariants": invariants,
     }
     report_path.write_text(

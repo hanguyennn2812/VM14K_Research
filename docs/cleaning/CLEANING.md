@@ -11,15 +11,15 @@ python scripts/cleaning/clean_all.py
 | File | Ý nghĩa |
 | --- | --- |
 | `data/baseline/clean.jsonl` | Input — output của pipeline dedup gốc (không đổi, xem `scripts/analysis/`) |
-| `data/cleaned/clean_final.jsonl` | **Dataset chính thức, dùng cái này** — 10,642 dòng |
+| `data/cleaned/clean_final.jsonl` | **Dataset chính thức, dùng cái này** — 10,640 dòng |
 | `data/quarantine/quarantine_all.jsonl` | Toàn bộ dòng bị loại, giữ nguyên gốc trong field `"row"`, có `"source_stage"` + `"reason"` để biết bị loại vì sao |
 | `reports/cleaning/clean_final.report.json` | 1 report duy nhất: số dòng mỗi stage loại, hash, kết quả invariant check |
 
 Script từ chối ghi đè file có sẵn trừ khi truyền `--force`.
 
-## Pipeline làm gì (11 stage, chạy tuần tự trong 1 file)
+## Pipeline làm gì (12 stage, chạy tuần tự trong 1 file)
 
-`data/baseline/clean.jsonl` (10,956 dòng) → 11 stage → `clean_final.jsonl` (10,642 dòng).
+`data/baseline/clean.jsonl` (10,956 dòng) → 12 stage → `clean_final.jsonl` (10,640 dòng).
 
 | # | Stage | Loại | Số dòng ảnh hưởng | Vì sao |
 | --- | --- | --- | ---: | --- |
@@ -34,10 +34,60 @@ Script từ chối ghi đè file có sẵn trừ khi truyền `--force`.
 | 09 | Decode HTML entity còn sót (`&gt;` `&quot;` `&nbsp;`) | Sửa trực tiếp | 6 | Step 08 bỏ sót entity, chỉ xử lý tag |
 | 10 | Option bị hỏng ranh giới: dính chữ / lệch nhãn / rỗng (ID cụ thể, audit thủ công) | **Quarantine — không tự đoán** | 22 | Xem phần "Phát hiện quan trọng" bên dưới |
 | 11 | Xoá nhãn `A./B./C./D.` dư thừa (khớp đúng vị trí) | Sửa trực tiếp | 9 dòng / 26 option | Nhãn trùng lặp với vị trí, xoá không mất thông tin |
+| 12 | Chạy lại rule của stage 01 (exact-dup key) **sau khi** các stage sửa text (04/05/08/09/11) đã chạy xong | Xoá thẳng | 2 | Xem phần "BUG-1" bên dưới |
 
 Mỗi stage trong script đều có `assert_stage_count(...)` — nếu số dòng bị ảnh hưởng khác
 con số đã audit ở trên, script **dừng ngay và báo lỗi**, không âm thầm chạy tiếp với rule
 đã thay đổi phạm vi.
+
+Sau stage 12, mỗi dòng còn lại được gắn thêm field boolean
+`contradiction_pending_review` (xem phần "BUG-2" bên dưới).
+
+## BUG-1 (đã fix) — các stage sửa text tạo ra duplicate mới mà stage 01 không thấy được
+
+Stage 01 chạy **đầu tiên**, trước khi bất kỳ stage nào sửa text. Nhưng các stage 04, 05,
+08, 09, 11 sửa `question`/`options` tại chỗ (repair topic, NFC, `<br>` → xuống dòng, decode
+HTML entity, xoá nhãn dư thừa) — việc sửa text này có thể khiến 2 dòng vốn khác nhau
+(theo key normalize gốc) va vào nhau **sau khi** đã sửa, và stage 01 đã chạy qua từ trước
+nên không bắt được.
+
+Audit Phase 0 đo được đúng 2 group như vậy trong `clean_final.jsonl` (không tồn tại trong
+baseline):
+- `8e70db59e10446d19ea0f814430c0bbe` / `8babf67e76c948809a27d42641c49a85` — "Nguyên nhân
+  XHTH trên thường gặp nhất ở trẻ sơ sinh là gì?"
+- `266aa630d94f4922ab261e4c7cc09ae6` / `fdd40a2adaee444a888721960f2e0ca8` — "Bé trai 2
+  tháng tuổi vào viện vì nôn ói và đau bụng..."
+
+**Fix:** thêm `stage12_post_normalisation_dedup` — chạy lại đúng rule của stage 01 (key =
+câu hỏi + option đã normalize, giữ dòng đầu tiên, abort nếu đáp án mâu thuẫn) nhưng chạy
+**sau** stage 11, tức sau khi mọi stage sửa text đã xong. Xoá thẳng 2 dòng (không quarantine
+— cùng lý do như stage 01: có thể tái tạo lại 100% bằng cách chạy lại stage 01-11 trên
+`data/baseline/clean.jsonl` không đổi). `final_invariants` giờ có thêm
+`full_key_dup_groups_zero`, tính lại full-key duplicate trên toàn bộ output cuối cùng —
+nếu khác 0, script abort ngay.
+
+**Kết quả:** `clean_final.jsonl` giảm từ 10,642 xuống **10,640** dòng.
+`python scripts/analysis/audit_dataset.py data/cleaned/clean_final.jsonl` báo
+`full-key duplicate groups: 0`.
+
+## BUG-2 (đã fix) — 62 dòng mang đáp án được chọn theo thứ tự file, không phải theo đúng/sai
+
+Rule Level-1 dedup của tác giả gốc: `if question giống AND sorted(options) giống → xoá
+dòng sau`, **không** kiểm tra đáp án. Nên 67 group "mâu thuẫn" (cùng câu hỏi + cùng bộ
+option, nhưng đáp án đánh dấu đúng khác nhau giữa các bản sao) đều bị gộp về đúng 1 dòng
+sống sót — và dòng sống sót là dòng xuất hiện trước trong file, không phải dòng có đáp án
+đúng. 67 ID này được derive ở Phase 0, lưu tại
+`reports/analysis/contradiction_survivor_ids.json`.
+
+**Fix:** thêm field boolean `contradiction_pending_review` vào mọi dòng của
+`clean_final.jsonl`, `true` nếu `id` nằm trong 67 ID trên (sau các stage quarantine/dedup,
+đúng 62/67 còn sống sót trong dataset cuối cùng — 5 dòng đã bị loại bởi các stage khác vì
+lý do khác, không liên quan đến mâu thuẫn đáp án). `final_invariants` có thêm
+`contradiction_pending_review_present` để đảm bảo field này có mặt trên mọi dòng.
+Script tự abort nếu số dòng `true` khác 62 (rule đã audit thay đổi phạm vi).
+
+**Chưa làm trong phiên này (Phase 2):** loại các dòng `contradiction_pending_review: true`
+khỏi tập test khi chia split — đó là việc của Phase 2, không phải Phase 1.
 
 ## Phát hiện quan trọng nhất: Stage 10 — option bị hỏng ranh giới (22 dòng)
 
@@ -86,12 +136,13 @@ nội dung — đúng tinh thần các bước quarantine khác trong pipeline.
 | | Trước | Sau |
 | --- | ---: | ---: |
 | Dataset | `data/baseline/clean.jsonl` | `data/cleaned/clean_final.jsonl` |
-| Số dòng | 10,956 | **10,642** |
-| Bị loại | — | 314 (1 dup xoá thẳng + 313 quarantine) |
+| Số dòng | 10,956 | **10,640** |
+| Bị loại | — | 316 (3 dup xoá thẳng: 1 ở stage 01 + 2 ở stage 12 + 313 quarantine) |
 
 Toàn bộ invariant cuối (unique id, question non-blank, ≥2 option, answer_index hợp lệ,
 answer letter khớp index, topic non-blank, Unicode NFC, không còn HTML tag/entity,
-không còn placeholder, không còn option lệch nhãn) được script tự check và in trong
+không còn placeholder, không còn option lệch nhãn, **0 full-key duplicate group**,
+**`contradiction_pending_review` có mặt trên mọi dòng**) được script tự check và in trong
 `final_invariants` của report — **pass hết**.
 
 ## Dữ liệu trước khi clean — giữ nguyên để đối chiếu

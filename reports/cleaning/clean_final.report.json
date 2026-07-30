@@ -1,17 +1,17 @@
 {
   "pipeline": "clean_all.py (consolidated stages 01-11)",
   "input": {
-    "path": "F:\\VM14K_Research\\data\\baseline\\clean.jsonl",
+    "path": "C:\\Users\\nguye\\Downloads\\vm14k\\VM14K_Research\\data\\baseline\\clean.jsonl",
     "rows": 10956,
     "sha256": "b1835e2989e11dadcdf659cb3b51ff8df64f1885d4e1c1f3d23475186437663e"
   },
   "output": {
-    "path": "F:\\VM14K_Research\\data\\cleaned\\clean_final.jsonl",
-    "rows": 10642,
-    "sha256": "ccc36131163a59dfee4b5780fc276ff5b811084cff59fee92810e045ccd6bd8d"
+    "path": "C:\\Users\\nguye\\Downloads\\vm14k\\VM14K_Research\\data\\cleaned\\clean_final.jsonl",
+    "rows": 10640,
+    "sha256": "e52c8ebe58cb5a75992e32815c682614c1659534606aa3223e8a5d0ca7afd4ee"
   },
   "quarantine": {
-    "path": "F:\\VM14K_Research\\data\\quarantine\\quarantine_all.jsonl",
+    "path": "C:\\Users\\nguye\\Downloads\\vm14k\\VM14K_Research\\data\\quarantine\\quarantine_all.jsonl",
     "rows": 313,
     "sha256": "33ecf5364f872c07581ef698f39b18a19fb856832c3ee1cacef46aa061a18227"
   },
@@ -21,9 +21,10 @@
     "03_unique_options": 199,
     "06_missing_context": 12,
     "07_placeholder_options": 66,
-    "10_option_marker_corruption": 22
+    "10_option_marker_corruption": 22,
+    "12_post_normalisation_dedup": 2
   },
-  "total_removed": 314,
+  "total_removed": 316,
   "quarantine_reason_counts": {
     "fewer_than_2_options": 12,
     "blank_question": 2,
@@ -42,6 +43,7 @@
     "empty_marker_only_option": 4,
     "placeholder_exposed_by_entity_decode": 1
   },
+  "contradiction_pending_review_true_count": 62,
   "final_invariants": {
     "ids_unique": true,
     "questions_non_blank": true,
@@ -54,6 +56,8 @@
     "no_duplicate_options": true,
     "no_placeholder_options": true,
     "no_break_tags": true,
-    "no_html_entities": true
+    "no_html_entities": true,
+    "full_key_dup_groups_zero": true,
+    "contradiction_pending_review_present": true
   }
 }
