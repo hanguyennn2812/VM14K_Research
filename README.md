@@ -1,32 +1,95 @@
-# VM14K_Research
+# VM14K Research
 
-This repository contains a reproducible analysis of the VM14K dataset release. It includes the released data, scripts for duplicate and contradiction analysis, a cleaned output, and the written findings that summarize what the scripts reveal.
+Reproducible analysis and cleaning of the released VM14K medical question
+dataset.
 
-## File Guide
+## Repository layout
 
-| File | What it is for |
-| --- | --- |
-| `data-processed-shuffled0.jsonl` | Main source dataset used by the analysis scripts. This is the original JSONL release with one record per line. |
-| `data-processed-shuffled1.jsonl` | Alternate shuffled copy of the dataset, kept for comparison and traceability. |
-| `data-processed-shuffled2.jsonl` | Another shuffled copy of the dataset, kept for comparison and traceability. |
-| `dedup_utils.py` | Normalization helpers used by the original code. The scripts rely on these rules so their counts match the authors' logic. |
-| `vm14k_dupes_and_contradictions.py` | Reproducibly groups rows into duplicate and self-contradictory question sets, and can write `duplicates.md` and `contradictions.md`. |
-| `vm14k_dedup.py` | Reproduces the authors' deduplication pipeline on the released JSONL data and can write a cleaned dataset plus a JSON report. |
-| `duplicates.md` | Human-readable duplicate-question report generated from the dataset. |
-| `contradictions.md` | Human-readable contradiction report showing groups where the marked answer changes across duplicate rows. |
-| `clean.jsonl` | Cleaned dataset output after running the deduplication pipeline. |
-| `report.json` | Machine-readable summary of the deduplication run and its counts. |
-| `VM14K_session_findings.md` | Written research notes and conclusions from the analysis work in this repository. |
-| `VM14K_audit_notes.pdf` | Supporting audit notes for the dataset investigation. |
-| `VM14K_manual_verify.pdf` | Manual verification notes and evidence for the findings. |
+```text
+VM14K_Research/
+├── data/
+│   ├── raw/          Original released JSONL files
+│   ├── baseline/     Output of the reproduced authors' dedup pipeline
+│   ├── cleaned/       clean_final.jsonl — the accepted dataset
+│   └── quarantine/   quarantine_all.jsonl — every excluded row, tagged by stage
+├── reports/
+│   ├── analysis/     Duplicate, contradiction, and baseline dedup reports
+│   └── cleaning/     clean_final.report.json — one machine-readable report
+├── docs/
+│   ├── research/     Research findings and supporting PDFs
+│   └── cleaning/     CLEANING.md (pipeline + evidence) and the review backlog
+├── scripts/
+│   ├── analysis/     Original-pipeline reproduction and audit scripts
+│   └── cleaning/     clean_all.py — the entire cleaning pipeline, one file
+└── README.md
+```
 
-## Common Workflow
+## Current accepted dataset
 
-1. Run `python vm14k_dupes_and_contradictions.py` to inspect duplicate and contradiction groups.
-2. Run `python vm14k_dupes_and_contradictions.py --write` to regenerate `duplicates.md` and `contradictions.md`.
-3. Run `python vm14k_dedup.py --out clean.jsonl --report report.json` to reproduce the cleaned output and summary report.
+- Dataset: `data/cleaned/clean_final.jsonl`
+- Rows: 10,642
+- Full pipeline explanation, worked examples, and rollback: `docs/cleaning/CLEANING.md`
+- Deferred manual-review items: `docs/cleaning/REMAINING_REVIEW_BACKLOG.md`
 
-## Notes
+## Analysis workflow
 
-The scripts are written to match the authors' normalization and deduplication behavior as closely as possible. That is important here because small changes in normalization can change the counts.
+Install the analysis dependencies:
 
+```powershell
+python -m pip install -r requirements.txt
+```
+
+Inspect duplicate and contradiction groups:
+
+```powershell
+python scripts/analysis/vm14k_dupes_and_contradictions.py
+```
+
+Regenerate the human-readable analysis reports:
+
+```powershell
+python scripts/analysis/vm14k_dupes_and_contradictions.py --write
+```
+
+Reproduce the authors' deduplication pipeline:
+
+```powershell
+python scripts/analysis/vm14k_dedup.py `
+  --out data/baseline/clean.jsonl `
+  --report reports/analysis/report.json
+```
+
+The existing baseline and reports are immutable artifacts. To reproduce without
+overwriting them, pass temporary output/report paths.
+
+## Cleaning workflow
+
+One script runs the whole pipeline end to end:
+
+```powershell
+python scripts/cleaning/clean_all.py
+```
+
+It reads `data/baseline/clean.jsonl`, applies eleven audited stages in
+memory, and writes exactly three files: `data/cleaned/clean_final.jsonl`,
+`data/quarantine/quarantine_all.jsonl`, and
+`reports/cleaning/clean_final.report.json`. Each stage has an
+expected-count guard and aborts the run if its audited scope changes. Pass
+`--force` to overwrite existing output files.
+
+See `docs/cleaning/CLEANING.md` for what each stage does, why, and worked
+before/after examples.
+
+## Important notes
+
+- `data/raw/` and `data/baseline/` are preserved inputs; `clean_all.py` never
+  writes to them.
+- Every quarantined row is preserved unmodified inside `quarantine_all.jsonl`
+  (under the `"row"` key), tagged with the stage and reason that excluded it.
+- Structural cleaning does not establish medical correctness — see the
+  review backlog.
+- The analysis scripts intentionally use the authors' aggressive normalizer so
+  their published logic and counts remain reproducible.
+- `vm14k_dedup.py` uses `thefuzz` when available; otherwise it applies
+  TheFuzz-compatible integer rounding to the installed RapidFuzz backend. Both
+  routes reproduce the documented 10,956-row baseline.

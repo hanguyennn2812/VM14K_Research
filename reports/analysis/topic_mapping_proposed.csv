@@ -1,0 +1,128 @@
+raw_string,frequency,proposed_canonical,decision_tag,note
+Pharmacology,528,,AMBIGUOUS,preclinical science; no canonical target — taxonomy gap
+Toxicology,357,,AMBIGUOUS,preclinical science; no canonical target — taxonomy gap
+Genetics,160,,AMBIGUOUS,preclinical science; no canonical target — taxonomy gap
+Anatomy,120,,AMBIGUOUS,preclinical science; no canonical target — taxonomy gap
+Physiology,109,,AMBIGUOUS,preclinical science; no canonical target — taxonomy gap
+Biochemistry,104,,AMBIGUOUS,preclinical science; no canonical target — taxonomy gap
+Dentistry,99,,AMBIGUOUS,dentistry has NO canonical target in the 34 — taxonomy gap
+Cell Biology,92,,AMBIGUOUS,merge with Cellular Biology; no canonical target
+Parasitology,90,,AMBIGUOUS,preclinical science; overlaps Infectious Diseases
+Periodontology,89,,AMBIGUOUS,merge with Periodontics; no canonical target
+Molecular Biology,70,,AMBIGUOUS,preclinical science; no canonical target
+Veterinary Medicine,66,,AMBIGUOUS,NOT human medicine — 66 rows; likely mis-scoped content
+Chemistry,60,,AMBIGUOUS,not a medical subject at all — candidate for JUNK instead
+Embryology,60,,AMBIGUOUS,preclinical science; no canonical target — taxonomy gap
+Analytical Chemistry,58,,AMBIGUOUS,not a medical subject — candidate for JUNK instead
+Environmental Health,46,Public Health,AMBIGUOUS,Public Health subdomain
+Endodontics,43,,AMBIGUOUS,dental subspecialty; no canonical target
+Microbiology,40,,AMBIGUOUS,preclinical science; overlaps Infectious Diseases
+Neurosurgery,36,Surgery,AMBIGUOUS,could equally roll into Neurology — judgement call
+Epidemiology,35,Public Health,AMBIGUOUS,core Public Health discipline
+Laboratory Medicine,35,Pathology,AMBIGUOUS,lab medicine commonly sits under Pathology
+Nutrition,30,,AMBIGUOUS,"spans Internal Medicine, Public Health, Endocrinology"
+Pain Management,30,Anesthesiology,AMBIGUOUS,could equally be Palliative Medicine — judgement call
+Medical Microbiology,24,,AMBIGUOUS,merge with Microbiology first
+Virology,24,,AMBIGUOUS,"merge with Microbiology, or roll into Infectious Diseases"
+Occupational Medicine,22,Public Health,AMBIGUOUS,merge with Occupational Health first
+Addiction Medicine,18,Psychiatry,AMBIGUOUS,commonly sits under Psychiatry
+Physics,17,,AMBIGUOUS,not a medical subject — candidate for JUNK instead
+Histology,15,Pathology,AMBIGUOUS,microscopic anatomy; closest clinical home is Pathology
+Nursing,15,,AMBIGUOUS,"a profession, not one of the 34 physician specialties"
+Audiology,13,Otolaryngology,AMBIGUOUS,allied-health field adjacent to ENT
+Botany,12,,AMBIGUOUS,not a medical subject; may relate to Eastern Medicine herbs
+Pharmacognosy,12,Eastern Medicine,AMBIGUOUS,medicinal-plant science; overlaps herbal medicine
+Oral and Maxillofacial Surgery,8,Surgery,AMBIGUOUS,"surgical, but dental-adjacent — judgement call"
+Reproductive Medicine,8,Obstetrics and Gynecology,AMBIGUOUS,OB/GYN subspecialty
+Medical Genetics,7,,AMBIGUOUS,merge with Genetics; no canonical target
+Periodontics,6,,AMBIGUOUS,merge with Periodontology; no canonical target
+Critical Care,5,,AMBIGUOUS,merge with Intensive Care*; no canonical target
+Genetic Engineering,5,,AMBIGUOUS,merge with Genetics; no canonical target
+Occupational Health,5,Public Health,AMBIGUOUS,merge with Occupational Medicine first
+Forensic Medicine,4,Pathology,AMBIGUOUS,"forensic pathology is nearest, but scope is wider"
+General Dentistry,4,,AMBIGUOUS,merge with Dentistry; no canonical target
+Electrocardiography,3,Cardiology,AMBIGUOUS,"an investigation, not a specialty"
+Hypertension,3,Cardiology,AMBIGUOUS,"a condition, not a specialty; Cardiology is nearest"
+Infection Control,3,Public Health,AMBIGUOUS,practice domain spanning ID and Public Health
+Medical Toxicology,3,,AMBIGUOUS,merge with Toxicology first; no canonical target
+Prosthodontics,3,,AMBIGUOUS,dental subspecialty; no canonical target
+Teratology,3,,AMBIGUOUS,developmental toxicology; no canonical target
+Vascular Medicine,3,Cardiology,AMBIGUOUS,could equally be Internal Medicine
+Transfusion Medicine,2,Hematology,AMBIGUOUS,commonly sits under Haematology
+Cellular Biology,1,,AMBIGUOUS,merge with Cell Biology (HANDOFF.md §6 cites this pair)
+Entomology,1,,AMBIGUOUS,may relate to Parasitology/vector-borne disease
+Family Planning,1,Obstetrics and Gynecology,AMBIGUOUS,could equally be Public Health
+Genetic,1,,AMBIGUOUS,"fragment of Genetics; merge first, then decide"
+Genetic Disorders,1,,AMBIGUOUS,merge with Genetics; no canonical target
+Industrial Chemistry,1,,AMBIGUOUS,not a medical subject — candidate for JUNK instead
+Intensive Care,1,,AMBIGUOUS,HANDOFF.md §6 cites this vs Intensive Care Medicine as a judgement call
+Intensive Care Medicine,1,,AMBIGUOUS,HANDOFF.md §6 cites this vs Intensive Care as a judgement call
+Pain Medicine,1,Anesthesiology,AMBIGUOUS,merge with Pain Management first
+Speech-Language Pathology,1,Physical Medicine and Rehabilitation,AMBIGUOUS,allied-health rehab field
+Transplant,1,Surgery,AMBIGUOUS,fragment; likely transplant surgery
+Other(No Category),22,,JUNK,explicit no-category placeholder
+FDA,17,,JUNK,"regulatory agency, not a specialty"
+History of Medicine,9,,JUNK,"academic subject, not a specialty"
+Communication Skills,8,,JUNK,"training topic, not a specialty"
+Health Management,7,,JUNK,"health-systems domain, not a clinical specialty"
+Diagnosis,6,,JUNK,"process word, not a specialty"
+Diagnostic Medicine,4,,JUNK,"process word, not a specialty"
+Health Economics,4,,JUNK,"health-systems domain, not a clinical specialty"
+Sociology,4,,JUNK,"academic subject, not a specialty"
+Demographics,3,,JUNK,"academic subject, not a specialty"
+Diagnostic Testing,3,,JUNK,"process word, not a specialty"
+Pharmaceutical,3,,JUNK,"adjective fragment, not a specialty name"
+Classification,2,,JUNK,"process word, not a specialty"
+Medical Ethics,2,,JUNK,"academic subject, not a specialty"
+Physical Examination,2,,JUNK,"clinical procedure, not a specialty"
+Clinical Research,1,,JUNK,"activity, not a specialty"
+Etiology,1,,JUNK,"concept word, not a specialty"
+Health Administration,1,,JUNK,"health-systems domain, not a clinical specialty"
+Health Policy,1,,JUNK,"health-systems domain, not a clinical specialty"
+Health System,1,,JUNK,"health-systems domain, not a clinical specialty"
+Patient Safety,1,,JUNK,"quality-improvement domain, not a specialty"
+Research,1,,JUNK,"activity, not a specialty"
+Risk Assessment,1,,JUNK,"activity, not a specialty"
+Immunology,33,Allergy and Immunology,AUTO,canonical name already contains this term
+Vascular Surgery,24,Surgery,AUTO,established surgical subspecialty
+Hepatology,22,Gastroenterology,AUTO,established subspecialty of GI
+Neonatology,18,Pediatrics,AUTO,established subspecialty of paediatrics
+Infection Diseases,3,Infectious Diseases,AUTO,typo; cited verbatim in HANDOFF.md §6
+Interventional Cardiology,3,Cardiology,AUTO,established subspecialty of cardiology
+Preventive Medicine,3,Preventive Healthcare,AUTO,wording variant of the same concept
+Accident and Emergency,1,Emergency Medicine,AUTO,standard UK/Commonwealth synonym
+Family Medicine,1,General Medicine,AUTO,standard synonym for primary/general care
+Obstetrics and Gynecology,2108,Obstetrics and Gynecology,MATCH,exact match to canonical name
+Gastroenterology,2026,Gastroenterology,MATCH,exact match to canonical name
+Infectious Diseases,1561,Infectious Diseases,MATCH,exact match to canonical name
+Pulmonology,1503,Pulmonology,MATCH,exact match to canonical name
+Endocrinology,1200,Endocrinology,MATCH,exact match to canonical name
+Oncology,684,Oncology,MATCH,exact match to canonical name
+Pediatrics,670,Pediatrics,MATCH,exact match to canonical name
+Pathology,667,Pathology,MATCH,exact match to canonical name
+Surgery,505,Surgery,MATCH,exact match to canonical name
+Radiology,496,Radiology,MATCH,exact match to canonical name
+General Medicine,476,General Medicine,MATCH,exact match to canonical name
+Urology,467,Urology,MATCH,exact match to canonical name
+Nephrology,466,Nephrology,MATCH,exact match to canonical name
+Internal Medicine,425,Internal Medicine,MATCH,exact match to canonical name
+Neurology,404,Neurology,MATCH,exact match to canonical name
+Hematology,349,Hematology,MATCH,exact match to canonical name
+Preventive Healthcare,264,Preventive Healthcare,MATCH,exact match to canonical name
+Cardiology,262,Cardiology,MATCH,exact match to canonical name
+Public Health,255,Public Health,MATCH,exact match to canonical name
+Otolaryngology,247,Otolaryngology,MATCH,exact match to canonical name
+Eastern Medicine,237,Eastern Medicine,MATCH,exact match to canonical name
+Emergency Medicine,209,Emergency Medicine,MATCH,exact match to canonical name
+Orthopedics,205,Orthopedics,MATCH,exact match to canonical name
+Allergy and Immunology,202,Allergy and Immunology,MATCH,exact match to canonical name
+Psychiatry,193,Psychiatry,MATCH,exact match to canonical name
+Dermatology,190,Dermatology,MATCH,exact match to canonical name
+Geriatrics,142,Geriatrics,MATCH,exact match to canonical name
+Physical Medicine and Rehabilitation,134,Physical Medicine and Rehabilitation,MATCH,exact match to canonical name
+Ophthalmology,132,Ophthalmology,MATCH,exact match to canonical name
+Rheumatology,131,Rheumatology,MATCH,exact match to canonical name
+Anesthesiology,115,Anesthesiology,MATCH,exact match to canonical name
+Palliative Medicine,87,Palliative Medicine,MATCH,exact match to canonical name
+Sports Medicine,85,Sports Medicine,MATCH,exact match to canonical name
+Nuclear Medicine,83,Nuclear Medicine,MATCH,exact match to canonical name

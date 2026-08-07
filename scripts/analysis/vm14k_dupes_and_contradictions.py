@@ -21,14 +21,13 @@ real one -- "different options => different answers" cannot sneak in.
 
 --------------------------------------------------------------------------------
 REQUIREMENTS
-    - data-processed-shuffled0.jsonl        (the ORIGINAL / unshuffled file)
-    - dedup_utils.py                        (from the repo's Deduplication/ dir)
-      Put both next to this script, OR pass paths on the command line.
+    - data/raw/data-processed-shuffled0.jsonl
+    - scripts/analysis/dedup_utils.py
 
 USAGE
-    python vm14k_dupes_and_contradictions.py
-    python vm14k_dupes_and_contradictions.py path/to/data-processed-shuffled0.jsonl
-    python vm14k_dupes_and_contradictions.py data.jsonl --write   # also dump .md lists
+    python scripts/analysis/vm14k_dupes_and_contradictions.py
+    python scripts/analysis/vm14k_dupes_and_contradictions.py path/to/data.jsonl
+    python scripts/analysis/vm14k_dupes_and_contradictions.py --write
 
 EXPECTED OUTPUT (on the 12,488-row release)
     rows                 : 12488
@@ -42,6 +41,8 @@ import collections
 import json
 import os
 import sys
+
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 # ---- Step 2: the authors' own normaliser -------------------------------------
 # We import their function rather than reimplementing it, so "same question" is
@@ -123,10 +124,20 @@ def write_md(path, title, subtitle, groups, source_file):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("data", nargs="?", default="data-processed-shuffled0.jsonl",
+    ap.add_argument(
+        "data",
+        nargs="?",
+        default=os.path.join(
+            REPO_ROOT, "data", "raw", "data-processed-shuffled0.jsonl"
+        ),
                     help="path to data-processed-shuffled0.jsonl (the ORIGINAL file)")
     ap.add_argument("--write", action="store_true",
-                    help="also write duplicates.md and contradictions.md next to the data")
+                    help="also write duplicates.md and contradictions.md")
+    ap.add_argument(
+        "--output-dir",
+        default=os.path.join(REPO_ROOT, "reports", "analysis"),
+        help="directory for --write reports",
+    )
     args = ap.parse_args()
 
     if not os.path.exists(args.data):
@@ -176,7 +187,8 @@ def main():
     print("=" * 68)
 
     if args.write:
-        base = os.path.dirname(os.path.abspath(args.data))
+        base = os.path.abspath(args.output_dir)
+        os.makedirs(base, exist_ok=True)
         dpath = os.path.join(base, "duplicates.md")
         cpath = os.path.join(base, "contradictions.md")
         write_md(dpath, "VM14K: duplicate questions",

@@ -38,10 +38,10 @@ WHAT "CLEAN" MEANS / KNOWN LIMITS  (these are properties of THEIR algorithm)
       their pipeline leaves behind. It does NOT silently fix it.
 
 USAGE
-    python vm14k_dedup.py                              # defaults, no output file
-    python vm14k_dedup.py data-processed-shuffled0.jsonl
-    python vm14k_dedup.py data.jsonl --dedup-utils repo/Deduplication/dedup_utils.py
-    python vm14k_dedup.py data.jsonl --out clean.jsonl --report report.json
+    python scripts/analysis/vm14k_dedup.py
+    python scripts/analysis/vm14k_dedup.py data/raw/data-processed-shuffled0.jsonl
+    python scripts/analysis/vm14k_dedup.py data.jsonl --dedup-utils path/to/dedup_utils.py
+    python scripts/analysis/vm14k_dedup.py data.jsonl --out data/baseline/clean.jsonl --report reports/analysis/report.json
 """
 
 import argparse
@@ -54,7 +54,25 @@ import sys
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from thefuzz import fuzz
+
+try:
+    from thefuzz import fuzz
+    _FUZZ_SOURCE = "thefuzz"
+except ImportError:
+    # thefuzz uses RapidFuzz as its modern backend but rounds scorer results to
+    # integers. Preserve that behavior because values just below 90 may round
+    # up and pass this script's >= 90 threshold.
+    from rapidfuzz import fuzz as _rapidfuzz
+
+    class _TheFuzzCompatible:
+        @staticmethod
+        def ratio(left, right):
+            return int(round(_rapidfuzz.ratio(left, right)))
+
+    fuzz = _TheFuzzCompatible()
+    _FUZZ_SOURCE = "rapidfuzz fallback with thefuzz-compatible rounding"
+
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 
 # --------------------------------------------------------------------------- #
@@ -102,7 +120,12 @@ def main():
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    ap.add_argument("data", nargs="?", default="data-processed-shuffled0.jsonl",
+    ap.add_argument(
+        "data",
+        nargs="?",
+        default=os.path.join(
+            REPO_ROOT, "data", "raw", "data-processed-shuffled0.jsonl"
+        ),
                     help="released JSONL (the original / shuffled0 file)")
     ap.add_argument("--dedup-utils", default=None,
                     help="path to the authors' dedup_utils.py")
@@ -228,6 +251,7 @@ def main():
     print(line)
     print(f"input        : {args.data}")
     print(f"normaliser   : {norm_path}")
+    print(f"fuzzy matcher: {_FUZZ_SOURCE}")
     print(f"rows in      : {n0}")
     print(f"zero-vector questions (min_df=5, never nominated): {zero_vec}")
     print("-" * 72)

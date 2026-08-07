@@ -1,0 +1,107 @@
+[
+  {
+    "label": "clean_final.jsonl",
+    "rows": 10628,
+    "option_count_dist": {
+      "2": 1025,
+      "3": 89,
+      "4": 9512,
+      "5": 2
+    },
+    "answer_letter_dist": {
+      "A": {
+        "n": 3219,
+        "pct": 30.29
+      },
+      "B": {
+        "n": 2746,
+        "pct": 25.84
+      },
+      "C": {
+        "n": 2229,
+        "pct": 20.97
+      },
+      "D": {
+        "n": 2433,
+        "pct": 22.89
+      },
+      "E": {
+        "n": 1,
+        "pct": 0.01
+      }
+    },
+    "answer_letter_dist_4option_only": {
+      "A": {
+        "n": 2618,
+        "pct": 27.52
+      },
+      "B": {
+        "n": 2259,
+        "pct": 23.75
+      },
+      "C": {
+        "n": 2203,
+        "pct": 23.16
+      },
+      "D": {
+        "n": 2432,
+        "pct": 25.57
+      }
+    },
+    "two_option_first_position_rate": 55.22,
+    "always_A_accuracy": 30.29,
+    "random_expected_accuracy": 27.48,
+    "difficulty_dist": {
+      "Medium": {
+        "n": 5928,
+        "pct": 55.78
+      },
+      "Easy": {
+        "n": 3605,
+        "pct": 33.92
+      },
+      "Challenging": {
+        "n": 1022,
+        "pct": 9.62
+      },
+      "Hard": {
+        "n": 73,
+        "pct": 0.69
+      }
+    },
+    "distinct_topics": 127,
+    "topics_top15": {
+      "Obstetrics and Gynecology": 2108,
+      "Gastroenterology": 2026,
+      "Infectious Diseases": 1561,
+      "Pulmonology": 1503,
+      "Endocrinology": 1200,
+      "Oncology": 684,
+      "Pediatrics": 670,
+      "Pathology": 667,
+      "Pharmacology": 528,
+      "Surgery": 505,
+      "Radiology": 496,
+      "General Medicine": 476,
+      "Urology": 467,
+      "Nephrology": 466,
+      "Internal Medicine": 425
+    },
+    "invariants": {
+      "ids_unique": true,
+      "answer_index_in_range": true,
+      "answer_letter_matches_index": true,
+      "min_two_options": true,
+      "question_non_blank": true,
+      "text_is_nfc": true
+    },
+    "full_key_dup_groups": 0,
+    "full_key_dup_rows": 0,
+    "contradiction_groups": 0,
+    "repeated_stem_groups": 215,
+    "repeated_stem_rows": 497,
+    "TENTATIVE_letter_referential_rows": 246,
+    "TENTATIVE_all_none_of_above_rows": 302,
+    "_tentative_note": "letter_referential and all_none counts are REGEX HEURISTICS and are NOT publication-ready. Run with --dump-matches and hand-audit before quoting. Only letter-referential items are shuffle-breaking; all/none-of-the-above are NOT."
+  }
+]
