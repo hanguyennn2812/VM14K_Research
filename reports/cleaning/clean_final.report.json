@@ -7,13 +7,13 @@
   },
   "output": {
     "path": "C:\\Users\\nguye\\Downloads\\vm14k\\VM14K_Research\\data\\cleaned\\clean_final.jsonl",
-    "rows": 10640,
-    "sha256": "e52c8ebe58cb5a75992e32815c682614c1659534606aa3223e8a5d0ca7afd4ee"
+    "rows": 10628,
+    "sha256": "bfd55e9deec4c157a590c4ae04a0477f42ca1da71a25506e8ab066474a475561"
   },
   "quarantine": {
     "path": "C:\\Users\\nguye\\Downloads\\vm14k\\VM14K_Research\\data\\quarantine\\quarantine_all.jsonl",
-    "rows": 313,
-    "sha256": "33ecf5364f872c07581ef698f39b18a19fb856832c3ee1cacef46aa061a18227"
+    "rows": 316,
+    "sha256": "26470c6556256cc5d8065ea3c5bb2ae8e923a48b0219ffecc454c35ee55ec6c9"
   },
   "stage_removal_counts": {
     "01_residual_exact_dedup": 1,
@@ -22,9 +22,11 @@
     "06_missing_context": 12,
     "07_placeholder_options": 66,
     "10_option_marker_corruption": 22,
-    "12_post_normalisation_dedup": 2
+    "12_post_normalisation_dedup": 2,
+    "13_residual_defective_options": 3,
+    "14_whitespace_insensitive_dedup": 9
   },
-  "total_removed": 316,
+  "total_removed": 328,
   "quarantine_reason_counts": {
     "fewer_than_2_options": 12,
     "blank_question": 2,
@@ -41,7 +43,10 @@
     "concatenated_options": 9,
     "mislabeled_option_position": 8,
     "empty_marker_only_option": 4,
-    "placeholder_exposed_by_entity_decode": 1
+    "placeholder_exposed_by_entity_decode": 1,
+    "placeholder_option: options[3] is the literal string 'INVALID_OPTION' (stage07 only fullmatches option[A-G], so this literal slipped through)": 1,
+    "option_content_lost: options are bare letters ['A','C','D','E']; the hepatitis-type answer text is gone and answer_index points into it": 1,
+    "garbled_option: options[3] is 'Không answer', a corrupted Vietnamese/English fragment; row also carries a stray U+200E in the question": 1
   },
   "contradiction_pending_review_true_count": 62,
   "final_invariants": {
@@ -58,6 +63,8 @@
     "no_break_tags": true,
     "no_html_entities": true,
     "full_key_dup_groups_zero": true,
+    "no_invalid_option_literal": true,
+    "whitespace_free_dup_groups_zero": true,
     "contradiction_pending_review_present": true
   }
 }

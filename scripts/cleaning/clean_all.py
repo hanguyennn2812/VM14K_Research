@@ -44,6 +44,12 @@ Stage order and what each one does:
     stage 01 (which runs first, before any text edit) cannot see that. This
     is BUG-1 from the Phase 0 audit: two such new duplicate groups were
     measured in clean_final.jsonl that were not present in the baseline.
+13. Quarantine 3 hand-audited rows whose option content was destroyed during
+    extraction (bare-letter options, a literal "INVALID_OPTION", a garbled
+    "Không answer" fragment). Found by the read-only re-audit in
+    scripts/analysis/residual_audit.py; see reports/analysis/RESIDUAL_ISSUES.md.
+14. Re-run the dedup rule once more with internal whitespace removed, catching
+    pairs like "sỏi 4mm" / "sỏi 4 mm" that the authors' normaliser keeps apart.
 
 Every row in the final output also gets a `contradiction_pending_review`
 boolean: true for rows whose id is one of the 67 IDs in
@@ -559,6 +565,103 @@ def full_key_dup_groups(rows: list[Row]) -> int:
 
 
 # --------------------------------------------------------------------------
+# Stage 13 — quarantine residual defective options found by the read-only
+# re-audit (scripts/analysis/residual_audit.py, reports/analysis/RESIDUAL_ISSUES.md)
+# --------------------------------------------------------------------------
+
+# Each row here has at least one option whose real content was destroyed during
+# extraction. Hand-read individually; the ID list is explicit rather than
+# rule-based because a general "bare letter option" rule would also match
+# legitimate rows whose options really are single letters (vitamin names
+# ["K","D","E","A"], threshold labels defined in the question text) — the same
+# false-positive class CLEANING.md already documents for stage 10.
+RESIDUAL_DEFECT_IDS: dict[str, str] = {
+    "0c80985c40434291a0a80b94a6e5dada":
+        "option_content_lost: options are bare letters ['A','C','D','E']; the "
+        "hepatitis-type answer text is gone and answer_index points into it",
+    "75bf0cf82ff443cba4b4ed9bf7356432":
+        "placeholder_option: options[3] is the literal string 'INVALID_OPTION' "
+        "(stage07 only fullmatches option[A-G], so this literal slipped through)",
+    "6cc1b7f508274cccad8f39fb7e75d9c4":
+        "garbled_option: options[3] is 'Không answer', a corrupted Vietnamese/"
+        "English fragment; row also carries a stray U+200E in the question",
+}
+
+
+def stage13_residual_defective_options(rows: list[Row]) -> tuple[list[Row], list[Quarantined]]:
+    output: list[Row] = []
+    quarantined: list[Quarantined] = []
+    found: set[str] = set()
+    for row in rows:
+        reason = RESIDUAL_DEFECT_IDS.get(row["id"])
+        if reason is None:
+            output.append(row)
+            continue
+        found.add(row["id"])
+        quarantined.append((row, "stage13_residual_defective_options", reason))
+    if found != set(RESIDUAL_DEFECT_IDS):
+        raise RuntimeError(
+            f"stage13: missing IDs {set(RESIDUAL_DEFECT_IDS) - found}"
+        )
+    assert_stage_count("stage13_residual_defective_options", 3, len(quarantined))
+    return output, quarantined
+
+
+# --------------------------------------------------------------------------
+# Stage 14 — whitespace-insensitive dedup
+# --------------------------------------------------------------------------
+
+# Stage 01/12 normalise with the authors' rule, which collapses runs of
+# whitespace but does not remove it. So "sỏi 4mm" and "sỏi 4 mm" stay distinct
+# keys and survive as separate rows. Measured: 9 such groups remain after
+# stage 12, none with conflicting answers, so keep-first is safe here.
+
+
+def whitespace_free_key(row: Row) -> tuple[str, tuple[str, ...]]:
+    return (
+        normalize_vietnamese(row["question"]).replace(" ", ""),
+        tuple(sorted(normalize_vietnamese(o).replace(" ", "") for o in row["options"])),
+    )
+
+
+def stage14_whitespace_insensitive_dedup(rows: list[Row]) -> tuple[list[Row], list[Quarantined]]:
+    kept_by_key: dict[tuple[str, tuple[str, ...]], Row] = {}
+    output: list[Row] = []
+    removed: list[Row] = []
+
+    for row in rows:
+        k = whitespace_free_key(row)
+        prior = kept_by_key.get(k)
+        if prior is None:
+            kept_by_key[k] = row
+            output.append(row)
+            continue
+        kept_answer = normalize_vietnamese(
+            prior["options"][prior["answer_index"]]
+        ).replace(" ", "")
+        dropped_answer = normalize_vietnamese(
+            row["options"][row["answer_index"]]
+        ).replace(" ", "")
+        if kept_answer != dropped_answer:
+            raise RuntimeError(
+                f"stage14: refusing to remove contradictory duplicate id={row['id']}"
+            )
+        removed.append(row)
+
+    assert_stage_count("stage14_whitespace_insensitive_dedup", 9, len(removed))
+    # Exact removal, not quarantine — same rationale as stages 01 and 12: fully
+    # reproducible by re-running the pipeline on the unchanged baseline.
+    return output, []
+
+
+def whitespace_free_dup_groups(rows: list[Row]) -> int:
+    groups: dict[tuple[str, tuple[str, ...]], int] = defaultdict(int)
+    for row in rows:
+        groups[whitespace_free_key(row)] += 1
+    return sum(1 for count in groups.values() if count > 1)
+
+
+# --------------------------------------------------------------------------
 # Contradiction-pending-review flag (BUG-2)
 # --------------------------------------------------------------------------
 
@@ -641,6 +744,13 @@ def final_invariants(rows: list[Row]) -> dict[str, bool]:
             for row in rows
         ),
         "full_key_dup_groups_zero": full_key_dup_groups(rows) == 0,
+        # Narrow, unambiguous guard from the stage-13 audit. Deliberately NOT a
+        # general "no single-letter option" rule: legitimate rows exist whose
+        # options really are single letters (vitamin names, threshold labels).
+        "no_invalid_option_literal": all(
+            not any("INVALID_OPTION" in str(o) for o in row["options"]) for row in rows
+        ),
+        "whitespace_free_dup_groups_zero": whitespace_free_dup_groups(rows) == 0,
         "contradiction_pending_review_present": all(
             isinstance(row.get("contradiction_pending_review"), bool) for row in rows
         ),
@@ -738,6 +848,15 @@ def main() -> None:
     rows_before_stage12 = len(rows)
     rows, q = stage12_post_normalisation_dedup(rows)
     stage_counts["12_post_normalisation_dedup"] = rows_before_stage12 - len(rows)
+    all_quarantined += q
+
+    rows, q = stage13_residual_defective_options(rows)
+    stage_counts["13_residual_defective_options"] = len(q)
+    all_quarantined += q
+
+    rows_before_stage14 = len(rows)
+    rows, q = stage14_whitespace_insensitive_dedup(rows)
+    stage_counts["14_whitespace_insensitive_dedup"] = rows_before_stage14 - len(rows)
     all_quarantined += q
 
     survivor_ids = load_contradiction_survivor_ids(args.contradiction_survivor_ids.resolve())
