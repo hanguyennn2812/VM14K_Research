@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Force binary handling regardless of the text=auto heuristic — some MoH PDFs pass the
+# "no NUL in first 8000 bytes" text-detection heuristic and would otherwise get their line
+# endings silently rewritten (LF -> CRLF on Windows checkout), corrupting the PDF.
+*.pdf binary
+*.xlsx binary
