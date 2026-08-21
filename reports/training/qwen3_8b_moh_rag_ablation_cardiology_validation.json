@@ -1,0 +1,4183 @@
+{
+  "created_at_utc": "2026-08-20T18:28:40.703207+00:00",
+  "scope": "validation-only ablation; frozen test split was not accessed",
+  "model": "qwen3:8b",
+  "specialty_vn": "Tim mạch",
+  "vm14k_topic": "Cardiology",
+  "sample_size": 20,
+  "seed": 42,
+  "train_examples_available": 182,
+  "born_digital_documents": 6,
+  "chunks": 1351,
+  "conditions": [
+    "zero_shot",
+    "tfidf_top3",
+    "diverse_doc_top3",
+    "few_shot_2",
+    "diverse_rag_plus_few_shot"
+  ],
+  "summary": {
+    "zero_shot": {
+      "n": 20,
+      "accuracy": 0.6,
+      "correct": 12,
+      "parse_rate": 1.0,
+      "versus_zero_shot_transition_counts": {
+        "both_correct": 12,
+        "both_wrong": 8,
+        "zero_shot_only_correct": 0,
+        "strategy_only_correct": 0
+      }
+    },
+    "tfidf_top3": {
+      "n": 20,
+      "accuracy": 0.6,
+      "correct": 12,
+      "parse_rate": 1.0,
+      "versus_zero_shot_transition_counts": {
+        "both_correct": 11,
+        "both_wrong": 7,
+        "zero_shot_only_correct": 1,
+        "strategy_only_correct": 1
+      }
+    },
+    "diverse_doc_top3": {
+      "n": 20,
+      "accuracy": 0.5,
+      "correct": 10,
+      "parse_rate": 1.0,
+      "versus_zero_shot_transition_counts": {
+        "both_correct": 10,
+        "both_wrong": 8,
+        "zero_shot_only_correct": 2,
+        "strategy_only_correct": 0
+      }
+    },
+    "few_shot_2": {
+      "n": 20,
+      "accuracy": 0.6,
+      "correct": 12,
+      "parse_rate": 1.0,
+      "versus_zero_shot_transition_counts": {
+        "both_correct": 10,
+        "both_wrong": 6,
+        "zero_shot_only_correct": 2,
+        "strategy_only_correct": 2
+      }
+    },
+    "diverse_rag_plus_few_shot": {
+      "n": 20,
+      "accuracy": 0.45,
+      "correct": 9,
+      "parse_rate": 0.95,
+      "versus_zero_shot_transition_counts": {
+        "both_correct": 9,
+        "both_wrong": 8,
+        "zero_shot_only_correct": 3,
+        "strategy_only_correct": 0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "bc5992a37af7421f9d835dd43086fd56",
+      "condition": "zero_shot",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2034
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1825
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1429
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1397
+        }
+      ],
+      "few_shot_example_ids": [
+        "c0a43a01f69142b5859d2d7ced5964d0",
+        "11ebdbed51c34a02b125a7cb3ee0f721"
+      ]
+    },
+    {
+      "id": "bc5992a37af7421f9d835dd43086fd56",
+      "condition": "tfidf_top3",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2034
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1825
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1429
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1397
+        }
+      ],
+      "few_shot_example_ids": [
+        "c0a43a01f69142b5859d2d7ced5964d0",
+        "11ebdbed51c34a02b125a7cb3ee0f721"
+      ]
+    },
+    {
+      "id": "bc5992a37af7421f9d835dd43086fd56",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2034
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1825
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1429
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1397
+        }
+      ],
+      "few_shot_example_ids": [
+        "c0a43a01f69142b5859d2d7ced5964d0",
+        "11ebdbed51c34a02b125a7cb3ee0f721"
+      ]
+    },
+    {
+      "id": "bc5992a37af7421f9d835dd43086fd56",
+      "condition": "few_shot_2",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2034
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1825
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1429
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1397
+        }
+      ],
+      "few_shot_example_ids": [
+        "c0a43a01f69142b5859d2d7ced5964d0",
+        "11ebdbed51c34a02b125a7cb3ee0f721"
+      ]
+    },
+    {
+      "id": "bc5992a37af7421f9d835dd43086fd56",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2034
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1825
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2512
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1429
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1397
+        }
+      ],
+      "few_shot_example_ids": [
+        "c0a43a01f69142b5859d2d7ced5964d0",
+        "11ebdbed51c34a02b125a7cb3ee0f721"
+      ]
+    },
+    {
+      "id": "e90b88a4a0954f97859c76e7ffd27352",
+      "condition": "zero_shot",
+      "gold_answer": "D",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2467
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2231
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1932
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1428
+        }
+      ],
+      "few_shot_example_ids": [
+        "d5d9d608a0a14174844ffc2212d25b8e",
+        "cd99611e08594f98928830a35f393309"
+      ]
+    },
+    {
+      "id": "e90b88a4a0954f97859c76e7ffd27352",
+      "condition": "tfidf_top3",
+      "gold_answer": "D",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2467
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2231
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1932
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1428
+        }
+      ],
+      "few_shot_example_ids": [
+        "d5d9d608a0a14174844ffc2212d25b8e",
+        "cd99611e08594f98928830a35f393309"
+      ]
+    },
+    {
+      "id": "e90b88a4a0954f97859c76e7ffd27352",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "D",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2467
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2231
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1932
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1428
+        }
+      ],
+      "few_shot_example_ids": [
+        "d5d9d608a0a14174844ffc2212d25b8e",
+        "cd99611e08594f98928830a35f393309"
+      ]
+    },
+    {
+      "id": "e90b88a4a0954f97859c76e7ffd27352",
+      "condition": "few_shot_2",
+      "gold_answer": "D",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2467
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2231
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1932
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1428
+        }
+      ],
+      "few_shot_example_ids": [
+        "d5d9d608a0a14174844ffc2212d25b8e",
+        "cd99611e08594f98928830a35f393309"
+      ]
+    },
+    {
+      "id": "e90b88a4a0954f97859c76e7ffd27352",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "D",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2467
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2231
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2468
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1932
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.1428
+        }
+      ],
+      "few_shot_example_ids": [
+        "d5d9d608a0a14174844ffc2212d25b8e",
+        "cd99611e08594f98928830a35f393309"
+      ]
+    },
+    {
+      "id": "5307e72f5ecc43c49caf1c2b5e008458",
+      "condition": "zero_shot",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1329
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1028
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1015
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.0831
+        }
+      ],
+      "few_shot_example_ids": [
+        "2928e472b9bc4618b6b0c3847b8d3d59",
+        "714ae9784eb743fd854564575fb4a412"
+      ]
+    },
+    {
+      "id": "5307e72f5ecc43c49caf1c2b5e008458",
+      "condition": "tfidf_top3",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1329
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1028
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1015
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.0831
+        }
+      ],
+      "few_shot_example_ids": [
+        "2928e472b9bc4618b6b0c3847b8d3d59",
+        "714ae9784eb743fd854564575fb4a412"
+      ]
+    },
+    {
+      "id": "5307e72f5ecc43c49caf1c2b5e008458",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1329
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1028
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1015
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.0831
+        }
+      ],
+      "few_shot_example_ids": [
+        "2928e472b9bc4618b6b0c3847b8d3d59",
+        "714ae9784eb743fd854564575fb4a412"
+      ]
+    },
+    {
+      "id": "5307e72f5ecc43c49caf1c2b5e008458",
+      "condition": "few_shot_2",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1329
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1028
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1015
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.0831
+        }
+      ],
+      "few_shot_example_ids": [
+        "2928e472b9bc4618b6b0c3847b8d3d59",
+        "714ae9784eb743fd854564575fb4a412"
+      ]
+    },
+    {
+      "id": "5307e72f5ecc43c49caf1c2b5e008458",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1329
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1028
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1779
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1015
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.0831
+        }
+      ],
+      "few_shot_example_ids": [
+        "2928e472b9bc4618b6b0c3847b8d3d59",
+        "714ae9784eb743fd854564575fb4a412"
+      ]
+    },
+    {
+      "id": "92e4ef5217af4a5db68c939d769dc12b",
+      "condition": "zero_shot",
+      "gold_answer": "D",
+      "predicted_answer": "D",
+      "correct": true,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "few_shot_example_ids": [
+        "f2659330f1924536952eb18d7042982e",
+        "0227cdf287804fb88e5c5e8984639940"
+      ]
+    },
+    {
+      "id": "92e4ef5217af4a5db68c939d769dc12b",
+      "condition": "tfidf_top3",
+      "gold_answer": "D",
+      "predicted_answer": "D",
+      "correct": true,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "few_shot_example_ids": [
+        "f2659330f1924536952eb18d7042982e",
+        "0227cdf287804fb88e5c5e8984639940"
+      ]
+    },
+    {
+      "id": "92e4ef5217af4a5db68c939d769dc12b",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "D",
+      "predicted_answer": "D",
+      "correct": true,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "few_shot_example_ids": [
+        "f2659330f1924536952eb18d7042982e",
+        "0227cdf287804fb88e5c5e8984639940"
+      ]
+    },
+    {
+      "id": "92e4ef5217af4a5db68c939d769dc12b",
+      "condition": "few_shot_2",
+      "gold_answer": "D",
+      "predicted_answer": "D",
+      "correct": true,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "few_shot_example_ids": [
+        "f2659330f1924536952eb18d7042982e",
+        "0227cdf287804fb88e5c5e8984639940"
+      ]
+    },
+    {
+      "id": "92e4ef5217af4a5db68c939d769dc12b",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "D",
+      "predicted_answer": "D",
+      "correct": true,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3115
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2795
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.267
+        }
+      ],
+      "few_shot_example_ids": [
+        "f2659330f1924536952eb18d7042982e",
+        "0227cdf287804fb88e5c5e8984639940"
+      ]
+    },
+    {
+      "id": "ceefa200eb474527b941b6ae6638bfc4",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1432
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1311
+        }
+      ],
+      "few_shot_example_ids": [
+        "76c5d8e2aff94ae7b890845391ef6543",
+        "189edb3f22824b79881795935d1562d7"
+      ]
+    },
+    {
+      "id": "ceefa200eb474527b941b6ae6638bfc4",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1432
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1311
+        }
+      ],
+      "few_shot_example_ids": [
+        "76c5d8e2aff94ae7b890845391ef6543",
+        "189edb3f22824b79881795935d1562d7"
+      ]
+    },
+    {
+      "id": "ceefa200eb474527b941b6ae6638bfc4",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1432
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1311
+        }
+      ],
+      "few_shot_example_ids": [
+        "76c5d8e2aff94ae7b890845391ef6543",
+        "189edb3f22824b79881795935d1562d7"
+      ]
+    },
+    {
+      "id": "ceefa200eb474527b941b6ae6638bfc4",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1432
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1311
+        }
+      ],
+      "few_shot_example_ids": [
+        "76c5d8e2aff94ae7b890845391ef6543",
+        "189edb3f22824b79881795935d1562d7"
+      ]
+    },
+    {
+      "id": "ceefa200eb474527b941b6ae6638bfc4",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1432
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1626
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1622
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1311
+        }
+      ],
+      "few_shot_example_ids": [
+        "76c5d8e2aff94ae7b890845391ef6543",
+        "189edb3f22824b79881795935d1562d7"
+      ]
+    },
+    {
+      "id": "195098088fd343edb46ebe7425b53d5e",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2443
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2115
+        }
+      ],
+      "few_shot_example_ids": [
+        "02f9509c6283480386b23127b00893c2",
+        "15be4b38e9b34905a37b1a817d9fce9c"
+      ]
+    },
+    {
+      "id": "195098088fd343edb46ebe7425b53d5e",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2443
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2115
+        }
+      ],
+      "few_shot_example_ids": [
+        "02f9509c6283480386b23127b00893c2",
+        "15be4b38e9b34905a37b1a817d9fce9c"
+      ]
+    },
+    {
+      "id": "195098088fd343edb46ebe7425b53d5e",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2443
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2115
+        }
+      ],
+      "few_shot_example_ids": [
+        "02f9509c6283480386b23127b00893c2",
+        "15be4b38e9b34905a37b1a817d9fce9c"
+      ]
+    },
+    {
+      "id": "195098088fd343edb46ebe7425b53d5e",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2443
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2115
+        }
+      ],
+      "few_shot_example_ids": [
+        "02f9509c6283480386b23127b00893c2",
+        "15be4b38e9b34905a37b1a817d9fce9c"
+      ]
+    },
+    {
+      "id": "195098088fd343edb46ebe7425b53d5e",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2443
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2534
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2311
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2115
+        }
+      ],
+      "few_shot_example_ids": [
+        "02f9509c6283480386b23127b00893c2",
+        "15be4b38e9b34905a37b1a817d9fce9c"
+      ]
+    },
+    {
+      "id": "da2eced3b23c4daa93677819fad3229a",
+      "condition": "zero_shot",
+      "gold_answer": "D",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2757
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2682
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2677
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2299
+        }
+      ],
+      "few_shot_example_ids": [
+        "98658370d1a348a09f8e8f50312c90ec",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "da2eced3b23c4daa93677819fad3229a",
+      "condition": "tfidf_top3",
+      "gold_answer": "D",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2757
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2682
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2677
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2299
+        }
+      ],
+      "few_shot_example_ids": [
+        "98658370d1a348a09f8e8f50312c90ec",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "da2eced3b23c4daa93677819fad3229a",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "D",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2757
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2682
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2677
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2299
+        }
+      ],
+      "few_shot_example_ids": [
+        "98658370d1a348a09f8e8f50312c90ec",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "da2eced3b23c4daa93677819fad3229a",
+      "condition": "few_shot_2",
+      "gold_answer": "D",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2757
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2682
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2677
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2299
+        }
+      ],
+      "few_shot_example_ids": [
+        "98658370d1a348a09f8e8f50312c90ec",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "da2eced3b23c4daa93677819fad3229a",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "D",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2757
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2682
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2816
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2677
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2299
+        }
+      ],
+      "few_shot_example_ids": [
+        "98658370d1a348a09f8e8f50312c90ec",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "9e51c8eba18a42a0ab328d72a24d0cf0",
+      "condition": "zero_shot",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2512
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1777
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "2f78b4bc390b495cb6be985ac85d4119"
+      ]
+    },
+    {
+      "id": "9e51c8eba18a42a0ab328d72a24d0cf0",
+      "condition": "tfidf_top3",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2512
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1777
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "2f78b4bc390b495cb6be985ac85d4119"
+      ]
+    },
+    {
+      "id": "9e51c8eba18a42a0ab328d72a24d0cf0",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2512
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1777
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "2f78b4bc390b495cb6be985ac85d4119"
+      ]
+    },
+    {
+      "id": "9e51c8eba18a42a0ab328d72a24d0cf0",
+      "condition": "few_shot_2",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2512
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1777
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "2f78b4bc390b495cb6be985ac85d4119"
+      ]
+    },
+    {
+      "id": "9e51c8eba18a42a0ab328d72a24d0cf0",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2512
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.268
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2613
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1777
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "2f78b4bc390b495cb6be985ac85d4119"
+      ]
+    },
+    {
+      "id": "a65eb8dba2e740ed9f41355727ecd2e5",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2256
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2164
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "a65eb8dba2e740ed9f41355727ecd2e5",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2256
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2164
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "a65eb8dba2e740ed9f41355727ecd2e5",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2256
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2164
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "a65eb8dba2e740ed9f41355727ecd2e5",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2256
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2164
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "a65eb8dba2e740ed9f41355727ecd2e5",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2256
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2972
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.238
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2164
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "b02b0caa95c44a3eb6f347ee1a902b1c",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3086
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2996
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2388
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1283
+        }
+      ],
+      "few_shot_example_ids": [
+        "5ecc38d09a284af0af7c0d574277efcf",
+        "f1c09ae271544d209e3eb88204c54e5a"
+      ]
+    },
+    {
+      "id": "b02b0caa95c44a3eb6f347ee1a902b1c",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3086
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2996
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2388
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1283
+        }
+      ],
+      "few_shot_example_ids": [
+        "5ecc38d09a284af0af7c0d574277efcf",
+        "f1c09ae271544d209e3eb88204c54e5a"
+      ]
+    },
+    {
+      "id": "b02b0caa95c44a3eb6f347ee1a902b1c",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3086
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2996
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2388
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1283
+        }
+      ],
+      "few_shot_example_ids": [
+        "5ecc38d09a284af0af7c0d574277efcf",
+        "f1c09ae271544d209e3eb88204c54e5a"
+      ]
+    },
+    {
+      "id": "b02b0caa95c44a3eb6f347ee1a902b1c",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3086
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2996
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2388
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1283
+        }
+      ],
+      "few_shot_example_ids": [
+        "5ecc38d09a284af0af7c0d574277efcf",
+        "f1c09ae271544d209e3eb88204c54e5a"
+      ]
+    },
+    {
+      "id": "b02b0caa95c44a3eb6f347ee1a902b1c",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3086
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2996
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3184
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2388
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1283
+        }
+      ],
+      "few_shot_example_ids": [
+        "5ecc38d09a284af0af7c0d574277efcf",
+        "f1c09ae271544d209e3eb88204c54e5a"
+      ]
+    },
+    {
+      "id": "0d884035d7e84882af34f6746df005fb",
+      "condition": "zero_shot",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.4006
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3812
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2674
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2442
+        }
+      ],
+      "few_shot_example_ids": [
+        "f98bc2fda1ba48ce98fa0b51d06f96d9",
+        "7f0a44fa55a4481095f7c2482fd332fb"
+      ]
+    },
+    {
+      "id": "0d884035d7e84882af34f6746df005fb",
+      "condition": "tfidf_top3",
+      "gold_answer": "B",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.4006
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3812
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2674
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2442
+        }
+      ],
+      "few_shot_example_ids": [
+        "f98bc2fda1ba48ce98fa0b51d06f96d9",
+        "7f0a44fa55a4481095f7c2482fd332fb"
+      ]
+    },
+    {
+      "id": "0d884035d7e84882af34f6746df005fb",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "B",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.4006
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3812
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2674
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2442
+        }
+      ],
+      "few_shot_example_ids": [
+        "f98bc2fda1ba48ce98fa0b51d06f96d9",
+        "7f0a44fa55a4481095f7c2482fd332fb"
+      ]
+    },
+    {
+      "id": "0d884035d7e84882af34f6746df005fb",
+      "condition": "few_shot_2",
+      "gold_answer": "B",
+      "predicted_answer": "B",
+      "correct": true,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.4006
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3812
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2674
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2442
+        }
+      ],
+      "few_shot_example_ids": [
+        "f98bc2fda1ba48ce98fa0b51d06f96d9",
+        "7f0a44fa55a4481095f7c2482fd332fb"
+      ]
+    },
+    {
+      "id": "0d884035d7e84882af34f6746df005fb",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "B",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.4006
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3812
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.406
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2674
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2442
+        }
+      ],
+      "few_shot_example_ids": [
+        "f98bc2fda1ba48ce98fa0b51d06f96d9",
+        "7f0a44fa55a4481095f7c2482fd332fb"
+      ]
+    },
+    {
+      "id": "7735747e69124f09bbc4c2bb7d8a7930",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1264
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1224
+        }
+      ],
+      "few_shot_example_ids": [
+        "b312ce7c2dc8445f94d4709f8d40a991",
+        "ac48dca8e6ae4b69ad0d10f173eb752d"
+      ]
+    },
+    {
+      "id": "7735747e69124f09bbc4c2bb7d8a7930",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1264
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1224
+        }
+      ],
+      "few_shot_example_ids": [
+        "b312ce7c2dc8445f94d4709f8d40a991",
+        "ac48dca8e6ae4b69ad0d10f173eb752d"
+      ]
+    },
+    {
+      "id": "7735747e69124f09bbc4c2bb7d8a7930",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1264
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1224
+        }
+      ],
+      "few_shot_example_ids": [
+        "b312ce7c2dc8445f94d4709f8d40a991",
+        "ac48dca8e6ae4b69ad0d10f173eb752d"
+      ]
+    },
+    {
+      "id": "7735747e69124f09bbc4c2bb7d8a7930",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "D",
+      "correct": false,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1264
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1224
+        }
+      ],
+      "few_shot_example_ids": [
+        "b312ce7c2dc8445f94d4709f8d40a991",
+        "ac48dca8e6ae4b69ad0d10f173eb752d"
+      ]
+    },
+    {
+      "id": "7735747e69124f09bbc4c2bb7d8a7930",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1264
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1322
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1282
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.1224
+        }
+      ],
+      "few_shot_example_ids": [
+        "b312ce7c2dc8445f94d4709f8d40a991",
+        "ac48dca8e6ae4b69ad0d10f173eb752d"
+      ]
+    },
+    {
+      "id": "8253b83d8669452a974346ce05d2eca2",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "D",
+      "correct": false,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2821
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.259
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "8253b83d8669452a974346ce05d2eca2",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "D",
+      "correct": false,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2821
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.259
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "8253b83d8669452a974346ce05d2eca2",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "D",
+      "correct": false,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2821
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.259
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "8253b83d8669452a974346ce05d2eca2",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2821
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.259
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "8253b83d8669452a974346ce05d2eca2",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "D",
+      "correct": false,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2821
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3571
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2855
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.259
+        }
+      ],
+      "few_shot_example_ids": [
+        "0fcaf432201142e6b196e0e18ad9199c",
+        "9e5d32c35d074702b463cb733ed787df"
+      ]
+    },
+    {
+      "id": "ce59c59611f348f4b9efc6a97fd6f586",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2618
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2525
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "88738dc294484c058a361556b9ce490a"
+      ]
+    },
+    {
+      "id": "ce59c59611f348f4b9efc6a97fd6f586",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2618
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2525
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "88738dc294484c058a361556b9ce490a"
+      ]
+    },
+    {
+      "id": "ce59c59611f348f4b9efc6a97fd6f586",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2618
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2525
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "88738dc294484c058a361556b9ce490a"
+      ]
+    },
+    {
+      "id": "ce59c59611f348f4b9efc6a97fd6f586",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2618
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2525
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "88738dc294484c058a361556b9ce490a"
+      ]
+    },
+    {
+      "id": "ce59c59611f348f4b9efc6a97fd6f586",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2618
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3391
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.2776
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2525
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "88738dc294484c058a361556b9ce490a"
+      ]
+    },
+    {
+      "id": "6d48b905862d468d805477e3af72c4c5",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.251
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2225
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2167
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1591
+        }
+      ],
+      "few_shot_example_ids": [
+        "d4cdf6c9ba1347d9941877bb98022556",
+        "2413c64bede34fa1a6cb135d757c3c6f"
+      ]
+    },
+    {
+      "id": "6d48b905862d468d805477e3af72c4c5",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.251
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2225
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2167
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1591
+        }
+      ],
+      "few_shot_example_ids": [
+        "d4cdf6c9ba1347d9941877bb98022556",
+        "2413c64bede34fa1a6cb135d757c3c6f"
+      ]
+    },
+    {
+      "id": "6d48b905862d468d805477e3af72c4c5",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.251
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2225
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2167
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1591
+        }
+      ],
+      "few_shot_example_ids": [
+        "d4cdf6c9ba1347d9941877bb98022556",
+        "2413c64bede34fa1a6cb135d757c3c6f"
+      ]
+    },
+    {
+      "id": "6d48b905862d468d805477e3af72c4c5",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.251
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2225
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2167
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1591
+        }
+      ],
+      "few_shot_example_ids": [
+        "d4cdf6c9ba1347d9941877bb98022556",
+        "2413c64bede34fa1a6cb135d757c3c6f"
+      ]
+    },
+    {
+      "id": "6d48b905862d468d805477e3af72c4c5",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.251
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2225
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.3466
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2167
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.1591
+        }
+      ],
+      "few_shot_example_ids": [
+        "d4cdf6c9ba1347d9941877bb98022556",
+        "2413c64bede34fa1a6cb135d757c3c6f"
+      ]
+    },
+    {
+      "id": "7385849c6bb44b54a55f37349115b504",
+      "condition": "zero_shot",
+      "gold_answer": "D",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3503
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.342
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2553
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1641
+        }
+      ],
+      "few_shot_example_ids": [
+        "45a3a25e2bc74bf4a5b908d583559107",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "7385849c6bb44b54a55f37349115b504",
+      "condition": "tfidf_top3",
+      "gold_answer": "D",
+      "predicted_answer": "D",
+      "correct": true,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3503
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.342
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2553
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1641
+        }
+      ],
+      "few_shot_example_ids": [
+        "45a3a25e2bc74bf4a5b908d583559107",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "7385849c6bb44b54a55f37349115b504",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "D",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3503
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.342
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2553
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1641
+        }
+      ],
+      "few_shot_example_ids": [
+        "45a3a25e2bc74bf4a5b908d583559107",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "7385849c6bb44b54a55f37349115b504",
+      "condition": "few_shot_2",
+      "gold_answer": "D",
+      "predicted_answer": "D",
+      "correct": true,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3503
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.342
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2553
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1641
+        }
+      ],
+      "few_shot_example_ids": [
+        "45a3a25e2bc74bf4a5b908d583559107",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "7385849c6bb44b54a55f37349115b504",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "D",
+      "predicted_answer": null,
+      "correct": false,
+      "raw_response": null,
+      "error": "TimeoutError('timed out')",
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3503
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.342
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_2475_QD_BYT_ngay_09_9_2022_cua_Bo_Y_te_V_v_ban_hanh_Tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_dong_mach_ngoai_bien",
+          "score": 0.3506
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2553
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1641
+        }
+      ],
+      "few_shot_example_ids": [
+        "45a3a25e2bc74bf4a5b908d583559107",
+        "67f02c742cc34d10952a4c9e68a18783"
+      ]
+    },
+    {
+      "id": "3ecd47dbc1344811b944c4193cbb48ae",
+      "condition": "zero_shot",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "3ecd47dbc1344811b944c4193cbb48ae",
+      "condition": "tfidf_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "3ecd47dbc1344811b944c4193cbb48ae",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "3ecd47dbc1344811b944c4193cbb48ae",
+      "condition": "few_shot_2",
+      "gold_answer": "A",
+      "predicted_answer": "A",
+      "correct": true,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "3ecd47dbc1344811b944c4193cbb48ae",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "A",
+      "predicted_answer": "D",
+      "correct": false,
+      "raw_response": "Đáp án: D",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2424
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2348
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.2325
+        }
+      ],
+      "few_shot_example_ids": [
+        "5e2f36be70a54931ac692187a6212ef9",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "8ebb2a00f50747b39d7d61d041f3cff5",
+      "condition": "zero_shot",
+      "gold_answer": "D",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "few_shot_example_ids": [
+        "7669be0762df4f6b898573388b61820c",
+        "b0480084cb864b15adc4218a4e832497"
+      ]
+    },
+    {
+      "id": "8ebb2a00f50747b39d7d61d041f3cff5",
+      "condition": "tfidf_top3",
+      "gold_answer": "D",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "few_shot_example_ids": [
+        "7669be0762df4f6b898573388b61820c",
+        "b0480084cb864b15adc4218a4e832497"
+      ]
+    },
+    {
+      "id": "8ebb2a00f50747b39d7d61d041f3cff5",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "D",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "few_shot_example_ids": [
+        "7669be0762df4f6b898573388b61820c",
+        "b0480084cb864b15adc4218a4e832497"
+      ]
+    },
+    {
+      "id": "8ebb2a00f50747b39d7d61d041f3cff5",
+      "condition": "few_shot_2",
+      "gold_answer": "D",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "few_shot_example_ids": [
+        "7669be0762df4f6b898573388b61820c",
+        "b0480084cb864b15adc4218a4e832497"
+      ]
+    },
+    {
+      "id": "8ebb2a00f50747b39d7d61d041f3cff5",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "D",
+      "predicted_answer": "C",
+      "correct": false,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.3198
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.2976
+        },
+        {
+          "doc_id": "Quyet_dinh_so_3908_QD_BYT_ngay_20_10_2023_cua_Bo_Y_te_Vv_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_dieu_tri_du_phong_thuyen_tac_huyet_khoi_tinh_mach",
+          "score": 0.2742
+        }
+      ],
+      "few_shot_example_ids": [
+        "7669be0762df4f6b898573388b61820c",
+        "b0480084cb864b15adc4218a4e832497"
+      ]
+    },
+    {
+      "id": "61c18467d39e497fb5fb750969f09b58",
+      "condition": "zero_shot",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1766
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1531
+        }
+      ],
+      "few_shot_example_ids": [
+        "688a5f42d9124df59ed34e0c511b2a2c",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "61c18467d39e497fb5fb750969f09b58",
+      "condition": "tfidf_top3",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1766
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1531
+        }
+      ],
+      "few_shot_example_ids": [
+        "688a5f42d9124df59ed34e0c511b2a2c",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "61c18467d39e497fb5fb750969f09b58",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1766
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1531
+        }
+      ],
+      "few_shot_example_ids": [
+        "688a5f42d9124df59ed34e0c511b2a2c",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "61c18467d39e497fb5fb750969f09b58",
+      "condition": "few_shot_2",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1766
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1531
+        }
+      ],
+      "few_shot_example_ids": [
+        "688a5f42d9124df59ed34e0c511b2a2c",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "61c18467d39e497fb5fb750969f09b58",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "C",
+      "predicted_answer": "C",
+      "correct": true,
+      "raw_response": "Đáp án: C",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1766
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.2153
+        },
+        {
+          "doc_id": "Quyet_dinh_so_2248_QD_BYT_ngay_20_05_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_Hoi_chung_mach_vanh_man",
+          "score": 0.1915
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1531
+        }
+      ],
+      "few_shot_example_ids": [
+        "688a5f42d9124df59ed34e0c511b2a2c",
+        "267268136a3e4ae0bcd13af2fd9f73e0"
+      ]
+    },
+    {
+      "id": "f2aefe6123a0472eb2160ecd4ef80beb",
+      "condition": "zero_shot",
+      "gold_answer": "C",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3012
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1656
+        }
+      ],
+      "few_shot_example_ids": [
+        "d7afdb4ef1d2422aafabb73afec276b4",
+        "c7bae163a0eb42a7a8dbbd95b1e9c638"
+      ]
+    },
+    {
+      "id": "f2aefe6123a0472eb2160ecd4ef80beb",
+      "condition": "tfidf_top3",
+      "gold_answer": "C",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3012
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1656
+        }
+      ],
+      "few_shot_example_ids": [
+        "d7afdb4ef1d2422aafabb73afec276b4",
+        "c7bae163a0eb42a7a8dbbd95b1e9c638"
+      ]
+    },
+    {
+      "id": "f2aefe6123a0472eb2160ecd4ef80beb",
+      "condition": "diverse_doc_top3",
+      "gold_answer": "C",
+      "predicted_answer": "B",
+      "correct": false,
+      "raw_response": "Đáp án: B",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3012
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1656
+        }
+      ],
+      "few_shot_example_ids": [
+        "d7afdb4ef1d2422aafabb73afec276b4",
+        "c7bae163a0eb42a7a8dbbd95b1e9c638"
+      ]
+    },
+    {
+      "id": "f2aefe6123a0472eb2160ecd4ef80beb",
+      "condition": "few_shot_2",
+      "gold_answer": "C",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3012
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1656
+        }
+      ],
+      "few_shot_example_ids": [
+        "d7afdb4ef1d2422aafabb73afec276b4",
+        "c7bae163a0eb42a7a8dbbd95b1e9c638"
+      ]
+    },
+    {
+      "id": "f2aefe6123a0472eb2160ecd4ef80beb",
+      "condition": "diverse_rag_plus_few_shot",
+      "gold_answer": "C",
+      "predicted_answer": "A",
+      "correct": false,
+      "raw_response": "Đáp án: A",
+      "error": null,
+      "standard_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3012
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        }
+      ],
+      "diverse_tfidf_evidence": [
+        {
+          "doc_id": "Quyet_dinh_so_1762_QD_BYT_ngay_17_04_2020_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_suy_tim_man_tinh",
+          "score": 0.3152
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5333_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Du_phong_tien_phat_benh_Tim_mach",
+          "score": 0.1687
+        },
+        {
+          "doc_id": "Quyet_dinh_so_5332_QD_BYT_ngay_23_12_2020_cua_Bo_Y_te_V_v_Ban_hanh_tai_lieu_chuyen_mon_Thuc_hanh_chan_doan_va_dieu_tri_benh_dong_mach_vanh",
+          "score": 0.1656
+        }
+      ],
+      "few_shot_example_ids": [
+        "d7afdb4ef1d2422aafabb73afec276b4",
+        "c7bae163a0eb42a7a8dbbd95b1e9c638"
+      ]
+    }
+  ]
+}

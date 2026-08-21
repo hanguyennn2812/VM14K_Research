@@ -1,0 +1,61 @@
+{
+  "created_at_utc": "2026-08-20T17:52:09.752496+00:00",
+  "source": "data\\cleaned\\clean_final.jsonl",
+  "filter": "retain only rows whose every source topic has a MATCH/AUTO canonical mapping; exclude answer_key_pending_review",
+  "canonical_specialty_count": 34,
+  "input_rows": 10628,
+  "retained_rows": 8397,
+  "removed_rows": 2231,
+  "removal_counts": {
+    "answer_key_pending_review": 51,
+    "ambiguous_or_non_specialty_topic": 2180
+  },
+  "split_counts": {
+    "train": 5798,
+    "val": 1277,
+    "test": 1322
+  },
+  "label_cardinality_distribution": {
+    "1": 2651,
+    "2": 4643,
+    "3": 1027,
+    "4": 64,
+    "5": 12
+  },
+  "specialty_row_counts": {
+    "Allergy and Immunology": 198,
+    "Anesthesiology": 76,
+    "Cardiology": 183,
+    "Dermatology": 149,
+    "Eastern Medicine": 227,
+    "Emergency Medicine": 160,
+    "Endocrinology": 1090,
+    "Gastroenterology": 1927,
+    "General Medicine": 369,
+    "Geriatrics": 130,
+    "Hematology": 290,
+    "Infectious Diseases": 1279,
+    "Internal Medicine": 372,
+    "Nephrology": 400,
+    "Neurology": 304,
+    "Nuclear Medicine": 82,
+    "Obstetrics and Gynecology": 1985,
+    "Oncology": 657,
+    "Ophthalmology": 113,
+    "Orthopedics": 180,
+    "Otolaryngology": 197,
+    "Palliative Medicine": 76,
+    "Pathology": 564,
+    "Pediatrics": 601,
+    "Physical Medicine and Rehabilitation": 130,
+    "Preventive Healthcare": 244,
+    "Psychiatry": 157,
+    "Public Health": 195,
+    "Pulmonology": 1411,
+    "Radiology": 472,
+    "Rheumatology": 117,
+    "Sports Medicine": 79,
+    "Surgery": 501,
+    "Urology": 419
+  }
+}
