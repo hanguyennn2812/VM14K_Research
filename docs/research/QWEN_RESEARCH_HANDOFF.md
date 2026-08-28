@@ -1,5 +1,12 @@
 # VM14K × Qwen — Research Handoff
 
+> **Cập nhật 2026-08-28:** hướng answer-only/QLoRA bên dưới được giữ như baseline
+> lịch sử, nhưng không còn là ưu tiên nghiên cứu. Protocol hiện hành là
+> `docs/research/OPENEVIDENCE_GROUNDED_PROTOCOL.md`: freeze corpus, tạo gold set
+> retrieval, kiểm tra embedding search, rồi mới sinh answer + explanation + source.
+> Không chạy full generation hoặc fine-tuning từ export answer-only trước khi qua
+> retrieval gate.
+
 ## Mục tiêu
 
 Đánh giá Qwen3 8B local cho VM14K: phân loại chuyên khoa, trả lời trắc nghiệm, và RAG từ hướng dẫn Bộ Y tế. Đây là benchmark nghiên cứu, không phải hệ thống chẩn đoán hoặc tư vấn lâm sàng.

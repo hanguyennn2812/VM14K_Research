@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-08-28T06:37:31.715479+00:00",
+  "scope": "Cardiology train/validation only; test split never loaded",
+  "output": "data\\derived\\grounded_vm14k_smoke_supported.jsonl",
+  "selected_rows": 1,
+  "new_rows": 1,
+  "total_output_rows": 1,
+  "support_counts": {
+    "unsupported": 1
+  },
+  "verification_status": "uncalibrated_auto_check",
+  "training_gate": "Do not use as final SFT data until human verification or checker calibration passes on the frozen retrieval gold set.",
+  "retrieval": {
+    "method": "reciprocal rank fusion of TF-IDF and BGE-M3",
+    "embedding_model": "bge-m3",
+    "top_k": 5,
+    "fusion_depth": 100,
+    "chunk_words": 800,
+    "chunk_overlap": 100,
+    "corpus_fingerprint_sha256": "87021bb51ddeab02bd9861a676bfaf99f003bdfebb41e0af1de94e5e915c5d33",
+    "pdf_files": 6,
+    "page_chunks": 515
+  },
+  "support_checker": {
+    "model": "qwen3:8b",
+    "method": "two-pass claim-level draft plus strict verification with structured JSON"
+  }
+}
