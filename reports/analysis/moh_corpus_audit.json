@@ -1,0 +1,260 @@
+{
+  "generated_by": "scripts/analysis/moh_corpus_audit.py",
+  "extractor": "pymupdf 1.28.2",
+  "floor_nonws_chars_per_page": 50,
+  "specialty_folders": 27,
+  "pdf_files_on_disk": 110,
+  "documents": 105,
+  "usable_documents": 100,
+  "pages_all_files": 7889,
+  "pages_unique": 7415,
+  "pages_no_text_layer_unique": 439,
+  "pages_usable_unique": 6972,
+  "pages_zero_chars_unique": 387,
+  "threshold_sensitivity_unique": {
+    "1": 387,
+    "5": 403,
+    "10": 409,
+    "20": 423,
+    "30": 428,
+    "50": 439,
+    "80": 707,
+    "100": 729,
+    "150": 809,
+    "200": 876
+  },
+  "index_claimed_total": 109,
+  "on_disk_not_in_index": [
+    "Trạm y tế/HD chan doan tram y te xa 20121220.pdf",
+    "Trạm y tế/VNM_D1_QD so 2919_QD-BYT huong dan kham chua benh tram y te xa.pdf"
+  ],
+  "in_index_not_on_disk": [
+    "Quyet_dinh_so_3902_QD_BYT_ngay_25_12_2024_cua_Bo_Y_te_Ve_viec_ban_hanh_quy_trinh_ky_thuat_dich_vu_dieu_tri_nghien_chat_dang_thuoc_phien_bang_thuoc_methadone_va_xac_dinh_tinh_trang_nghien_ma_tuy.pdf"
+  ],
+  "per_specialty": [
+    {
+      "specialty": "Cấp cứu - Sơ cứu",
+      "files": 1,
+      "docs": 1,
+      "pages": 136,
+      "usable_pages": 0,
+      "usable_docs": 0
+    },
+    {
+      "specialty": "Da liễu",
+      "files": 1,
+      "docs": 1,
+      "pages": 474,
+      "usable_pages": 474,
+      "usable_docs": 1
+    },
+    {
+      "specialty": "Dinh dưỡng",
+      "files": 3,
+      "docs": 3,
+      "pages": 141,
+      "usable_pages": 133,
+      "usable_docs": 2
+    },
+    {
+      "specialty": "Dược học - Dược lâm sàng",
+      "files": 4,
+      "docs": 4,
+      "pages": 355,
+      "usable_pages": 355,
+      "usable_docs": 4
+    },
+    {
+      "specialty": "Gây mê hồi sức",
+      "files": 1,
+      "docs": 1,
+      "pages": 7,
+      "usable_pages": 7,
+      "usable_docs": 1
+    },
+    {
+      "specialty": "HIV",
+      "files": 5,
+      "docs": 4,
+      "pages": 207,
+      "usable_pages": 132,
+      "usable_docs": 3
+    },
+    {
+      "specialty": "Huyết học - Truyền máu",
+      "files": 3,
+      "docs": 3,
+      "pages": 585,
+      "usable_pages": 584,
+      "usable_docs": 3
+    },
+    {
+      "specialty": "Hô hấp",
+      "files": 5,
+      "docs": 5,
+      "pages": 447,
+      "usable_pages": 443,
+      "usable_docs": 5
+    },
+    {
+      "specialty": "Ký sinh trùng",
+      "files": 12,
+      "docs": 12,
+      "pages": 92,
+      "usable_pages": 92,
+      "usable_docs": 12
+    },
+    {
+      "specialty": "Nhi khoa",
+      "files": 6,
+      "docs": 6,
+      "pages": 740,
+      "usable_pages": 647,
+      "usable_docs": 5
+    },
+    {
+      "specialty": "Nhiễm khuẩn học - Vi sinh",
+      "files": 1,
+      "docs": 1,
+      "pages": 34,
+      "usable_pages": 34,
+      "usable_docs": 1
+    },
+    {
+      "specialty": "Nhãn khoa",
+      "files": 5,
+      "docs": 3,
+      "pages": 72,
+      "usable_pages": 72,
+      "usable_docs": 3
+    },
+    {
+      "specialty": "Nội tiết - Đái tháo đường",
+      "files": 4,
+      "docs": 4,
+      "pages": 167,
+      "usable_pages": 163,
+      "usable_docs": 4
+    },
+    {
+      "specialty": "Pháp y",
+      "files": 2,
+      "docs": 2,
+      "pages": 64,
+      "usable_pages": 60,
+      "usable_docs": 2
+    },
+    {
+      "specialty": "Phục hồi chức năng",
+      "files": 5,
+      "docs": 5,
+      "pages": 1021,
+      "usable_pages": 1021,
+      "usable_docs": 5
+    },
+    {
+      "specialty": "STDs",
+      "files": 5,
+      "docs": 5,
+      "pages": 48,
+      "usable_pages": 48,
+      "usable_docs": 5
+    },
+    {
+      "specialty": "Sản phụ khoa",
+      "files": 2,
+      "docs": 2,
+      "pages": 51,
+      "usable_pages": 51,
+      "usable_docs": 2
+    },
+    {
+      "specialty": "Thần kinh",
+      "files": 1,
+      "docs": 1,
+      "pages": 71,
+      "usable_pages": 70,
+      "usable_docs": 1
+    },
+    {
+      "specialty": "Thận học",
+      "files": 3,
+      "docs": 3,
+      "pages": 209,
+      "usable_pages": 209,
+      "usable_docs": 3
+    },
+    {
+      "specialty": "Tim mạch",
+      "files": 6,
+      "docs": 6,
+      "pages": 488,
+      "usable_pages": 486,
+      "usable_docs": 6
+    },
+    {
+      "specialty": "Tiết niệu",
+      "files": 1,
+      "docs": 1,
+      "pages": 31,
+      "usable_pages": 31,
+      "usable_docs": 1
+    },
+    {
+      "specialty": "Truyền nhiễm",
+      "files": 19,
+      "docs": 18,
+      "pages": 1204,
+      "usable_pages": 1196,
+      "usable_docs": 18
+    },
+    {
+      "specialty": "Trạm y tế",
+      "files": 2,
+      "docs": 2,
+      "pages": 476,
+      "usable_pages": 449,
+      "usable_docs": 2
+    },
+    {
+      "specialty": "Tâm thần - Nghiện chất",
+      "files": 1,
+      "docs": 1,
+      "pages": 12,
+      "usable_pages": 12,
+      "usable_docs": 1
+    },
+    {
+      "specialty": "Ung bướu",
+      "files": 7,
+      "docs": 7,
+      "pages": 293,
+      "usable_pages": 214,
+      "usable_docs": 6
+    },
+    {
+      "specialty": "Y học cổ truyền",
+      "files": 1,
+      "docs": 1,
+      "pages": 202,
+      "usable_pages": 201,
+      "usable_docs": 1
+    },
+    {
+      "specialty": "Y tế công cộng - Dự phòng",
+      "files": 4,
+      "docs": 4,
+      "pages": 262,
+      "usable_pages": 262,
+      "usable_docs": 4
+    }
+  ],
+  "flag_counts": {
+    "orphan_part": 15,
+    "incomplete_part_run": 14,
+    "unresolved_shortname": 3,
+    "signature_page_only": 4,
+    "no_usable_pages": 5,
+    "cross_filed_duplicate": 1
+  }
+}
