@@ -1,0 +1,57 @@
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts", "eval"))
+
+from compare_runs import mcnemar_exact  # noqa: E402
+from run_eval import build_prompt, parse_letter, permute  # noqa: E402
+
+
+def test_parse_single_letter():
+    assert parse_letter("B", 4) == "B"
+    assert parse_letter(" C.\n", 4) == "C"
+    assert parse_letter("**D**", 4) == "D"
+
+
+def test_parse_answer_phrases():
+    assert parse_letter("Đáp án: C", 4) == "C"
+    assert parse_letter("Đáp án đúng là B vì ...", 4) == "B"
+    assert parse_letter("The answer is (A).", 4) == "A"
+
+
+def test_parse_ignores_reasoning_block():
+    assert parse_letter("<think>maybe A, but D fits</think>\nB", 4) == "B"
+    # an unfinished reasoning block (hit num_predict) yields no answer
+    assert parse_letter("<think>A or C", 4) is None
+
+
+def test_parse_rejects_out_of_range_and_words():
+    assert parse_letter("D", 2) is None           # 2-option question has only A/B
+    assert parse_letter("Vitamin Đ thiếu", 4) is None
+    assert parse_letter("", 4) is None
+
+
+def test_permute_identity_without_seed():
+    row = {"id": "x", "options": ["a", "b", "c", "d"], "answer_index": 2}
+    options, gold, perm = permute(row, None)
+    assert options == row["options"] and gold == 2 and perm == [0, 1, 2, 3]
+
+
+def test_permute_tracks_gold_and_is_deterministic():
+    row = {"id": "abc", "options": ["a", "b", "c", "d"], "answer_index": 1}
+    options, gold, perm = permute(row, 7)
+    assert options[gold] == "b"
+    assert sorted(perm) == [0, 1, 2, 3]
+    assert permute(row, 7) == (options, gold, perm)
+
+
+def test_prompt_matches_paper_template():
+    p = build_prompt("paper", "Q?", ["x", "y"])
+    assert p == "Q?\nChoose the correct option from these answers:\nA. x\nB. y\nOnly response with 1 character\nExample: A"
+
+
+def test_mcnemar_exact():
+    assert mcnemar_exact(0, 0) == 1.0
+    assert mcnemar_exact(0, 6) == 2 / 64          # all 6 discordant pairs one way
+    assert mcnemar_exact(5, 5) == 1.0
+    assert abs(mcnemar_exact(10, 20) - 0.0987) < 1e-3
