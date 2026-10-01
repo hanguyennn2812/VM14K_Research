@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts", "eva
 
 from compare_runs import mcnemar_exact  # noqa: E402
 from run_eval import build_prompt, parse_letter, permute  # noqa: E402
+from summarize_eval import is_subsample  # noqa: E402
 
 
 def test_parse_single_letter():
@@ -55,3 +56,10 @@ def test_mcnemar_exact():
     assert mcnemar_exact(0, 6) == 2 / 64          # all 6 discordant pairs one way
     assert mcnemar_exact(5, 5) == 1.0
     assert abs(mcnemar_exact(10, 20) - 0.0987) < 1e-3
+
+
+def test_is_subsample_only_matches_limit_suffix():
+    assert is_subsample("qwen3_8b__paper__test__n20")
+    assert is_subsample("x__paper__test__think-on__n400")
+    assert not is_subsample("nvidia__nvidia_nemotron-3-ultra-550b-a55b__paper__test")
+    assert not is_subsample("qwen3_8b__paper__test")

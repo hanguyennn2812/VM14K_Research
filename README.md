@@ -118,6 +118,18 @@ python scripts/eval/summarize_eval.py --include-smoke --common --runs ... --out-
 `--common` scores every listed run only on the ids they all answered, so full
 runs can sit next to `--limit 400` screens.
 
+Raw release vs cleaned split (the paper scored the raw 12,488 rows). Cleaning
+keeps 10,567 rows byte-identical, so only the 1,860 removed rows and the
+edited test rows need scoring with the raw text; a determinism check (40/40
+identical answers on re-run) backs that shortcut:
+
+```powershell
+python scripts/eval/raw_vs_clean.py ids        # fates.json + raw_delta_ids.txt
+python scripts/eval/run_eval.py --model llama3.1:8b --data data/raw/data-processed-shuffled0.jsonl `
+  --ids reports/eval/raw/raw_delta_ids.txt --tag raw0-delta
+python scripts/eval/raw_vs_clean.py report --pair <clean test run> <raw0-delta run>   # RAW_VS_CLEAN.md
+```
+
 ## Important notes
 
 - `data/raw/` and `data/baseline/` are preserved inputs; `clean_all.py` never

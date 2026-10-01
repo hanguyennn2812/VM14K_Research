@@ -27,6 +27,7 @@ import glob
 import json
 import math
 import os
+import re
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 RUNS_DIR = os.path.join(REPO_ROOT, "reports", "eval", "runs")
@@ -81,6 +82,12 @@ def wilson(k, n, z=1.96):
     centre = (p + z * z / (2 * n)) / denom
     half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
     return max(0.0, centre - half), min(1.0, centre + half)
+
+
+def is_subsample(run_name):
+    """A --limit run (name ends in __n<k>). A plain "__n" substring test also hit
+    "nvidia__nvidia_..." and silently dropped that full run."""
+    return re.search(r"__n\d+$", run_name) is not None
 
 
 def split_sizes():
@@ -174,8 +181,11 @@ def main():
     args = ap.parse_args()
 
     paths = args.runs or sorted(glob.glob(os.path.join(RUNS_DIR, "*.jsonl")))
+    if not args.runs:
+        # --ids runs (raw-release rows, determinism checks) are not split runs; see raw_vs_clean.py
+        paths = [p for p in paths if "__ids-" not in os.path.basename(p)]
     if not args.include_smoke:
-        paths = [p for p in paths if "__n" not in os.path.basename(p)]
+        paths = [p for p in paths if not is_subsample(os.path.basename(p)[:-len(".jsonl")])]
     sizes = split_sizes()
     loaded = {os.path.basename(p)[:-len(".jsonl")]: load_run(p) for p in paths}
     loaded = {name: recs for name, recs in loaded.items() if recs}
@@ -185,7 +195,7 @@ def main():
     runs = {}
     for name, recs in loaded.items():
         expected = sizes.get(recs[0].get("split"))
-        if not args.common and expected and len(recs) < expected and "__n" not in name:
+        if not args.common and expected and len(recs) < expected and not is_subsample(name):
             name += f" (partial {len(recs)}/{expected})"
         runs[name] = summarize(recs)
     if not runs:

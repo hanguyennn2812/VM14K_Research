@@ -237,16 +237,22 @@ def ask_openai(cfg, prompt):
     }, None
 
 
-def load_rows(split, limit, seed):
+def load_rows(split, limit, seed, data_path=DATA_PATH, ids=None):
+    """Rows to score. With `ids`, exactly those ids from `data_path` and the split is
+    ignored — that is how rows outside the cleaned split (raw release rows that
+    cleaning removed) get scored."""
     with open(SPLIT_PATH, encoding="utf-8") as fh:
         split_of = json.load(fh)
     rows = []
-    with open(DATA_PATH, encoding="utf-8") as fh:
+    with open(data_path, encoding="utf-8") as fh:
         for line in fh:
             if not line.strip():
                 continue
             r = json.loads(line)
-            if split != "all" and split_of.get(r["id"]) != split:
+            if ids is not None:
+                if r["id"] not in ids:
+                    continue
+            elif split != "all" and split_of.get(r["id"]) != split:
                 continue
             if r.get("contradiction_pending_review"):
                 continue  # answer key unverified (BUG-2); never scored
@@ -258,7 +264,8 @@ def load_rows(split, limit, seed):
 
 def run_name(args):
     safe = re.sub(r"[^A-Za-z0-9._-]+", "_", args.model)
-    parts = ([] if args.provider == "ollama" else [args.provider]) + [safe, args.prompt, args.split]
+    scope = f"ids-{args.tag}" if args.ids else args.split
+    parts = ([] if args.provider == "ollama" else [args.provider]) + [safe, args.prompt, scope]
     if args.think != "off":
         parts.append(f"think-{args.think}")
     if args.shuffle_seed is not None:
@@ -289,6 +296,11 @@ def main():
     ap.add_argument("--model", required=True, help="model id, e.g. qwen3:8b or deepseek-ai/deepseek-v3.2")
     ap.add_argument("--provider", default="ollama", choices=["ollama"] + sorted(PROVIDERS))
     ap.add_argument("--split", default="test", choices=["train", "val", "test", "all"])
+    ap.add_argument("--data", default=DATA_PATH,
+                    help="JSONL to score (default: cleaned dataset; e.g. data/raw/data-processed-shuffled0.jsonl)")
+    ap.add_argument("--ids", default=None,
+                    help="file with one question id per line: score exactly these, ignoring --split")
+    ap.add_argument("--tag", default=None, help="run-name label for an --ids run (required with --ids)")
     ap.add_argument("--prompt", default="paper", choices=sorted(PROMPTS))
     ap.add_argument("--think", default="off", choices=["off", "on", "low", "medium", "high"],
                     help="thinking mode; also raises the token budget (default off)")
@@ -350,7 +362,13 @@ def main():
             sys.exit(f"set {key_env} first (API key for {args.provider})")
         label = f"provider={args.provider} extra_body={cfg['extra_body']}"
 
-    rows = load_rows(args.split, args.limit, args.sample_seed)
+    ids = None
+    if args.ids:
+        if not args.tag:
+            sys.exit("--ids needs --tag (it names the run file)")
+        with open(args.ids, encoding="utf-8") as fh:
+            ids = {line.strip() for line in fh if line.strip()}
+    rows = load_rows(args.split, args.limit, args.sample_seed, args.data, ids)
     out_path = args.out or os.path.join(RUNS_DIR, run_name(args) + ".jsonl")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     done = done_records(out_path)
@@ -389,7 +407,8 @@ def main():
             "think": cfg["think"] if args.provider == "ollama" else args.think,
             "sampling": cfg["sampling"],
             "shuffle_seed": args.shuffle_seed,
-            "split": args.split,
+            "split": f"ids-{args.tag}" if args.ids else args.split,
+            "data": os.path.relpath(os.path.abspath(args.data), REPO_ROOT),
             "medical_topic": r["medical_topic"],
             "difficulty_level": r["difficulty_level"],
             "n_options": len(options),
