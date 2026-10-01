@@ -33,8 +33,8 @@ nvidia__google_gemma-4-31b-it__paper__test,Parasitology,False,5,5,1.0000,0.5655,
 nvidia__google_gemma-4-31b-it__paper__test,Nuclear Medicine,True,5,3,0.6000,0.2307,0.8824
 nvidia__google_gemma-4-31b-it__paper__test,Physiology,False,4,2,0.5000,0.1500,0.8500
 nvidia__google_gemma-4-31b-it__paper__test,Cell Biology,False,4,4,1.0000,0.5101,1.0000
-nvidia__google_gemma-4-31b-it__paper__test,Anatomy,False,4,3,0.7500,0.3006,0.9544
 nvidia__google_gemma-4-31b-it__paper__test,Histology,False,4,3,0.7500,0.3006,0.9544
+nvidia__google_gemma-4-31b-it__paper__test,Anatomy,False,4,3,0.7500,0.3006,0.9544
 nvidia__google_gemma-4-31b-it__paper__test,Anesthesiology,True,4,2,0.5000,0.1500,0.8500
 nvidia__google_gemma-4-31b-it__paper__test,Rheumatology,True,4,2,0.5000,0.1500,0.8500
 nvidia__google_gemma-4-31b-it__paper__test,Geriatrics,True,4,3,0.7500,0.3006,0.9544
@@ -857,3 +857,69 @@ vistral-7b-chat_fixed-template__paper__test__n400,Vascular Surgery,False,1,0,0.0
 vistral-7b-chat_fixed-template__paper__test__n400,Family Medicine,False,1,1,1.0000,0.2065,1.0000
 vistral-7b-chat_fixed-template__paper__test__n400,FDA,False,1,0,0.0000,0.0000,0.7935
 vistral-7b-chat_fixed-template__paper__test__n400,Health Policy,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Gastroenterology,True,91,21,0.2308,0.1562,0.3272
+phogpt-4b-chat_fixed-template__paper__test__n400,Obstetrics and Gynecology,True,75,11,0.1467,0.0839,0.2438
+phogpt-4b-chat_fixed-template__paper__test__n400,Infectious Diseases,True,60,15,0.2500,0.1578,0.3723
+phogpt-4b-chat_fixed-template__paper__test__n400,Pulmonology,True,45,10,0.2222,0.1254,0.3627
+phogpt-4b-chat_fixed-template__paper__test__n400,Endocrinology,True,44,8,0.1818,0.0951,0.3196
+phogpt-4b-chat_fixed-template__paper__test__n400,Oncology,True,32,8,0.2500,0.1325,0.4211
+phogpt-4b-chat_fixed-template__paper__test__n400,Pathology,True,27,7,0.2593,0.1317,0.4468
+phogpt-4b-chat_fixed-template__paper__test__n400,Pediatrics,True,21,5,0.2381,0.1063,0.4509
+phogpt-4b-chat_fixed-template__paper__test__n400,Radiology,True,21,4,0.1905,0.0767,0.4000
+phogpt-4b-chat_fixed-template__paper__test__n400,Pharmacology,False,20,5,0.2500,0.1119,0.4687
+phogpt-4b-chat_fixed-template__paper__test__n400,Surgery,True,19,5,0.2632,0.1181,0.4879
+phogpt-4b-chat_fixed-template__paper__test__n400,Neurology,True,18,2,0.1111,0.0310,0.3280
+phogpt-4b-chat_fixed-template__paper__test__n400,Internal Medicine,True,17,3,0.1765,0.0619,0.4103
+phogpt-4b-chat_fixed-template__paper__test__n400,Urology,True,17,1,0.0588,0.0105,0.2698
+phogpt-4b-chat_fixed-template__paper__test__n400,General Medicine,True,14,4,0.2857,0.1172,0.5465
+phogpt-4b-chat_fixed-template__paper__test__n400,Toxicology,False,13,6,0.4615,0.2321,0.7086
+phogpt-4b-chat_fixed-template__paper__test__n400,Preventive Healthcare,True,13,3,0.2308,0.0818,0.5026
+phogpt-4b-chat_fixed-template__paper__test__n400,Dermatology,True,13,4,0.3077,0.1268,0.5763
+phogpt-4b-chat_fixed-template__paper__test__n400,Eastern Medicine,True,13,1,0.0769,0.0137,0.3331
+phogpt-4b-chat_fixed-template__paper__test__n400,Nephrology,True,12,5,0.4167,0.1933,0.6805
+phogpt-4b-chat_fixed-template__paper__test__n400,Public Health,True,11,5,0.4545,0.2127,0.7199
+phogpt-4b-chat_fixed-template__paper__test__n400,Cardiology,True,10,1,0.1000,0.0179,0.4042
+phogpt-4b-chat_fixed-template__paper__test__n400,Psychiatry,True,10,4,0.4000,0.1682,0.6873
+phogpt-4b-chat_fixed-template__paper__test__n400,Hematology,True,10,5,0.5000,0.2366,0.7634
+phogpt-4b-chat_fixed-template__paper__test__n400,Emergency Medicine,True,9,2,0.2222,0.0632,0.5474
+phogpt-4b-chat_fixed-template__paper__test__n400,Palliative Medicine,True,7,3,0.4286,0.1582,0.7495
+phogpt-4b-chat_fixed-template__paper__test__n400,Genetics,False,7,0,0.0000,0.0000,0.3543
+phogpt-4b-chat_fixed-template__paper__test__n400,Otolaryngology,True,7,1,0.1429,0.0257,0.5131
+phogpt-4b-chat_fixed-template__paper__test__n400,Allergy and Immunology,True,6,3,0.5000,0.1876,0.8124
+phogpt-4b-chat_fixed-template__paper__test__n400,Orthopedics,True,6,1,0.1667,0.0301,0.5635
+phogpt-4b-chat_fixed-template__paper__test__n400,Parasitology,False,5,1,0.2000,0.0362,0.6245
+phogpt-4b-chat_fixed-template__paper__test__n400,Nuclear Medicine,True,5,1,0.2000,0.0362,0.6245
+phogpt-4b-chat_fixed-template__paper__test__n400,Anesthesiology,True,4,1,0.2500,0.0456,0.6994
+phogpt-4b-chat_fixed-template__paper__test__n400,Physiology,False,4,3,0.7500,0.3006,0.9544
+phogpt-4b-chat_fixed-template__paper__test__n400,Geriatrics,True,4,1,0.2500,0.0456,0.6994
+phogpt-4b-chat_fixed-template__paper__test__n400,Cell Biology,False,4,2,0.5000,0.1500,0.8500
+phogpt-4b-chat_fixed-template__paper__test__n400,Rheumatology,True,4,1,0.2500,0.0456,0.6994
+phogpt-4b-chat_fixed-template__paper__test__n400,Histology,False,4,0,0.0000,0.0000,0.4899
+phogpt-4b-chat_fixed-template__paper__test__n400,Anatomy,False,4,0,0.0000,0.0000,0.4899
+phogpt-4b-chat_fixed-template__paper__test__n400,Dentistry,False,3,0,0.0000,0.0000,0.5615
+phogpt-4b-chat_fixed-template__paper__test__n400,Molecular Biology,False,3,0,0.0000,0.0000,0.5615
+phogpt-4b-chat_fixed-template__paper__test__n400,Biochemistry,False,3,1,0.3333,0.0615,0.7923
+phogpt-4b-chat_fixed-template__paper__test__n400,Ophthalmology,True,3,0,0.0000,0.0000,0.5615
+phogpt-4b-chat_fixed-template__paper__test__n400,Physical Medicine and Rehabilitation,True,3,0,0.0000,0.0000,0.5615
+phogpt-4b-chat_fixed-template__paper__test__n400,Veterinary Medicine,False,3,0,0.0000,0.0000,0.5615
+phogpt-4b-chat_fixed-template__paper__test__n400,Microbiology,False,2,1,0.5000,0.0945,0.9055
+phogpt-4b-chat_fixed-template__paper__test__n400,Sports Medicine,True,2,0,0.0000,0.0000,0.6576
+phogpt-4b-chat_fixed-template__paper__test__n400,Embryology,False,2,1,0.5000,0.0945,0.9055
+phogpt-4b-chat_fixed-template__paper__test__n400,Occupational Medicine,False,2,1,0.5000,0.0945,0.9055
+phogpt-4b-chat_fixed-template__paper__test__n400,Chemistry,False,2,0,0.0000,0.0000,0.6576
+phogpt-4b-chat_fixed-template__paper__test__n400,Virology,False,2,1,0.5000,0.0945,0.9055
+phogpt-4b-chat_fixed-template__paper__test__n400,Nutrition,False,2,1,0.5000,0.0945,0.9055
+phogpt-4b-chat_fixed-template__paper__test__n400,Laboratory Medicine,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Periodontics,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Genetic Engineering,False,1,1,1.0000,0.2065,1.0000
+phogpt-4b-chat_fixed-template__paper__test__n400,Health Economics,False,1,1,1.0000,0.2065,1.0000
+phogpt-4b-chat_fixed-template__paper__test__n400,Pain Management,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Diagnostic Medicine,False,1,1,1.0000,0.2065,1.0000
+phogpt-4b-chat_fixed-template__paper__test__n400,Epidemiology,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Other(No Category),False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Diagnosis,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Oral and Maxillofacial Surgery,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Vascular Surgery,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Family Medicine,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,FDA,False,1,0,0.0000,0.0000,0.7935
+phogpt-4b-chat_fixed-template__paper__test__n400,Health Policy,False,1,0,0.0000,0.0000,0.7935
