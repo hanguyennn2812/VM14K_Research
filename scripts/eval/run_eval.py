@@ -277,17 +277,44 @@ def run_name(args):
     return "__".join(parts)
 
 
+def repair_partial_tail(path):
+    """Cut an unterminated last line left by a run killed mid-write, before anything is appended.
+
+    Records are written one per line, so a file that does not end in a newline ends in a
+    fragment — possibly split inside a multi-byte character. Appending after it would glue the
+    next record onto the fragment and lose both. The fragment is moved to <path>.partial
+    (appended, never overwritten) and its id is simply asked again."""
+    if not os.path.exists(path):
+        return
+    with open(path, "rb+") as fh:
+        data = fh.read()
+        if not data or data.endswith(b"\n"):
+            return
+        cut = data.rfind(b"\n") + 1
+        with open(path + ".partial", "ab") as frag:
+            frag.write(data[cut:] + b"\n")
+        fh.truncate(cut)
+    print(f"warning: {os.path.basename(path)} ended mid-record; moved {len(data) - cut} bytes to "
+          f"{os.path.basename(path)}.partial", file=sys.stderr)
+
+
 def done_records(path):
-    """{id: last error-free record} already in the output file."""
+    """{id: last error-free record} already in the output file. Call repair_partial_tail() first:
+    any line that is still unreadable is real corruption, so this stops instead of skipping it."""
     if not os.path.exists(path):
         return {}
     ok = {}
-    with open(path, encoding="utf-8") as fh:
-        for line in fh:
-            if line.strip():
-                rec = json.loads(line)
-                if rec.get("error") is None:
-                    ok[rec["id"]] = rec
+    with open(path, "rb") as fh:
+        for n, raw in enumerate(fh, start=1):
+            if not raw.strip():
+                continue
+            try:
+                rec = json.loads(raw.decode("utf-8"))
+            except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                raise SystemExit(f"{path}:{n} is not a valid record ({exc.__class__.__name__}); "
+                                 "fix or remove that line before resuming") from exc
+            if rec.get("error") is None:
+                ok[rec["id"]] = rec
     return ok
 
 
@@ -371,6 +398,7 @@ def main():
     rows = load_rows(args.split, args.limit, args.sample_seed, args.data, ids)
     out_path = args.out or os.path.join(RUNS_DIR, run_name(args) + ".jsonl")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    repair_partial_tail(out_path)
     done = done_records(out_path)
     todo = [r for r in rows if r["id"] not in done]
     # The data file is grouped by topic; a seeded shuffle keeps partial results
