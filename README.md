@@ -80,6 +80,56 @@ expected-count guard and aborts the run if its audited scope changes. Pass
 See `docs/cleaning/CLEANING.md` for what each stage does, why, and worked
 before/after examples.
 
+## Model evaluation workflow
+
+Zero-shot evaluation on the frozen split, using the paper's Fig. 6 prompt and
+pass@1 so results sit next to the paper's Tables 3-4. Works with Ollama
+(local, or cloud models after `ollama signin`) and with OpenAI-compatible APIs
+(`nvidia`, `groq`, `cerebras`, `gemini`, `openrouter`, `deepseek`; the key is
+read from `<PROVIDER>_API_KEY`):
+
+```powershell
+python scripts/eval/run_eval.py --model qwen3:8b --limit 20   # smoke test
+python scripts/eval/run_eval.py --model qwen3:8b              # full test split
+$env:NVIDIA_API_KEY = "nvapi-..."
+python scripts/eval/run_eval.py --provider nvidia --model deepseek-ai/deepseek-v3.2 --rpm 35 --workers 4
+python scripts/eval/summarize_eval.py                         # reports/eval/SUMMARY.md
+```
+
+Per-question predictions land in `reports/eval/runs/<run>.jsonl`. A killed
+run, or one stopped by a rate limit or daily quota (HTTP 429), resumes where it
+stopped when the same command is rerun. `summarize_eval.py` writes overall,
+per-topic (paper top-10 and all topics, with 95% intervals) and per-difficulty
+tables, plus `reports/eval/per_topic.csv`. Options: `--prompt vi` for a
+Vietnamese instruction, `--think on` for reasoning models (the run warns if
+replies hit the token limit before giving a letter), `--extra-body` for
+provider-specific switches such as `'{"reasoning_effort": "low"}'`,
+`--shuffle-seed N` to permute options, `--temperature/--top-p/--top-k` for
+models that break under greedy decoding (report it when used).
+
+Compare two runs question-by-question (McNemar exact test, overall and per
+topic) — the test to use for "did this change help on topic X?":
+
+```powershell
+python scripts/eval/compare_runs.py reports/eval/runs/A.jsonl reports/eval/runs/B.jsonl --topic Pulmonology
+python scripts/eval/summarize_eval.py --include-smoke --common --runs ... --out-md reports/eval/SCREEN400.md
+```
+
+`--common` scores every listed run only on the ids they all answered, so full
+runs can sit next to `--limit 400` screens.
+
+Raw release vs cleaned split (the paper scored the raw 12,488 rows). Cleaning
+keeps 10,567 rows byte-identical, so only the 1,860 removed rows and the
+edited test rows need scoring with the raw text; a determinism check (40/40
+identical answers on re-run) backs that shortcut:
+
+```powershell
+python scripts/eval/raw_vs_clean.py ids        # fates.json + raw_delta_ids.txt
+python scripts/eval/run_eval.py --model llama3.1:8b --data data/raw/data-processed-shuffled0.jsonl `
+  --ids reports/eval/raw/raw_delta_ids.txt --tag raw0-delta
+python scripts/eval/raw_vs_clean.py report --pair <clean test run> <raw0-delta run>   # RAW_VS_CLEAN.md
+```
+
 ## Important notes
 
 - `data/raw/` and `data/baseline/` are preserved inputs; `clean_all.py` never
