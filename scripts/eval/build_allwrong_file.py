@@ -408,6 +408,18 @@ def analysis(rows, runs, test_ids, wrong, info):
                    "Nemotron và gpt-oss-20b bật thinking (qua NVIDIA). Các model local chạy trên CPU với thinking tắt "
                    "nên chỉ có phần giải thích; model nào chưa chạy xong thì số câu ít hơn 125."))
 
+    # The two explainers that ran with thinking on and cover every question: where do they agree?
+    second = "gpt-oss-20b"
+    if all(second in info[q]["explained"] and EXPLAINER in info[q]["explained"] for q in wrong):
+        cross = collections.Counter(
+            (outcome_of(info[q]["explained"][EXPLAINER], rows[q]["answer"], info[q]["top"]),
+             outcome_of(info[q]["explained"][second], rows[q]["answer"], info[q]["top"])) for q in wrong)
+        blocks.append((f"{EXPLAINER} (hàng) × {second} (cột) khi lập luận — số câu",
+                       [f"{EXPLAINER} \\ {second}"] + OUTCOMES,
+                       [[o1] + [cross[o1, o2] for o2 in OUTCOMES] for o1 in OUTCOMES],
+                       "Đường chéo = hai model cùng kết luận. Cả hai cùng giữ đáp án sai của đa số → nghi khoá sai mạnh hơn; "
+                       "cả hai cùng chọn đúng khoá → nhiều khả năng lỗi do trả lời nhanh; cả hai cùng từ chối → nghi câu hỏi lỗi."))
+
     count = collections.Counter(info[q]["sources"] for q in wrong)
     kept = collections.Counter(info[q]["sources"] for q in wrong if info[q]["exp_outcome"] == "Giữ đáp án sai của đa số")
     blocks.append(("Nguồn Nemotron viện dẫn trong lời giải thích",
@@ -493,6 +505,16 @@ def summary_lines(rows, test_ids, wrong, info, status):
     level = {lv: (sum(rows[q]["difficulty_level"] == lv for q in wrong),
                   sum(rows[q]["difficulty_level"] == lv for q in test_ids)) for lv in ("Easy", "Medium", "Challenging")}
     two = sum(len(rows[q]["options"]) == 2 for q in wrong), sum(len(rows[q]["options"]) == 2 for q in test_ids)
+    both = []
+    if all({EXPLAINER, "gpt-oss-20b"} <= info[q]["explained"].keys() for q in wrong):
+        agree = collections.Counter(
+            outcome_of(info[q]["explained"][EXPLAINER], rows[q]["answer"], info[q]["top"])
+            for q in wrong
+            if outcome_of(info[q]["explained"][EXPLAINER], rows[q]["answer"], info[q]["top"])
+            == outcome_of(info[q]["explained"]["gpt-oss-20b"], rows[q]["answer"], info[q]["top"]))
+        both = [(f"• Hai model có thinking ({EXPLAINER} và gpt-oss-20b) cùng kết luận: cùng giữ đáp án sai của đa số ở "
+                 f"{agree[OUTCOMES[1]]} câu (nghi khoá sai mạnh nhất), cùng chọn đúng khoá ở {agree[OUTCOMES[0]]} câu, "
+                 f"cùng từ chối chọn ở {agree[OUTCOMES[3]]} câu (bảng chéo bên dưới).", False)]
     return [
         ("Tóm tắt kết quả — các câu mà cả 7 model đều trả lời sai", True),
         ("", False),
@@ -508,6 +530,7 @@ def summary_lines(rows, test_ids, wrong, info, status):
          "khi được phép lập luận: một phần các câu 'toàn bộ sai' có thể do cách chấm chỉ cho trả lời 1 chữ cái.", False),
         (f"• {hint['dong_thuan_manh'] + hint['dong_thuan_vua']} câu các model đồng thuận vào một đáp án khác khoá ở mức "
          f"vừa/mạnh; {hint['phan_tan']} câu model chọn phân tán (câu khó hoặc mơ hồ).", False),
+        *both,
         ("", False),
         ("Đặc điểm của các câu này so với toàn bộ tập test (xem bảng 'Đặc điểm câu'):", True),
         ("• Gặp nhiều hơn bình thường: câu hỏi đếm số lượng ('có bao nhiêu…'), có hai phương án gần giống nhau, "

@@ -9,16 +9,16 @@ Sinh bởi `scripts/eval/build_allwrong_file.py`; cùng nội dung với sheet `
 | Model | Chạy ở đâu | Có phần suy nghĩ (thinking)? | Số câu có giải thích | Trạng thái |
 |---|---|---|---|---|
 | Nemotron-3-Ultra | NVIDIA (API) | Có | 125/125 | Đủ |
-| gpt-oss-20b | NVIDIA (API) | Có | 54/125 | Đang chạy |
+| gpt-oss-20b | NVIDIA (API) | Có | 125/125 | Đủ |
 | DeepSeek-v4.1-flash | NVIDIA (API) | Có | 0/125 | Chưa lấy được — NVIDIA đang quá tải, sẽ thử lại |
 | Gemma-4-31B | NVIDIA (API) | Có | 0/125 | Chưa lấy được — NVIDIA đang quá tải, sẽ thử lại |
-| Qwen3.5-9B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 5/125 | Đang chạy |
+| Qwen3.5-9B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 19/125 | Đang chạy |
 | MedGemma-4B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
 | Llama-3.1-8B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
 | Qwen3-8B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
 | Gemma-4-12B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
 
-*Cập nhật lúc 22:59 03/10/2026. Bảng tự cập nhật mỗi lần tạo lại file.*
+*Cập nhật lúc 23:31 03/10/2026. Bảng tự cập nhật mỗi lần tạo lại file.*
 
 ## Mức hội tụ: số model (trong 7) cùng chọn một đáp án sai
 
@@ -59,10 +59,21 @@ Sinh bởi `scripts/eval/build_allwrong_file.py`; cùng nội dung với sheet `
 | Model | Số câu có giải thích | Chọn đúng khoá | Giữ đáp án sai của đa số | Chọn một đáp án sai khác | Từ chối chọn |
 |---|---|---|---|---|---|
 | Nemotron-3-Ultra | 125 | 29 (23.2%) | 66 (52.8%) | 26 (20.8%) | 4 (3.2%) |
-| gpt-oss-20b | 54 | 6 (11.1%) | 34 (63.0%) | 10 (18.5%) | 4 (7.4%) |
-| Qwen3.5-9B | 5 | 1 (20.0%) | 4 (80.0%) | 0 (0.0%) | 0 (0.0%) |
+| gpt-oss-20b | 125 | 18 (14.4%) | 54 (43.2%) | 42 (33.6%) | 11 (8.8%) |
+| Qwen3.5-9B | 19 | 2 (10.5%) | 16 (84.2%) | 1 (5.3%) | 0 (0.0%) |
 
 *Nemotron và gpt-oss-20b bật thinking (qua NVIDIA). Các model local chạy trên CPU với thinking tắt nên chỉ có phần giải thích; model nào chưa chạy xong thì số câu ít hơn 125.*
+
+## Nemotron-3-Ultra (hàng) × gpt-oss-20b (cột) khi lập luận — số câu
+
+| Nemotron-3-Ultra \ gpt-oss-20b | Chọn đúng khoá | Giữ đáp án sai của đa số | Chọn một đáp án sai khác | Từ chối chọn |
+|---|---|---|---|---|
+| Chọn đúng khoá | 6 | 10 | 10 | 3 |
+| Giữ đáp án sai của đa số | 9 | 37 | 15 | 5 |
+| Chọn một đáp án sai khác | 3 | 7 | 16 | 0 |
+| Từ chối chọn | 0 | 0 | 1 | 3 |
+
+*Đường chéo = hai model cùng kết luận. Cả hai cùng giữ đáp án sai của đa số → nghi khoá sai mạnh hơn; cả hai cùng chọn đúng khoá → nhiều khả năng lỗi do trả lời nhanh; cả hai cùng từ chối → nghi câu hỏi lỗi.*
 
 ## Nguồn Nemotron viện dẫn trong lời giải thích
 
