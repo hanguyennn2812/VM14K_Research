@@ -188,6 +188,9 @@ def write_guide(ws, n_wrong, n_test):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--force", action="store_true", help="overwrite the workbook (it may already be filled in)")
+    ap.add_argument("--complete-only", action="store_true",
+                    help="show only models with an explanation for every question (cleaner file to send out); "
+                         "the status table still lists the others")
     args = ap.parse_args()
     if XLSX.exists() and not args.force:
         sys.exit(f"{XLSX.relative_to(REPO_ROOT)} exists and may hold reviewer input — pass --force to overwrite")
@@ -202,7 +205,8 @@ def main():
     # Nemotron (the only explainer covering all questions from the start); the others are extra evidence.
     order = ["gpt-oss-20b"] + [label for label, _, _ in MODELS]
     others = {label: reasoning[label] for label in sorted(reasoning, key=lambda l: order.index(l) if l in order else 99)
-              if label != EXPLAINER and any(q in reasoning[label] for q in wrong)}
+              if label != EXPLAINER and any(q in reasoning[label] for q in wrong)
+              and (not args.complete_only or all(q in reasoning[label] for q in wrong))}
 
     info = {}
     for qid in wrong:
@@ -486,11 +490,11 @@ def model_status(reasoning, wrong):
         if n == len(wrong):
             state = "Đủ"
         elif n:
-            state = "Đang chạy"
+            state = "Chưa xong"
         elif where.startswith("NVIDIA"):
-            state = "Chưa lấy được — NVIDIA đang quá tải, sẽ thử lại"
+            state = "Chưa lấy được (máy chủ NVIDIA quá tải) — sẽ bổ sung sau"
         else:
-            state = "Đang chờ (các model local chạy lần lượt)"
+            state = "Chưa chạy — sẽ bổ sung sau"
         rows_out.append([label, where, thinking, f"{n}/{len(wrong)}", state])
     return rows_out
 
@@ -501,7 +505,7 @@ def summary_lines(rows, test_ids, wrong, info, status):
     hint = collections.Counter(info[q]["hint"] for q in wrong)
     outcome = collections.Counter(info[q]["exp_outcome"] for q in wrong)
     ready = [r[0] for r in status if r[4] == "Đủ"]
-    running = [f"{r[0]} ({r[3]})" for r in status if r[4] == "Đang chạy"]
+    running = [f"{r[0]} ({r[3]})" for r in status if r[4] == "Chưa xong"]
     level = {lv: (sum(rows[q]["difficulty_level"] == lv for q in wrong),
                   sum(rows[q]["difficulty_level"] == lv for q in test_ids)) for lv in ("Easy", "Medium", "Challenging")}
     two = sum(len(rows[q]["options"]) == 2 for q in wrong), sum(len(rows[q]["options"]) == 2 for q in test_ids)
@@ -520,7 +524,7 @@ def summary_lines(rows, test_ids, wrong, info, status):
         ("", False),
         (f"• {n_w}/{n_t} câu test ({100 * n_w / n_t:.1f}%) bị cả 7 model chọn khác đáp án chuẩn.", False),
         (f"• Model có lời giải thích đầy đủ cho cả {n_w} câu: {', '.join(ready) or 'chưa có'}"
-         + (f"; đang chạy: {', '.join(running)}" if running else "") + " (chi tiết ở bảng bên dưới).", False),
+         + (f"; chưa xong: {', '.join(running)}" if running else "") + " (chi tiết ở bảng bên dưới).", False),
         ("", False),
         ("Phân nhóm tự động (chỉ để ưu tiên duyệt, không phải kết luận):", True),
         (f"• {hint['nghi_khoa_sai']} câu nghi đáp án chuẩn sai: từ 5/7 model trở lên cùng chọn một đáp án khác, và "

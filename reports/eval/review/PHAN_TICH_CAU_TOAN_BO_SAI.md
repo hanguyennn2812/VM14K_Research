@@ -10,15 +10,15 @@ Sinh bởi `scripts/eval/build_allwrong_file.py`; cùng nội dung với sheet `
 |---|---|---|---|---|
 | Nemotron-3-Ultra | NVIDIA (API) | Có | 125/125 | Đủ |
 | gpt-oss-20b | NVIDIA (API) | Có | 125/125 | Đủ |
-| DeepSeek-v4.1-flash | NVIDIA (API) | Có | 0/125 | Chưa lấy được — NVIDIA đang quá tải, sẽ thử lại |
-| Gemma-4-31B | NVIDIA (API) | Có | 0/125 | Chưa lấy được — NVIDIA đang quá tải, sẽ thử lại |
-| Qwen3.5-9B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 19/125 | Đang chạy |
-| MedGemma-4B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
-| Llama-3.1-8B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
-| Qwen3-8B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
-| Gemma-4-12B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Đang chờ (các model local chạy lần lượt) |
+| DeepSeek-v4.1-flash | NVIDIA (API) | Có | 0/125 | Chưa lấy được (máy chủ NVIDIA quá tải) — sẽ bổ sung sau |
+| Gemma-4-31B | NVIDIA (API) | Có | 0/125 | Chưa lấy được (máy chủ NVIDIA quá tải) — sẽ bổ sung sau |
+| Qwen3.5-9B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 47/125 | Chưa xong |
+| MedGemma-4B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Chưa chạy — sẽ bổ sung sau |
+| Llama-3.1-8B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Chưa chạy — sẽ bổ sung sau |
+| Qwen3-8B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Chưa chạy — sẽ bổ sung sau |
+| Gemma-4-12B | Máy local (Ollama, CPU) | Không — chỉ có phần giải thích | 0/125 | Chưa chạy — sẽ bổ sung sau |
 
-*Cập nhật lúc 23:31 03/10/2026. Bảng tự cập nhật mỗi lần tạo lại file.*
+*Cập nhật lúc 15:13 05/10/2026. Bảng tự cập nhật mỗi lần tạo lại file.*
 
 ## Mức hội tụ: số model (trong 7) cùng chọn một đáp án sai
 
@@ -60,7 +60,6 @@ Sinh bởi `scripts/eval/build_allwrong_file.py`; cùng nội dung với sheet `
 |---|---|---|---|---|---|
 | Nemotron-3-Ultra | 125 | 29 (23.2%) | 66 (52.8%) | 26 (20.8%) | 4 (3.2%) |
 | gpt-oss-20b | 125 | 18 (14.4%) | 54 (43.2%) | 42 (33.6%) | 11 (8.8%) |
-| Qwen3.5-9B | 19 | 2 (10.5%) | 16 (84.2%) | 1 (5.3%) | 0 (0.0%) |
 
 *Nemotron và gpt-oss-20b bật thinking (qua NVIDIA). Các model local chạy trên CPU với thinking tắt nên chỉ có phần giải thích; model nào chưa chạy xong thì số câu ít hơn 125.*
 
