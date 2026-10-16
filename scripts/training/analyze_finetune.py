@@ -263,6 +263,36 @@ def main():
                   f"{100 * sum(shuf[i]['correct'] for i in ids) / len(ids):.1f} on the laptop, and picks the same "
                   f"letter on {100 * same / len(ids):.1f}% of items.", ""]
 
+    # 7. Scale: the same recipe on Qwen3.5-9B (scripts/training/kaggle_lora9b.py)
+    b9_name, l9_name = "hf-logit__Qwen_Qwen3.5-9B__paper__test", "hf-logit__Qwen_Qwen3.5-9B+q35-9b-sft-shuf__paper__test"
+    if all(os.path.exists(os.path.join(RUNS_DIR, n + ".jsonl")) for n in (b9_name, l9_name)):
+        b9, l9 = load(b9_name), load(l9_name)
+        lines += ["## 7. The same recipe on Qwen3.5-9B", "",
+                  "LoRA r=16, one epoch, shuffled options, on Kaggle T4s with fp16 weights split over two GPUs. "
+                  "The zero-shot run is the same backbone scored the same way (from scripts/eval/kaggle_jev9b.py).", ""]
+        rows = []
+        for label, run in (("Qwen3.5-9B zero-shot", b9), ("Qwen3.5-9B LoRA", l9)):
+            recs = [run[i] for i in ids]
+            rows.append([label, len(recs), pct(sum(r["correct"] for r in recs), len(recs)),
+                         f"{100 * sum(r['pred'] == 'A' for r in recs) / len(recs):.1f}", f"{100 * ece(recs):.1f}",
+                         f"{100 * acc_at_coverage(recs, 0.5):.1f}"])
+        lines += table(["run", "n", "accuracy [95% CI]", "picks A %", "ECE %", "acc. on 50% most confident"], rows)
+        lines += table(hdr, [paired_row("9B zero-shot → 9B LoRA", b9, l9, ids),
+                             paired_row("238 disputed, key agreement: zero-shot → LoRA", b9, l9, disagree),
+                             paired_row("9B LoRA → DeepSeek-v4.1-flash", l9, ds, ids)])
+        order = sorted(ids, key=lambda i: conf(l9[i]))
+        rows = []
+        for share in (0.25, 0.5, 0.75):
+            routed = set(order[:round(share * len(ids))])
+            kept = [i for i in ids if i not in routed]
+            rows.append([f"{100 * share:.0f}%",
+                         f"{100 * sum(ds[i]['correct'] if i in routed else l9[i]['correct'] for i in ids) / len(ids):.1f}",
+                         f"{100 * sum(l9[i]['correct'] for i in kept) / len(kept):.1f}",
+                         f"{100 * sum(ds[i]['correct'] for i in kept) / len(kept):.1f}"])
+        lines += ["9B LoRA answers what it is surest of; the rest goes to DeepSeek-v4.1-flash "
+                  f"({100 * sum(ds[i]['correct'] for i in ids) / len(ids):.1f}% alone).", ""]
+        lines += table(["sent to DeepSeek", "accuracy", "9B LoRA on what it kept", "DeepSeek on those items"], rows)
+
     with open(OUT_MD, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))
     print("\n".join(lines))

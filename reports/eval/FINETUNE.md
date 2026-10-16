@@ -113,3 +113,26 @@ Two LoRA runs on Kaggle T4 (fp16 autocast), same settings as above; the second d
 | other topics (1339): all train → no OB/GYN | 1339 | 50.9 | 51.1 | +0.2 | 109 | 112 | 0.89 |
 
 Replication: the Kaggle all-train run scores 51.7 against 51.0 on the laptop, and picks the same letter on 81.4% of items.
+
+## 7. The same recipe on Qwen3.5-9B
+
+LoRA r=16, one epoch, shuffled options, on Kaggle T4s with fp16 weights split over two GPUs. The zero-shot run is the same backbone scored the same way (from scripts/eval/kaggle_jev9b.py).
+
+| run | n | accuracy [95% CI] | picks A % | ECE % | acc. on 50% most confident |
+|---|---:|---:|---:|---:|---:|
+| Qwen3.5-9B zero-shot | 1658 | 64.5 [62–67] | 28.8 | 14.1 | 82.6 |
+| Qwen3.5-9B LoRA | 1658 | 66.8 [65–69] | 28.9 | 2.0 | 85.9 |
+
+| comparison (A → B) | n | A % | B % | B − A | only A right | only B right | p |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 9B zero-shot → 9B LoRA | 1658 | 64.5 | 66.8 | +2.4 | 101 | 140 | 0.014 * |
+| 238 disputed, key agreement: zero-shot → LoRA | 238 | 16.0 | 18.5 | +2.5 | 11 | 17 | 0.34 |
+| 9B LoRA → DeepSeek-v4.1-flash | 1658 | 66.8 | 71.4 | +4.5 | 138 | 213 | 7.4e-05 * |
+
+9B LoRA answers what it is surest of; the rest goes to DeepSeek-v4.1-flash (71.4% alone).
+
+| sent to DeepSeek | accuracy | 9B LoRA on what it kept | DeepSeek on those items |
+|---|---:|---:|---:|
+| 25% | 70.6 | 76.2 | 77.2 |
+| 50% | 71.7 | 85.9 | 85.3 |
+| 75% | 71.5 | 92.8 | 92.0 |
