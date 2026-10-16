@@ -238,6 +238,31 @@ def main():
         lines += [f"Small model: Qwen3.5-2B {label}", ""]
         lines += table(["sent to DeepSeek", "accuracy", "random routing", "small model on what it kept"], rows)
 
+    # 6. Held-out topic (Kaggle runs from scripts/training/kaggle_heldout.py)
+    kg_names = {"LoRA, all train (Kaggle)": f"{BASE}+kg-sft-shuf__paper__test",
+                "LoRA, no OB/GYN in train (Kaggle)": f"{BASE}+kg-sft-shuf-noOBGYN__paper__test"}
+    if all(os.path.exists(os.path.join(RUNS_DIR, n + ".jsonl")) for n in kg_names.values()):
+        kg_all, kg_out = (load(n) for n in kg_names.values())
+        topic = "Obstetrics and Gynecology"
+        in_t = [r["id"] for r in test if topic in r["medical_topic"]]
+        out_t = [r["id"] for r in test if topic not in r["medical_topic"]]
+        lines += ["## 6. Held-out topic: does the gain on a topic need training items from it?", "",
+                  f"Two LoRA runs on Kaggle T4 (fp16 autocast), same settings as above; the second drops every "
+                  f"train row labelled {topic}. If the gain on the {len(in_t)} {topic} test items survives "
+                  "without them, fine-tuning taught general habits rather than topic knowledge.", ""]
+        rows = []
+        for label, sub in ((f"{topic} ({len(in_t)})", in_t), (f"other topics ({len(out_t)})", out_t)):
+            for a_name, a, b_name, b in (("zero-shot", zero, "all train", kg_all),
+                                         ("zero-shot", zero, "no OB/GYN", kg_out),
+                                         ("all train", kg_all, "no OB/GYN", kg_out)):
+                rows.append(paired_row(f"{label}: {a_name} → {b_name}", a, b, sub))
+        lines += table(["items: comparison"] + hdr[1:], rows)
+        same = sum(kg_all[i]["pred"] == shuf[i]["pred"] for i in ids)
+        lines += [f"Replication: the Kaggle all-train run scores "
+                  f"{100 * sum(kg_all[i]['correct'] for i in ids) / len(ids):.1f} against "
+                  f"{100 * sum(shuf[i]['correct'] for i in ids) / len(ids):.1f} on the laptop, and picks the same "
+                  f"letter on {100 * same / len(ids):.1f}% of items.", ""]
+
     with open(OUT_MD, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))
     print("\n".join(lines))
