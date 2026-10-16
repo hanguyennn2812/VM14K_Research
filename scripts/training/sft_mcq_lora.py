@@ -52,16 +52,21 @@ def amp_dtype(device):
     return None
 
 
-def load(model_id, device, adapter=None):
+def load(model_id, device, adapter=None, split_fp16=False):
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(model_id)
     tok.padding_side = "left"
     # fp32 weights on CPU and on pre-Ampere CUDA (where matmuls autocast to fp16), bf16 elsewhere
     dtype = torch.float32 if device == "cpu" or amp_dtype(device) else torch.bfloat16
-    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype).to(device)
+    if split_fp16:  # a model too big for one card: fp16 weights spread over every visible GPU
+        model = AutoModelForCausalLM.from_pretrained(model_id, dtype=torch.float16, device_map="auto")
+    else:
+        model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype).to(device)
     if adapter:
         from peft import PeftModel
-        model = PeftModel.from_pretrained(model, adapter).to(device)
+        model = PeftModel.from_pretrained(model, adapter)
+        if not split_fp16:
+            model = model.to(device)
     letter_ids = [tok.convert_tokens_to_ids(c) for c in LETTERS]
     assert all(isinstance(i, int) and i >= 0 for i in letter_ids), letter_ids
     return tok, model, letter_ids
@@ -90,7 +95,7 @@ def run_name(args):
 
 def cmd_eval(args):
     device = pick_device(args.device)
-    tok, model, letter_ids = load(args.model, device, args.adapter)
+    tok, model, letter_ids = load(args.model, device, args.adapter, args.split_fp16)
     model.eval()
     rows = load_rows(args.split, args.limit, 0)
     items = [(r, *render(tok, r, None)) for r in rows]
@@ -141,7 +146,7 @@ def cmd_train(args):
     from peft import LoraConfig, get_peft_model
     from transformers import get_linear_schedule_with_warmup
     device = pick_device(args.device)
-    tok, model, letter_ids = load(args.model, device)
+    tok, model, letter_ids = load(args.model, device, split_fp16=args.split_fp16)
     model = get_peft_model(model, LoraConfig(r=args.rank, lora_alpha=2 * args.rank, lora_dropout=0.05,
                                              target_modules=LORA_TARGETS))
     model.print_trainable_parameters()
@@ -175,7 +180,7 @@ def cmd_train(args):
             enc = tok([b[0] for b in batch], return_tensors="pt", padding=True).to(device)
             with torch.autocast(device.split(":")[0], dtype=amp or torch.bfloat16, enabled=amp is not None):
                 full = model(**enc, logits_to_keep=1).logits[:, -1, :].float()
-            gold = targets[[b[1] for b in batch]]
+            gold = targets[[b[1] for b in batch]].to(full.device)
             loss = torch.nn.functional.cross_entropy(full, gold)
             scaler.scale(loss / args.accum).backward()
             run_loss += loss.item() * len(batch)
@@ -212,6 +217,8 @@ def main():
     ap.add_argument("--epochs", type=int, default=1)
     ap.add_argument("--lr", type=float, default=2e-4)
     ap.add_argument("--rank", type=int, default=16)
+    ap.add_argument("--split-fp16", action="store_true",
+                    help="load fp16 weights across all visible GPUs (a 9B model on two 16 GB T4s)")
     ap.add_argument("--shuffle", action="store_true", help="train: permute options per example and epoch")
     ap.add_argument("--exclude-topic", help="train: drop every train row carrying this medical_topic label")
     ap.add_argument("--log-every", type=int, default=10)
