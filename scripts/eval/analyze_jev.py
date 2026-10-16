@@ -64,6 +64,51 @@ def routing_rows(run, big, ids):
     return rows
 
 
+STRONG = [  # (label, run, how it was scored); every run covers the full test split
+    ("Gemma-4-31B", "nvidia__google_gemma-4-31b-it__paper__test", "generation"),
+    ("DeepSeek-v4.1-flash", "nvidia__deepseek-ai_deepseek-v4.1-flash__paper__test", "generation"),
+    ("Nemotron-3-Ultra 550B-A55B", "nvidia__nvidia_nemotron-3-ultra-550b-a55b__paper__test", "generation"),
+    ("Qwen3.5-9B + LoRA", "hf-logit__Qwen_Qwen3.5-9B+q35-9b-sft-shuf__paper__test", "letter probabilities"),
+    ("Qwen3.5-9B", "qwen3.5_9b__paper__test", "generation"),
+    ("Llama-3.2-90B", "nvidia__meta_llama-3.2-90b-vision-instruct__paper__test", "generation"),
+    ("Nemotron-3-Super 120B-A12B", "nvidia__nvidia_nemotron-3-super-120b-a12b__paper__test", "generation"),
+    ("Nemotron-3.5-Lightning 30B-A3B", "nvidia__nvidia_nemotron-3.5-lightning-30b-a3b__paper__test", "generation"),
+]
+
+
+def strong_models_section(s1, s1_name):
+    """The System One run against the strong models, on the items both answered."""
+    ids = list(s1)
+    top = set(sorted(ids, key=lambda i: conf(s1[i]), reverse=True)[:len(ids) // 2])
+    rows = [[f"{s1_name} (System One head)", len(ids), pct(sum(s1[i]["correct"] for i in ids), len(ids)), "–", "–", "–",
+             f"{100 * sum(s1[i]['correct'] for i in top) / len(top):.1f}"]]
+    for label, name, how in STRONG:
+        run = load(name)
+        if run is None:
+            continue
+        both = [i for i in ids if i in run]
+        x = sum(s1[i]["correct"] and not run[i]["correct"] for i in both)
+        y = sum(run[i]["correct"] and not s1[i]["correct"] for i in both)
+        from compare_runs import mcnemar_exact
+        agree = sum(run[i]["pred"] == s1[i]["pred"] for i in both) / len(both)
+        t = [i for i in both if i in top]
+        rows.append([f"{label} ({how})", len(both), pct(sum(run[i]["correct"] for i in both), len(both)),
+                     f"{100 * (sum(run[i]['correct'] for i in both) - sum(s1[i]['correct'] for i in both)) / len(both):+.1f}",
+                     f"{mcnemar_exact(x, y):.2g}", f"{100 * agree:.1f}",
+                     f"{100 * sum(run[i]['correct'] for i in t) / len(t):.1f}"])
+    rows[1:] = sorted(rows[1:], key=lambda r: -float(r[2].split()[0]))
+    out = [f"## {s1_name} against the strong models", "",
+           "Same 1,658 test questions. Generation-scored runs answer with a letter that is parsed "
+           "(`run_eval.py`, thinking off); the others read option probabilities, so treat small gaps across "
+           f"scoring methods with care. Last column: accuracy on the half of the questions {s1_name} is most sure "
+           "of.", ""]
+    out += table(["model", "n", "accuracy [95% CI]", f"vs {s1_name}", "p (McNemar)", f"same answer as {s1_name} %",
+                  f"on {s1_name}'s surest 50%"], rows)
+    out += ["The VM14K paper's numbers (GPT-4o 72.7, Claude 3.5 Sonnet 71.5, Gemini 2.0 Flash 75.7, DeepSeek-R1 "
+            "78.2, Qwen3-32B 72.5) are on the uncleaned 12,488-row release and are not on these questions.", ""]
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--s1", default=RUNS["E2"], help="System One run used as E2; E5 is the same name + __shuf1")
@@ -128,6 +173,8 @@ def main():
                   f"picked {100 * sum(e5[i]['pred'] == 'A' for i in s_ids) / len(s_ids):.1f}%, key "
                   f"{100 * sum(e5[i]['gold'] == 'A' for i in s_ids) / len(s_ids):.1f}%.", ""]
         lines += table(HDR, [paired_row("E2 original order → E5 shuffled", e2, e5, s_ids)])
+    if e2:
+        lines += strong_models_section(e2, s1_name)
     with open(OUT_MD, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))
     print("\n".join(lines))

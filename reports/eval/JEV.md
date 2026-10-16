@@ -43,3 +43,21 @@ Shuffled options: accuracy 61.7 [59–64] against 62.7 [60–65] in the original
 | comparison (A → B) | n | A % | B % | B − A | only A right | only B right | p |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | E2 original order → E5 shuffled | 1658 | 62.7 | 61.7 | -1.0 | 104 | 87 | 0.25 |
+
+## autotrust_JEV-9B against the strong models
+
+Same 1,658 test questions. Generation-scored runs answer with a letter that is parsed (`run_eval.py`, thinking off); the others read option probabilities, so treat small gaps across scoring methods with care. Last column: accuracy on the half of the questions autotrust_JEV-9B is most sure of.
+
+| model | n | accuracy [95% CI] | vs autotrust_JEV-9B | p (McNemar) | same answer as autotrust_JEV-9B % | on autotrust_JEV-9B's surest 50% |
+|---|---:|---:|---:|---:|---:|---:|
+| autotrust_JEV-9B (System One head) | 1658 | 62.7 [60–65] | – | – | – | 78.9 |
+| Gemma-4-31B (generation) | 1658 | 71.7 [69–74] | +8.9 | 1.7e-12 | 67.2 | 81.3 |
+| DeepSeek-v4.1-flash (generation) | 1658 | 71.4 [69–73] | +8.6 | 4e-12 | 68.8 | 80.1 |
+| Nemotron-3-Ultra 550B-A55B (generation) | 1658 | 66.8 [64–69] | +4.0 | 0.0013 | 67.7 | 77.4 |
+| Qwen3.5-9B + LoRA (letter probabilities) | 1658 | 66.8 [65–69] | +4.1 | 0.00016 | 74.8 | 78.6 |
+| Qwen3.5-9B (generation) | 1658 | 63.0 [61–65] | +0.2 | 0.87 | 72.0 | 76.8 |
+| Llama-3.2-90B (generation) | 1658 | 61.8 [59–64] | -1.0 | 0.47 | 65.6 | 75.2 |
+| Nemotron-3-Super 120B-A12B (generation) | 1658 | 57.2 [55–60] | -5.5 | 1.9e-05 | 64.5 | 72.0 |
+| Nemotron-3.5-Lightning 30B-A3B (generation) | 1658 | 52.5 [50–55] | -10.3 | 3.1e-13 | 55.9 | 63.4 |
+
+The VM14K paper's numbers (GPT-4o 72.7, Claude 3.5 Sonnet 71.5, Gemini 2.0 Flash 75.7, DeepSeek-R1 78.2, Qwen3-32B 72.5) are on the uncleaned 12,488-row release and are not on these questions.
