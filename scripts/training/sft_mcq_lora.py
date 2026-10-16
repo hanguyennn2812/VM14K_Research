@@ -40,14 +40,24 @@ LORA_TARGETS = r".*(language_model|model\.layers).*\.(q_proj|k_proj|v_proj|o_pro
 def pick_device(name):
     if name != "auto":
         return name
+    if torch.cuda.is_available():
+        return "cuda"
     return "xpu" if hasattr(torch, "xpu") and torch.xpu.is_available() else "cpu"
+
+
+def amp_dtype(device):
+    """fp16 autocast on CUDA cards without native bf16 (T4, P100); None elsewhere."""
+    if device.startswith("cuda") and torch.cuda.get_device_capability()[0] < 8:
+        return torch.float16
+    return None
 
 
 def load(model_id, device, adapter=None):
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(model_id)
     tok.padding_side = "left"
-    dtype = torch.bfloat16 if device != "cpu" else torch.float32
+    # fp32 weights on CPU and on pre-Ampere CUDA (where matmuls autocast to fp16), bf16 elsewhere
+    dtype = torch.float32 if device == "cpu" or amp_dtype(device) else torch.bfloat16
     model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype).to(device)
     if adapter:
         from peft import PeftModel
@@ -88,7 +98,8 @@ def cmd_eval(args):
     path = os.path.join(RUNS_DIR, run_name(args) + ".jsonl")
     t0 = time.time()
     recs = []
-    with torch.no_grad():
+    amp = amp_dtype(device)
+    with torch.no_grad(), torch.autocast(device.split(":")[0], dtype=amp or torch.bfloat16, enabled=amp is not None):
         for i in range(0, len(items), args.batch):
             chunk = items[i:i + args.batch]
             logits = letter_logits(model, tok, [c[1] for c in chunk], letter_ids, device)
@@ -146,6 +157,8 @@ def cmd_train(args):
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=args.lr)
     sched = get_linear_schedule_with_warmup(opt, max(1, total // 30), total)
     targets = torch.tensor(letter_ids, device=device)
+    amp = amp_dtype(device)
+    scaler = torch.amp.GradScaler("cuda", enabled=amp is not None)
     model.train()
     step, t0, run_loss, run_ok, run_n = 0, time.time(), 0.0, 0, 0
     print(f"train rows={len(rows)} epochs={args.epochs} steps={total} shuffle={args.shuffle} device={device}", flush=True)
@@ -160,16 +173,19 @@ def cmd_train(args):
         for bi, rows_b in enumerate(batches):
             batch = [render(tok, r, f"train{epoch}" if args.shuffle else None) for r in rows_b]
             enc = tok([b[0] for b in batch], return_tensors="pt", padding=True).to(device)
-            full = model(**enc, logits_to_keep=1).logits[:, -1, :].float()
+            with torch.autocast(device.split(":")[0], dtype=amp or torch.bfloat16, enabled=amp is not None):
+                full = model(**enc, logits_to_keep=1).logits[:, -1, :].float()
             gold = targets[[b[1] for b in batch]]
             loss = torch.nn.functional.cross_entropy(full, gold)
-            (loss / args.accum).backward()
+            scaler.scale(loss / args.accum).backward()
             run_loss += loss.item() * len(batch)
             run_ok += (full[:, letter_ids].argmax(-1).cpu() == torch.tensor([b[1] for b in batch])).sum().item()
             run_n += len(batch)
             if (bi + 1) % args.accum == 0 or bi + 1 == len(batches):
+                scaler.unscale_(opt)
                 torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1.0)
-                opt.step()
+                scaler.step(opt)
+                scaler.update()
                 sched.step()
                 opt.zero_grad(set_to_none=True)
                 step += 1
