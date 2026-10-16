@@ -36,6 +36,7 @@ def sh(cmd):
 
 sh("nvidia-smi --query-gpu=name,memory.total --format=csv")
 sh("pip install -q 'transformers==5.19.0' 'peft==0.21.2' accelerate")
+sh("pip uninstall -y -q torchao")  # Kaggle ships torchao 0.10, which peft 0.21 refuses to import alongside
 sh(f"git clone -q {REPO} /tmp/repo && git -C /tmp/repo checkout -q {COMMIT}")
 sh(f"python -c \"from huggingface_hub import snapshot_download; snapshot_download('{MODEL}')\"")
 
@@ -47,8 +48,9 @@ for k, (name, extra) in enumerate(JOBS.items()):
     cmd = (f"cd /tmp/repo && python scripts/training/sft_mcq_lora.py train --model {MODEL} --shuffle {extra} "
            f"--out /tmp/ft/{name} --log-every 25 && python scripts/training/sft_mcq_lora.py eval --model {MODEL} "
            f"--adapter /tmp/ft/{name} --batch 32")
-    log = open(os.path.join(OUT, f"{name}.log"), "w")
-    p = subprocess.Popen(cmd, shell=True, stdout=log, stderr=subprocess.STDOUT,
+    # tee to a per-run log and to the kernel log (prefixed), so progress shows while the job runs
+    cmd = f"set -o pipefail; ({cmd}) 2>&1 | tee {OUT}/{name}.log | sed -u 's/^/[{name}] /'"
+    p = subprocess.Popen(cmd, shell=True, executable="/bin/bash",
                          env=dict(os.environ, CUDA_VISIBLE_DEVICES=str(k % ngpu), PYTHONUNBUFFERED="1"))
     procs.append((name, p))
     print(f"started {name} on GPU {k % ngpu}", flush=True)
