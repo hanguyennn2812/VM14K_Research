@@ -98,3 +98,18 @@ Small model: Qwen3.5-2B LoRA, shuffled options
 | 50% | 65.6 | 61.2 | 65.7 |
 | 75% | 69.7 | 66.3 | 74.6 |
 | 100% | 71.4 | 71.4 | – |
+
+## 6. Held-out topic: does the gain on a topic need training items from it?
+
+Two LoRA runs on Kaggle T4 (fp16 autocast), same settings as above; the second drops every train row labelled Obstetrics and Gynecology. If the gain on the 319 Obstetrics and Gynecology test items survives without them, fine-tuning taught general habits rather than topic knowledge.
+
+| items: comparison | n | A % | B % | B − A | only A right | only B right | p |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Obstetrics and Gynecology (319): zero-shot → all train | 319 | 46.4 | 55.2 | +8.8 | 39 | 67 | 0.0084 * |
+| Obstetrics and Gynecology (319): zero-shot → no OB/GYN | 319 | 46.4 | 56.4 | +10.0 | 35 | 67 | 0.002 * |
+| Obstetrics and Gynecology (319): all train → no OB/GYN | 319 | 55.2 | 56.4 | +1.3 | 24 | 28 | 0.68 |
+| other topics (1339): zero-shot → all train | 1339 | 40.7 | 50.9 | +10.2 | 150 | 286 | 7.1e-11 * |
+| other topics (1339): zero-shot → no OB/GYN | 1339 | 40.7 | 51.1 | +10.4 | 150 | 289 | 3.1e-11 * |
+| other topics (1339): all train → no OB/GYN | 1339 | 50.9 | 51.1 | +0.2 | 109 | 112 | 0.89 |
+
+Replication: the Kaggle all-train run scores 51.7 against 51.0 on the laptop, and picks the same letter on 81.4% of items.
