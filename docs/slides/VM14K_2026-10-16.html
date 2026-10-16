@@ -1,0 +1,654 @@
+<title>VM14K họp nhóm 16/10</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one 16:9 slide at a time on a quiet clinical-blue ground (presenter mode); at phone width the slides stack as a readable document. */
+:root {
+  --bg: #F3F5F8;
+  --surface: #FCFDFE;
+  --fg: #142334;
+  --muted: #4E5D6E;
+  --line: #D6DDE5;
+  --accent: #1F6FB2;
+  --accent-soft: #E3EDF7;
+  --warn: #C2571A;
+  --warn-soft: #FBEDE4;
+  --warn-ink: #7A3410;
+  --neutral: #8A979C;
+  --hero-bg: #13263D;
+  --hero-fg: #F1F5F9;
+  --hero-muted: #B5C3D3;
+  --hero-accent: #F2A46B;
+  --font-body: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+  --font-data: "JetBrains Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1620; --surface: #15202C; --fg: #E6EDF4; --muted: #A2B2C3; --line: #273546;
+    --accent: #3F8AD8; --accent-soft: #1A2E46; --warn: #D06A2E; --warn-soft: #34221A; --warn-ink: #F3C3A3;
+    --neutral: #7E8E93; --hero-bg: #0A1A2C; --hero-fg: #F1F5F9; --hero-muted: #A9BBCD; --hero-accent: #F2A46B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1620; --surface: #15202C; --fg: #E6EDF4; --muted: #A2B2C3; --line: #273546;
+  --accent: #3F8AD8; --accent-soft: #1A2E46; --warn: #D06A2E; --warn-soft: #34221A; --warn-ink: #F3C3A3;
+  --neutral: #7E8E93; --hero-bg: #0A1A2C; --hero-fg: #F1F5F9; --hero-muted: #A9BBCD; --hero-accent: #F2A46B;
+  color-scheme: dark;
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--font-body);
+  font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+h1, h2, h3, p, ul, ol, table, figure { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-data); }
+
+/* Type tokens per slide width (container units); phone values below. */
+.slide {
+  container-type: inline-size;
+  --fs-eyebrow: 1.0cqw; --fs-title: 2.75cqw; --fs-big: 4.2cqw; --fs-h3: 1.55cqw;
+  --fs-body: 1.32cqw; --fs-small: 1.06cqw; --gap: 2.2cqw; --pad-y: 3.6cqw; --pad-x: 4.6cqw;
+}
+
+.app { height: 100%; display: flex; flex-direction: column; padding-block: 12px; gap: 10px; }
+.stage-wrap { flex: 1; min-height: 0; display: grid; place-items: center; }
+.stage {
+  position: relative; width: min(100%, calc((100vh - 96px) * 16 / 9)); aspect-ratio: 16 / 9; max-width: 100%;
+}
+.app.notes-open .stage { width: min(100%, calc((70vh - 120px) * 16 / 9)); }
+.slide {
+  position: absolute; inset: 0; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: var(--pad-y) var(--pad-x) calc(var(--pad-y) + 1.4cqw);
+  display: flex; flex-direction: column; gap: var(--gap);
+  visibility: hidden; opacity: 0; transition: opacity .25s ease;
+  font-size: var(--fs-body);
+}
+.slide.active { visibility: visible; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .slide { transition: none; } }
+
+.eyebrow { font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.title { font-size: var(--fs-title); font-weight: 700; line-height: 1.12; letter-spacing: -.01em; max-width: 30em; }
+.head { display: flex; flex-direction: column; gap: .5cqw; }
+.lead { color: var(--muted); max-width: 62em; }
+.foot {
+  position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 1.6cqw;
+  font-size: var(--fs-small); color: var(--muted); display: flex; justify-content: space-between; gap: 2cqw;
+}
+.foot .pg { font-family: var(--font-data); white-space: nowrap; }
+h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; }
+.muted { color: var(--muted); }
+.small { font-size: var(--fs-small); }
+
+.cols { display: grid; grid-template-columns: 1.45fr 1fr; gap: 3cqw; flex: 1; min-height: 0; }
+.cols.even { grid-template-columns: 1fr 1fr; }
+.cols > * { min-width: 0; }
+.stack { display: flex; flex-direction: column; gap: 1.2cqw; }
+
+.chart-box { position: relative; min-height: 0; height: 100%; }
+.chart-box canvas { position: absolute; inset: 0; }
+
+table.data { border-collapse: collapse; width: 100%; font-size: var(--fs-body); }
+table.data th, table.data td { padding: .55cqw .8cqw; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+table.data th { font-size: var(--fs-small); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+table.data td.r, table.data th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.data tr.hl td { background: var(--accent-soft); }
+.tbl-wrap { overflow-x: auto; min-width: 0; }
+
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4cqw; }
+.tile { border: 1px solid var(--line); border-radius: 8px; padding: 1.4cqw 1.5cqw; display: flex; flex-direction: column; gap: .6cqw; background: var(--bg); }
+.tile .big { font-size: var(--fs-big); font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.tile .big.sm { font-size: calc(var(--fs-big) * .78); }
+.tile.warn .big { color: var(--warn); }
+.tile h3 { font-size: var(--fs-body); }
+.tile p { font-size: var(--fs-small); color: var(--muted); }
+
+.fact { display: flex; flex-direction: column; gap: .3cqw; padding-left: 1.2cqw; border-left: 3px solid var(--line); }
+.fact b.v { font-size: calc(var(--fs-h3) * 1.15); font-variant-numeric: tabular-nums; }
+.fact.acc { border-left-color: var(--accent); }
+.fact.warn { border-left-color: var(--warn); }
+.fact.warn b.v { color: var(--warn); }
+
+.callout { border-radius: 8px; padding: 1.3cqw 1.5cqw; background: var(--accent-soft); display: flex; flex-direction: column; gap: .4cqw; }
+.callout.warn { background: var(--warn-soft); color: var(--warn-ink); }
+
+.steps { display: flex; flex-direction: column; gap: .9cqw; }
+.step { display: grid; grid-template-columns: 2.6cqw 1fr; gap: 1cqw; align-items: start; }
+.step .n { width: 2.6cqw; height: 2.6cqw; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: var(--fs-small); background: var(--accent-soft); color: var(--accent); font-family: var(--font-data); }
+.step:last-child .n { background: var(--accent); color: var(--surface); }
+.step p { font-size: var(--fs-small); color: var(--muted); }
+.step h3 { font-size: var(--fs-body); }
+code.chip { font-family: var(--font-data); font-size: .92em; background: var(--accent-soft); color: var(--fg); padding: .1em .45em; border-radius: 4px; white-space: nowrap; }
+
+.shot { margin: 0; display: flex; flex-direction: column; gap: .7cqw; min-height: 0; }
+.shot img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; display: block; }
+.shot figcaption { font-size: var(--fs-small); color: var(--muted); }
+
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4cqw; }
+.card { border: 1px solid var(--line); border-radius: 8px; padding: 1.5cqw; display: flex; flex-direction: column; gap: .6cqw; }
+.card .src { margin-top: auto; font-size: var(--fs-small); color: var(--accent); font-weight: 600; }
+
+ul.plain { padding-left: 1.2em; display: flex; flex-direction: column; gap: .5cqw; }
+ol.refs { padding-left: 2.2em; columns: 2; column-gap: 3cqw; font-size: calc(var(--fs-small) * .95); line-height: 1.38; }
+ol.refs li { break-inside: avoid; margin-bottom: .45cqw; }
+
+/* Hero slides */
+.slide.hero { background: var(--hero-bg); color: var(--hero-fg); border-color: var(--hero-bg); justify-content: center; }
+.slide.hero .eyebrow { color: var(--hero-accent); }
+.slide.hero .lead, .slide.hero .foot, .slide.hero .muted { color: var(--hero-muted); }
+.slide.hero .title { font-size: calc(var(--fs-title) * 1.55); max-width: 18em; }
+.slide.hero .card { border-color: color-mix(in srgb, var(--hero-muted) 35%, transparent); }
+.slide.hero h3 { color: var(--hero-accent); }
+.slide.hero ul.plain { color: var(--hero-fg); }
+
+/* Controls */
+.bar { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.bar button {
+  font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 12px; cursor: pointer; min-height: 34px;
+}
+.bar button:hover { border-color: var(--accent); }
+.bar .count { font-family: var(--font-data); min-width: 64px; text-align: center; }
+.bar kbd { font-family: var(--font-data); font-size: 11px; border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; margin-left: 4px; color: var(--muted); }
+.notes-panel {
+  border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 12px 16px;
+  max-height: 28vh; overflow: auto; font-size: 15px; line-height: 1.55; max-width: 1100px; width: 100%; margin-inline: auto;
+}
+.notes-panel h4 { margin: 0 0 6px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+aside.notes { display: none; }
+
+/* Phone and narrow windows: a scrolling document of slides */
+@media (max-width: 760px) {
+  html, body { height: auto; }
+  .app { height: auto; }
+  .stage { width: 100%; aspect-ratio: auto; display: flex; flex-direction: column; gap: 14px; }
+  .slide {
+    position: relative; inset: auto; visibility: visible; opacity: 1; overflow: visible;
+    --fs-eyebrow: 11.5px; --fs-title: 22px; --fs-big: 34px; --fs-h3: 16.5px; --fs-body: 15px; --fs-small: 12.5px;
+    --gap: 14px; --pad-y: 18px; --pad-x: 16px;
+  }
+  .foot { position: static; flex-direction: column; gap: 4px; }
+  .cols, .cols.even, .tiles, .cards { grid-template-columns: 1fr; }
+  .chart-box { height: 260px; }
+  .bar, .notes-panel { display: none !important; }
+  ol.refs { columns: 1; }
+  .step { grid-template-columns: 28px 1fr; } .step .n { width: 28px; height: 28px; }
+  .slide.hero .title { font-size: 28px; }
+}
+</style>
+
+<div class="app">
+<div class="stage-wrap">
+<main class="stage" id="deck" aria-roledescription="bài trình bày">
+
+<!-- 1 -->
+<section class="slide hero active" id="s1" aria-label="Trang bìa">
+  <div class="head" style="gap:1.6cqw">
+    <p class="eyebrow">VM14K · Họp nhóm 16/10/2026</p>
+    <h1 class="title">Fine-tune trên laptop và Jev cho y tế</h1>
+    <p class="lead" style="max-width:44em">Hai việc làm trong lúc chờ phản hồi về file 125 câu: thử fine-tune một model nhỏ có đối chứng đầy đủ, và tìm hiểu Jev (việc số 5 của buổi họp 02/10).</p>
+  </div>
+  <div class="foot"><span>Split cố định · test 1.658 câu · code và số liệu trên nhánh <span class="mono">eval-zero-shot-baselines</span></span><span class="pg">01</span></div>
+  <aside class="notes">Hôm nay em trình bày hai việc làm trong lúc chờ Thầy Nhật phản hồi file 125 câu. Một là thử fine-tune một model nhỏ ngay trên laptop, có hai lần train đối chứng và kiểm định thống kê. Hai là tìm hiểu Jev theo việc số 5 của buổi trước, kèm một thí nghiệm nhỏ trên chính VM14K.</aside>
+</section>
+
+<!-- 2 -->
+<section class="slide" id="s2" aria-label="Tóm tắt">
+  <div class="head"><p class="eyebrow">Tóm tắt</p><h2 class="title">Bốn kết quả chính</h2></div>
+  <div class="tiles">
+    <div class="tile"><span class="big">51,0%</span><h3>Fine-tune tăng 9,2 điểm</h3><p>Qwen3.5-2B, LoRA 1 epoch trên 7.313 câu train: 41,8% → 51,0% trên 1.658 câu test, p = 2,6×10⁻¹¹.</p></div>
+    <div class="tile"><span class="big">1,8%</span><h3>Xác suất đáng tin</h3><p>Sai số hiệu chỉnh ECE từ 10,7% còn 1,8%: model báo 70% chắc thì đúng khoảng 70%.</p></div>
+    <div class="tile warn"><span class="big">44,9%</span><h3>Học được thiên lệch “đáp án A”</h3><p>Train không đảo phương án thì model chọn A ở 44,9% câu, trong khi khoá là A ở 29,8%.</p></div>
+    <div class="tile"><span class="big sm">65,6%</span><h3>Ý tưởng của Jev đo được</h3><p>Model nhỏ tự trả lời câu chắc, gửi 50% câu còn lại cho DeepSeek: 65,6%, so với 61,2% nếu chọn ngẫu nhiên.</p></div>
+  </div>
+  <div class="callout"><b>Phần tăng nằm ở câu không tranh cãi.</b><span>1.390 câu thường: 45,8% → 56,9%. 238 câu hai model mạnh cùng bất đồng với khoá: 21,4% → 22,3%, không đổi (p = 0,89).</span></div>
+  <div class="foot"><span>Chi tiết: reports/eval/FINETUNE.md · docs/research/JEV_SYSTEM_ONE.md</span><span class="pg">02</span></div>
+  <aside class="notes">Bốn ý. Một: fine-tune chạy được ngay trên laptop, tăng 9,2 điểm, ý nghĩa thống kê rất rõ. Hai: sau fine-tune, xác suất model đưa ra khớp với tỉ lệ đúng thật, nên dùng được để quyết định. Ba: nếu train mà không đảo thứ tự phương án, model học luôn thiên lệch “đáp án hay là A” của bộ dữ liệu; đây là cùng thiên lệch nhóm đã nêu trong phần audit. Bốn: ý tưởng của Jev, chắc thì tự làm, không chắc thì chuyển lên model lớn, đo được ngay trên VM14K. Và điểm nối với hướng chính của nhóm: phần tăng nằm ở câu thường; ở 238 câu nghi khoá sai, model không bị kéo về phía khoá.</aside>
+</section>
+
+<!-- 3 -->
+<section class="slide" id="s3" aria-label="Thiết lập fine-tune">
+  <div class="head"><p class="eyebrow">Fine-tune · Thiết lập</p><h2 class="title">LoRA một model 2B trên GPU tích hợp của laptop</h2></div>
+  <div class="tbl-wrap"><table class="data">
+    <tr><th style="width:22%">Thành phần</th><th>Lựa chọn</th></tr>
+    <tr><td>Model</td><td>Qwen3.5-2B [18], cùng họ với Qwen3.5-9B, model local tốt nhất của nhóm (63,0%)</td></tr>
+    <tr><td>Dữ liệu</td><td>7.313 câu train của split cố định. 1.658 câu test không dùng để train hay chỉnh tham số</td></tr>
+    <tr><td>Huấn luyện</td><td>LoRA r = 16 [12] trên mọi lớp chiếu, 15,6 triệu tham số (0,82%), 1 epoch, batch 16, lr 2×10⁻⁴</td></tr>
+    <tr><td>Đối chứng</td><td>Hai lần train: <b>đảo thứ tự phương án</b> mỗi câu, và <b>giữ thứ tự gốc</b></td></tr>
+    <tr><td>Chấm điểm</td><td>Prompt Fig. 6 của paper [9]. Lấy chữ cái có xác suất cao nhất, nên không câu nào bị lỗi parse</td></tr>
+    <tr><td>Phần cứng</td><td>Intel Arc 140T (16 GB dùng chung) qua PyTorch XPU, khoảng 70 phút mỗi lần train</td></tr>
+  </table></div>
+  <div class="foot"><span>Code: scripts/training/sft_mcq_lora.py</span><span class="pg">03</span></div>
+  <aside class="notes">Chưa có GPU của trường nên em thử xem laptop làm được tới đâu. GPU tích hợp Intel Arc chạy được PyTorch, đủ để LoRA một model 2B, mỗi lần train khoảng 70 phút. Em chọn Qwen3.5-2B vì cùng họ với Qwen3.5-9B. Có hai lần train đối chứng: một lần đảo thứ tự phương án, một lần giữ nguyên. Lý do: khoá rơi vào A khoảng 30%, cao hơn mức ngẫu nhiên, nên cần tách phần model học kiến thức khỏi phần model học vị trí. Cách chấm: đọc xác suất của các chữ cái A, B, C, D, nên không có câu lỗi parse và có sẵn xác suất để đo calibration.</aside>
+</section>
+
+<!-- 4 -->
+<section class="slide" id="s4" aria-label="Kết quả fine-tune">
+  <div class="head"><p class="eyebrow">Fine-tune · Kết quả</p><h2 class="title">Một epoch LoRA: 41,8% → 51,0% trên tập test</h2></div>
+  <div class="cols">
+    <div class="chart-box"><canvas id="cResult" role="img" aria-label="Độ chính xác trên 1.658 câu test: Qwen3.5-2B zero-shot 41,8%; LoRA đảo phương án 51,0%; LoRA thứ tự gốc 52,1%; Qwen3.5-9B zero-shot 63,0%; DeepSeek-v4.1-flash zero-shot 71,4%. Đường đứt: luôn chọn A 29,8%."></canvas></div>
+    <div class="stack" style="justify-content:center">
+      <div class="fact acc"><b class="v">336 vs 184 câu</b><span class="small muted">chỉ bản LoRA đúng vs chỉ bản gốc đúng; McNemar p = 2,6×10⁻¹¹</span></div>
+      <div class="fact acc"><b class="v">51,0 vs 52,1</b><span class="small muted">hai cách train ngang nhau (p = 0,33), nhưng khác nhau ở thiên lệch vị trí (trang 06)</span></div>
+      <div class="fact"><b class="v">Còn kém 9B khoảng 12 điểm</b><span class="small muted">tăng rõ nhất: Pathology +18,1; Endocrinology +14,6; Oncology +12,7; Pulmonology +12,3 (p &lt; 0,05, chưa hiệu chỉnh đa so sánh)</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>* Chấm bằng sinh chữ rồi parse (SUMMARY.md), khác cách chấm của run 2B, chỉ để tham chiếu. Đường đứt: luôn chọn A (29,8%).</span><span class="pg">04</span></div>
+  <aside class="notes">Sau một epoch, model 2B tăng từ 41,8 lên 51,0 phần trăm. Kiểm định McNemar trên từng câu: 336 câu chỉ bản fine-tune đúng, 184 câu chỉ bản gốc đúng, p cỡ 10 mũ trừ 11. Bản train giữ thứ tự gốc được 52,1, ngang với bản đảo, nhưng trang 6 sẽ cho thấy nó đạt được bằng cách khác. Hai cột xám là tham chiếu, chấm theo cách khác nên không so trực tiếp; model 2B vẫn kém model 9B khoảng 12 điểm. Các chuyên khoa tăng nhiều nhất là Pathology, Endocrinology, Oncology, Pulmonology, nhưng chưa hiệu chỉnh cho việc so nhiều chuyên khoa.</aside>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="s5" aria-label="Kiểm chứng câu gần trùng">
+  <div class="head"><p class="eyebrow">Kiểm chứng 1 · Có phải học vẹt?</p><h2 class="title">Phần tăng không đến từ những câu test gần trùng câu train</h2></div>
+  <div class="cols">
+    <div class="chart-box"><canvas id="cNear" role="img" aria-label="Độ chính xác theo độ giống với câu train gần nhất. Dưới 0,5 (1.409 câu): 41,7 → 51,2. Từ 0,5 đến 0,8 (168 câu): 39,3 → 51,2. Từ 0,8 trở lên (81 câu): 49,4 → 46,9."></canvas></div>
+    <div class="stack" style="justify-content:center">
+      <div class="fact acc"><b class="v">+9,5 điểm</b><span class="small muted">ở 1.409 câu có độ giống dưới 0,5 với mọi câu train (p = 1,5×10⁻¹⁰)</span></div>
+      <div class="fact"><b class="v">−2,5 điểm</b><span class="small muted">ở 81 câu gần trùng (≥ 0,8), không có ý nghĩa (p = 0,85)</span></div>
+      <div class="fact"><b class="v">36/81 câu</b><span class="small muted">gần trùng có cùng nội dung đáp án với câu train; số còn lại là biến thể khác đáp án</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Độ giống: cosine TF-IDF (từ đơn và cặp từ) trên câu hỏi + phương án. Split chỉ gom câu trùng chính xác nên vẫn còn câu gần trùng ở hai phía.</span><span class="pg">05</span></div>
+  <aside class="notes">Câu hỏi đầu tiên ai cũng hỏi: có phải model chỉ thuộc các câu train gần giống câu test? Split hiện tại chỉ gom câu trùng chính xác, nên vẫn có 81 câu test có bản gần trùng trong train. Em chia câu test theo độ giống với câu train gần nhất. Phần tăng nằm ở 1.409 câu ít giống nhất: tăng 9,5 điểm. Ở 81 câu gần trùng thì không tăng, vì hơn một nửa số đó là biến thể có đáp án khác. Vậy phần tăng không phải do thuộc lòng câu gần trùng.</aside>
+</section>
+
+<!-- 6 -->
+<section class="slide" id="s6" aria-label="Kiểm chứng thiên lệch vị trí">
+  <div class="head"><p class="eyebrow">Kiểm chứng 2 · Thiên lệch vị trí</p><h2 class="title">Train không đảo phương án thì model học cách đoán “A”</h2></div>
+  <div class="cols">
+    <div class="chart-box"><canvas id="cBias" role="img" aria-label="Độ chính xác theo vị trí của khoá. Khi khoá là A (494 câu): zero-shot 57,7; LoRA đảo 59,3; LoRA gốc 72,9. Khi khoá không phải A (1.164 câu): zero-shot 35,1; LoRA đảo 47,4; LoRA gốc 43,2."></canvas></div>
+    <div class="stack" style="justify-content:center">
+      <div class="tbl-wrap"><table class="data">
+        <tr><th>Run</th><th class="r">Chọn A</th></tr>
+        <tr><td>Zero-shot</td><td class="r">38,0%</td></tr>
+        <tr><td>LoRA đảo phương án</td><td class="r">34,4%</td></tr>
+        <tr><td>LoRA thứ tự gốc</td><td class="r"><b style="color:var(--warn)">44,9%</b></td></tr>
+        <tr><td class="muted">Khoá là A</td><td class="r muted">29,8%</td></tr>
+      </table></div>
+      <div class="callout warn"><b>Bài học: luôn đảo phương án khi train.</b><span class="small">Khoá là A: bản gốc đúng thêm 78 câu, bản đảo 11 (p = 1,4×10⁻¹³). Khoá không phải A: bản đảo đúng thêm 130 câu, bản gốc 81 (p = 0,0009).</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Cùng thiên lệch phần audit đã nêu: khoá là A ở 29,8% câu test, ngẫu nhiên là 27,6%.</span><span class="pg">06</span></div>
+  <aside class="notes">Đây là kết quả của lần train đối chứng. Tổng điểm hai bản gần bằng nhau, 51,0 và 52,1. Nhưng nhìn theo vị trí khoá thì khác hẳn: bản giữ thứ tự gốc đúng 72,9 phần trăm khi khoá là A, nhưng chỉ 43,2 phần trăm khi khoá không phải A, và chọn A ở gần 45 phần trăm số câu. Nó học được rằng trong bộ dữ liệu này đáp án hay nằm ở A. Bản đảo phương án thì đều hơn và tốt hơn ở 1.164 câu khoá không phải A. Kết luận thực hành: mọi fine-tune trên VM14K phải đảo thứ tự phương án, và nên báo cáo kèm tỉ lệ chọn A. Kết quả này cũng củng cố điểm audit về thiên lệch vị trí trong bộ dữ liệu gốc.</aside>
+</section>
+
+<!-- 7 -->
+<section class="slide" id="s7" aria-label="Kiểm chứng câu tranh cãi">
+  <div class="head"><p class="eyebrow">Kiểm chứng 3 · Câu nghi khoá sai</p><h2 class="title">Học 7.313 khoá train không kéo model về phía khoá ở các câu bị nghi</h2></div>
+  <div class="tbl-wrap"><table class="data">
+    <tr><th>Nhóm câu test (tỉ lệ chọn giống)</th><th class="r">Zero-shot</th><th class="r">LoRA đảo</th><th class="r">LoRA gốc</th><th class="r">p (zero → đảo)</th></tr>
+    <tr><td>1.390 câu thường, khớp khoá</td><td class="r">45,8</td><td class="r"><b>56,9</b></td><td class="r">58,1</td><td class="r">7×10⁻¹³</td></tr>
+    <tr class="hl"><td>238 câu bất đồng, khớp khoá</td><td class="r">21,4</td><td class="r"><b>22,3</b></td><td class="r">22,7</td><td class="r">0,89</td></tr>
+    <tr><td>238 câu bất đồng, chọn như 2 model mạnh</td><td class="r">49,6</td><td class="r">53,8</td><td class="r">50,8</td><td class="r">0,30</td></tr>
+    <tr><td>125 câu cả 7 model sai, khớp khoá</td><td class="r">17,6</td><td class="r">8,8</td><td class="r">9,6</td><td class="r">0,035</td></tr>
+  </table></div>
+  <div class="callout"><b>Đọc thế nào.</b><span>Nếu các khoá bị nghi phản ánh một kiến thức nhất quán có trong tập train (ví dụ phác đồ Việt Nam), học tập train sẽ làm model đồng ý hơn với khoá. Thực tế không đổi. Đây là bằng chứng gián tiếp ủng hộ việc nhiều khoá đó có vấn đề; vẫn cần bác sĩ duyệt.</span></div>
+  <div class="foot"><span>238 câu: DeepSeek-v4.1-flash và Gemma-4-31B cùng chọn một đáp án khác khoá. 125 câu: cả 7 model zero-shot đều sai. McNemar chính xác.</span><span class="pg">07</span></div>
+  <aside class="notes">Đây là chỗ nối với hướng chính của nhóm. Ở 1.390 câu thường, fine-tune tăng 11 điểm. Ở 238 câu mà hai model mạnh cùng chọn khác khoá, tỉ lệ khớp khoá gần như đứng yên, từ 21,4 lên 22,3, p bằng 0,89. Nếu những khoá đó là kiến thức đặc thù Việt Nam có trong tập train, ta kỳ vọng model học được và đồng ý với khoá nhiều hơn. Nó không. Ở 125 câu cả 7 model sai, model sau fine-tune còn khớp khoá ít hơn. Em trình bày đây là bằng chứng gián tiếp, không thay được việc bác sĩ duyệt.</aside>
+</section>
+
+<!-- 8 -->
+<section class="slide" id="s8" aria-label="Jev là gì">
+  <div class="head"><p class="eyebrow">Jev · Là gì</p><h2 class="title">Jev nhận dữ liệu và câu hỏi, trả về quyết định kèm xác suất thay vì văn bản</h2></div>
+  <div class="cols even" style="grid-template-columns:1.1fr 1fr">
+    <figure class="shot">
+      <img src="img/jev_demo.png" alt="Ảnh chụp demo jev-ultrafast: agent dùng Jev tự điền chuyến bay một chiều Zürich đi London ngày 20/9 trên Google Flights; bảng bên phải ghi 5,03 giây đã trôi qua, 9 thao tác, trung vị 149 ms mỗi quyết định.">
+      <figcaption>Ảnh thật: Jev chọn từng thao tác cho agent trình duyệt trên Google Flights, trung vị 149 ms mỗi quyết định [6]</figcaption>
+    </figure>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><div><h3>Dữ liệu (state)</h3><p>Văn bản hoặc JSON: tin nhắn khách, lịch sử giao dịch, chính sách hoàn tiền</p></div></div>
+      <div class="step"><span class="n">2</span><div><h3>Câu hỏi có kiểu, chạy song song</h3><p><b>Noul</b>: có yêu cầu hoàn tiền không? · <b>Choice</b>: chuyển bộ phận nào? · <b>Score</b>: mức bực bội 0–2</p></div></div>
+      <div class="step"><span class="n">3</span><div><h3>Jev trả về giá trị và xác suất</h3><p><code class="chip">noul 0,95</code> <code class="chip">choice "billing"</code> <code class="chip">score 1,4</code> kèm confidence</p></div></div>
+      <div class="step"><span class="n">4</span><div><h3>Code ra quyết định</h3><p>Chắc thì tự xử lý, không chắc thì chuyển cho người hoặc model lớn</p></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>TypeSafe AI, ra mắt 15/09/2026, đang early access [1]. Bước 1–4 ghép từ ví dụ trong tài liệu TypeSafe [3][19]. Ảnh: browser-use/jev-ultrafast, giấy phép MIT [6].</span><span class="pg">08</span></div>
+  <aside class="notes">Jev là model đầu tiên của TypeSafe AI, thuộc lớp mà họ gọi là System One, theo “Hệ thống 1” nhanh và trực giác của Kahneman. Cách hiểu nhanh nhất: Jev là một hàm ra quyết định. Mình đưa dữ liệu vào cùng vài câu hỏi có kiểu: có hay không, chọn một trong mấy phương án, hoặc chấm điểm theo thang. Jev trả lời tất cả cùng lúc, mỗi câu kèm xác suất, và không viết thêm chữ nào. Quyết định cuối do code của mình làm. Ảnh bên trái là ảnh thật từ demo của Browser Use: Jev chọn từng thao tác cho agent trên Google Flights, khoảng 150 mili giây một quyết định.</aside>
+</section>
+
+<!-- 9 -->
+<section class="slide" id="s9" aria-label="Jev so với LLM và số liệu">
+  <div class="head"><p class="eyebrow">Jev · So với LLM và số liệu độc lập</p><h2 class="title">Đổi khả năng viết lấy tốc độ và xác suất đáng tin</h2></div>
+  <div class="cols even">
+    <div class="tbl-wrap"><table class="data">
+      <tr><th></th><th>LLM</th><th>Jev</th></tr>
+      <tr><td>Đầu ra</td><td>Văn bản, sinh từng token</td><td>Giá trị có kiểu, một lượt</td></tr>
+      <tr><td>Xác suất</td><td>Tự rút từ logit</td><td>Trả sẵn, huấn luyện để hiệu chỉnh (RLCD)</td></tr>
+      <tr><td>Tốc độ*</td><td>3–329 giây</td><td>70–500 ms</td></tr>
+      <tr><td>Giải thích</td><td>Có</td><td><b>Không</b></td></tr>
+    </table></div>
+    <div class="stack">
+      <h3>Đánh giá độc lập, ĐH Bonn, 37 bộ dữ liệu [5]</h3>
+      <div class="fact acc"><b class="v">MMLU 91,8%</b><span class="small muted">Qwen3.8-27B 81,7%; thắng Qwen ở 27/37 bộ</span></div>
+      <div class="fact acc"><b class="v">ECE 0,028</b><span class="small muted">Qwen 0,063; Gemma-4-E4B 0,208</span></div>
+      <div class="fact acc"><b class="v">0,36 s · 9,15 USD</b><span class="small muted">mỗi request; 346.009 request tổng cộng</span></div>
+      <div class="fact warn"><b class="v">Chưa có y khoa</b><span class="small muted">không bộ dữ liệu y khoa nào; yếu với ngôn ngữ ít tài nguyên và nhãn nhiễu</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>* Số tốc độ do TypeSafe tự công bố [1]. Benchmark của TypeSafe chấm theo đồng thuận GPT-6 Astra và Fable 5.1, không theo chuyên gia.</span><span class="pg">09</span></div>
+  <aside class="notes">So với LLM, Jev bỏ khả năng viết để đổi lấy tốc độ và xác suất đáng tin. Số tốc độ là do TypeSafe tự công bố. Bài đánh giá độc lập duy nhất hiện có là của nhóm ĐH Bonn, Lamarr Institute và Fraunhofer, đăng 29/9: Jev đạt 91,8 phần trăm MMLU, hơn Qwen3.8-27B 10 điểm, xác suất hiệu chỉnh tốt hơn hẳn, và rất rẻ. Nhưng bài này không có bộ dữ liệu y khoa nào và không báo riêng tiếng Việt. Hệ quả quan trọng nhất cho y tế: Jev không giải thích được vì sao nó quyết định như vậy.</aside>
+</section>
+
+<!-- 10 -->
+<section class="slide" id="s10" aria-label="Jev trong AI">
+  <div class="head"><p class="eyebrow">Jev · Ứng dụng trong AI</p><h2 class="title">Trong harness, Jev lo các quyết định nhỏ, LLM lo phần viết và suy luận</h2><p class="lead">Harness là phần code quanh model: vòng lặp agent, state, tool, middleware.</p></div>
+  <div class="cards">
+    <div class="card"><h3>Chọn model cho từng câu</h3><p class="muted">Câu tra cứu thì dùng model rẻ, câu thiết kế thì dùng model mạnh. Xác suất được giữ lại trong state.</p><span class="src">LangChain [2]</span></div>
+    <div class="card"><h3>Chặn tool call nguy hiểm</h3><p class="muted">Phân loại một lệnh, ví dụ <i>bash</i>, là nguy hiểm hay không, và chặn trước khi chạy.</p><span class="src">LangChain [2], đang experimental</span></div>
+    <div class="card"><h3>Agent trình duyệt</h3><p class="muted">Chọn thao tác và phần tử trong một request. Đặt vé: 9,45 → 7,09 s; lệnh gọi trình duyệt 1.092 → 101.</p><span class="src">Browser Use [6], 3 lần chạy, 1 tác vụ</span></div>
+  </div>
+  <div class="foot"><span>Chọn model theo từng câu để giảm chi phí đã có trước Jev, ví dụ RouteLLM [13]. Cái mới: router được huấn luyện để trả xác suất hiệu chỉnh.</span><span class="pg">10</span></div>
+  <aside class="notes">Ba cách người ta đang dùng Jev. Hai ví dụ đầu là middleware của LangChain, bài ngày 17/9: chọn model cho từng câu hỏi, và chặn lệnh nguy hiểm trước khi chạy. Ví dụ thứ ba là repo của Browser Use: repo tự nói rõ đây chỉ là ba lần chạy một tác vụ, không phải benchmark. Một nguyên tắc đáng học từ repo này: đầu ra của model không bao giờ được chạy trực tiếp như code; mọi mục tiêu phải trỏ về một phần tử đã quan sát thấy.</aside>
+</section>
+
+<!-- 11 -->
+<section class="slide" id="s11" aria-label="Jev trong y tế">
+  <div class="head"><p class="eyebrow">Jev · Ứng dụng trong y tế</p><h2 class="title">Hợp với bước lọc và chuyển tuyến, không hợp với kết luận lâm sàng</h2></div>
+  <div class="cols">
+    <div class="tbl-wrap"><table class="data">
+      <tr><th style="width:44%">Ứng dụng</th><th>Nghiên cứu liên quan (dùng LLM, không phải Jev)</th></tr>
+      <tr><td>Phân loại, chuyển tuyến tin nhắn bệnh nhân</td><td>GPT-4o tinh chỉnh: 97,5% phát hiện tin khẩn [14]</td></tr>
+      <tr><td>Sàng lọc hồ sơ theo từng tiêu chí</td><td>TrialGPT: 87,3% trên 1.015 cặp, giảm 42,6% thời gian [15]</td></tr>
+      <tr><td>Guardrail cho chatbot y tế</td><td>Câu Noul: “có nêu liều thuốc?”, “có dấu hiệu cấp cứu?”</td></tr>
+      <tr><td>Biết khi nào không trả lời</td><td>MedAbstain: model giỏi vẫn ít khi biết bỏ qua [16]</td></tr>
+    </table></div>
+    <div class="callout warn" style="align-self:start">
+      <b>Rủi ro</b>
+      <ul class="plain small">
+        <li>Không giải thích được lý do</li>
+        <li>Calibration đúng cho cả nhóm, không bảo đảm từng ca [8]</li>
+        <li>Chưa được đo trên y khoa hay tiếng Việt [5]</li>
+        <li>API ở nước ngoài: dữ liệu sức khoẻ là dữ liệu nhạy cảm theo Luật 91/2025/QH15 [17]</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Cột phải là nghiên cứu dùng LLM cho cùng loại bài toán, chỉ cho thấy bài toán có thật.</span><span class="pg">11</span></div>
+  <aside class="notes">Ứng dụng y tế hợp lý là các quyết định nhỏ, lặp nhiều và cần biết khi nào không chắc: phân loại tin nhắn bệnh nhân, sàng lọc hồ sơ theo từng tiêu chí, chặn câu trả lời rủi ro, và biết khi nào chuyển bác sĩ. Các nghiên cứu ở cột phải dùng LLM, không dùng Jev. Rủi ro lớn nhất: chưa ai đo Jev trên y khoa hay tiếng Việt, nó không giải thích được, và gửi dữ liệu bệnh nhân thật lên API nước ngoài cần cơ sở pháp lý theo Luật Bảo vệ dữ liệu cá nhân, hiệu lực từ 1/1/2026.</aside>
+</section>
+
+<!-- 12 -->
+<section class="slide" id="s12" aria-label="Ý tưởng System One trên VM14K">
+  <div class="head"><p class="eyebrow">Jev · Thử ý tưởng trên VM14K</p><h2 class="title">Chắc thì model nhỏ tự trả lời, không chắc thì chuyển lên DeepSeek</h2></div>
+  <div class="cols">
+    <div class="chart-box"><canvas id="cRoute" role="img" aria-label="Độ chính xác theo tỉ lệ câu gửi lên DeepSeek. Chọn theo xác suất: 0% 51,0; 25% 59,1; 50% 65,6; 75% 69,7; 100% 71,4. Chọn ngẫu nhiên: 51,0; 56,1; 61,2; 66,3; 71,4."></canvas></div>
+    <div class="stack" style="justify-content:center">
+      <div class="fact acc"><b class="v">+3,0 đến +4,4 điểm</b><span class="small muted">so với chọn ngẫu nhiên cùng số câu: xác suất của model nhỏ chọn đúng câu khó</span></div>
+      <div class="fact warn"><b class="v">Không vượt DeepSeek</b><span class="small muted">trên 25% câu model nhỏ chắc nhất, DeepSeek vẫn đúng 81%</span></div>
+      <div class="fact"><b class="v">Lợi ích</b><span class="small muted">ít lệnh gọi model lớn, dữ liệu xử lý tại máy, có ngưỡng rõ để chuyển người</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Model nhỏ: Qwen3.5-2B + LoRA đảo phương án. DeepSeek-v4.1-flash: kết quả zero-shot sẵn có trên cùng 1.658 câu. Không đo bản thân Jev.</span><span class="pg">12</span></div>
+  <aside class="notes">Jev bán đúng ý tưởng này: một model nhanh ra quyết định kèm xác suất, và chỉ chuyển ca khó lên model lớn. Em mô phỏng bằng model 2B vừa fine-tune: câu nào nó ít chắc nhất thì lấy đáp án DeepSeek. Gửi một nửa số câu, độ chính xác chung là 65,6 phần trăm, so với 61,2 nếu chọn ngẫu nhiên cùng số câu. Kết hợp này không vượt DeepSeek dùng một mình, vì trên chính những câu model nhỏ chắc nhất, DeepSeek vẫn đúng 81 phần trăm. Giá trị nằm ở chi phí, ở việc dữ liệu không rời máy, và ở chỗ xác suất sau fine-tune đủ tin để đặt ngưỡng. Với y tế, ngưỡng đó có thể là “không chắc thì chuyển bác sĩ”.</aside>
+</section>
+
+<!-- 13 -->
+<section class="slide hero" id="s13" aria-label="Đề xuất">
+  <div class="head"><p class="eyebrow">Đề xuất</p><h2 class="title" style="font-size:var(--fs-title)">Bước tiếp theo</h2></div>
+  <div class="cards" style="grid-template-columns:1fr 1fr">
+    <div class="card"><h3>Fine-tune</h3><ul class="plain">
+      <li>QLoRA Qwen3.5-9B trên GPU trường, cùng script: có vượt 63,0% zero-shot không?</li>
+      <li>Lọc khoá train: bỏ câu bị model mạnh bất đồng rồi train lại</li>
+      <li>Đo trên đề ngoài VM14K để biết model học y khoa hay học bộ đề</li>
+      <li>Luôn đảo phương án khi train, báo cáo kèm tỉ lệ chọn A</li>
+    </ul></div>
+    <div class="card"><h3>Jev</h3><ul class="plain">
+      <li>Xin early-access key, chạy Choice trên 1.658 câu, báo accuracy và ECE: chưa ai đo Jev trên y khoa tiếng Việt</li>
+      <li>Dùng xác suất để xếp thứ tự câu cho bác sĩ duyệt</li>
+      <li>Không đưa dữ liệu bệnh nhân thật lên API khi chưa có cơ sở pháp lý</li>
+    </ul></div>
+  </div>
+  <div class="foot"><span>Đang chờ: Thầy Nhật phản hồi file 125 câu. Lọc khoá train cần chạy DeepSeek và Gemma-31B trên 7.313 câu; API NVIDIA đang timeout (15/10).</span><span class="pg">13</span></div>
+  <aside class="notes">Hướng fine-tune: thứ nhất, cùng script chạy được cho model 9B khi có GPU trường; câu hỏi là có vượt mức zero-shot 63 phần trăm không. Thứ hai, nối với hướng audit khoá: bỏ các câu train mà model mạnh không đồng ý với khoá rồi train lại. Thứ ba, cần một bộ đề ngoài VM14K để biết phần tăng là kiến thức y khoa hay chỉ là quen bộ đề. Và từ kết quả đối chứng: mọi lần train phải đảo phương án. Hướng Jev: xin key dùng thử để đo trên chính tập test; nếu được thì đây là đánh giá đầu tiên của Jev trên y khoa tiếng Việt.</aside>
+</section>
+
+<!-- 14 -->
+<section class="slide" id="s14" aria-label="Bằng chứng">
+  <div class="head"><p class="eyebrow">Bằng chứng</p><h2 class="title">Mọi con số đều chạy lại được từ repo</h2></div>
+  <div class="tbl-wrap"><table class="data small">
+    <tr><th style="width:30%">Kết luận</th><th style="width:36%">File</th><th>Cách kiểm tra lại</th></tr>
+    <tr><td>Accuracy, ECE, McNemar, chuyên khoa</td><td class="mono">reports/eval/FINETUNE.md §1–2</td><td class="mono">python scripts/training/analyze_finetune.py</td></tr>
+    <tr><td>Câu gần trùng, câu tranh cãi, định tuyến</td><td class="mono">reports/eval/FINETUNE.md §3–5</td><td>cùng lệnh trên</td></tr>
+    <tr><td>Dự đoán và xác suất từng câu</td><td class="mono">reports/eval/runs/hf-logit__Qwen_Qwen3.5-2B*.jsonl</td><td>3 file × 1.658 dòng</td></tr>
+    <tr><td>Train và chấm điểm</td><td class="mono">scripts/training/sft_mcq_lora.py</td><td class="mono">… train --shuffle · … eval --adapter</td></tr>
+    <tr><td>Jev: nguồn và số liệu</td><td class="mono">docs/research/JEV_SYSTEM_ONE.md</td><td>19 nguồn, có link</td></tr>
+    <tr><td>Baseline 7 model zero-shot</td><td class="mono">reports/eval/SUMMARY.md</td><td class="mono">python scripts/eval/summarize_eval.py</td></tr>
+  </table></div>
+  <p class="small muted">GitHub: <a href="https://github.com/hanguyennn2812/VM14K_Research/tree/eval-zero-shot-baselines" target="_blank" rel="noopener">hanguyennn2812/VM14K_Research, nhánh eval-zero-shot-baselines</a></p>
+  <div class="foot"><span>Kết quả fine-tune một seed, một epoch; chưa đo độ dao động giữa các lần chạy.</span><span class="pg">14</span></div>
+  <aside class="notes">Nếu các Thầy muốn kiểm tra: mọi số trong slide nằm trong FINETUNE.md, sinh ra bằng một lệnh. Dự đoán và xác suất từng câu của cả ba run đều có trong repo, nên ai cũng chấm lại được. Giới hạn em nói trước: mỗi cấu hình mới chạy một lần với một seed, nên chưa đo được độ dao động giữa các lần train.</aside>
+</section>
+
+<!-- 15 -->
+<section class="slide" id="s15" aria-label="Tài liệu tham khảo">
+  <div class="head"><p class="eyebrow">Tài liệu tham khảo</p></div>
+  <ol class="refs">
+    <li>D. Almeida, “Introducing System One Models &amp; Jev”, TypeSafe AI blog, 15/09/2026. <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener">link</a></li>
+    <li>S. Runkle, H. Lovell, “Building a Harness with Jev”, LangChain blog, 17/09/2026. <a href="https://www.langchain.com/blog/building-a-harness-with-jev" target="_blank" rel="noopener">link</a></li>
+    <li>TypeSafe AI, docs “Introduction”. <a href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener">link</a></li>
+    <li>D. Kahneman, <i>Thinking, Fast and Slow</i>, FSG, 2011.</li>
+    <li>T. Deußer, L. Sparrenberg, R. Sifa, “Evaluating and Benchmarking the System One Model Jev”, arXiv:2609.37647, 2026. <a href="https://arxiv.org/abs/2609.37647" target="_blank" rel="noopener">link</a></li>
+    <li>Browser Use, jev-ultrafast, GitHub (MIT). <a href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noopener">link</a></li>
+    <li>TypeSafe AI, docs “Confidence”. <a href="https://docs.typesafe.ai/confidence" target="_blank" rel="noopener">link</a></li>
+    <li>TypeSafe AI, docs “AI Primer”. <a href="https://docs.typesafe.ai/introduction/machine-learning-primer" target="_blank" rel="noopener">link</a></li>
+    <li>T. Nguyen et al., “VM14K: First Vietnamese Medical Benchmark”, arXiv:2506.01305, 2025. <a href="https://arxiv.org/abs/2506.01305" target="_blank" rel="noopener">link</a></li>
+    <li>C. Guo et al., “On Calibration of Modern Neural Networks”, ICML 2017. <a href="https://arxiv.org/abs/1706.04599" target="_blank" rel="noopener">link</a></li>
+    <li>Y. Geifman, R. El-Yaniv, “Selective Classification for Deep Neural Networks”, NeurIPS 2017. <a href="https://arxiv.org/abs/1705.08500" target="_blank" rel="noopener">link</a></li>
+    <li>E. J. Hu et al., “LoRA: Low-Rank Adaptation of Large Language Models”, ICLR 2022. <a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">link</a></li>
+    <li>I. Ong et al., “RouteLLM: Learning to Route LLMs with Preference Data”, ICLR 2025. <a href="https://arxiv.org/abs/2406.18665" target="_blank" rel="noopener">link</a></li>
+    <li>“Leveraging LLMs for Automating Outpatients’ Message Classifications of EMR”, <i>Healthcare</i> (MDPI), 2025. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12691883/" target="_blank" rel="noopener">link</a></li>
+    <li>Q. Jin et al., “Matching patients to clinical trials with large language models”, <i>Nat. Commun.</i> 15, 9074, 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11574183" target="_blank" rel="noopener">link</a></li>
+    <li>S. Machcha et al., “Knowing When to Abstain: Medical LLMs Under Clinical Uncertainty”, arXiv:2601.12471, 2026. <a href="https://arxiv.org/abs/2601.12471" target="_blank" rel="noopener">link</a></li>
+    <li>Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15; Nghị định 356/2025/NĐ-CP. <a href="https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Nghi-dinh-356-2025-ND-CP-huong-dan-Luat-Bao-ve-du-lieu-ca-nhan-687428.aspx" target="_blank" rel="noopener">link</a></li>
+    <li>Qwen Team, Qwen3.5-2B model card, Hugging Face, 2026. <a href="https://huggingface.co/Qwen/Qwen3.5-2B" target="_blank" rel="noopener">link</a></li>
+    <li>TypeSafe wiki, “System One”, GitHub chujianyun/typesafe-wiki. <a href="https://github.com/chujianyun/typesafe-wiki/blob/main/references/docs/Concepts/System%20One.md" target="_blank" rel="noopener">link</a></li>
+  </ol>
+  <div class="foot"><span>Bản đầy đủ: docs/research/JEV_SYSTEM_ONE.md</span><span class="pg">15</span></div>
+  <aside class="notes">Danh sách tài liệu, có link đầy đủ. Số liệu Jev của nhà sản xuất và của đánh giá độc lập được tách riêng trong tài liệu Jev.</aside>
+</section>
+
+</main>
+</div>
+
+<div class="notes-panel" id="notesPanel" hidden aria-live="polite"><h4>Ghi chú người nói</h4><div id="notesText"></div></div>
+<nav class="bar" aria-label="Điều khiển trình chiếu">
+  <button type="button" id="prevBtn" aria-label="Trang trước">← Trước</button>
+  <span class="count" id="counter">1 / 15</span>
+  <button type="button" id="nextBtn" aria-label="Trang sau">Sau →</button>
+  <button type="button" id="notesBtn" aria-pressed="false">Ghi chú<kbd>N</kbd></button>
+  <button type="button" id="fsBtn">Toàn màn hình<kbd>F</kbd></button>
+</nav>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const counter = document.getElementById('counter');
+  const notesPanel = document.getElementById('notesPanel');
+  const notesText = document.getElementById('notesText');
+  const notesBtn = document.getElementById('notesBtn');
+  let cur = 0;
+
+  function show(n) {
+    cur = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, i) => { s.classList.toggle('active', i === cur); s.setAttribute('aria-hidden', i === cur ? 'false' : 'true'); });
+    counter.textContent = (cur + 1) + ' / ' + slides.length;
+    const note = slides[cur].querySelector('aside.notes');
+    notesText.textContent = note ? note.textContent : '';
+    try { history.replaceState(null, '', '#s' + (cur + 1)); } catch (e) {}
+  }
+  function toggleNotes() {
+    notesPanel.hidden = !notesPanel.hidden;
+    document.querySelector('.app').classList.toggle('notes-open', !notesPanel.hidden);
+    notesBtn.setAttribute('aria-pressed', String(!notesPanel.hidden));
+    resizeCharts();
+  }
+  function fullscreen() {
+    const el = document.documentElement;
+    try {
+      if (document.fullscreenElement) { document.exitFullscreen().catch(() => {}); }
+      else if (el.requestFullscreen) { el.requestFullscreen().catch(() => {}); }
+    } catch (e) {}
+  }
+  document.getElementById('prevBtn').addEventListener('click', () => show(cur - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => show(cur + 1));
+  notesBtn.addEventListener('click', toggleNotes);
+  document.getElementById('fsBtn').addEventListener('click', fullscreen);
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('input, textarea')) return;
+    const k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(slides.length - 1);
+    else if (k === 'n' || k === 'N') toggleNotes();
+    else if (k === 'f' || k === 'F') fullscreen();
+  });
+  const m = /^#s(\d+)$/.exec(location.hash || '');
+  show(m ? parseInt(m[1], 10) - 1 : 0);
+
+  // Charts
+  if (!window.Chart) return;
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const fmt = (v) => v.toFixed(1).replace('.', ',');
+  const charts = [];
+  function fontPx() {
+    const w = slides[0].getBoundingClientRect().width;
+    return window.matchMedia('(max-width: 760px)').matches ? 12 : Math.max(11, w * 0.0115);
+  }
+  const valueLabels = {
+    id: 'valueLabels',
+    afterDatasetsDraw(chart, args, opts) {
+      if (!opts || !opts.on) return;
+      const { ctx } = chart;
+      ctx.save();
+      ctx.font = '600 ' + fontPx() + 'px ' + css('--font-data');
+      ctx.fillStyle = css('--fg');
+      chart.data.datasets.forEach((ds, di) => {
+        chart.getDatasetMeta(di).data.forEach((bar, i) => {
+          const v = ds.data[i];
+          if (chart.options.indexAxis === 'y') { ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(fmt(v), bar.x + 6, bar.y); }
+          else { ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(fmt(v), bar.x, bar.y - 4); }
+        });
+      });
+      ctx.restore();
+    }
+  };
+  const refLine = {
+    id: 'refLine',
+    afterDatasetsDraw(chart, args, opts) {
+      if (!opts || opts.value == null) return;
+      const { ctx, chartArea: a, scales: { x } } = chart;
+      const px = x.getPixelForValue(opts.value);
+      ctx.save();
+      ctx.strokeStyle = css('--muted'); ctx.lineWidth = 1.5; ctx.setLineDash([5, 4]);
+      ctx.beginPath(); ctx.moveTo(px, a.top); ctx.lineTo(px, a.bottom); ctx.stroke();
+      ctx.restore();
+    }
+  };
+  Chart.register(valueLabels, refLine);
+
+  function baseOpts(extra) {
+    const f = fontPx();
+    return Object.assign({
+      responsive: true, maintainAspectRatio: false, animation: { duration: 400 },
+      plugins: {
+        legend: { labels: { color: css('--fg'), font: { family: css('--font-body'), size: f }, boxWidth: f, boxHeight: f } },
+        tooltip: { callbacks: { label: (c) => ' ' + c.dataset.label + ': ' + fmt(c.parsed[c.chart.options.indexAxis === 'y' ? 'x' : 'y']) + '%' } }
+      }
+    }, extra);
+  }
+  function axis(f, opts) {
+    return Object.assign({ grid: { color: css('--line') }, border: { color: css('--line') },
+      ticks: { color: css('--muted'), font: { family: css('--font-body'), size: f } } }, opts);
+  }
+
+  function build() {
+    charts.splice(0).forEach((c) => c.destroy());
+    const f = fontPx();
+    Chart.defaults.font.family = css('--font-body');
+    const blue = css('--accent'), orange = css('--warn'), gray = css('--neutral');
+
+    charts.push(new Chart(document.getElementById('cResult'), {
+      type: 'bar',
+      data: {
+        labels: ['Qwen3.5-2B zero-shot', 'Qwen3.5-2B + LoRA (đảo)', 'Qwen3.5-2B + LoRA (gốc)', 'Qwen3.5-9B zero-shot *', 'DeepSeek-v4.1-flash *'],
+        datasets: [{ label: 'Độ chính xác', data: [41.8, 51.0, 52.1, 63.0, 71.4],
+          backgroundColor: [gray, blue, blue, gray, gray], borderRadius: 4, borderSkipped: 'start', barPercentage: 0.72 }]
+      },
+      options: baseOpts({
+        indexAxis: 'y', layout: { padding: { right: f * 3.2 } },
+        plugins: { legend: { display: false }, valueLabels: { on: true }, refLine: { value: 29.8 },
+          tooltip: { callbacks: { label: (c) => ' ' + fmt(c.parsed.x) + '% [CI 95%: ' + ['39–44', '49–53', '50–54', '61–65', '69–73'][c.dataIndex] + ']' } } },
+        scales: { x: axis(f, { min: 0, max: 80, ticks: { color: css('--muted'), font: { size: f }, callback: (v) => v + '%' } }),
+                  y: axis(f, { grid: { display: false }, ticks: { color: css('--fg'), font: { family: css('--font-body'), size: f } } }) }
+      })
+    }));
+
+    charts.push(new Chart(document.getElementById('cNear'), {
+      type: 'bar',
+      data: {
+        labels: [['Giống < 0,5', '1.409 câu'], ['0,5–0,8', '168 câu'], ['Gần trùng ≥ 0,8', '81 câu']],
+        datasets: [
+          { label: 'Zero-shot', data: [41.7, 39.3, 49.4], backgroundColor: gray, borderRadius: 4, borderSkipped: 'start' },
+          { label: 'LoRA đảo phương án', data: [51.2, 51.2, 46.9], backgroundColor: blue, borderRadius: 4, borderSkipped: 'start' }
+        ]
+      },
+      options: baseOpts({
+        plugins: { valueLabels: { on: true }, legend: { position: 'top', labels: { color: css('--fg'), font: { size: f }, boxWidth: f, boxHeight: f } } },
+        scales: { y: axis(f, { min: 0, max: 70, ticks: { color: css('--muted'), font: { size: f }, callback: (v) => v + '%' } }),
+                  x: axis(f, { grid: { display: false }, ticks: { color: css('--fg'), font: { size: f } } }) }
+      })
+    }));
+
+    charts.push(new Chart(document.getElementById('cBias'), {
+      type: 'bar',
+      data: {
+        labels: [['Khoá là A', '494 câu'], ['Khoá không phải A', '1.164 câu']],
+        datasets: [
+          { label: 'Zero-shot', data: [57.7, 35.1], backgroundColor: gray, borderRadius: 4, borderSkipped: 'start' },
+          { label: 'LoRA đảo phương án', data: [59.3, 47.4], backgroundColor: blue, borderRadius: 4, borderSkipped: 'start' },
+          { label: 'LoRA thứ tự gốc', data: [72.9, 43.2], backgroundColor: orange, borderRadius: 4, borderSkipped: 'start' }
+        ]
+      },
+      options: baseOpts({
+        plugins: { valueLabels: { on: true }, legend: { position: 'top', labels: { color: css('--fg'), font: { size: f }, boxWidth: f, boxHeight: f } } },
+        scales: { y: axis(f, { min: 0, max: 80, ticks: { color: css('--muted'), font: { size: f }, callback: (v) => v + '%' } }),
+                  x: axis(f, { grid: { display: false }, ticks: { color: css('--fg'), font: { size: f } } }) }
+      })
+    }));
+
+    charts.push(new Chart(document.getElementById('cRoute'), {
+      type: 'line',
+      data: {
+        labels: ['0%', '25%', '50%', '75%', '100%'],
+        datasets: [
+          { label: 'Chọn câu gửi đi theo xác suất', data: [51.0, 59.1, 65.6, 69.7, 71.4], borderColor: blue, backgroundColor: blue, borderWidth: 2.5, pointRadius: 5, pointHoverRadius: 7, tension: 0 },
+          { label: 'Chọn ngẫu nhiên', data: [51.0, 56.1, 61.2, 66.3, 71.4], borderColor: gray, backgroundColor: gray, borderWidth: 2, borderDash: [6, 5], pointRadius: 4, tension: 0 }
+        ]
+      },
+      options: baseOpts({
+        interaction: { mode: 'index', intersect: false },
+        plugins: { legend: { position: 'top', labels: { color: css('--fg'), font: { size: f }, boxWidth: f, boxHeight: f } } },
+        scales: { y: axis(f, { min: 45, max: 75, title: { display: true, text: 'Độ chính xác chung', color: css('--muted'), font: { size: f } }, ticks: { color: css('--muted'), font: { size: f }, callback: (v) => v + '%' } }),
+                  x: axis(f, { title: { display: true, text: 'Tỉ lệ câu gửi lên DeepSeek', color: css('--muted'), font: { size: f } }, ticks: { color: css('--fg'), font: { size: f } } }) }
+      })
+    }));
+  }
+  function resizeCharts() { requestAnimationFrame(build); }
+  build();
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(build, 150); });
+  try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', build); } catch (e) {}
+  new MutationObserver(build).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+</script>
