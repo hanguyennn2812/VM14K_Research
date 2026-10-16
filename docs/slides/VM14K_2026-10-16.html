@@ -12,6 +12,7 @@
   --line: #D6DDE5;
   --accent: #1F6FB2;
   --accent-soft: #E3EDF7;
+  --accent-mid: #8DB6DE;
   --warn: #C2571A;
   --warn-soft: #FBEDE4;
   --warn-ink: #7A3410;
@@ -26,14 +27,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0E1620; --surface: #15202C; --fg: #E6EDF4; --muted: #A2B2C3; --line: #273546;
-    --accent: #3F8AD8; --accent-soft: #1A2E46; --warn: #D06A2E; --warn-soft: #34221A; --warn-ink: #F3C3A3;
+    --accent: #3F8AD8; --accent-soft: #1A2E46; --accent-mid: #2E5F91; --warn: #D06A2E; --warn-soft: #34221A; --warn-ink: #F3C3A3;
     --neutral: #7E8E93; --hero-bg: #0A1A2C; --hero-fg: #F1F5F9; --hero-muted: #A9BBCD; --hero-accent: #F2A46B;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0E1620; --surface: #15202C; --fg: #E6EDF4; --muted: #A2B2C3; --line: #273546;
-  --accent: #3F8AD8; --accent-soft: #1A2E46; --warn: #D06A2E; --warn-soft: #34221A; --warn-ink: #F3C3A3;
+  --accent: #3F8AD8; --accent-soft: #1A2E46; --accent-mid: #2E5F91; --warn: #D06A2E; --warn-soft: #34221A; --warn-ink: #F3C3A3;
   --neutral: #7E8E93; --hero-bg: #0A1A2C; --hero-fg: #F1F5F9; --hero-muted: #A9BBCD; --hero-accent: #F2A46B;
   color-scheme: dark;
 }
@@ -142,6 +143,16 @@ ul.plain { padding-left: 1.2em; display: flex; flex-direction: column; gap: .5cq
 ol.refs { padding-left: 2.2em; columns: 2; column-gap: 3cqw; font-size: calc(var(--fs-small) * .95); line-height: 1.38; }
 ol.refs li { break-inside: avoid; margin-bottom: .45cqw; }
 
+
+.wf { display: grid; grid-template-columns: 30% 1fr 4.5cqw; gap: 1cqw; align-items: center; }
+.wf-l { font-size: var(--fs-small); color: var(--fg); }
+.wf-t { height: 2.4cqw; background: var(--bg); border-radius: 4px; display: flex; gap: 2px; overflow: hidden; }
+.wf-t .seg { display: block; height: 100%; }
+.wf-t .seg:last-child { border-radius: 0 4px 4px 0; }
+.wf-t .seg.base { background: var(--neutral); }
+.wf-t .seg.mid { background: var(--accent-mid); }
+.wf-t .seg.top { background: var(--accent); }
+.wf-v { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: var(--fs-body); }
 /* Hero slides */
 .slide.hero { background: var(--hero-bg); color: var(--hero-fg); border-color: var(--hero-bg); justify-content: center; }
 .slide.hero .eyebrow { color: var(--hero-accent); }
@@ -179,6 +190,7 @@ aside.notes { display: none; }
   }
   .foot { position: static; flex-direction: column; gap: 4px; }
   .cols, .cols.even, .tiles, .cards { grid-template-columns: 1fr; }
+  .wf { grid-template-columns: 1fr 44px; } .wf-l { grid-column: 1 / -1; } .wf-t { height: 16px; }
   .chart-box { height: 260px; }
   .bar, .notes-panel { display: none !important; }
   ol.refs { columns: 1; }
@@ -239,12 +251,33 @@ aside.notes { display: none; }
     <div class="chart-box"><canvas id="cResult" role="img" aria-label="Độ chính xác trên 1.658 câu test: Qwen3.5-2B zero-shot 41,8%; LoRA đảo phương án 51,0%; LoRA thứ tự gốc 52,1%; Qwen3.5-9B zero-shot 63,0%; DeepSeek-v4.1-flash zero-shot 71,4%. Đường đứt: luôn chọn A 29,8%."></canvas></div>
     <div class="stack" style="justify-content:center">
       <div class="fact acc"><b class="v">336 vs 184 câu</b><span class="small muted">chỉ bản LoRA đúng vs chỉ bản gốc đúng; McNemar p = 2,6×10⁻¹¹</span></div>
-      <div class="fact acc"><b class="v">51,0 vs 52,1</b><span class="small muted">hai cách train ngang nhau (p = 0,33), nhưng khác nhau ở thiên lệch vị trí (trang 06)</span></div>
+      <div class="fact acc"><b class="v">51,0 vs 52,1</b><span class="small muted">hai cách train ngang nhau (p = 0,33), nhưng khác nhau ở thiên lệch vị trí (trang 07)</span></div>
       <div class="fact"><b class="v">Còn kém 9B khoảng 12 điểm</b><span class="small muted">tăng rõ nhất: Pathology +18,1; Endocrinology +14,6; Oncology +12,7; Pulmonology +12,3 (p &lt; 0,05, chưa hiệu chỉnh đa so sánh)</span></div>
     </div>
   </div>
   <div class="foot"><span>* Chấm bằng sinh chữ rồi parse (SUMMARY.md), khác cách chấm của run 2B, chỉ để tham chiếu. Đường đứt: luôn chọn A (29,8%).</span><span class="pg">04</span></div>
-  <aside class="notes">Sau một epoch, model 2B tăng từ 41,8 lên 51,0 phần trăm. Kiểm định McNemar trên từng câu: 336 câu chỉ bản fine-tune đúng, 184 câu chỉ bản gốc đúng, p cỡ 10 mũ trừ 11. Bản train giữ thứ tự gốc được 52,1, ngang với bản đảo, nhưng trang 6 sẽ cho thấy nó đạt được bằng cách khác. Hai cột xám là tham chiếu, chấm theo cách khác nên không so trực tiếp; model 2B vẫn kém model 9B khoảng 12 điểm. Các chuyên khoa tăng nhiều nhất là Pathology, Endocrinology, Oncology, Pulmonology, nhưng chưa hiệu chỉnh cho việc so nhiều chuyên khoa.</aside>
+  <aside class="notes">Sau một epoch, model 2B tăng từ 41,8 lên 51,0 phần trăm. Kiểm định McNemar trên từng câu: 336 câu chỉ bản fine-tune đúng, 184 câu chỉ bản gốc đúng, p cỡ 10 mũ trừ 11. Bản train giữ thứ tự gốc được 52,1, ngang với bản đảo, nhưng trang 7 sẽ cho thấy nó đạt được bằng cách khác. Hai cột xám là tham chiếu, chấm theo cách khác nên không so trực tiếp; model 2B vẫn kém model 9B khoảng 12 điểm. Các chuyên khoa tăng nhiều nhất là Pathology, Endocrinology, Oncology, Pulmonology, nhưng chưa hiệu chỉnh cho việc so nhiều chuyên khoa.</aside>
+</section>
+
+<!-- 4b -->
+<section class="slide" id="s4b" aria-label="Fine-tune cải thiện bằng cách nào">
+  <div class="head"><p class="eyebrow">Fine-tune · Cải thiện bằng cách nào</p><h2 class="title">Một nửa phần tăng là sửa thói quen chọn chữ cái, nửa còn lại là học từ nội dung</h2>
+  <p class="lead small">Mỗi câu train: prompt của paper, mục tiêu là một chữ cái. Loss = −log P(đáp án đúng). LoRA chỉ học 15,6 triệu tham số gắn thêm, model gốc giữ nguyên.</p></div>
+  <div class="cols">
+    <div class="stack" style="justify-content:center;gap:1.8cqw">
+      <div class="wf"><span class="wf-l">Zero-shot</span><div class="wf-t"><i class="seg base" style="width:69.7%"></i></div><b class="wf-v">41,8</b></div>
+      <div class="wf"><span class="wf-l">Chỉ sửa thói quen chọn chữ cái, không train</span><div class="wf-t"><i class="seg base" style="width:69.7%"></i><i class="seg mid" style="width:7.5%"></i></div><b class="wf-v">46,3</b></div>
+      <div class="wf"><span class="wf-l">LoRA đảo phương án</span><div class="wf-t"><i class="seg base" style="width:69.7%"></i><i class="seg mid" style="width:7.5%"></i><i class="seg top" style="width:7.8%"></i></div><b class="wf-v">51,0</b></div>
+      <p class="small muted">Thang 0–60%. Xám: zero-shot. Xanh nhạt: phần sửa thói quen. Xanh đậm: phần học từ nội dung.</p>
+    </div>
+    <div class="stack" style="justify-content:center">
+      <div class="fact acc"><b class="v">+4,5 · thói quen chọn chữ cái</b><span class="small muted">Model gốc nghiêng về A và B: câu 4 phương án, xác suất trung bình A 31%, B 37%, C 17%, D 15% (đo trên tập val). Chia lại cho thói quen này là đủ, không train, không dùng đáp án. p = 0,0001</span></div>
+      <div class="fact acc"><b class="v">+4,7 · học từ nội dung</b><span class="small muted">Kiểu câu hỏi, thuật ngữ y khoa tiếng Việt, cách ra đề của VM14K. Không phải học vẹt câu gần trùng (trang 06). p = 0,0002</span></div>
+      <div class="fact"><b class="v">Kiến thức mới: khó</b><span class="small muted">Kiến thức đến chủ yếu từ pretrain; fine-tune học kiến thức mới chậm và dễ làm model bịa hơn [20]. Để thêm kiến thức, RAG tốt hơn fine-tune [21].</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>McNemar chính xác trên 1.658 câu test. Mức thiên lệch của từng chữ cái ước lượng trên 1.595 câu val, không dùng đáp án.</span><span class="pg">05</span></div>
+  <aside class="notes">Fine-tune cải thiện bằng hai đường, mỗi đường khoảng một nửa. Đường thứ nhất: model gốc có thói quen chọn chữ cái, nghiêng hẳn về A và B. Chỉ cần đo thói quen đó trên tập val rồi chia lại xác suất, không train gì, không dùng đáp án, là đã tăng 4,5 điểm. Fine-tune có đảo phương án tự sửa được thói quen này. Đường thứ hai: thêm 4,7 điểm nữa từ nội dung, tức là model quen với kiểu câu hỏi, thuật ngữ y khoa tiếng Việt và cách ra đề của VM14K. Cả hai bước đều có ý nghĩa thống kê. Còn kiến thức mới thì khó: các nghiên cứu cho thấy kiến thức chủ yếu đến từ pretrain, fine-tune học kiến thức mới chậm và dễ làm model bịa; muốn thêm kiến thức thì RAG tốt hơn.</aside>
 </section>
 
 <!-- 5 -->
@@ -258,7 +291,7 @@ aside.notes { display: none; }
       <div class="fact"><b class="v">36/81 câu</b><span class="small muted">gần trùng có cùng nội dung đáp án với câu train; số còn lại là biến thể khác đáp án</span></div>
     </div>
   </div>
-  <div class="foot"><span>Độ giống: cosine TF-IDF (từ đơn và cặp từ) trên câu hỏi + phương án. Split chỉ gom câu trùng chính xác nên vẫn còn câu gần trùng ở hai phía.</span><span class="pg">05</span></div>
+  <div class="foot"><span>Độ giống: cosine TF-IDF (từ đơn và cặp từ) trên câu hỏi + phương án. Split chỉ gom câu trùng chính xác nên vẫn còn câu gần trùng ở hai phía.</span><span class="pg">06</span></div>
   <aside class="notes">Câu hỏi đầu tiên ai cũng hỏi: có phải model chỉ thuộc các câu train gần giống câu test? Split hiện tại chỉ gom câu trùng chính xác, nên vẫn có 81 câu test có bản gần trùng trong train. Em chia câu test theo độ giống với câu train gần nhất. Phần tăng nằm ở 1.409 câu ít giống nhất: tăng 9,5 điểm. Ở 81 câu gần trùng thì không tăng, vì hơn một nửa số đó là biến thể có đáp án khác. Vậy phần tăng không phải do thuộc lòng câu gần trùng.</aside>
 </section>
 
@@ -278,7 +311,7 @@ aside.notes { display: none; }
       <div class="callout warn"><b>Bài học: luôn đảo phương án khi train.</b><span class="small">Khoá là A: bản gốc đúng thêm 78 câu, bản đảo 11 (p = 1,4×10⁻¹³). Khoá không phải A: bản đảo đúng thêm 130 câu, bản gốc 81 (p = 0,0009).</span></div>
     </div>
   </div>
-  <div class="foot"><span>Cùng thiên lệch phần audit đã nêu: khoá là A ở 29,8% câu test, ngẫu nhiên là 27,6%.</span><span class="pg">06</span></div>
+  <div class="foot"><span>Cùng thiên lệch phần audit đã nêu: khoá là A ở 29,8% câu test, ngẫu nhiên là 27,6%.</span><span class="pg">07</span></div>
   <aside class="notes">Đây là kết quả của lần train đối chứng. Tổng điểm hai bản gần bằng nhau, 51,0 và 52,1. Nhưng nhìn theo vị trí khoá thì khác hẳn: bản giữ thứ tự gốc đúng 72,9 phần trăm khi khoá là A, nhưng chỉ 43,2 phần trăm khi khoá không phải A, và chọn A ở gần 45 phần trăm số câu. Nó học được rằng trong bộ dữ liệu này đáp án hay nằm ở A. Bản đảo phương án thì đều hơn và tốt hơn ở 1.164 câu khoá không phải A. Kết luận thực hành: mọi fine-tune trên VM14K phải đảo thứ tự phương án, và nên báo cáo kèm tỉ lệ chọn A. Kết quả này cũng củng cố điểm audit về thiên lệch vị trí trong bộ dữ liệu gốc.</aside>
 </section>
 
@@ -293,7 +326,7 @@ aside.notes { display: none; }
     <tr><td>125 câu cả 7 model sai, khớp khoá</td><td class="r">17,6</td><td class="r">8,8</td><td class="r">9,6</td><td class="r">0,035</td></tr>
   </table></div>
   <div class="callout"><b>Đọc thế nào.</b><span>Nếu các khoá bị nghi phản ánh một kiến thức nhất quán có trong tập train (ví dụ phác đồ Việt Nam), học tập train sẽ làm model đồng ý hơn với khoá. Thực tế không đổi. Đây là bằng chứng gián tiếp ủng hộ việc nhiều khoá đó có vấn đề; vẫn cần bác sĩ duyệt.</span></div>
-  <div class="foot"><span>238 câu: DeepSeek-v4.1-flash và Gemma-4-31B cùng chọn một đáp án khác khoá. 125 câu: cả 7 model zero-shot đều sai. McNemar chính xác.</span><span class="pg">07</span></div>
+  <div class="foot"><span>238 câu: DeepSeek-v4.1-flash và Gemma-4-31B cùng chọn một đáp án khác khoá. 125 câu: cả 7 model zero-shot đều sai. McNemar chính xác.</span><span class="pg">08</span></div>
   <aside class="notes">Đây là chỗ nối với hướng chính của nhóm. Ở 1.390 câu thường, fine-tune tăng 11 điểm. Ở 238 câu mà hai model mạnh cùng chọn khác khoá, tỉ lệ khớp khoá gần như đứng yên, từ 21,4 lên 22,3, p bằng 0,89. Nếu những khoá đó là kiến thức đặc thù Việt Nam có trong tập train, ta kỳ vọng model học được và đồng ý với khoá nhiều hơn. Nó không. Ở 125 câu cả 7 model sai, model sau fine-tune còn khớp khoá ít hơn. Em trình bày đây là bằng chứng gián tiếp, không thay được việc bác sĩ duyệt.</aside>
 </section>
 
@@ -312,7 +345,7 @@ aside.notes { display: none; }
       <div class="step"><span class="n">4</span><div><h3>Code ra quyết định</h3><p>Chắc thì tự xử lý, không chắc thì chuyển cho người hoặc model lớn</p></div></div>
     </div>
   </div>
-  <div class="foot"><span>TypeSafe AI, ra mắt 15/09/2026, đang early access [1]. Bước 1–4 ghép từ ví dụ trong tài liệu TypeSafe [3][19]. Ảnh: browser-use/jev-ultrafast, giấy phép MIT [6].</span><span class="pg">08</span></div>
+  <div class="foot"><span>TypeSafe AI, ra mắt 15/09/2026, đang early access [1]. Bước 1–4 ghép từ ví dụ trong tài liệu TypeSafe [3][19]. Ảnh: browser-use/jev-ultrafast, giấy phép MIT [6].</span><span class="pg">09</span></div>
   <aside class="notes">Jev là model đầu tiên của TypeSafe AI, thuộc lớp mà họ gọi là System One, theo “Hệ thống 1” nhanh và trực giác của Kahneman. Cách hiểu nhanh nhất: Jev là một hàm ra quyết định. Mình đưa dữ liệu vào cùng vài câu hỏi có kiểu: có hay không, chọn một trong mấy phương án, hoặc chấm điểm theo thang. Jev trả lời tất cả cùng lúc, mỗi câu kèm xác suất, và không viết thêm chữ nào. Quyết định cuối do code của mình làm. Ảnh bên trái là ảnh thật từ demo của Browser Use: Jev chọn từng thao tác cho agent trên Google Flights, khoảng 150 mili giây một quyết định.</aside>
 </section>
 
@@ -335,7 +368,7 @@ aside.notes { display: none; }
       <div class="fact warn"><b class="v">Chưa có y khoa</b><span class="small muted">không bộ dữ liệu y khoa nào; yếu với ngôn ngữ ít tài nguyên và nhãn nhiễu</span></div>
     </div>
   </div>
-  <div class="foot"><span>* Số tốc độ do TypeSafe tự công bố [1]. Benchmark của TypeSafe chấm theo đồng thuận GPT-6 Astra và Fable 5.1, không theo chuyên gia.</span><span class="pg">09</span></div>
+  <div class="foot"><span>* Số tốc độ do TypeSafe tự công bố [1]. Benchmark của TypeSafe chấm theo đồng thuận GPT-6 Astra và Fable 5.1, không theo chuyên gia.</span><span class="pg">10</span></div>
   <aside class="notes">So với LLM, Jev bỏ khả năng viết để đổi lấy tốc độ và xác suất đáng tin. Số tốc độ là do TypeSafe tự công bố. Bài đánh giá độc lập duy nhất hiện có là của nhóm ĐH Bonn, Lamarr Institute và Fraunhofer, đăng 29/9: Jev đạt 91,8 phần trăm MMLU, hơn Qwen3.8-27B 10 điểm, xác suất hiệu chỉnh tốt hơn hẳn, và rất rẻ. Nhưng bài này không có bộ dữ liệu y khoa nào và không báo riêng tiếng Việt. Hệ quả quan trọng nhất cho y tế: Jev không giải thích được vì sao nó quyết định như vậy.</aside>
 </section>
 
@@ -347,7 +380,7 @@ aside.notes { display: none; }
     <div class="card"><h3>Chặn tool call nguy hiểm</h3><p class="muted">Phân loại một lệnh, ví dụ <i>bash</i>, là nguy hiểm hay không, và chặn trước khi chạy.</p><span class="src">LangChain [2], đang experimental</span></div>
     <div class="card"><h3>Agent trình duyệt</h3><p class="muted">Chọn thao tác và phần tử trong một request. Đặt vé: 9,45 → 7,09 s; lệnh gọi trình duyệt 1.092 → 101.</p><span class="src">Browser Use [6], 3 lần chạy, 1 tác vụ</span></div>
   </div>
-  <div class="foot"><span>Chọn model theo từng câu để giảm chi phí đã có trước Jev, ví dụ RouteLLM [13]. Cái mới: router được huấn luyện để trả xác suất hiệu chỉnh.</span><span class="pg">10</span></div>
+  <div class="foot"><span>Chọn model theo từng câu để giảm chi phí đã có trước Jev, ví dụ RouteLLM [13]. Cái mới: router được huấn luyện để trả xác suất hiệu chỉnh.</span><span class="pg">11</span></div>
   <aside class="notes">Ba cách người ta đang dùng Jev. Hai ví dụ đầu là middleware của LangChain, bài ngày 17/9: chọn model cho từng câu hỏi, và chặn lệnh nguy hiểm trước khi chạy. Ví dụ thứ ba là repo của Browser Use: repo tự nói rõ đây chỉ là ba lần chạy một tác vụ, không phải benchmark. Một nguyên tắc đáng học từ repo này: đầu ra của model không bao giờ được chạy trực tiếp như code; mọi mục tiêu phải trỏ về một phần tử đã quan sát thấy.</aside>
 </section>
 
@@ -372,7 +405,7 @@ aside.notes { display: none; }
       </ul>
     </div>
   </div>
-  <div class="foot"><span>Cột phải là nghiên cứu dùng LLM cho cùng loại bài toán, chỉ cho thấy bài toán có thật.</span><span class="pg">11</span></div>
+  <div class="foot"><span>Cột phải là nghiên cứu dùng LLM cho cùng loại bài toán, chỉ cho thấy bài toán có thật.</span><span class="pg">12</span></div>
   <aside class="notes">Ứng dụng y tế hợp lý là các quyết định nhỏ, lặp nhiều và cần biết khi nào không chắc: phân loại tin nhắn bệnh nhân, sàng lọc hồ sơ theo từng tiêu chí, chặn câu trả lời rủi ro, và biết khi nào chuyển bác sĩ. Các nghiên cứu ở cột phải dùng LLM, không dùng Jev. Rủi ro lớn nhất: chưa ai đo Jev trên y khoa hay tiếng Việt, nó không giải thích được, và gửi dữ liệu bệnh nhân thật lên API nước ngoài cần cơ sở pháp lý theo Luật Bảo vệ dữ liệu cá nhân, hiệu lực từ 1/1/2026.</aside>
 </section>
 
@@ -387,7 +420,7 @@ aside.notes { display: none; }
       <div class="fact"><b class="v">Lợi ích</b><span class="small muted">ít lệnh gọi model lớn, dữ liệu xử lý tại máy, có ngưỡng rõ để chuyển người</span></div>
     </div>
   </div>
-  <div class="foot"><span>Model nhỏ: Qwen3.5-2B + LoRA đảo phương án. DeepSeek-v4.1-flash: kết quả zero-shot sẵn có trên cùng 1.658 câu. Không đo bản thân Jev.</span><span class="pg">12</span></div>
+  <div class="foot"><span>Model nhỏ: Qwen3.5-2B + LoRA đảo phương án. DeepSeek-v4.1-flash: kết quả zero-shot sẵn có trên cùng 1.658 câu. Không đo bản thân Jev.</span><span class="pg">13</span></div>
   <aside class="notes">Jev bán đúng ý tưởng này: một model nhanh ra quyết định kèm xác suất, và chỉ chuyển ca khó lên model lớn. Em mô phỏng bằng model 2B vừa fine-tune: câu nào nó ít chắc nhất thì lấy đáp án DeepSeek. Gửi một nửa số câu, độ chính xác chung là 65,6 phần trăm, so với 61,2 nếu chọn ngẫu nhiên cùng số câu. Kết hợp này không vượt DeepSeek dùng một mình, vì trên chính những câu model nhỏ chắc nhất, DeepSeek vẫn đúng 81 phần trăm. Giá trị nằm ở chi phí, ở việc dữ liệu không rời máy, và ở chỗ xác suất sau fine-tune đủ tin để đặt ngưỡng. Với y tế, ngưỡng đó có thể là “không chắc thì chuyển bác sĩ”.</aside>
 </section>
 
@@ -396,9 +429,9 @@ aside.notes { display: none; }
   <div class="head"><p class="eyebrow">Đề xuất</p><h2 class="title" style="font-size:var(--fs-title)">Bước tiếp theo</h2></div>
   <div class="cards" style="grid-template-columns:1fr 1fr">
     <div class="card"><h3>Fine-tune</h3><ul class="plain">
-      <li>QLoRA Qwen3.5-9B trên GPU trường, cùng script: có vượt 63,0% zero-shot không?</li>
+      <li>Kiến thức: model to trước (QLoRA Qwen3.5-9B trên GPU trường), rồi RAG tài liệu Bộ Y tế bằng embedding</li>
+      <li>Đo “có học kiến thức không”: train bỏ hết câu Sản phụ khoa, so điểm trên 319 câu Sản phụ khoa</li>
       <li>Lọc khoá train: bỏ câu bị model mạnh bất đồng rồi train lại</li>
-      <li>Đo trên đề ngoài VM14K để biết model học y khoa hay học bộ đề</li>
       <li>Luôn đảo phương án khi train, báo cáo kèm tỉ lệ chọn A</li>
     </ul></div>
     <div class="card"><h3>Jev</h3><ul class="plain">
@@ -407,7 +440,7 @@ aside.notes { display: none; }
       <li>Không đưa dữ liệu bệnh nhân thật lên API khi chưa có cơ sở pháp lý</li>
     </ul></div>
   </div>
-  <div class="foot"><span>Đang chờ: Thầy Nhật phản hồi file 125 câu. Lọc khoá train cần chạy DeepSeek và Gemma-31B trên 7.313 câu; API NVIDIA đang timeout (15/10).</span><span class="pg">13</span></div>
+  <div class="foot"><span>Đang chờ: Thầy Nhật phản hồi file 125 câu. Lọc khoá train cần chạy DeepSeek và Gemma-31B trên 7.313 câu; API NVIDIA đang timeout (15/10).</span><span class="pg">14</span></div>
   <aside class="notes">Hướng fine-tune: thứ nhất, cùng script chạy được cho model 9B khi có GPU trường; câu hỏi là có vượt mức zero-shot 63 phần trăm không. Thứ hai, nối với hướng audit khoá: bỏ các câu train mà model mạnh không đồng ý với khoá rồi train lại. Thứ ba, cần một bộ đề ngoài VM14K để biết phần tăng là kiến thức y khoa hay chỉ là quen bộ đề. Và từ kết quả đối chứng: mọi lần train phải đảo phương án. Hướng Jev: xin key dùng thử để đo trên chính tập test; nếu được thì đây là đánh giá đầu tiên của Jev trên y khoa tiếng Việt.</aside>
 </section>
 
@@ -416,7 +449,7 @@ aside.notes { display: none; }
   <div class="head"><p class="eyebrow">Bằng chứng</p><h2 class="title">Mọi con số đều chạy lại được từ repo</h2></div>
   <div class="tbl-wrap"><table class="data small">
     <tr><th style="width:30%">Kết luận</th><th style="width:36%">File</th><th>Cách kiểm tra lại</th></tr>
-    <tr><td>Accuracy, ECE, McNemar, chuyên khoa</td><td class="mono">reports/eval/FINETUNE.md §1–2</td><td class="mono">python scripts/training/analyze_finetune.py</td></tr>
+    <tr><td>Accuracy, ECE, McNemar, chuyên khoa, nguồn gốc phần tăng</td><td class="mono">reports/eval/FINETUNE.md §1–2</td><td class="mono">python scripts/training/analyze_finetune.py</td></tr>
     <tr><td>Câu gần trùng, câu tranh cãi, định tuyến</td><td class="mono">reports/eval/FINETUNE.md §3–5</td><td>cùng lệnh trên</td></tr>
     <tr><td>Dự đoán và xác suất từng câu</td><td class="mono">reports/eval/runs/hf-logit__Qwen_Qwen3.5-2B*.jsonl</td><td>3 file × 1.658 dòng</td></tr>
     <tr><td>Train và chấm điểm</td><td class="mono">scripts/training/sft_mcq_lora.py</td><td class="mono">… train --shuffle · … eval --adapter</td></tr>
@@ -424,7 +457,7 @@ aside.notes { display: none; }
     <tr><td>Baseline 7 model zero-shot</td><td class="mono">reports/eval/SUMMARY.md</td><td class="mono">python scripts/eval/summarize_eval.py</td></tr>
   </table></div>
   <p class="small muted">GitHub: <a href="https://github.com/hanguyennn2812/VM14K_Research/tree/eval-zero-shot-baselines" target="_blank" rel="noopener">hanguyennn2812/VM14K_Research, nhánh eval-zero-shot-baselines</a></p>
-  <div class="foot"><span>Kết quả fine-tune một seed, một epoch; chưa đo độ dao động giữa các lần chạy.</span><span class="pg">14</span></div>
+  <div class="foot"><span>Kết quả fine-tune một seed, một epoch; chưa đo độ dao động giữa các lần chạy.</span><span class="pg">15</span></div>
   <aside class="notes">Nếu các Thầy muốn kiểm tra: mọi số trong slide nằm trong FINETUNE.md, sinh ra bằng một lệnh. Dự đoán và xác suất từng câu của cả ba run đều có trong repo, nên ai cũng chấm lại được. Giới hạn em nói trước: mỗi cấu hình mới chạy một lần với một seed, nên chưa đo được độ dao động giữa các lần train.</aside>
 </section>
 
@@ -451,8 +484,10 @@ aside.notes { display: none; }
     <li>Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15; Nghị định 356/2025/NĐ-CP. <a href="https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Nghi-dinh-356-2025-ND-CP-huong-dan-Luat-Bao-ve-du-lieu-ca-nhan-687428.aspx" target="_blank" rel="noopener">link</a></li>
     <li>Qwen Team, Qwen3.5-2B model card, Hugging Face, 2026. <a href="https://huggingface.co/Qwen/Qwen3.5-2B" target="_blank" rel="noopener">link</a></li>
     <li>TypeSafe wiki, “System One”, GitHub chujianyun/typesafe-wiki. <a href="https://github.com/chujianyun/typesafe-wiki/blob/main/references/docs/Concepts/System%20One.md" target="_blank" rel="noopener">link</a></li>
+    <li>Z. Gekhman et al., “Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?”, EMNLP 2024. <a href="https://arxiv.org/abs/2405.05904" target="_blank" rel="noopener">link</a></li>
+    <li>O. Ovadia et al., “Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs”, arXiv:2312.05934, 2023. <a href="https://arxiv.org/abs/2312.05934" target="_blank" rel="noopener">link</a></li>
   </ol>
-  <div class="foot"><span>Bản đầy đủ: docs/research/JEV_SYSTEM_ONE.md</span><span class="pg">15</span></div>
+  <div class="foot"><span>Bản đầy đủ: docs/research/JEV_SYSTEM_ONE.md</span><span class="pg">16</span></div>
   <aside class="notes">Danh sách tài liệu, có link đầy đủ. Số liệu Jev của nhà sản xuất và của đánh giá độc lập được tách riêng trong tài liệu Jev.</aside>
 </section>
 
@@ -462,7 +497,7 @@ aside.notes { display: none; }
 <div class="notes-panel" id="notesPanel" hidden aria-live="polite"><h4>Ghi chú người nói</h4><div id="notesText"></div></div>
 <nav class="bar" aria-label="Điều khiển trình chiếu">
   <button type="button" id="prevBtn" aria-label="Trang trước">← Trước</button>
-  <span class="count" id="counter">1 / 15</span>
+  <span class="count" id="counter">1 / 16</span>
   <button type="button" id="nextBtn" aria-label="Trang sau">Sau →</button>
   <button type="button" id="notesBtn" aria-pressed="false">Ghi chú<kbd>N</kbd></button>
   <button type="button" id="fsBtn">Toàn màn hình<kbd>F</kbd></button>

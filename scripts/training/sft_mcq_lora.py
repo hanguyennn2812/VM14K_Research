@@ -139,6 +139,8 @@ def cmd_train(args):
     model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     model.enable_input_require_grads()
     rows = load_rows("train", args.limit, 0)
+    if args.exclude_topic:  # held-out-topic run: does the gain on topic X need training items from X?
+        rows = [r for r in rows if args.exclude_topic not in r["medical_topic"]]
     per_step = args.batch * args.accum
     total = math.ceil(len(rows) * args.epochs / per_step)
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=args.lr)
@@ -195,6 +197,7 @@ def main():
     ap.add_argument("--lr", type=float, default=2e-4)
     ap.add_argument("--rank", type=int, default=16)
     ap.add_argument("--shuffle", action="store_true", help="train: permute options per example and epoch")
+    ap.add_argument("--exclude-topic", help="train: drop every train row carrying this medical_topic label")
     ap.add_argument("--log-every", type=int, default=10)
     args = ap.parse_args()
     if args.cmd == "train" and not args.out:

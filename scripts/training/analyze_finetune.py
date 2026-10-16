@@ -135,6 +135,30 @@ def main():
     lines += [f"Floors on the same questions: always-A {100 * gold_a:.1f}, random {100 * rand:.1f}. "
               f"The key is A on {100 * gold_a:.1f}% of test items.", ""]
 
+    # 1b. Letter-prior correction: how much of the gain needs no training at all?
+    val_path = os.path.join(RUNS_DIR, f"{BASE}__paper__val.jsonl")
+    if os.path.exists(val_path):
+        prior = {}
+        for r in load_run(val_path):
+            prior.setdefault(r["n_options"], []).append(r["probs"])
+        prior = {n: [sum(p[k] for p in ps) / len(ps) for k in range(n)] for n, ps in prior.items()}
+        debiased = {}
+        for i, r in zero.items():
+            q = [p / m for p, m in zip(r["probs"], prior[r["n_options"]])]
+            k = q.index(max(q))
+            debiased[i] = dict(r, pred="ABCDEFG"[k], correct="ABCDEFG"[k] == r["gold"])
+        lines += ["## 1b. Where the gain comes from", "",
+                  "The zero-shot model prefers some letters regardless of content. Dividing each letter's "
+                  "probability by its mean over the val split (no labels used, no training) removes that "
+                  "preference. Mean zero-shot probability per letter on val: " +
+                  "; ".join(f"{n} options " + " / ".join(f"{'ABCDEFG'[k]} {100 * m:.0f}%" for k, m in enumerate(ms))
+                            for n, ms in sorted(prior.items()) if n in (2, 4)) + ".", ""]
+        lines += table(["comparison (A → B)", "n", "A %", "B %", "B − A", "only A right", "only B right", "p"],
+                       [paired_row("zero-shot → letter-prior corrected", zero, debiased, ids),
+                        paired_row("letter-prior corrected → LoRA shuffled", debiased, shuf, ids)])
+        lines += [f"Letter-prior corrected run picks A on "
+                  f"{100 * sum(r['pred'] == 'A' for r in debiased.values()) / len(debiased):.1f}% of items.", ""]
+
     # 2. Paired tests
     lines += ["## 2. Paired comparison (McNemar exact)", ""]
     hdr = ["comparison (A → B)", "n", "A %", "B %", "B − A", "only A right", "only B right", "p"]
