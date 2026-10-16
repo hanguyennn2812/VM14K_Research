@@ -63,3 +63,20 @@ def test_is_subsample_only_matches_limit_suffix():
     assert is_subsample("x__paper__test__think-on__n400")
     assert not is_subsample("nvidia__nvidia_nemotron-3-ultra-550b-a55b__paper__test")
     assert not is_subsample("qwen3_8b__paper__test")
+
+
+def test_jev_record_maps_shuffled_probs_back():
+    from types import SimpleNamespace
+    from run_jev import request_body, to_record
+    row = {"id": "q1", "question": "Câu hỏi?", "options": ["w", "x", "y", "z"], "answer_index": 2,
+           "medical_topic": ["Pathology"], "difficulty_level": "Easy"}
+    options, gold, perm = permute(row, 7)
+    assert request_body(row, options, "jev-latest")["questions"]["answer"]["criteria"]["A"] == options[0]
+    # Jev puts 0.7 on the letter where the original key ("y") was shown
+    probs = {letter: (0.7 if options[i] == "y" else 0.1) for i, letter in enumerate("ABCD")}
+    resp = {"model": "jev-1.13.0", "answers": {"answer": {"choice": "ABCD"[gold], "probabilities": probs}}}
+    args = SimpleNamespace(model="jev-latest", shuffle_seed=7, split="test")
+    rec = to_record(row, gold, perm, resp, None, args, 0.1)
+    assert rec["correct"] and rec["pred"] == "ABCD"[gold]
+    assert rec["probs_orig"] == [0.1, 0.1, 0.7, 0.1]  # back in the original option order
+    assert to_record(row, gold, perm, {"answers": {}}, None, args, 0.1)["error"]
