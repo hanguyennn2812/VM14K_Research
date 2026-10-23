@@ -1,0 +1,498 @@
+﻿Mã câu,Phân loại sơ bộ (AI),Độ chắc,Đáp án đề xuất,Lý do,Khoá,Đa số 7 model,Nemotron khi lập luận,Qwen3.5-27B + 3 câu train,Câu train gần nhất (độ giống; khoá),Chuyên khoa,Câu hỏi,Các phương án,id
+C003,Đáp án chuẩn sai,Cao,A,Gen di chuyển giữa các quần thể là dòng chảy gen; phiêu bạt di truyền là biến động ngẫu nhiên trong một quần thể.,C,A (7/7),A,A,,"Genetics, Other(No Category)",Sự di chuyển của các gen giữa các quần thể là:,"A. Dòng chảy gen
+B. Chọn lọc tự nhiên
+C. Di truyền drift
+D. Sự di cư",20f55c41d43947dc87e08921dbc818d4
+C014,Đáp án chuẩn sai,Cao,C,"Mất ngủ dậy sớm, mệt buổi sáng, chán ăn sụt cân, giảm tập trung, chậm chạp: trầm cảm; không có triệu chứng loạn thần.",D,C (7/7),C,C,,"Psychiatry, Internal Medicine, Endocrinology","Một bệnh nhân nữ 40 tuổi, bị bệnh 6 tháng nay với biểu hiện khó vào giấc ngủ, giấc ngủ nông, hay dậy sớm và không ngủ lại được. Buổi sáng, bệnh nhân cảm thấy rất mệt mỏi nhưng buổi trưa và chiều thì đỡ mệt hơn. Ngoài ra, bệnh nhân than phiền chán ăn nên ăn rất ít và sút mất 3kg trong 2 tháng gần đây. Bệnh nhân cảm thấy rất khó quyết định, không thể tập trung chú ý và rất hay quên. Bệnh nhân nhận thấy các cử động và suy nghĩ của mình chậm chạp hẳn so với bình thường. Bệnh nhân luôn có các cơn bốc hỏa ở cỏ, mặt, đánh trống ngự, vã mồ hôi nhiều dù thời tiết không nóng. Chẩn đoán nào sau đây là phù hợp nhất:","A. mất ngủ tiên phát
+B. lo âu lan tỏa
+C. trầm cảm
+D. tâm thân phân liệt",a822c651f28c491a87a018b52ae03118
+C022,Đáp án chuẩn sai,Cao,A,Lưỡng cư hô hấp bằng phổi và da; chỉ hô hấp bằng phổi là đặc điểm của bò sát.,C,A (6/7),A,A,,Pulmonology,Động vật lưỡng cư khác bò sát ở điểm nào?,"A. Hô hấp bằng phổi và da
+B. Hô hấp bằng mang và da
+C. Hô hấp bằng phổi
+D. Hô hấp bằng da",1c8fbc38655448a0bfaeb19d96afd051
+C032,Đáp án chuẩn sai,Cao,B,Hạt nhân 1H (proton) có spin 1/2.,A,B (6/7),B,B,,"Radiology, Nuclear Medicine","Trong chụp ảnh bằng cộng hưởng từ hạt nhân, người ta sử dụng spin của các hạt nhân để tạo nên tín hiệu. Hạt nhân ’H có spin bằng bao nhiêu?","A. 1
+B. 1/2
+C. 3/2
+D. 5/2",d65e4dc2927749c4ac2344ed981d6f6f
+C044,Đáp án chuẩn sai,Cao,D,"Tế bào Malassez là di tích biểu mô bao Hertwig, không có nguồn gốc trung mô.",C,D (5/7),D,D,,"Periodontology, Pathology",Tế bào nào trong dây chằng quanh răng không có nguồn gốc từ trung mô?,"A. Nguyên bào sợi
+B. Nguyên bào tạo xê măng
+C. Tế bào gốc
+D. Các tế bào Malassez",8fa73108275b4839be0d7186acc1081f
+C047,Đáp án chuẩn sai,Cao,C,"Hiệu ứng Bohr: CO2, H+ tăng làm giảm ái lực Hb với O2, tăng nhả O2 cho mô.",A,C (5/7),C,C,,"Pulmonology, Hematology",Trong trường hợp gia tăng nồng độ CO2 và ion H trong mao mạch của các mô thì ái lực của Hb đối với oxy sẽ thay đổi như thế nào ?,"A. Tăng, dẫn đến tăng cung cấp oxy cho các mô
+B. Tăng, dẫn đến giảm cung cấp oxy cho các mô
+C. Giảm, dẫn đến tăng cung cấp oxy cho các mô
+D. Giảm, dẫn đến giảm cung cấp oxy cho các mô",fb8ef8b1cc4e40b8bc12f3d89fd3744c
+C064,Đáp án chuẩn sai,Cao,C,"Hẹp thực quản ác tính: lệch trục, bờ không đều, chuyển tiếp đột ngột; D mô tả hẹp lành tính.",D,C (5/7),B,C,,"Gastroenterology, Oncology, Radiology",Các đặc điểm nào là của tổn thương hẹp thực quản ác tính?,"A. Đoạn hẹp lệch trục, bờ đều đặn, tiếp nối giữa vùng lành và vùng tổn thương bờ dốc đứng
+B. Đoạn hẹp thẳng trục, bờ không đều, tiếp nỗi giữa vùng lành và vùng tổn thương chuyển đổi từ từ.
+C. Đoạn hẹp lệch trục, bờ không đều, tiếp nối giữa vùng lành và vùng tổn thương bờ dốc đứng
+D. Đoạn hẹp thẳng trục, bờ đều đặn, tiếp nối giữa vùng lành và vùng tổn thương chuyển đổi từ từ.",7b2571ae49504319bcfb64bdb8c6a795
+C066,Đáp án chuẩn sai,Cao,C,Mức sinh thay thế khi tỷ suất tái sinh tinh (NRR) = 1.,B,C (4/7),C,C,,"Public Health, Preventive Healthcare",Mức sinh thay thế đạt được khi:,"A. Tổng tỷ suất sinh =1
+B. Tỉ suất tái sinh thô=1
+C. Tỉ suất tái sinh tinh =1
+D. Tỉ suất sinh chung =1",0e44bc5f2ac54a0b8b06c74bed3454be
+C079,Đáp án chuẩn sai,Cao,B,"Isocitrat dehydrogenase, rồi succinat thiokinase (đề gõ nhầm 'oxalosuccinat'); aconitase xúc tác citrat thành isocitrat.",D,C (4/7),B,B,,Biochemistry,Cho 2 phản ứng: Isocitrat → Oxalosuccinat SuccinylCoA → Oxalosuccinat. Tập hợp enzym nào trình tự xúc tác 2 phản ứng trên:,"A. Isocitrat dehydrogense, succinat dehydrogenase
+B. Isocitrat dehydrogense, succinat thiokinase
+C. Isocitrat dehydrogense và phức hợp dehydrogenase
+D. Aconitase, succinat thiokinase",aa373fd42ffb495db489f42a09482ff3
+C007,Đáp án chuẩn sai,Vừa,D,"Ebola lây qua máu/dịch tiết, không thuộc nhóm hô hấp; câu train cùng mẫu có khoá Dengue (đường máu).",A,D (7/7),D,D,0.69; Dengue virus,"Infectious Diseases, Pulmonology","Hầu hết các họ vi sinh vật đều có đại diện là mầm bệnh của nhóm bệnh truyền nhiễm đường hô hấp, chủ yếu là virus và vi khuẩn, ngoài ra còn có các vsv khác… mầm bệnh không thuộc nhóm này là:","A. Các virus ECHO…
+B. Màng não cầu
+C. Bạch hầu
+D. Ebola",33e0a811cf3546cd9ae98d93183bb502
+C008,Đáp án chuẩn sai,Vừa,D,"Rong kinh tuổi dậy thì do chu kỳ không phóng noãn: cường estrogen tương đối và thiếu progesteron, nên A và B đều đúng.",A,D (7/7),D,D,,"Obstetrics and Gynecology, Endocrinology","Rong kinh, rong huyết tuổi trẻ:","A. Thường gặp ở tuổi dậy thì Nguyên nhân do cường Estrogen
+B. Do nồng độ Progesterone trong máu thấp
+C. Thường gặp ở chu ký kinh có phóng noãn
+D. A và B đúng",362608c2df3f41a2a01b8be954ed1659
+C009,Đáp án chuẩn sai,Vừa,A,RNA mồi cung cấp đầu 3'-OH để khởi đầu tổng hợp mạch mới.,D,A (7/7),A,A,,Molecular Biology,RNA đóng vai trò gì trong sao chép DNA:,"A. “Mồi” để khởi đầu tổng hợp các mạch mới.
+B. Để nối các đoạn ngắn lại.
+C. “Mồi” ở giữa để các đoạn DNA được tổng hợp hai bên.
+D. Chỗ bám của DNA- polymerase.",37c4477b3ae04a5e827a8a73af50a875
+C012,Đáp án chuẩn sai,Vừa,A,"Kháng nguyên có nhiều epitop, có thể tạo một hay nhiều đáp ứng đặc hiệu.",B,A (7/7),A,A,,"Allergy and Immunology, Medical Microbiology",Một kháng nguyên khi tiếp xúc với hệ miễn dịch của ký chủ sẽ kích thích hệ miễn dịch:,"A. Có thể tạo được một hay nhiều miễn dịch đặc hiệu với kháng nguyên.
+B. Chỉ tạo ra được một miễn dịch đặc hiệu với kháng nguyên.
+C. Luôn luôn tạo được nhiều miễn dịch với kháng nguyên.
+D. Chưa thể tạo đựợc miễn dịch đặc hiệu với kháng nguyên sau lần tiếp xúc đầu tiên.",80ecf6e5d84548dca0621dbe2f41d293
+C016,Đáp án chuẩn sai,Vừa,D,"Tắc ruột cơ học: hồi sức (sonde, dịch, kháng sinh) rồi chuyển ngay tuyến có phẫu thuật, không chờ hết tắc.",B,D (7/7),D,D,,"Surgery, Gastroenterology",Gặp một bệnh nhân tắc ruột cơ học thì thái độ xử trí ở tuyến trước là gì?,"A. Chỉ cần truyền dịch và điện giải đồng thời chuyển bệnh nhân về tuyến sau
+B. Đặt sonde dạ dày hút liên tục, truyền dịch và điện giải, kháng sinh, khi hết tắc thì chuyển bệnh nhân về tuyến sau
+C. Giữ bệnh nhân điều trị cân nhắc không chuyển về tuyến sau
+D. Đặt sonde dạ dày hút liên tục, truyền dịch và điện giải, kháng sinh đồng thời chuyển bệnh nhân về tuyến sau",cf0d8406fcae433b8ad3d6c9941cc20b
+C017,Đáp án chuẩn sai,Vừa,A,"Siêu âm thấy thận nhỏ, nhu mô mỏng, tăng âm: chẩn đoán được teo nhu mô.",B,A (7/7),A,B,,"Radiology, Urology",siêu âm có thể chẩn đoán teo nhu mô thận,"A. đúng
+B. sai",d32b881ee72f4448a6b8eb8db53dd0a8
+C025,Đáp án chuẩn sai,Vừa,C,Đỉnh viền lợi răng cửa giữa và răng nanh lệch về phía xa (C); D quá tuyệt đối.,D,C (6/7),C,A,,"Dentistry, Periodontics",Đường viền lợi các răng trước:,"A. Đỉnh viền lợi răng cửa giữa và răng nanh lệch về phía gần
+B. Điển viền lợi răng cửa bên lệch về phía xa
+C. Đỉnh viền lợi của răng cửa giữa và răng nanh lệch về phía xa
+D. Tương quan đường viền lợi có thể giải quyết hoàn toàn chỉ bằng nắn chỉnh răng",31be59d5566941b8917d33388de59e12
+C038,Đáp án chuẩn sai,Vừa,B,"Tập thụ động ở cơ bậc 0-1 duy trì tầm vận động, đàn hồi cơ; không tăng sức bền.",C,B (5/7),B,B,,Physical Medicine and Rehabilitation,Đối với BN liệt cơ hoàn toàn (cơ bậc 0 -1) bài tập thụ động có tác dụng:,"A. Phòng teo cơ
+B. Duy trì sự đàn hồi của cơ
+C. Tăng sức bền cơ
+D. Tăng sức mạnh cơ",25c881f0b097468cb7627cd8717ac131
+C042,Đáp án chuẩn sai,Vừa,A,"Kübler-Ross: phủ nhận, giận dữ, mặc cả, trầm cảm, chấp nhận. Khoá 'mặc cảm' (gõ nhầm 'mặc cả'); câu train cùng nguồn xếp giai đoạn III là trầm cảm, tức nguồn dùng thứ tự khác.",B,A (5/7),A,A,0.87; Trầm cảm,"Psychiatry, Palliative Medicine","Theo nghiên cứu của Kubler – Ross (1970),giai đoạn II trong tâm lý thường gặp của bệnh nhân trước khi chết là gì?","A. Tức giận, kích động
+B. Mặc cảm
+C. Từ chối
+D. Trầm cảm",514138368ae4494ba643af7980e26891
+C052,Đáp án chuẩn sai,Vừa,D,"Tạo máu nguyên thuỷ (túi noãn hoàng): hồng cầu, đại thực bào, tiểu cầu nguyên thuỷ; lympho đến từ tạo máu vĩnh viễn.",B,A (7/7),D,A,,"Hematology, Embryology",Tạo máu nguyên thủy cung cấp các loại tế bào nào?,"A. Hồng cầu, bạch cầu hạt, tiểu cầu nguyên thủy
+B. Hồng cầu, bạch cầu lympho, tiểu cầu nguyên thủy
+C. Hồng cầu, bach cầu hạt, đại thực bài
+D. Hồng cầu, đại thực bào, tiểu cầu nguyên thủy",48970f6666ce4cc1957f5cdad8dae857
+C053,Đáp án chuẩn sai,Vừa,D,Trùng với C008 (phương án D mất chữ 'A'); A và B đều đúng.,A,D (7/7),B,D,,"Obstetrics and Gynecology, Endocrinology","Rong kinh, rong huyết tuổi trẻ:","A. Thường gặp ở tuổi dậy thì Nguyên nhân do cường Estrogen
+B. Do nồng độ Progesterone trong máu thấp
+C. Thường gặp ở chu ký kinh có phóng noãn
+D. và B đúng",bce2a481c2894ec4904606966b1cfa5d
+C054,Đáp án chuẩn sai,Vừa,B,"Mút ngón tay gây cắn hở phía trước, răng cửa trên ngả môi, hàm trên hẹp gây cắn chéo răng sau; 'tăng cắn chùm' (cắn sâu) ngược với cắn hở.",D,A (7/7),B,A,,"Dentistry, Pediatrics",Đặc điểm lâm sàng của mút ngón tay là gì?,"A. Răng cửa hàm trên ngả lưỡi, quặp răng cửa hàm dưới ra môi
+B. Cắn chéo lưỡi răng hàm
+C. Vòm khẩu cái nông
+D. Tăng cắn chùm",e223ed17d147457d86072c8213787835
+C062,Đáp án chuẩn sai,Vừa,C,Rong huyết là ra máu không theo chu kỳ kinh; 'kéo dài trên 7 ngày' là định nghĩa rong kinh.,A,C (5/7),D,C,,Obstetrics and Gynecology,Rong huyết:,"A. Hiện tượng ra huyết từ đường sinh dục kéo dài trên 7 ngày
+B. Có chu kỳ
+C. Không có chu kỳ
+D. A và B đúng",5f62d08644a941209b2cd0ebb3f46c38
+C067,Đáp án chuẩn sai,Vừa,C,"Quy chế bệnh viện (QĐ 1895/1997/BYT): 7 nhiệm vụ gồm cả nghiên cứu khoa học, hợp tác quốc tế, phòng bệnh, đào tạo.",D,B (4/7),B,B,,"Health Administration, General Medicine, Public Health","Các nhiệm vụ chính của bệnh viện, trừ:","A. Đào tạo cán bộ
+B. Phòng bệnh
+C. Nơi ứng dụng công nghệ y học
+D. Nghiên cứu khoa học và hợp tác quốc tế.",125a8d5a146c45a4ba2aeca8bf7ecb03
+C069,Đáp án chuẩn sai,Vừa,C,Dị tật ống thần kinh gây đa ối thường gặp; phì đại môn vị xuất hiện sau sinh.,D,C (4/7),C,C,,"Obstetrics and Gynecology, Pediatrics",Loại dị dạng thai nhi nào sau đây có khả năng gây đa ối nhiều nhất:,"A. Sứt môi.
+B. Bất sản sụn.
+C. Thoát vị của cột sống.
+D. Phì đại môn vị.",188456ee8e2a445c9013411172b5ed6e
+C071,Đáp án chuẩn sai,Vừa,C,Viêm phế quản đơn thuần không làm giảm rì rào phế nang; 3 bệnh còn lại đều làm giảm.,B,D (4/7),C,C,,Pulmonology,"Rì rào phế nang giảm ,trừ(0)","A. XƠ PHỔI
+B. viêm phổi màng phổi
+C. viêm phế quản
+D. Tràn khí màng phổi",2d7fd3ed55bb4651afffd62c53902f1d
+C075,Đáp án chuẩn sai,Vừa,C,Nhi khoa VN: thời kỳ răng sữa (1-6 tuổi) gồm nhà trẻ 1-3 tuổi và mẫu giáo 4-6 tuổi.,A,C (4/7),C,B,,"Pediatrics, Dentistry",Thời kì răng sữa của trẻ em gồm các giai đoạn nào ( chọn câu đúng ),"A. Giai đoạn nhà trẻ từ 6 tháng-1 tuổi và giai đoạn mẫu giáo ( tiền học đường ) từ 2-4 tuổi
+B. Giai đoạn nhà trẻ từ 9-18 tháng và giai đoạn mẫu giáo( tiền học đường ) từ 3-5 tuổi
+C. Giai đoạn nhà trẻ từ 1-3 tuổi và giai đoạn mẫu giáo ( tiền học đường ) từ 4-6 tuổi
+D. Giai đoạn nhà trẻ từ 12-24 tháng và giai đoạn mẫu giáo ( tiền học đường ) từ 4-5 tuổi",6234c539d47341a0a4dbb78c4cbc8fe8
+C082,Đáp án chuẩn sai,Vừa,Không có đáp án đúng,"ADA: mục tiêu chặt hơn cho người mới mắc, trẻ, không bệnh tim mạch, điều trị bằng lối sống/metformin; dùng thuốc tiêm thì ngược lại. Đúng ra là 'A và B'.",C,D (4/7),B,B,0.62; Bệnh nhân có nhiều bệnh lý đi kèm,Endocrinology,Mục tiêu kiểm soát HbA1c có thể nghiêm ngặt hơn trên những đối tượng bệnh nhân:,"A. Bệnh nhân mới mắc đái tháo đường
+B. Bệnh nhân trẻ tuổi hoặc không có bệnh tim mạch quan trọng
+C. Bệnh nhân được điều trị bằng thuốc tiêm
+D. Tất cả đều đúng",c6b29e9b2e5e4849892b9cfe4bb2d14f
+C085,Đáp án chuẩn sai,Vừa,B,"Niệu đạo trước tổn thương do ngã ngồi, thủ thuật, quan hệ tình dục; tai nạn giao thông (vỡ xương chậu) gây tổn thương niệu đạo sau.",D,C (4/7),C,A,,"Urology, Emergency Medicine",Chọn câu trả lời đúng nhất: Các nguyên nhân gây chấn thương niệu đạo trước:,"A. Tai nạn giao thông, tai nạn trong điều trị, quan hệ tình dục sai tư thế
+B. Tai nạn lao động, tại nạn sinh hoạt, tai nạn trong điều trị, quan hệ tình dục sai tư thế
+C. Tại nạn sinh hoạt, tai nạn trong điều trị, tai nạn giao thông, quan hệ tình dục sai tư thế
+D. Tai nạn trong điều trị, tai nạn lao động, tại nạn sinh hoạt, tai nạn giao thông",eb3acd5032374c6991c80e75757ac224
+C092,Đáp án chuẩn sai,Vừa,B,Nguyên tắc nhận dạng: răng đã nhổ không mọc lại; D sai.,D,A / B (hoà) (3/7),B,A,,"Dentistry, Pathology",ABFO) nguyên tắc khi nhận dạng răng gồm:,"A. Khi sống thấy răng đã mất mà trên tử thi lại có răng này thì so sánh nhận dạng thuộc nhóm có thể tương đồng
+B. Răng đã nhổ không thể mọc lại
+C. Khi sống thấy răng đã mất trên tử thi lại có răng này thì so sánh nhận dạng thuộc nhóm tương đồng 70%
+D. Răng đã mất có thể tìm thấy trên tử thi",6b8e73196df1478daf87e2cf6d25f6c1
+C093,Đáp án chuẩn sai,Vừa,B,"Arsen nguyên tố ít độc vì không tan; As2O3 là tinh thể trắng, không mùi, rất độc.",D,B (3/7),B,B,,"Toxicology, Environmental Health",Chọn phát biểu sai:,"A. Arsenate là muối của acid arsennic được dùng trong các thuốc bảo vệ thực vật
+B. Arsen nguyên tố ở thể tinh khiết rất độc
+C. Hydro arsenur là chất khí độc, mùi tỏi
+D. Arsen trioxide là tinh thể không màu, không mùi, rất độc",a992d9347ff34f91a13663f82f500edc
+C096,Đáp án chuẩn sai,Vừa,D,"Triamcinolon, methylprednisolon hầu như không giữ muối nước; prednisolon còn tác dụng này.",A,C / D (hoà) (3/7),D,D,,"Endocrinology, Nephrology",Thuốc ít ảnh hưởng tới chuyển hoá muối nước ( tdung trung bình )?,"A. Prednisolon
+B. Methylprednisolon
+C. Predníon
+D. Triamcinolon",e755d649d45a42908bb4586abb1a81fd
+C076,Đáp án chuẩn sai,Thấp,C hoặc D,Lao màng phổi thường sốt kéo dài; 'không kéo dài' khó đúng.,B,C (4/7),D,D,,"Pulmonology, Infectious Diseases",Triệu chứng sốt trong lao màng phổi là?,"A. Sốt vừa và không kéo dài
+B. Sốt nhẹ và không kéo dài
+C. Sốt vừa và kéo dài
+D. Sốt nhẹ và kéo dài",81750b6441124268bc9909b5dd5827a3
+C043,Kiến thức cũ / đã thay đổi,Cao,B,Ipecac không còn được khuyến cáo; quá liều paracetamol dưới 1 giờ: than hoạt.,A,B (5/7),B,B,,"Emergency Medicine, Toxicology",8. Cách xử trí phù hợp nhất trong trường hợp uống quá liều paracetamol trước 1giờ là,"A. Gây nôn bằng ipecac, sau đó cho uống hoạt
+B. Cho uống than hoạt
+C. Truyền dung dịch glucose 5% + Ringer’s lactate (20ml/kg/giờ, trong 1-2 giờ)
+D. Cho uống hay tiêm N-acetyl cysteine",531d9f6d880a48d6b46241b700eaba3e
+C006,Kiến thức cũ / đã thay đổi,Vừa,C,Salmeterol (LABA) không dùng đơn độc để dự phòng hen; trong 4 phương án chỉ cromoglycate hít là thuốc dự phòng (GINA hiện nay: ICS).,D,C (7/7),C,C,,"Pediatrics, Pulmonology",Chọn loại thuốc thích hợp nhất để điều trị dự phòng thường xuyên ở trẻ dưới 10 tuổi bị hen phế quản?,"A. Salbutamol đường uống
+B. Theophylin đường uống
+C. Natri cromoglycate dạng hít
+D. Salmeterol dạng hít",32bb846d2f9d4189b8dc0d7306d91f0c
+C048,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Cao,Không xác định được,Cần hình vi thể ('chi tiết số 1') nhưng bộ dữ liệu không có hình.,A,C (7/7),Không chọn,C,,"Oncology, Pulmonology","Dưới đây là minh họa hình ảnh vi thể của ung thư biểu mô tuyến ở phổi. Chi tiết số 1 chỉ ra cấu trúc gì, chọn câu trả lời đúng nhất","A. Vùng nhu mô phổi lành
+B. Vùng xuất huyết hoại tử u
+C. Vùng tổ chức tuyến ung thư
+D. Vùng tổ chức đệm u",3235647df6c944068327d0c9d583b067
+C051,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Cao,Không xác định được,'Xử lí tình huống sau' nhưng không có tình huống.,B,A (3/7),Không chọn,B,,General Medicine,Xử lí tình huống sau,"A. 1,2,3,4,7,8,10,11,14,16.
+B. 1,3,4,5,6,9,10,11,12,16.
+C. 1,3,4,5,6,7,11,13,14,15.
+D. 1,2,3,4,6,7,8,12,15,16.",341544210f4e4fd29b936dd720c5b994
+C031,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Vừa,D,"Axit mạnh + bazơ yếu có điểm tương đương ở pH axit, 'bước nhảy 8-10' là sai; theo dữ kiện đề, phenolphtalein nằm gọn trong bước nhảy.",A,D (6/7),D,D,,Gastroenterology,Để định lương HCl trong dịch dạ dày người ta sử dụng 1 bazo yếu là NH3. Có thể dùng chất chỉ thị nào trong quá trình chuẩn độ này biết bước nhảy pH là (8;10)?,"A. Thimolphtalein (9.4; 10.6)
+B. Metyl đỏ (4.4; 6.2)
+C. Phenol đỏ (6.4; 8.0)
+D. Phenolphtalein (8.0; 9.6)",d3513ac2d83e49e1a1b2c731d2d2d940
+C041,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Vừa,D,"Số liệu không khớp Henderson-Hasselbalch (PaCO2 20, HCO3 12 cho pH khoảng 7,40); HCO3 giảm hơn mức bù cấp nên khoá 'mạn' hợp ý đề.",D,A (5/7),A,B,0.91; Kiềm hô hấp cấp,"Pulmonology, Internal Medicine","Kết quả khí máu pH 7,6, PaCO2 = 20mmHg, HCO3- = 12mmol/l kết luận là gì?","A. Kiềm hô hấp cấp
+B. Toan chuyển hoá
+C. Toan hô hấp cấp
+D. Kiềm hô hấp mạn",4b4e754cd33b4886a570f148395c839b
+C046,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Vừa,C,"Phương án A, D lẫn tiếng Nga; D sai với eukaryote (intron), C đúng cho cả hai.",D,C (5/7),C,C,,Molecular Biology,Khẳng định nào đúng đối với quá trình biểu hiện gen ở Pro- và Eukaryote:,"A. Sao chép và полиаденилирование mRNA xảy ra sau phiên mã
+B. Sự dịch mã mRNA bắt đầu trước khi kết thúc phiên mã
+C. RNA polymerase có thể gắn vào promoter nằm ở vùng thượng nguồn từ điểm bắt đầu phiên mã
+D. мРНК всегда коллинеарна гену, с которого она копируется.",efd35f02f42a408aa3627831177ae2d1
+C049,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Vừa,Không có đáp án đúng,"Acid hoá nước tiểu không dùng cho cả 4 chất; phenobarbital, aspirin cần kiềm hoá.",C,B (5/7),Không chọn,A,,"General Medicine, Pharmacology, Emergency Medicine",Cần áp dụng phương pháp acid hóa nước tiểu trong trường hợp điều trị ngộ độc:,"A. Phenobarbital
+B. Aspirin
+C. Digoxin
+D. Vitamin D",44255690b81046878ae94f24f53288cc
+C055,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Vừa,Không xác định được,"Phương án C bị cắt còn 'Tuyến'; tuyến ức, tuyến tùng thường xếp vào hệ nội tiết.",A,B (6/7),C,C,,"Endocrinology, Allergy and Immunology",Thành phần nào sau đây KHÔNG thuộc hệ nội tiết:,"A. Tuyến ức, tuyến tùng
+B. Các tiểu thể cảnh, chủ, cụt
+C. Tuyến
+D. Tuyến thượng thận",1153a04a5dda4b6ba690dbc248f5a44a
+C083,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Vừa,Không xác định được,"Câu ghép 5 ý đúng/sai, ý e bị cắt.",C,A (4/7),B,D,,"Public Health, Preventive Healthcare, Epidemiology","Các phát biểu sau đây là đúng hay Sai (Đúng thì tích vào đáp án đúng, sai thì tích vào đáp án sai)
+ a Sử dụng các tỷ lệ chết để So sánh đánh giá sức khoẻ cộng đồng
+ b Tỷ lệ tấn công là tỷ lệ mới nhiễm tích lũy của một bệnh trong một quần thể nhất định có nguy cơ trong thời gian đặc biệt, thường được sử dụng trong các vụ dịch
+ c Để có thể hình thành giả thuyết nhân quả phải tiến hành nghiên cứu:Hồi cứu
+ d Nguyên nhân của xu thế tăng giảm của bệnh có thể là: Các chất độc và dị nguyên
+ e Khi chưa có sự can thiệp ở mức độ cộng đồng, yếu tố quan trọng nhất quyết định tính chu kỳ của một số bệnh truyền nhiễm là: Cấu trúc tuổi khác nhau giữa các quần thể","A. Đ Đ Đ Đ S
+B. Đ Đ S Đ S
+C. Đ Đ S S S
+D. Đ Đ S S Đ",c816e5cd2f864a3b856dc93377b88625
+C087,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Vừa,Không có đáp án đúng,'Tìm câu sai' nhưng cả 4 yếu tố đều ảnh hưởng tới gắn O2-Hb.,D,A (4/7),C,A,,"Hematology, Pulmonology, Cardiology",Tìm câu sai: Các yếu tố ảnh hưởng đến sự kết hợp giữa oxy và Hb gồm:,"A. Các bệnh lí về huyết sắc tố
+B. PO2, PCO2
+C. Hiệu ứng Borh, tương tác HEM-HEM
+D. Tương tác HEM-HEM, chất điều hòa 2,3-DPG",f62fb9fbef244d4cbfaf62c15f8fcafd
+C001,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,A,Ung thư dạ dày sớm (T1) thường được nêu sống 5 năm >90%; giai đoạn IB thấp hơn. Phụ thuộc giáo trình.,B,A (7/7),A,A,,"Oncology, Gastroenterology","Trong ung thư dạ dày, nếu được chẩn đoán và phẫu thuật sớm (giai đoạn 0, I) tỷ lệ sống sau 5 năm là > 90%?","A. Đúng
+B. Sai",1712aaef301547c2b7ab7b7f7c14593f
+C010,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,Bẫy chữ: B ('một số chất') hay A (receptor cũng có ở màng trước synap) đều có thể là câu sai; D mô tả đúng hiện tượng chẹn receptor.,B,D (7/7),D,D,,"Neurology, Physiology",Nói về Receptor câu nào sau đây không đúng,"A. Nằm trên màng tế bào sau synap
+B. Có điểm gắn với một số chất trung gian hóa học đặc hiệu
+C. Nối với kênh ion hoặc liên kết với enzym
+D. Khi kết hợp với chất lại sẽ không kết hợp với chất trung gian hóa học đặc hiệu nữa",69b1cf8b05374ba798153066d3ce6720
+C028,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,"Đau bàng quang kèm đái rắt, buốt; đái khó cũng gặp nên 'tất cả đều đúng' khó loại.",C,D (6/7),D,C,,"Nephrology, Urology",Đau ở vùng bàng quang thường kèm theo rối loạn bài niệu nào:,"A. Đái rắt, đái khó
+B. Đái buốt, đái khó
+C. Đái rắt, đái buốt
+D. Tất cả đều đúng",b161d4c6b6ef49d2aefe81a4dd6299f3
+C029,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,Lực đẩy Coulomb và lực hạt nhân không đủ giữ đều góp phần; phụ thuộc cách diễn đạt của giáo trình Lý sinh.,C,D (6/7),D,D,,"Nuclear Medicine, Radiology",Về nguyên nhân tồn tại tính phóng xạ của các hạt nhân trong tự nhiên:,"A. Xu hướng hạt nhân nặng giải phóng dự trữ năng lượng lớn của nó
+B. Các proton mang điện tích cùng dấu đẩy nhau nên hạt nhân không bền vững
+C. Lực liên kết giữa các nucleon không đủ mạnh để giữ hạt nhân bền vững
+D. Cả a, b, c đều đúng.",b1994267b87b44ae92665f46df4af01e
+C030,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,U nội tiết buồng trứng gây chảy máu cơ năng ở tử cung; cần định nghĩa của giáo trình.,B,C (6/7),C,C,,Obstetrics and Gynecology,Chảy máu bất thường ở tử cung không phải do tổn thương thực thể ở cơ quan sinh dục là:,"A. Polype tử cung Polype cổ tử cung
+B. Viêm nội mạc tử cung sau đẻ
+C. Các khối u nội tiết buồng trứng
+D. Ung thư cổ tử cung",c106ae10474749cd98dac347a7883c87
+C035,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,"Phương án lỗi định dạng ('70%@', số thập phân); số liệu kinh điển khoảng 65%, khác khoá 80%.",D,C (6/7),C,C,,"Pulmonology, Infectious Diseases",8. Lao màng phổi nếu không điều trị tỉ lệ trở thành lao nhu mô phổi là bao nhiêu :,"A. 0.6
+B. 0.65
+C. 70%@
+D. 0.8",f26d4f0cad5543b9a6c2e07b5ed49472
+C056,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,"Phù và giãn TM chi dưới gặp trong suy van hiển, trào ngược TM xuyên, hậu huyết khối; 'tất cả' cũng bảo vệ được.",A,D (6/7),B,D,,"Vascular Surgery, General Medicine","Bệnh nhân nữ, 56 tuổi, béo phì, có biểu hiện phù ngoại vi và giãn nhiều tĩnh mạch ở hai chi dưới. Triệu chứng này thường đi kèm với bệnh cảnh nào?","A. Suy van tĩnh mạch hiển lớn
+B. Dòng chảy ngược của các tĩnh mạch xuyên.
+C. Huyết khối tĩnh mạch sâu.
+D. Tất cả các ý đều đúng",ba077eccafc745a2a21186e034b6c02b
+C068,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,"A giống loãng xương hoá đá, B, C giống loạn sản đòn sọ; không phương án nào đặc trưng loạn sản ngoại bì.",A,D (4/7),D,D,,"Pediatrics, General Medicine",Phát biểu nào đúng về đặc điểm hội chứng loạn sản ngoại bì gây chậm mọc răng,"A. Liên quan đến việc giảm hoạt động của tế bào huỷ xương
+B. Đặc trưng bởi tầm vóc thấp, bất sản hoặc thiểu sản xương đòn sọ
+C. Quá trình mọc răng bị trì hoãn ở cả răng sữa và răng vĩnh viễn, cũng có thể cho thấy qúa trình mọc răng bị ngừng lại dẫn đến việc ngầm một số răng vĩnh viễn
+D. Tất cả các đáp án trên",165b8b05b8cb41229871f3f00cdb33ef
+C081,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,B,CO gắn Hb (HbA ở người lớn) tạo HbCO; câu diễn đạt khó hiểu.,A,D (4/7),D,B,,"Toxicology, Hematology, Physiology",CO kết hợp với Hb nào để gây thiếu oxy mô trực tiếp?,"A. HbF
+B. HbA
+C. MetHb
+D. HbCO",b2a201ef1883486385e757e4f007b7dc
+C122,Câu hỏi lỗi / mơ hồ / thiếu dữ kiện,Thấp,Không xác định được,B và C gần như cùng nghĩa.,B,D (3/7),B,D,,"Endocrinology, Internal Medicine, Cardiology",Ưu điểm được ưa chuộng của SGLT-2,"A. làm giảm đường huyết, giảm cân
+B. giảm huyết áp và giảm các biến cố tim mạch
+C. giảm huyết áp và ngăn ngừa các biến cố tim mạch
+D. ít gây hạ đường huyết.",2c28ec575845479eb940704dc5fd526a
+C004,Nhiều đáp án đúng,Vừa,Nhiều đáp án đúng,Somatostatin và pancreatic polypeptide đều ức chế tụy ngoại tiết; phương án B bị cắt chữ.,B,C (7/7),C,C,,Endocrinology,Hormon kìm hãm sự chế tiết dịch tuy ngoại tiết:,"A. Serotonin.
+B. Pancreatic.
+C. Somatostatin.
+D. Gastrin.",272db67e6aca4f919af11a587a02a07f
+C013,Nhiều đáp án đúng,Vừa,A,Tyrosin là tiền chất trực tiếp của catecholamin; phenylalanin là tiền chất xa hơn.,B,A (7/7),A,A,,Endocrinology,Acid amin nào sau đây là tiền chất của hormon tủy thượng thận:,"A. Tyrosin
+B. Phenylalanin
+C. Prolin
+D. Tryptophan",9883d8c5c0954d92bc3f477a50c9051a
+C015,Nhiều đáp án đúng,Vừa,Nhiều đáp án đúng,"Thai đủ tháng là 37/38-42 tuần, nên cả 38 và 40 tuần đều đủ tháng.",B,C (7/7),C,C,,Obstetrics and Gynecology,Chọn câu ĐÚNG nhất khi thai nhi đủ tháng có tuổi thai là:,"A. 290 ngày
+B. 38 tuần
+C. 40 tuần
+D. 42 tuần",bab0caff35cc40129f32c159e3f8d9c3
+C037,Nhiều đáp án đúng,Vừa,Nhiều đáp án đúng,Sóng ngắn và túi nóng ẩm đều là nhiệt trị cho thoái hoá khớp gối.,C,D (6/7),D,D,,"Orthopedics, Geriatrics, Physical Medicine and Rehabilitation","Bệnh nhân nữ, 73 tuổi, đau do thoái hóa khớp gối phải. Bệnh nhân đến trung tâm chỉnh hình và phục hồi chức năng để điều trị. Chọn phương pháp điều trị thích hợp cho bệnh nhân:","A. Tử ngoại
+B. Chườm lạnh
+C. Sóng ngắn
+D. Túi nóng ẩm",f8731d0edfd143939f904e61dc8bd9dc
+C045,Nhiều đáp án đúng,Vừa,Nhiều đáp án đúng,Lympho B vừa trình diện kháng nguyên vừa sản xuất kháng thể; câu train 'Lympho B là tế bào sản xuất kháng thể' có khoá Đúng.,A,C (5/7),C,C,0.52; đúng,Immunology,Lympho bào B là gì?,"A. Là một trong số các loại tế bào trình diện kháng nguyên
+B. Là một loại tế bào có khả năng thực bào
+C. Là tế bào sản xuất kháng thể
+D. Cả 3 lựa chọn trên đều đúng",d6665a86336a4b4fa0333f3bb8e1994c
+C057,Nhiều đáp án đúng,Vừa,Nhiều đáp án đúng,"Thể magna chính là thể ăn hồng cầu, nên A và C tương đương.",C,B (6/7),A,B,,"Infectious Diseases, Gastroenterology, Pathology",1 đáp án) Tiêu chuẩn vàng để chẩn đoán bệnh lỵ amip là,"A. Xét nghiệm thấy thể ăn hồng cầu trong phân
+B. Xét nghiệm thấy thể kén hoặc thể ăn hồng cầu trong phân
+C. Xét nghiệm thấy thể magna hoặc thể ăn hồng cầu trong phân
+D. Phân nhầy, màu xen lẫn",f67c2b46aa354dafa6a33996f9db71f5
+C086,Nhiều đáp án đúng,Thấp,Nhiều đáp án đúng,A là định nghĩa đúng; D cũng đúng.,A,D (4/7),D,D,,Obstetrics and Gynecology,Chọn câu trả lời đúng nhất bằng cách khoanh tròn vào chữ cái đứng đầu câu:,"A. Ngôi mông là ngôi dọc, mông trình diện trước eo trên khung chậu mẹ.
+B. Ngôi mông là một ngôi bất thường, có khả năng đẻ đường âm đạo dễ dàng.
+C. Ngôi mông là một ngôi dọc, thường được theo dõi đẻ đường dưới.
+D. Ngôi mông là một ngôi bất thường, có khả năng phải mổ lấy thai.",ee2eeb3efcff4171aaa7ad961b94f6e5
+C098,Nhiều đáp án đúng,Thấp,Nhiều đáp án đúng,'Tuổi mắc ngày càng trẻ' và 'phát hiện muộn' đều là đặc điểm được nêu.,A,D (7/7),A,D,,"Oncology, Obstetrics and Gynecology",Đặc điểm dịch tễ quan trọng về ung thư vú hiện nay ở nước ta là:,"A. Tuổi bị ung thư ngày càng trẻ hơn
+B. Nhiều yếu tố ảnh hưởng chưa được xác định một cách rõ ràng
+C. Sự khác biệt giữa nông thôn và thành thị không rõ vì còn ít số liệu
+D. Việc kiểm tra sức khỏe định kỳ và khám vú một năm từ 1-2 lần ở đại đa số chị em chưa thành thói quen, nên khi đã phát hiện ung thư thường là đã qua muộn",5fa59ef0d439493aaf18705ca048ae67
+C019,Đúng theo phác đồ / thực hành VN,Vừa,B,"Phân độ khó thở thanh quản trong giáo trình VN: khó thở liên tục, co kéo, bứt rứt là độ II; độ III có tím tái, rối loạn ý thức.",B,C (7/7),C,C,,"Infectious Diseases, Pulmonology","Bệnh nhân bạch hầu thanh quản có "" khó thở liên tục, thở rít, bứt rứt lăn lộn, co lõm ngực, phân độ khó thở thanh quản bệnh nhân này ở mức độ nào?","A. Khó thở độ I
+B. Khó thở độ II
+C. Khó thở độ III
+D. Chưa đủ dữ kiện để phân độ khó thở",ded189f893ca40e5bc0f17d0eca5a453
+C107,Đúng theo phác đồ / thực hành VN,Thấp,D,"IMCI trẻ dưới 2 tháng thở nhanh: 'bệnh rất nặng' (bản mới) hay 'viêm phổi nặng' (bản cũ); câu train cùng nguồn xếp 'viêm phổi nặng', bộ đề không nhất quán.",D,C (6/7),D,D,"0.92; Viêm phổi nặng, dùng kháng sinh và chuyển đến bệnh viện","Pediatrics, Pulmonology","Một trẻ 15 ngày tuổi ho, thở 65 lần/phút, khò khè được xếp loại và xử trí theo TC YTTG như thế nào?","A. Viêm phổi, điều trị kháng sinh tại nhà
+B. Không viêm phổi, chăm sóc tại nhà
+C. Viêm phổi nặng, dùng kháng sinh và chuyển đến bệnh viện
+D. Bệnh rất nặng, dùng kháng sinh và chuyển đến bệnh viện",63e3f84c9b9444878e58b04d9a4b4c96
+C020,"Model sai, đáp án chuẩn đúng",Cao,D,"Phức hợp pyruvat dehydrogenase dùng TPP trước tiên (giáo trình VN gọi LTPP), rồi lipoat, CoA, FAD, NAD.",D,A (7/7),A,A,,Biochemistry,Coenzym đầu tiên tham gia oxy hóa acid pyruvic trong chuỗi hô hấp tế bào là:,"A. NAD
+B. FAD
+C. NADP
+D. LTPP",e9a3b9d450dc42af8c8053ce302f6179
+C021,"Model sai, đáp án chuẩn đúng",Cao,B,Thấm mật phúc mạc: mật thấm qua thành đường mật không thủng; 'đường mật bị thủng' là viêm phúc mạc mật. Câu train tương tự cũng khoá Sai.,B,A (7/7),A,A,0.63; Sai,Gastroenterology,"Thẩm mật phúc mạc là tình trạng viêm phúc mạc do đường mật bị thủng, dịch mật vào ổ bụng gây viêm phúc mạc, đúng hay sai?","A. Đúng
+B. Sai",eb114506844841ca828af281013ec642
+C050,"Model sai, đáp án chuẩn đúng",Cao,D,"Điểm cốt hoá đầu dưới xương đùi khoảng tuần 36, đầu trên xương chày khoảng tuần 38.",D,C (4/7),Không chọn,A,,"Obstetrics and Gynecology, Pediatrics",Điểm cốt hóa ở đầu trên xương chày của thai nhi bắt đầu xuất hiện vào tuần thứ bao nhiêu của thai kỳ:,"A. Tuần 28
+B. Tuần 32
+C. Tuần 36
+D. Tuần 38",f61cc23a14f04a10b1c75acd10c83c4a
+C072,"Model sai, đáp án chuẩn đúng",Cao,C,"Định nghĩa lâm sàng AIDS của WHO (Bangui): dấu hiệu phụ gồm ho kéo dài trên 1 tháng và nấm Candida; sụt cân, tiêu chảy, sốt kéo dài là dấu hiệu chính.",C,A (4/7),D,D,,"Pulmonology, Infectious Diseases, Internal Medicine","Theo John Crofton, hai dấu hiệu phụ nghi ngờ người bệnh lao có nhiễm HIV là:","A. Sút 10% trọng lượng cơ thể và ho liên tục trên 1 tháng
+B. Tiêu chảy kéo dài trên 1 tháng và nhiễm nấm candida
+C. Nhiễm nấm candida và ho liên tục trên 1 tháng
+D. Sút 10% trọng lượng cơ thể và sốt kéo dài trên 1 tháng",35316fc46846444c9a86fdfb9bde7c5d
+C089,"Model sai, đáp án chuẩn đúng",Cao,D,"Phần phụ của thai là rau, màng, dây rốn, nước ối; khối u tiền đạo là nguyên nhân từ mẹ.",D,B (3/7),C,C,,Obstetrics and Gynecology,"Nguyên nhân đẻ khó do phần phụ là, NGOẠI TRỪ:","A. Đa ối
+B. Viêm màng thai
+C. Rau tiền đạo
+D. Khối u tiền đạo",2925a2388768489b87fbb70eab065627
+C091,"Model sai, đáp án chuẩn đúng",Cao,B,Guyton: sức căng bề mặt lớp dịch lót phế nang chiếm khoảng 2/3 lực đàn hồi co phổi.,B,A / C (hoà) (3/7),D,C,,Pulmonology,Bình thường phổi không bị co nhỏ về rốn phổi có tính tính đàn hồi là nhờ vai trò chính của:,"A. Áp suất âm trong khoang màng phổi
+B. Sức căng bề mặt của lớp dịch lót phế nang
+C. Chất surfactant
+D. Các sợi elastin và collagen trong nhu môi phổi",4f31f49f84494480a017100d33077d6a
+C097,"Model sai, đáp án chuẩn đúng",Cao,A,"Chỉnh kính cận: chọn số kính thấp nhất cho thị lực tối đa (-1,25 đã đạt 10/10).",A,D (7/7),A,D,,Ophthalmology,Hãy chọn một số kính phù hợp nhất cho bệnh nhân cận thị với kết quả thử kính như sau:,"A. -1,25 đi ốp = 10/10
+B. -1,00 đi ốp = 8/10
+C. -1,75 đi ốp = 8/10
+D. -1,50 đi ốp = 10/10",413710002cb74ad6a4baeab5a6658e5b
+C099,"Model sai, đáp án chuẩn đúng",Cao,B,Sán lá gan nhỏ có vật chủ trung gian 1 là ốc Bithynia; Melania là của sán lá phổi.,B,D (7/7),B,B,0.85; Melania,"Infectious Diseases, Gastroenterology, Veterinary Medicine",Sán lá gan nhỏ ký sinh ở loài ốc nào?,"A. Melania
+B. Bythinia
+C. Sigmentica
+D. Cả 3",71d8ad53b6944ea3b1733cc6be517972
+C101,"Model sai, đáp án chuẩn đúng",Cao,B,"Sán lá phổi trưởng thành hình hạt cà phê, phủ gai, hai giác bám gần bằng nhau.",B,A (7/7),B,A,,"Infectious Diseases, Pulmonology",Hình thể của sán lá phổi trưởng thành có đặc điểm,"A. Hình lá, thân dẹt, bờ thân cũng rất mỏng, màu trắng hoặc đỏ xám, hấp khẩu miệng có kích thước nhỏ
+B. Hình hạt cà phê thân phủ một lớp gai, hai mồm hút kích thước gần bằng nhau.
+C. Hình chiếc lá , thân dẹt, màu đỏ nhạt.
+D. Không có đáp án",8bb285da6ec044a1a150c20ac46b525b
+C105,"Model sai, đáp án chuẩn đúng",Cao,C,Sao chép lăn vòng tạo mạch DNA mới dạng thẳng.,C,B (6/7),C,D,,Molecular Biology,Sao chép lăn vòng DNA mới ở dạng:,"A. Xoắn
+B. Vòng
+C. Thẳng
+D. Siêu xoắn.",2713b1e7f25d4c70b4bb7c52bbcccd20
+C108,"Model sai, đáp án chuẩn đúng",Cao,A,Rượu bia (lactat) làm giảm thải acid uric qua thận.,A,B (6/7),A,D,,"Nephrology, Rheumatology, Preventive Healthcare",Những loại đồ uống nào làm giảm bài tiết axit uric?,"A. Bia rượu
+B. Trà
+C. Nước hoa quả
+D. Đường Fructose",8c20e4b4c64a4685b30d46b1331bfc1d
+C109,"Model sai, đáp án chuẩn đúng",Cao,B,"Đáp ứng ba của Lewis: vạch đỏ do giãn mao mạch, quầng đỏ do giãn tiểu động mạch (phản xạ sợi trục).",B,A (6/7),B,A,,"Dermatology, Physiology","Thí nghiệm của Lewis: vạch mạnh vào da người trên cẳng tay thấy xuất hiện vạch đỏ, xung quanh có những mẩn đỏ: Theo Lewis, vạch đỏ sinh ra là do…………., mẩn là hậu quả của…………","A. giãn tiểu động mạch / giãn mao mạch và tiểu tĩnh mạch
+B. giãn mao mạch và tiểu tĩnh mạch / giãn tiểu động mạch
+C. giãn tiểu động mạch / giãn mao mạch
+D. giãn mao mạch / giãn tiểu động mạch",a0b83efd9c7b41098c306103d0fa5ca8
+C110,"Model sai, đáp án chuẩn đúng",Cao,B,"Nang lao có hoại tử bã đậu, không có hoại tử tơ huyết; câu train gần trùng cùng khoá.",B,D (6/7),B,B,0.98; hiện diện thành phần hoại tử tơ huyết,"Pulmonology, Infectious Diseases, Pathology","Tổn thương nang lao điển hình, không bao gồm","A. hiện diện các đại bào
+B. hiện diện thành phần hoại tử tơ huyết
+C. hiện diện nhiều lympho bào, tế bào xơ
+D. hiện diện thành phần hoại tử bả đậu",b8667b709acb43c8a63ce0d737d288bd
+C112,"Model sai, đáp án chuẩn đúng",Cao,B,Ống lượn xa: đồng vận chuyển Na-Cl (đích của thiazid).,B,D (5/7),B,D,,"Nephrology, Physiology",Hệ thống vận chuyển ở ống uốn xa: + +,"A. Na -H -antiport + -
+B. Na -Cl -symport + + -
+C. Na -K -2Cl -symport
+D. a và b đúng",117f8765e87042f9ae575ab749252489
+C120,"Model sai, đáp án chuẩn đúng",Cao,A,"Pepsin, men sữa, carboxypeptidase đều thuỷ phân protein; lipase thuỷ phân lipid.",A,C (4/7),A,C,,Gastroenterology,Enzym nào sau đây không cùng nhóm với các enzym kia,"A. Lipase
+B. Pepsin
+C. Men sữa
+D. Carboxypeptidase",dd149f795b394be19d7061069268f170
+C123,"Model sai, đáp án chuẩn đúng",Cao,B,Ăn thực vật thuỷ sinh sống nhiễm sán lá ruột lớn; câu train gần trùng cùng khoá.,B,A / D (hoà) (3/7),B,B,0.87; Sán lá ruột lớn,"Infectious Diseases, Gastroenterology",Ăn thực vật dưới nước chưa nấu chín có thể dẫn đến,"A. Sán lá phổi
+B. Sán lá ruột lớn
+C. Sán dây lợn
+D. Sán lá gan nhỏ",60add77c916248649defdf4650ef3a3c
+C125,"Model sai, đáp án chuẩn đúng",Cao,C,"Loãng xương, ung thư xương, u tuỷ gây gãy xương bệnh lý; suy thượng thận thì không.",C,B / D (hoà) (3/7),C,C,,"Orthopedics, Endocrinology",Trường hợp không phải gãy xương tự nhiên:,"A. Loãng xương
+B. K xương
+C. Suy tuyến thượng thận
+D. U tuỷ xương",f05a86b602e34c5ca729e24335d431c0
+C002,"Model sai, đáp án chuẩn đúng",Vừa,D,"Guyton liệt kê LH, FSH, testosteron, estrogen, GH (GH kích thích phân chia tinh nguyên bào); không nêu T3-T4.",D,C (7/7),C,C,,"Endocrinology, Obstetrics and Gynecology","Các hormon sau đây ảnh hưởng đến sản sinh tinh trùng, trừ:","A. LH.
+B. FSH.Testosteron.
+C. GH
+D. T3 - T4",1f868573c6b8406b98ee502f8db75f88
+C033,"Model sai, đáp án chuẩn đúng",Vừa,C,"Vỡ giãn TM thực quản kèm dấu tăng áp cửa (lách to, tuần hoàn bàng hệ); 'đỏ thẫm, máu cục' gợi loét.",C,B (6/7),B,C,,Gastroenterology,XHTH do dãn vỡ tĩnh mạch thực quản có có các biểu hiện nào sau,"A. Thường xuất huyết nhẹ
+B. Thường nôn máu đỏ thẫm, máu cục, đi cầu phân đen
+C. Thường theo gan lách to và tuần hoàn bang hệ
+D. Thường đau bụng từng cơn và đi cầu phân đen",deacd59dd1994c769e43bd505b55a6fe
+C034,"Model sai, đáp án chuẩn đúng",Vừa,B,"Thang 4 độ của giáo trình PHCN: độ 2 đỏ sậm, kích thích ít; độ 3 nóng, đau, sưng; độ 4 bọng nước.",B,C (6/7),C,C,,"Dermatology, Physical Medicine and Rehabilitation",Đỏ da đô 2 của tia tư ngoại là:,"A. Da đỏ ít, không bị kích thích
+B. Da đỏ sậm, kích thích ít
+C. Da đỏ sậm, nóng đau, sung
+D. Da đỏ sậm, có bỏng nước",ece1f59737b94e5a9ea79702d87aeef5
+C059,"Model sai, đáp án chuẩn đúng",Vừa,D,Bào chế: cồn thuốc lượng lớn thì thay bằng cao thuốc tương đương; giảm lượng cồn thuốc làm sai liều.,D,B (5/7),C,C,,"General Medicine, Pharmacology","Trong công thức thuốc bột, nếu lượng cồn thuốc nhiều quá ta nên khắc phục bằng cách?","A. Thêm đường vào để hấp phụ bớt
+B. Giảm bớt lượng cồn thuốc sử dụng
+C. Thêm tá dược hút
+D. Thay bằng cao thuốc tương đương",17d13c022e8845c08693807d5bd6b3c6
+C061,"Model sai, đáp án chuẩn đúng",Vừa,B,"A sai (tim lệch trái), C sai (vòm hoành phải cao hơn), D sai (rốn phổi gồm ĐM phổi và phế quản).",B,A (5/7),D,D,,"Pulmonology, Radiology",Ý nào sau đây đúng khi nói về hình ảnh X quang phổi?,"A. Tim thường ở vị trí chính giữa và có đường kính ngăng <1/2 đường kính ngang lông ngực
+B. Khí quản nhìn rõ trên phim chụp kỹ thuật số
+C. Vòm hoành trái cáo hơn vòm hoành phải 1-2 cm
+D. Rốn phổi được tạo thành bởi ĐM phổi và các khí quản",5b40e9a0ea0243bda8008655de75105b
+C063,"Model sai, đáp án chuẩn đúng",Vừa,D,Tầng dưới niêm mạc đội niêm mạc tạo van ngang (nếp vòng Kerckring); câu lỗi chính tả nặng.,D,B (5/7),C,D,,"Gastroenterology, Pathology",Cấu trúc đa tầng dưới niệm mục đội tăng niêm mạc ruột non lên tạo thành,"A. Lồng chuyển
+B. Vi nhung than
+C. Nhưng tháo
+D. Van ngang",66cdc5544d6548f787ca09cc11b0b6b0
+C090,"Model sai, đáp án chuẩn đúng",Vừa,A,"Barbiturat tạo tủa với thuốc thử Millon; Frohde, Marquis, Vitali dùng cho alcaloid.",A,B / D (hoà) (3/7),B,A,,Analytical Chemistry,Có thể định tính Barbiturat bằng thuốc thử nào sau đây:,"A. Thuốc thử Millon
+B. Thuốc thử Frohde
+C. Thuốc thử Marquis
+D. Thuốc thử Vitali",31c5884bf0764ee0abec477fcb62680a
+C102,"Model sai, đáp án chuẩn đúng",Vừa,A,Ngôi thế bất thường không gây thai chết lưu.,A,C (7/7),A,A,,Obstetrics and Gynecology,"Nguyên nhân của thai chết lưu về phía thai có thể do, trừ:","A. Ngôi thế bất thường.
+B. Thai dị dạng.
+C. Bất đồng nhóm máu giữa mẹ và thai.
+D. Thai già tháng.",cf8f5e290fa44feeb1288f9475b7aab9
+C103,"Model sai, đáp án chuẩn đúng",Vừa,B,"Gan còn lại tái tạo chủ yếu bằng tăng sản, không phải phì đại sinh lý.",B,A (7/7),B,A,,"Gastroenterology, Pathology","Khi cắt bỏ một phần gan, phần còn lại phải hoạt động bù trừ, trong trường hợp này, tế bào gan to ra một cách sinh lý?","A. Đúng
+B. Sai",e30242e66ce849bab9b3d39164193bc6
+C106,"Model sai, đáp án chuẩn đúng",Vừa,A,"Ngộ độc chì tăng ALA, coproporphyrin niệu; protoporphyrin tăng trong hồng cầu.",A,C (6/7),A,C,,"Toxicology, Hematology, Nephrology","Ngộ độc mạn tính với chì biểu hiện những triệu chứng sau, ngoại trừ:","A. Xuất hiện protoporphyrin trong nước tiểu
+B. Hồng cầu giảm, xuất hiện hồng cầu hạt kiềm
+C. Hơi thở hôi thối, đau bụng, suy nhược, nước da xanh xám
+D. Xuất hiện viền xanh ở nướu (blue gum line)",318671b8f31a49a6b8068071cca87f6e
+C111,"Model sai, đáp án chuẩn đúng",Vừa,A,"Thực quản 1 tuổi khoảng 12 cm (sơ sinh 8-10, 5 tuổi 16).",A,D (5/7),A,D,1.0; 16 cm,"Pediatrics, Gastroenterology",Chiều dài thực quản ở trẻ 1 tuổi là bao nhiêu?,"A. 12 cm
+B. 16 cm
+C. 18 cm
+D. 10-11 cm",0afeb56aacb84f2a93d10bf1f3ed0f2e
+C114,"Model sai, đáp án chuẩn đúng",Vừa,B,Vọng chẩn YHCT: đầu mũi xanh là đau bụng.,B,A (5/7),B,B,0.7; Phế nhiệt,Gastroenterology,Đầu mũi xanh là do:,"A. Trong ngực có đàm ẩm
+B. Đau bụng
+C. Khí hư hoặc mất máu
+D. Thấp",f767da67a79d4e2a842e3238073967ad
+C115,"Model sai, đáp án chuẩn đúng",Vừa,D,Cá lưỡng tiêm tạo trung bì bằng gấp nếp (enterocoely).,D,C (4/7),D,D,,"General Medicine, Obstetrics and Gynecology",106. Sự hình thành phôi giữa cá lưỡng tiêm xảy ra theo phương thức nào?,"A. Tận bào
+B. Kết hợp
+C. Phân thành
+D. Gấp nếp",0fc56a8a06194190a1f5a643f8b1f14f
+C116,"Model sai, đáp án chuẩn đúng",Vừa,C,Kích thích alpha2 làm tăng kết tập tiểu cầu; co mạch chủ yếu qua alpha1.,C,A (4/7),C,D,,"Neurology, Hematology",Khi kích thích thụ thể giao cảm a2 có thể gây đáp ứng là:,"A. Co mạch máu
+B. Tăng huyết áp
+C. Tăng kết tập tiểu cầu
+D. Giảm kết tập tiểu cầu",2b10c218df754e81bfedcc8dd8c56623
+C117,"Model sai, đáp án chuẩn đúng",Vừa,A,"Mac Burney: cơ chéo bé, cơ ngang tách theo thớ của chúng; rạch theo thớ cơ chéo lớn là sai.",A,B (4/7),A,B,,"Surgery, Gastroenterology","Mở đường Mac Burney: khi mở cơ chéo bé, cơ ngang, mạc ngang phúc mạc rạch theo hướng nào là sai?","A. Theo hưởng thở cơ chéo lớn
+B. Theo hướng vuông góc với cần cơ chéo lớn
+C. Theo hướng gai chậu trước trên bên phải tới rốn
+D. Tách cơ chéo bé theo thớ, cắt cơ ngang, mạc ngang phúc mạc theo hướng thớ cơ chéo bé.",63d32f837d0e46719914b8bf880b65a5
+C119,"Model sai, đáp án chuẩn đúng",Vừa,A,Doxylamin (phối hợp pyridoxin) xếp loại A theo FDA.,A,C (4/7),A,B,0.9; Loại C.,"Obstetrics and Gynecology, Pharmacology, FDA","Theo PHÂN LOẠI của FDA (trước 30/06/2015) về ĐỘ AN TOÀN của THUỐC dùng cho PHỤ NỮ MANG THAI, DOXYLAMINE được xếp vào NHÓM THUỐC:","A. Loại A.
+B. Loại B.
+C. Loại C.
+D. Loại D.",d8ff735ea58845da8ae6a63f34063c66
+C005,"Model sai, đáp án chuẩn đúng",Thấp,A,"Phương giải Đạo đàm thang thường xếp Nam tinh, Chỉ thực làm quân; cần chuyên gia YHCT.",A,C (7/7),C,B,,Eastern Medicine,Đạo đàm thang có quân dược là?,"A. Nam tinh, chỉ thực
+B. Bán hạ, quất hồng
+C. Bán hạ, chỉ thực
+D. Nam tinh, quất hồng",3042d905561d44b18d41fbf89b8a0d62
+C024,"Model sai, đáp án chuẩn đúng",Thấp,D,Giáo trình lao VN: phế quản phế viêm lao hay gặp ở trẻ em và người già.,D,B (6/7),B,B,,"Pulmonology, Pediatrics, Geriatrics, Infectious Diseases",Đặc điểm của phế quản phế viêm lao là,"A. Hay gặp ở người già, theo kiểu cấp tính, xquang là các nốt không đều khắp 2 phổi
+B. Hay gặp ở trẻ em, tuổi dậy thì, theo kiểu cấp tính, xquang là các nốt mờ to nhỏ không đều khắp 2 phổi, đậm độ tập trung nhiều vùng cạnh tim
+C. Hay gặp ở trẻ em, tuổi dậy thì, theo kiểu cấp tính, xquang là các nốt không đều khắp 2 phổi
+D. Hay gặp ở trẻ em và người già, theo kiểu cấp tính, xquang là các nốt không đều khắp 2 phổi",280dbefe44b84715a6298f61dfefd238
+C039,"Model sai, đáp án chuẩn đúng",Thấp,C,GPB VN mô tả carcinom dạ dày 'dạng nông' khu trú ở niêm mạc; các phương án khác sai.,C,D (5/7),D,D,,"Gastroenterology, Oncology, Pathology",Carcinom dạ dày:,"A. Thường xuất phát từ vùng thân vị
+B. Dạng loét dễ phân biệt với loét lành tính
+C. Dạng nông, tế bào ung thư chỉ khu trú ở lớp biểu mô
+D. Dạng polyp thường có xâm nhập rộng quanh chân polyp.",307106ae6b7f4d988450f7f0c30eb52f
+C088,"Model sai, đáp án chuẩn đúng",Thấp,B,"A và B gần như trùng chữ (bẫy); biểu mô thành bụng sau, trung bì trung gian và tế bào mầm tạo tuyến sinh dục.",B,D (4/7),D,C,0.86; Các tế bào trung bì trung gian.,"Obstetrics and Gynecology, Pediatrics",Tế bào không có vai trò là nguồn gốc của tuyến sinh dục trung tính:,"A. Các tế bào trung biểu mô thành bụng.
+B. Các tế bào trung biểu mô màng bụng
+C. Các tế bào trung bì trung gian.
+D. Các tế bào mầm nguyên thuỷ.",fc1c5945b555446d90f26b183be25555
+C118,"Model sai, đáp án chuẩn đúng",Thấp,D,"Dược điển giới hạn kích thước phần tử thuốc mỡ ở mức micromet, nên cả 3 ý sai.",D,A (4/7),D,A,,"Dermatology, General Medicine","Khi thực hiện chỉ tiêu giới hạn kích thước phân tử đối với chế phẩm thuốc mỡ Flucinar tuýp 15g, chế phẩm được coi là đạt yêu cầu khi:","A. Không được có phần tử nào của thuốc có kích thước lớn hơn 0,75 mm (1)
+B. Không được có phần tử nào của thuốc có kích thước lớn hơn 0,5mm (2)
+C. Không được có phần tử nào của thuốc có kích thước nhỏ hơn 0,5 mm và lớn hơn 0,75 mm (3)
+D. Ý (1), (2), (3) Sai",b2d1b539999945238ed1c8dc32d108c6
+C121,"Model sai, đáp án chuẩn đúng",Thấp,D,"Giun mỏ lây qua da, có giai đoạn ở ngoại cảnh; ấu trùng có chu du qua tim phổi.",D,B (4/7),D,B,,"Infectious Diseases, General Medicine",Chu kỳ của N.americanus (giun mỏ) có đặc điểm: 1. lây nhiễm qua da 2. đời sống con trưởng thành kéo dài 4-5 năm 3. thời kỳ hoàn thành chu kỳ 9-10 tuần 4. trong giai đoạn chu kỳ không chu du qua tim phổi của vật chủ 5. mầm bệnh có giai đoạn phát triển ở ngoại cảnh,"A. 12
+B. 13
+C. 14
+D. 15",fb1af2be3871466ea53ae0c3b2c633e5
+C011,Không chắc,Thấp,Không xác định được,"Tỉ lệ dung môi cụ thể, cần tra Dược điển / giáo trình kiểm nghiệm.",B,A (7/7),A,A,,Analytical Chemistry,Phương pháp sắc ký lớp mỏng thường dùng silicagel G với dung môi cồn isopropyl - chloroform - amoniac đậm đặc với tỉ lệ bao nhiêu:,"A. 91:30:10
+B. 91:30:20
+C. 91:30:30
+D. 91:30:40",6c7b649a9cf849978bc2eb92b952750b
+C018,Không chắc,Thấp,Không xác định được,Đầu cao 30 độ hay 30-45 độ tuỳ quy trình điều dưỡng.,B,A (7/7),A,A,,"Neurology, Surgery",Bệnh nhân nam 50 tuổi vào viện với chẩn đoán rò dịch não tủy do chấn thương sọ não vỡ nền sọ trước ngày thứ 8. Bất động bệnh nhân tư thế nào là đúng,"A. Thân người và đầu cao 30 độ so với mặt phẳng giường
+B. Thân người và đầu cao 45 độ so với mặt phẳng giường
+C. Thân người và đầu cao 60 độ so với mặt phẳng giường
+D. Thân người và đầu cao 75 độ so với mặt phẳng giường",de31cf1d368b4f3099e21447583b4e9d
+C023,Không chắc,Thấp,Không xác định được,Ngưỡng dây rốn ngắn khác nhau giữa các sách; phương án dạng khoảng không chuẩn.,C,A (6/7),A,A,,Obstetrics and Gynecology,Gọi là dây rốn ngắn khi chiều dài của dây rốn:,"A. < 20 cm
+B. 20 - 25 cm
+C. 25 - 30 cm
+D. 30 - 40 cm",2024887bb38f425c92ab78e9414ce507
+C026,Không chắc,Thấp,Không xác định được,"Yêu cầu kỹ thuật móc nhựa dẻo, cần giáo trình phục hình.",A,C (6/7),C,C,,Dentistry,Yêu cầu khi đặt tay móc nhựa dẻo:,"A. Nằm trên đường vòng lớn nhất thân răng
+B. Cách mặt ngoài thân răng trụ 0,5mm
+C. Tạo đường cong đều liên tục, mặt lõm hướng lên mặt răng
+D. Nằm ở ⅓ giữa thân răng",658292d8b43841bc8bc817157478b08f
+C027,Không chắc,Thấp,Không xác định được,Ủ bệnh ghẻ lần đầu 2-6 tuần; giáo trình VN có thể ghi 10-15 ngày.,A,C (6/7),C,C,,"Dermatology, Infectious Diseases",Chọn đáp án đúng :Bệnh ghẻ có thời gian ủ bệnh,"A. 10-15 ngày
+B. 7-15 ngày
+C. 10-21 ngày
+D. 7-10 ngày",ae782c47aec64f7dbee77b7a7af26fc8
+C036,Không chắc,Thấp,Không xác định được,Hẹp van ĐMP liên quan phân chia thân nón; khoá 'ống tim nguyên thuỷ' khó giải thích.,A,D (6/7),D,B,,"Cardiology, Pediatrics, Embryology","Về cơ chế phôi thai học, hẹp van động mạch phổi là do sự kém phát triển của phần nào?","A. Ống tim nguyên thủy
+B. Phần xa hành tim
+C. Tâm thất nguyên thủy
+D. Vách thân nón – động mạch",f5c054617cda4106bb45057e02ff4018
+C040,Không chắc,Thấp,Không xác định được,Câu ví dụ trong bài teo đét của GPB; cần đối chiếu giáo trình.,D,A (5/7),A,B,,"Pathology, Gastroenterology",Teo các tuyến của niêm mạc dạ dày gặp trong viêm dạ dày mạn tính nguyên nhân là do:,"A. Nhiễm trùng
+B. Gián đoạn mất nguồn nội tiết
+C. Không đủ cung cấp oxy
+D. Giảm chức năng tế bào",49449ebce18d4fdb934b2784f1a81c60
+C058,Không chắc,Thấp,A,Dịch tiết điển hình trong viêm phúc mạc; nhiễm trùng báng thường protein thấp.,D,B (5/7),A,B,,"Gastroenterology, Infectious Diseases",Dịch tiết trong ổ bụng gặp trong trường hợp?,"A. Viêm phúc mạc
+B. Thủng tạng rỗng làm các chất trong lòng tạng tiết ra ngoài
+C. Nhồi máu mạc treo
+D. Nhiễm trùng báng",1071a8f650ca46fe9657598f2d971365
+C060,Không chắc,Thấp,Không xác định được,Các tiêu chí đều hợp lý; cần giáo trình gốc.,B,A (5/7),D,D,,Endocrinology,"Việc lựa chọn một thuốc trị đái tháo đường bao gồm các tiêu chí sau đây, NGOẠI TRỪ:","A. Không có nguy cơ hạ đường huyết
+B. Không làm tăng lipid huyết
+C. Không có nguy cơ tăng cân
+D. Không có các tác dụng phụ khác (ngoài hạ đường huyết và tăng cân)",22e1db29a659427aaa3753812183b772
+C065,Không chắc,Thấp,Không xác định được,"Câu đếm ('mấy loại'), tuỳ giáo trình.",D,B (5/7),C,B,,Gastroenterology,Phân loại tính chất đau bụng được chia làm mấy loại?,"A. 2
+B. 3
+C. 4
+D. 5",acfb3c801b5c43f089f12d3e42999a87
+C070,Không chắc,Thấp,Không xác định được,Chi tiết kỹ thuật cắt lách 3 kìm.,B,A (4/7),A,A,,"Surgery, Hematology","Khi cắt lách bằng phương pháp 3 kìm, ở giữa kìm 1 và kìm 2 sẽ phải làm gì?","A. Thắt cuống lách bằng một sợi chỉ chắc.
+B. Cắt đứt cuống lách
+C. Khâu, buộc mỗi số 8.
+D. Không làm gì cả.",2c8c14c0982e4a87a8fa30090fb0a0ed
+C073,Không chắc,Thấp,Không xác định được,"Nhiễm khuẩn ối: kháng sinh, chấm dứt thai; corticoid, mổ hay gây chuyển dạ tuỳ phác đồ.",B,D (4/7),A,C,,"Obstetrics and Gynecology, Infectious Diseases","Sản phụ có thai 33 tuần vào viện vì ra nước âm đạo đã 24 giờ, kèm theo có sốt. Khám thấy có dấu hiệu nhiễm khuẩn ối, sốt 39oC, tim thai 180L/ph, CTC đóng kín. Xử trí thích hợp nhất là:","A. Hạ sốt, kháng sinh, gây chuyển dạ
+B. Hạ sốt, kháng sinh, corticoid, gây chuyển dạ
+C. Hạ sốt, kháng sinh, mổ lấy thai
+D. Hạ sốt, kháng sinh, corticoid, mổ lấy thai",3a6be3d6f90f4262b48aab36a1108e8b
+C074,Không chắc,Thấp,Không xác định được,Phân nhóm bệnh truyền lây tuỳ giáo trình.,D,B (4/7),B,B,,"Infectious Diseases, Veterinary Medicine",Bệnh truyền lây gồm các nhóm NGOẠI TRỪ,"A. Truyền lây trực tiếp
+B. Truyền lây theo vòng đời
+C. Truyền lây qua thực phẩm
+D. Truyền lây qua môi trường nước",5224365833004a86be388b609b8dfa96
+C077,Không chắc,Thấp,Không xác định được,"Codein uống khởi phát 30-60 phút, đỉnh 1-2 giờ; tuỳ cách hỏi.",C,B (4/7),B,A,,Pulmonology,Codein phát huy tác dụng giảm ho sau bao lâu?,"A. 10-30 phút
+B. 30-60 phút
+C. 1-2 giờ
+D. 2-3 giờ",8751f7c5a90544d3901a5c791c73c734
+C078,Không chắc,Thấp,Không xác định được,"Câu đếm; thường là 4 đường (bạch huyết, máu, trực tiếp, gieo rắc phúc mạc), khoá ghi 5.",D,B (4/7),C,B,,"Gastroenterology, Oncology",Ung thư dạ dày di căn theo mấy con đường,"A. 2
+B. 3
+C. 4
+D. 5",a1b9ab0fb4d149bfa27dccebfab238f0
+C080,Không chắc,Thấp,Không xác định được,Vị trí vết hoen đỏ thắm theo giáo trình pháp y.,B,A (4/7),A,A,,"Toxicology, Forensic Medicine","Khi ngộ độc nặng khí CO, nếu chết tử thi có biểu hiện nào sau đây ?","A. Môi đỏ, Có những vết đỏ thắm ở đùi và bụng
+B. Môi đỏ, Có những vết đỏ thắm ở cổ và cánh tay
+C. Môi tím, Có những vết đỏ thắm ở cổ và cánh tay
+D. Môi tím, Có những vết đỏ thắm ở đùi và bụng",b0b896a4b384451e85ee1622a8d24a61
+C084,Không chắc,Thấp,Không xác định được,Thành phần lòng phế nang giai đoạn hồi phục tuỳ cách mô tả.,A,D (4/7),B,D,,"Pulmonology, Pathology","Trong giai đoạn phục hồi, trong lòng phế nang có nhiều:","A. Bạch cầu và đại thực bào
+B. Tơ huyết và đại thực bào
+C. Bạch cầu và tơ huyết
+D. Bạch cầu, đại thực bào và tơ huyết",d2f16251721b4979987b140ca588426d
+C094,Không chắc,Thấp,Không xác định được,Thời gian dự trữ glucose não tuỳ giáo trình sinh lý.,D,A (3/7),A,D,,"Endocrinology, Neurology",Nguồn glucose dự trữ có thể cung cấp năng lượng cho chuyển hóa TB não trong,"A. 5 phút
+B. 10 phút
+C. 15 phút
+D. 30 phút",aa2d703ecf7f4068af517f76db69a022
+C095,Không chắc,Thấp,B,Lấy mẫu kiểm tra nhà nước thường là thuốc đang lưu thông/tồn trữ; cần thông tư gốc.,C,A / B (hoà) (3/7),B,B,,"Public Health, General Medicine",Đối tượng lấy mẫu theo quy định với hệ thống quản lý nhà nước là:,"A. Các nguyên liệu dùng làm thuốc, bao bì đóng gói, sản phẩm trung gian, sản phẩm chưa đóng gói, thành phẩm
+B. Thuốc và các nguyên liệu làm thuốc đang trong quá trình lưu thông hoặc tồn trữ trong kho
+C. Tất cả các lô thuốc thành phẩm, bán thành phẩm, thành phẩm trung gian trong quá trình sản xuất
+D. Thuốc lưu trong kho của cơ sở kinh doanh bao gồm thuốc nhập khẩu và sản xuất trong nước.",e6fe33cbac0348f8b8ab90603db4fdbb
+C100,Không chắc,Thấp,Không xác định được,"Số liệu tỷ lệ ác tính, cần giáo trình gốc.",B,A (7/7),B,A,,"Obstetrics and Gynecology, Oncology",Tần suất xuất hiện ung thư BT trên u nang thực thể của BT là bao nhiêu?,"A. < 1% u thực thể chẩn đoán trước mãn kinh, 15% xuất hiện sau mãn kinh
+B. 5% u thực thể chẩn đoán trước mãn kinh, 15% xuất hiện sau mãn kinh
+C. < 1% u thực thể chẩn đoán trước mãn kinh, 25% xuất hiện sau mãn kinh
+D. 5% u thực thể chẩn đoán trước mãn kinh, 25% xuất hiện sau mãn kinh",72afd1a30b0145b6a37f85b618df8fa8
+C104,Không chắc,Thấp,Không xác định được,"Câu đếm; tâm lý học thường chia 3 loại chú ý, khoá ghi 5.",D,B (6/7),D,A,,Psychiatry,Có bao nhiêu loại chú ý?,"A. 2
+B. 3
+C. 4
+D. 5",05b12bfa481c4e6e84549c20e50c54a7
+C113,Không chắc,Thấp,Không xác định được,"Câu đếm, tuỳ hướng dẫn Bộ Y tế.",C,D (5/7),C,D,0.56; 4,"Oncology, Palliative Medicine, General Medicine",Có mấy nguyên tắc điều trị đau bằng thuốc chính?,"A. 7
+B. 8
+C. 10
+D. 9",2b0396483e884fdbaac1112a7fe81c7e
+C124,Không chắc,Thấp,Không xác định được,Liều gây chết theo giáo trình độc chất học.,A,C / D (hoà) (3/7),A,D,,"Pharmacology, Toxicology",7. Liều gây chết của thuốc côn trùng dị vòng carbamat là?,"A. 1 – 10mg.
+B. 0,1 - 1g.
+C. 10–100mg.
+D. Vài mg.",708b254581e949c19e35a0181f6dd47b
