@@ -116,16 +116,30 @@ def add_context(bodies, split, context):
 
 
 @app.local_entrypoint()
-def main(models: str, split: str = "test", shuffle_seed: int = -1, limit: int = 0, context: str = ""):
+def main(models: str, split: str = "test", shuffle_seed: int = -1, limit: int = 0, context: str = "",
+         items: str = ""):
+    # --items FILE: score generated questions (gen_moh_mcq.py) instead of a VM14K split; --split names the run.
+    # --context own: each item's own source chunk (`chunk_text`) in the state, as the CS1 teacher reads it.
     from run_eval import RUNS_DIR, load_rows, permute
     from run_jev import request_body, to_record
 
     seed = None if shuffle_seed < 0 else shuffle_seed
-    rows = load_rows(split, None, 0)[:limit or None]
+    if items:
+        with open(items, encoding="utf-8") as fh:
+            rows = [json.loads(line) for line in fh][:limit or None]
+    else:
+        rows = load_rows(split, None, 0)[:limit or None]
     prepared = [(r, *permute(r, seed)) for r in rows]  # (row, options as shown, gold index, perm)
     model_ids = [m for m in models.split(",") if m]
     jobs = [(m, [request_body(r, opts, m) for r, opts, _, _ in prepared]) for m in model_ids]
-    top_sim = [add_context(bodies, split, context) for _, bodies in jobs][0] if context else None
+    top_sim = None
+    if context == "own":
+        from rag_moh import DOCS_HEAD
+        for _, bodies in jobs:
+            for (r, *_), body in zip(prepared, bodies):
+                body["state"] = f"{DOCS_HEAD}\n\n[1] {r['chunk_text']}\n\nQuestion: {body['state']}"
+    elif context:
+        top_sim = [add_context(bodies, split, context) for _, bodies in jobs][0]
     calls = [(meddecide if "MedDecider" in m else decide).spawn(m, bodies) for m, bodies in jobs]  # in parallel
     for m, results in zip(model_ids, (c.get() for c in calls)):
         args = SimpleNamespace(model=m, shuffle_seed=seed, split=split)
