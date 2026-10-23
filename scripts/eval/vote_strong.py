@@ -25,17 +25,51 @@ RUNS = {
     "Nemotron-3-Ultra": "nvidia__nvidia_nemotron-3-ultra-550b-a55b__paper__test",
     "Qwen3.5-9B + LoRA": "hf-logit__Qwen_Qwen3.5-9B+q35-9b-sft-shuf__paper__test",
     "Llama-3.2-90B": "nvidia__meta_llama-3.2-90b-vision-instruct__paper__test",
+    "Qwen3.5-27B + 3 retrieved": "hf-logit__Qwen_Qwen3.5-27B-bnb4__fewshot3-tfidf__test",
 }
 SEVEN = ["nvidia__deepseek-ai_deepseek-v4.1-flash__paper__test", "nvidia__google_gemma-4-31b-it__paper__test",
          "gemma4_12b__paper__test", "qwen3.5_9b__paper__test", "qwen3_8b__paper__test", "llama3.1_8b__paper__test",
          "medgemma_4b__paper__test"]
 VOTES = [["Gemma-4-31B", "DeepSeek-v4.1-flash", "Nemotron-3-Ultra"],
          ["Gemma-4-31B", "DeepSeek-v4.1-flash", "Qwen3.5-9B + LoRA"],
-         ["Gemma-4-31B", "DeepSeek-v4.1-flash", "Nemotron-3-Ultra", "Qwen3.5-9B + LoRA", "Llama-3.2-90B"]]
+         ["Gemma-4-31B", "DeepSeek-v4.1-flash", "Nemotron-3-Ultra", "Qwen3.5-9B + LoRA", "Llama-3.2-90B"],
+         ["Gemma-4-31B", "DeepSeek-v4.1-flash", "Qwen3.5-27B + 3 retrieved"]]
 
 
 def load(name):
     return {r["id"]: r for r in load_run(os.path.join(RUNS_DIR, name + ".jsonl"))}
+
+
+SINGLE = {  # every full test run worth tracking; absent files are skipped
+    "Gemma-4-31B": RUNS["Gemma-4-31B"], "DeepSeek-v4.1-flash": RUNS["DeepSeek-v4.1-flash"],
+    "Nemotron-3-Ultra": RUNS["Nemotron-3-Ultra"], "Llama-3.2-90B": RUNS["Llama-3.2-90B"],
+    "Qwen3.5-27B 4-bit, zero-shot": "hf-logit__Qwen_Qwen3.5-27B-bnb4__paper__test",
+    "Qwen3.5-27B 4-bit, 3 retrieved train examples": "hf-logit__Qwen_Qwen3.5-27B-bnb4__fewshot3-tfidf__test",
+    "Qwen3.5-9B + LoRA": RUNS["Qwen3.5-9B + LoRA"], "Qwen3.5-9B zero-shot": "hf-logit__Qwen_Qwen3.5-9B__paper__test",
+    "JEV-9B": "jev9b__autotrust_JEV-9B__choice__test",
+    "Qwen3.5-2B + LoRA": "hf-logit__Qwen_Qwen3.5-2B+q35-2b-sft-shuf__paper__test",
+}
+
+
+def per_run_table(ids, flagged):
+    """Accuracy of each run on all items, on the undisputed items, and on the disputed ones."""
+    flagged = set(flagged)
+    clean = [i for i in ids if i not in flagged]
+    rows = []
+    for label, name in SINGLE.items():
+        if not os.path.exists(os.path.join(RUNS_DIR, name + ".jsonl")):
+            continue
+        run = load(name)
+        a = lambda sub: 100 * sum(run[i]["correct"] for i in sub) / len(sub)  # noqa: E731
+        rows.append((a(clean), f"| {label} | {a(ids):.1f} | {a(clean):.1f} | {a(sorted(flagged)):.1f} |"))
+    return [f"## Each run on the undisputed items", "",
+            f"Improvements are judged on the {len(clean)} items whose key no model group disputes; on the "
+            f"{len(flagged)} disputed items a higher score may only mean agreeing with a wrong key. Gemma-4-31B and "
+            "DeepSeek-v4.1-flash define the disputed set (it is built from their shared errors, plus items all seven "
+            "first-round models miss), so they score 0% there and their undisputed scores are inflated: compare them "
+            "on all items only. The other runs can be compared with each other on the undisputed column.", "",
+            f"| run | all {len(ids)} % | undisputed {len(clean)} % | disputed {len(flagged)} % (= key) |",
+            "|---|---:|---:|---:|"] + [r for _, r in sorted(rows, reverse=True)] + [""]
 
 
 def main():
@@ -82,6 +116,7 @@ def main():
               f"{len(rest)} items the vote scores {100 * sum(best[2][i] for i in rest) / len(rest):.1f}%. Until a "
               "clinician decides those keys, a higher score on them cannot be told apart from agreeing with a "
               "wrong key.", ""]
+    lines += per_run_table(ids, sorted(disputed | allwrong))
     with open(OUT_MD, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines))
     print("\n".join(lines))
