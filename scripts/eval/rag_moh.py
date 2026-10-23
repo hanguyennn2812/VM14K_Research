@@ -62,7 +62,8 @@ TAG = {"zero": "paper", "docs": "moh-k3", "shots": "fewshot3-tfidf", "shots+docs
 # The test `zero` and `shots` runs already exist for the whole split (kaggle_27b.py).
 EXPORT = {"infect": [("val", "shots"), ("val", "shots+docs"), ("test", "shots+docs"), ("val", "docs"),
                      ("test", "docs"), ("val", "zero")],
-          "all": [("val", "shots"), ("val", "shots+docs"), ("test", "shots+docs")]}
+          "all": [("test", "zero"), ("test", "shots"), ("val", "shots"), ("val", "shots+docs"),
+                  ("test", "shots+docs")]}
 EMB_MODEL = "nvidia/nemotron-3.5-embed-8b"
 EMB_CACHE = os.path.join(REPO_ROOT, "data", "interim", "moh_{scope}_emb.npz")
 OUT_MD = os.path.join(RUNS_DIR, "..", "RAG_MOH_{scope}.md")
