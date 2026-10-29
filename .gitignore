@@ -1,5 +1,6 @@
 __pycache__/
 *.py[cod]
+.venv/
 
 # Regenerable PDF-extraction cache built by notebooks/MoH_LLM_Specialty_Pilot.ipynb —
 # large, derived from data/Chuyên khoa/, re-extracted on demand (~1-2 min/specialty).
