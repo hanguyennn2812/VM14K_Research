@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "seed": 20261105,
+  "unit": "document",
+  "group_unit": "disease",
+  "ratios_target": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "source_audit_sha256": "f23ceebea96ea5e234659d3167d1cb263a83c2420f025857ce2293cc7fe76d9e",
+  "group_assignment": {
+    "tuberculosis": "train",
+    "covid-19": "train",
+    "dengue": "train",
+    "syphilis": "val",
+    "mpox": "test",
+    "measles": "test",
+    "genital-warts": "val",
+    "hepatitis-c": "test",
+    "hiv-hepatitis-b-syphilis-mtct": "val",
+    "hand-foot-mouth": "train",
+    "gonorrhea": "test",
+    "chlamydia": "val",
+    "genital-herpes": "train"
+  },
+  "documents": [
+    {
+      "doc_id": "882183f3bf",
+      "title": "Quyet dinh so 5165 QD BYT ngay 09 11 2021 cua BYT V v ban hanh Huong dan chan doan va dieu tri benh Lau",
+      "guideline_title": "HƢỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ BỆNH LẬU",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5165_QD_BYT_ngay_09_11_2021_cua_BYT_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_benh_Lau.pdf",
+      "disease_group": "gonorrhea",
+      "chunks": 8,
+      "split": "test"
+    },
+    {
+      "doc_id": "9bb9725474",
+      "title": "Quyet dinh so 2065 QD BYT ngay 29 4 2021 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri benh viem gan vi rut C",
+      "guideline_title": "BỘ Y TẾ CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM HƯỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ BỆNH VIÊM GAN VI RÚT C",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2065_QD_BYT_ngay_29_4_2021_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_benh_viem_gan_vi_rut_C.pdf",
+      "disease_group": "hepatitis-c",
+      "chunks": 15,
+      "split": "test"
+    },
+    {
+      "doc_id": "873849f450",
+      "title": "Quyet dinh so 1019 QD BYT ngay 26 3 2025 cua Bo Y te Ve viec ban hanh tai lieu chuyen mon Huong dan chan doan va dieu tri benh soi (1)",
+      "guideline_title": "HƯỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ BỆNH SỞI",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_1019_QD_BYT_ngay_26_3_2025_cua_Bo_Y_te_Ve_viec_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_soi (1).pdf",
+      "disease_group": "measles",
+      "chunks": 15,
+      "split": "test"
+    },
+    {
+      "doc_id": "b8b9fa48ac",
+      "title": "Quyet dinh so 465 QD BYT 29 02 2024 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh Mpox Dau mua khi o nguoi",
+      "guideline_title": "HƯỚNG DẪN CHẨN ĐOÁN, ĐIỀU TRỊ VÀ PHÒNG BỆNH MPOX (ĐẬU MÙA KHỈ) Ở NGƯỜI",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_465_QD_BYT_29_02_2024_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_Mpox_Dau_mua_khi_o_nguoi.pdf",
+      "disease_group": "mpox",
+      "chunks": 9,
+      "split": "test"
+    },
+    {
+      "doc_id": "e2ec9a7df8",
+      "title": "Quyet dinh so 2099 QD BYT ngay 29 7 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh dau mua khi o nguoi",
+      "guideline_title": "HƢỚNG DẪN CHẨN ĐOÁN, ĐIỀU TRỊ VÀ PHÒNG BỆNH ĐẬU MÙA KHỈ Ở NGƢỜI",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2099_QD_BYT_ngay_29_7_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_dau_mua_khi_o_nguoi.pdf",
+      "disease_group": "mpox",
+      "chunks": 7,
+      "split": "test"
+    },
+    {
+      "doc_id": "3045471426",
+      "title": "Quyet dinh so 2671 QD BYT ngay 26 06 2023 V v ban hanh Huong dan chan doan va dieu tri COVID 19 sua doi bo sung",
+      "guideline_title": "HƯỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ COVID-19",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2671_QD_BYT_ngay_26_06_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_COVID_19_sua_doi_bo_sung.pdf",
+      "disease_group": "covid-19",
+      "chunks": 73,
+      "split": "train"
+    },
+    {
+      "doc_id": "6dcc599f9c",
+      "title": "Quyet dinh so 2760 QD BYT ngay 06 7 2023 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri Sot xuat huyet Dengue",
+      "guideline_title": "HƯỚNG DẪN CHẨN ĐOÁN, ĐIỀU TRỊ SỐT XUẤT HUYẾT DENGUE",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2760_QD_BYT_ngay_06_7_2023_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_Sot_xuat_huyet_Dengue.pdf",
+      "disease_group": "dengue",
+      "chunks": 59,
+      "split": "train"
+    },
+    {
+      "doc_id": "289bb66d6c",
+      "title": "Quyet dinh so 5183 QD BYT ngay 09 11 2021 cua Bo Y te V v ban hanh Huong dan chan doan va dieu tri nhiem Herpes simplex sinh duc",
+      "guideline_title": "HƢỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ HERPES SIMPLEX SINH DỤC",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5183_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_nhiem_Herpes_simplex_sinh_duc.pdf",
+      "disease_group": "genital-herpes",
+      "chunks": 6,
+      "split": "train"
+    },
+    {
+      "doc_id": "12875c1c0b",
+      "title": "68 Quyet dinh so 1003 QD BYT ngay 30 3 2012 cua Bo Y te V v ban hanh huong dan chan doan dieu tri benh tay chan mieng",
+      "guideline_title": "68 Quyet dinh so 1003 QD BYT ngay 30 3 2012 cua Bo Y te V v ban hanh huong dan chan doan dieu tri benh tay chan mieng",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/68_Quyet_dinh_so_1003_QD_BYT_ngay_30_3_2012_cua_Bo_Y_te_V_v_ban_hanh_huong_dan_chan_doan_dieu_tri_benh_tay_chan_mieng.pdf",
+      "disease_group": "hand-foot-mouth",
+      "chunks": 13,
+      "split": "train"
+    },
+    {
+      "doc_id": "46f795ca37",
+      "title": "Quyet dinh so 3126 QD BYT ngay 23 5 2018 cua Bo Y te V v ban hanh Huong dan chan doan va du phong benh lao",
+      "guideline_title": "HƯỚNG DẪN CHẨN ĐOÁN, ĐIỀU TRỊ VÀ DỰ PHÒNG BỆNH LAO",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_3126_QD_BYT_ngay_23_5_2018_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_va_du_phong_benh_lao.pdf",
+      "disease_group": "tuberculosis",
+      "chunks": 87,
+      "split": "train"
+    },
+    {
+      "doc_id": "d084553418",
+      "title": "Cap nhat huong dan dieu tri benh Lao khang thuoc Bo Y te",
+      "guideline_title": "CHƯƠNG TRÌNH CHỐNG LAO QUỐC GIA CẬP NHẬT HƯỚNG DẪN ĐIỀU TRỊ BỆNH LAO KHÁNG THUỐC",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Cap_nhat_huong_dan_dieu_tri_benh_Lao_khang_thuoc_Bo_Y_te.pdf",
+      "disease_group": "tuberculosis",
+      "chunks": 26,
+      "split": "train"
+    },
+    {
+      "doc_id": "107ed2211c",
+      "title": "Quyet dinh so 5169 QD BYT ngay 09 11 2021 cua Bo Y te Ve viec ban hanh H ong dan chan doan va dieu tri benh Chlamydia Trachomatis",
+      "guideline_title": "HƢỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ BỆNH CHLAMYDIA TRACHOMATIS",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5169_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_Ve_viec_ban_hanh_H_ong_dan_chan_doan_va_dieu_tri_benh_Chlamydia_Trachomatis.pdf",
+      "disease_group": "chlamydia",
+      "chunks": 7,
+      "split": "val"
+    },
+    {
+      "doc_id": "91a71b0479",
+      "title": "Quyet dinh so 5185 QD BYT ngay 09 11 2021 cua Bo Y te V v hanh Huong dan chan doan va dieu tri benh Sui mao ga",
+      "guideline_title": "HƢỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ BỆNH SÙI MÀO GÀ",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5185_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_V_v_hanh_Huong_dan_chan_doan_va_dieu_tri_benh_Sui_mao_ga.pdf",
+      "disease_group": "genital-warts",
+      "chunks": 15,
+      "split": "val"
+    },
+    {
+      "doc_id": "7523f9ee30",
+      "title": "Quyet dinh so 678 QD BYT 27 02 2025 Quyet dinh ve viec ban hanh Huong dan ky thuat cac can thiep du phong lay truyen HIV viem gan B va giang mai tu me sang con part02",
+      "guideline_title": "HƯỚNG DẪN KỸ THUẬT CÁC CAN THIỆP DỰ PHÒNG LÂY TRUYỀN HIV, VIÊM GAN B VÀ GIANG MAI TỪ MẸ SANG CON",
+      "source_path": "data/Chuy├¬n khoa/HIV/Quyet_dinh_so_678_QD_BYT_27_02_2025_Quyet_dinh_ve_viec_ban_hanh_Huong_dan_ky_thuat_cac_can_thiep_du_phong_lay_truyen_HIV_viem_gan_B_va_giang_mai_tu_me_sang_con_part02.pdf",
+      "disease_group": "hiv-hepatitis-b-syphilis-mtct",
+      "chunks": 14,
+      "split": "val"
+    },
+    {
+      "doc_id": "40c791f251",
+      "title": "Quyet dinh so 5186 QD BYT ngay 09 11 2021 cua Bo Y te V v ban hanh H ong dan chan doan va dieu tri benh Giang mai",
+      "guideline_title": "HƢỚNG DẪN CHẨN ĐOÁN VÀ ĐIỀU TRỊ BỆNH GIANG MAI",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5186_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_V_v_ban_hanh_H_ong_dan_chan_doan_va_dieu_tri_benh_Giang_mai.pdf",
+      "disease_group": "syphilis",
+      "chunks": 18,
+      "split": "val"
+    }
+  ]
+}

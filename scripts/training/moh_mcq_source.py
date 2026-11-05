@@ -43,14 +43,46 @@ def text_problem(text):
 
 def document_problem(title, text):
     title = fold(title.replace("_", " "))
+    body = fold(text)
+    if "cac benh da lieu" in title:
+        return "outside_infectious_diseases"
+    if "sau nhiem covid" in title or "sau mac covid" in title:
+        return "outside_infectious_diseases"
     if "giam sat" in title:
         return "surveillance_document"
     if "xet nghiem moi hiv" in title and "su dung so lieu" in title:
         return "incidence_surveillance_document"
     if "danh muc" in title or "cong van" in title:
         return "administrative_document"
+    if title.startswith("qu25d4") and "quy trinh" in body and "dich vu tu van" in body:
+        return "administrative_document"
     # A stray glyph should quarantine its page, not an otherwise readable 474-page guideline.
     return "low_vietnamese_accents" if accent_ratio(text) < 0.06 else None
+
+
+def disease_group(title):
+    """Stable document grouping used for caps and document-level splits."""
+    value = fold(title.replace("_", " "))
+    rules = (
+        ("mpox", ("mpox", "dau mua khi")),
+        ("tuberculosis", ("benh lao", "lao khang thuoc")),
+        ("covid-19", ("covid 19",)),
+        ("hiv-hepatitis-b-syphilis-mtct", ("lay truyen hiv viem gan b va giang mai tu me sang con",)),
+        ("hiv", ("hiv",)),
+        ("hepatitis-c", ("viem gan vi rut c",)),
+        ("dengue", ("sot xuat huyet dengue",)),
+        ("measles", ("benh soi",)),
+        ("hand-foot-mouth", ("tay chan mieng",)),
+        ("gonorrhea", ("benh lau",)),
+        ("chlamydia", ("chlamydia",)),
+        ("genital-herpes", ("herpes simplex sinh duc",)),
+        ("genital-warts", ("sui mao ga",)),
+        ("syphilis", ("benh giang mai",)),
+    )
+    for group, needles in rules:
+        if any(needle in value for needle in needles):
+            return group
+    return None
 
 
 def page_lines(page):
