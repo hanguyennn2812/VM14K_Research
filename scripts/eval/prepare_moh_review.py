@@ -35,11 +35,24 @@ def payload(items_path, reviewer_path, split):
                          and old_own[r["id"]]["pred"] != "ABCD"[r["answer_index"]]]
     if len(old_disagreements) != 5:
         raise ValueError("Historical disagreement count differs from expected 5")
-    wb = load_workbook(reviewer_path, read_only=True, data_only=False)
-    ha = list(wb["Duyệt"].values)[1:]
-    ratings = dict(collections.Counter(r[11] for r in ha))
-    tags = dict(collections.Counter(r[12] for r in ha if r[12]))
-    annotations = {r[2]: {"rating": r[11], "tag": r[12], "note": r[13]} for r in ha}
+    wb = load_workbook(reviewer_path, read_only=True, data_only=True)
+    if "Duyệt" in wb.sheetnames:
+        ha = list(wb["Duyệt"].values)[1:]
+        ratings = dict(collections.Counter(r[11] for r in ha))
+        tags = dict(collections.Counter(r[12] for r in ha if r[12]))
+        annotations = {r[2]: {"rating": r[11], "tag": r[12], "note": r[13]} for r in ha}
+    elif {"Duyệt 60", "BatDong_vong1"} <= set(wb.sheetnames):
+        current = list(wb["Duyệt 60"].values)
+        header = {name: i for i, name in enumerate(current[0])}
+        ratings = dict(collections.Counter(r[header["Đánh giá"]] for r in current[1:]))
+        tags = dict(collections.Counter(r[header["Nhãn lỗi"]] for r in current[1:] if r[header["Nhãn lỗi"]]))
+        old = list(wb["BatDong_vong1"].values)
+        old_header = {name: i for i, name in enumerate(old[0])}
+        annotations = {r[old_header["Mã câu"]]: {
+            "rating": r[old_header["Đánh giá lại"]], "tag": "",
+            "note": r[old_header["Ghi chú mới"]]} for r in old[1:]}
+    else:
+        raise ValueError("Unsupported Hà review workbook layout")
     wb.close()
 
     def enrich(r, own, bare):
