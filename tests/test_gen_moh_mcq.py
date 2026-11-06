@@ -29,7 +29,30 @@ def test_no_document_wording_or_unsupported_absolutes():
 
 def test_disease_must_be_grounded_and_in_stem():
     assert g.quality_reason(question(question="Thuốc nào được dùng?"), SOURCE) == "missing_disease_in_question"
-    assert g.quality_reason(question(disease="bệnh phong"), SOURCE) == "disease_not_in_source"
+    assert g.quality_reason(question(question="Bệnh phong dùng thuốc nào?", disease="bệnh phong"), SOURCE) == "disease_not_in_source"
+    # The writer's label need not be literal when the stem itself names the disease.
+    assert g.quality_reason(question(disease="lao ở người nhiễm HIV"), SOURCE) is None
+    chlamydia = "Nhiễm Chlamydia sinh dục – tiết niệu không biến chứng: dùng Streptomycin"
+    q = question(question="Nhiễm Chlamydia sinh dục ở nữ giới dùng thuốc nào?", disease="Nhiễm Chlamydia không biến chứng")
+    assert g.quality_reason(q, chlamydia) is None
+    # Word-level: "lao động" and a disease absent from the source do not count.
+    assert g.quality_reason(question(question="Người lao động dùng thuốc nào?", disease="x"), "lao động dùng Streptomycin") == "disease_not_in_source"
+    assert g.quality_reason(question(question="Trong bệnh lao, thuốc nào?", disease="y"), "dùng Streptomycin") == "disease_not_in_source"
+
+
+def test_evidence_ignores_pdf_spacing_but_not_wording():
+    assert g.quality_reason(question(evidence="dùng  Streptomycin (thay cho E)"), SOURCE + "") is None
+    assert g.quality_reason(question(evidence="mạch > 150 lần/phút"), SOURCE + " mạch > 150 lần /phút") is None
+    assert g.quality_reason(question(evidence="dung Streptomycin"), SOURCE) == "evidence_not_verbatim"
+    assert g.compact("Hct > 35%") != g.compact("Hct < 35%") and g.compact("Hct>35 %") == g.compact("Hct > 35%")
+
+
+def test_lead_in_is_stripped_and_diagram_references_rejected():
+    reply = '[{"question": "Theo hướng dẫn, nhiễm lao dùng gì?", "options": ["a", "b", "c", "d"], "answer_index": 0}]'
+    assert g.parse(reply)[0]["question"] == "Nhiễm lao dùng gì?"
+    named = reply.replace("Theo hướng dẫn, nhiễm lao", "Theo hướng dẫn điều trị bệnh lao, thuốc")
+    assert g.parse(named)[0]["question"] == "Trong điều trị bệnh lao, thuốc dùng gì?"
+    assert g.quality_reason(question(question="Trong sơ đồ 3.1.1, bệnh lao dùng thuốc nào?"), SOURCE) == "document_recall"
     assert g.quality_reason(question(), SOURCE) is None
 
 
@@ -89,6 +112,24 @@ def test_unsupported_rankings_and_near_duplicate_knowledge():
     assert g.near_duplicate(b, [a])
     assert disease_group("Huong dan dieu tri benh dau mua khi o nguoi") == "mpox"
     assert disease_group("Huong dan phong benh Mpox") == "mpox"
+
+
+def test_full_generation_uses_only_frozen_train_val_documents(tmp_path):
+    manifest = tmp_path / "split.json"
+    manifest.write_text(json.dumps({"documents": [
+        {"doc_id": "a", "source_path": "a.pdf", "split": "train", "disease_group": "tb"},
+        {"doc_id": "b", "source_path": "b.pdf", "split": "val", "disease_group": "mpox"},
+        {"doc_id": "c", "source_path": "c.pdf", "split": "test", "disease_group": "hiv"},
+    ]}), encoding="utf-8")
+    chunks = [{"doc_id": value, "source_path": f"{value}.pdf"} for value in "abc"]
+    selected, _ = g.select_manifest_chunks(chunks, manifest)
+    assert [(row["doc_id"], row["data_split"]) for row in selected] == [("a", "train"), ("b", "val")]
+    import pytest
+    with pytest.raises(ValueError, match="never test"):
+        g.select_manifest_chunks(chunks, manifest, ("test",))
+    assert [r["doc_id"] for r in g.select_manifest_chunks(chunks, manifest, ("test",), True)[0]] == ["c"]
+    with pytest.raises(ValueError, match="test documents alone"):
+        g.select_manifest_chunks(chunks, manifest, ("train", "test"), True)
 
 
 def test_balanced_sampling_is_seeded_and_round_robins_documents():

@@ -2,10 +2,15 @@
 """Prepared VM14K jev-torch training job; importing this file does not launch it.
 
     python scripts/training/jevtorch_data.py --out data/derived/jevtorch
-    modal run scripts/training/modal_jevtorch.py --data data/derived/jevtorch
+    modal run scripts/training/modal_jevtorch.py::main --data data/derived/jevtorch
+    # Config selection on VM14K val: never reads test.jsonl. --moh adds d3 soft-labelled MoH train items.
+    modal run scripts/training/modal_jevtorch.py::main --score val --tag vm14k
+    modal run scripts/training/modal_jevtorch.py::main --score val --tag vm14k-moh --moh FILE.teacher.jsonl
+    # Score saved checkpoints on arbitrary questions, without training.
+    modal run scripts/training/modal_jevtorch.py::rescore --runs NAME=RUN_ID,... --items FILE --tag TAG
 
 One H100, one epoch of BF16 LoRA, validation-only temperature fitting, then
-original-order test probabilities in run_eval format. No Hub or W&B uploads.
+original-order probabilities in run_eval format. No Hub or W&B uploads.
 """
 
 import hashlib
@@ -23,7 +28,7 @@ LETTERS = "ABCDE"  # two train items have five options
 INSTRUCTION = "Choose the correct option from these answers"
 MAX_LENGTH = 2048
 TIMEOUT = 2 * 3600
-RESULT_NAME = "jevtorch__Qwen_Qwen3.5-2B__choice__test.jsonl"
+RESULT_NAME = "jevtorch__Qwen_Qwen3.5-2B__choice__{score}.jsonl"
 
 app = modal.App("vm14k-jevtorch")
 cache = modal.Volume.from_name("vm14k-hf-cache", create_if_missing=True)
@@ -48,6 +53,16 @@ image = (
 )
 
 
+def moh_item(row, split, seed):
+    """A teacher-labelled MoH question in the export schema, with d3's with-source probabilities as target."""
+    from jevtorch_data import convert_row
+
+    item = convert_row(row, "train", seed)
+    probs = row["teacher"]["with_source_probs"]
+    total = sum(probs)
+    return {**item, "split": split, "soft": True, "target": [probs[j] / total for j in item["perm"]]}
+
+
 def native_item(item):
     """Translate the requested keyed export to the verified JEVExample schema.
 
@@ -64,7 +79,11 @@ def native_item(item):
     label = item["label"]
     if not isinstance(label, int) or not 0 <= label < n:
         raise ValueError(f"{item['id']}: invalid hard label")
-    if item["target"] != [float(i == label) for i in range(n)]:
+    target = item["target"]
+    if item.get("soft"):  # d3 teacher distribution: its argmax must be the checked key.
+        if len(target) != n or min(target) < 0 or abs(sum(target) - 1) > 1e-3 or target.index(max(target)) != label:
+            raise ValueError(f"{item['id']}: invalid soft target")
+    elif target != [float(i == label) for i in range(n)]:
         raise ValueError(f"{item['id']}: target must be one-hot at label")
     if sorted(item["perm"]) != list(range(n)):
         raise ValueError(f"{item['id']}: invalid permutation")
@@ -118,12 +137,14 @@ def train_and_score(splits, model_snapshot, seed, run_id):
     data_dir.mkdir(parents=True, exist_ok=False)
     native = {split: [native_item(item) for item in items] for split, items in splits.items()}
 
+    # Scored separately; MoH val documents never reach the trainer, selection or temperature fit.
+    native["score"] = native["score"] + native.pop("moh_val", [])
     # Fixed 50/50 development/calibration partition of frozen val, independent
     # of training seed. Test is never passed to the trainer or temperature fit.
     ordered_val = sorted(native["val"], key=lambda x: hashlib.sha256(str(x["id"]).encode()).digest())
     cut = len(ordered_val) // 2
     staged = {"train": native["train"], "validation": ordered_val[:cut],
-              "calibration": ordered_val[cut:], "test": native["test"]}
+              "calibration": ordered_val[cut:]}
     for split, items in staged.items():
         with (data_dir / f"{split}.jsonl").open("w", encoding="utf-8") as fh:
             for item in items:
@@ -136,14 +157,14 @@ def train_and_score(splits, model_snapshot, seed, run_id):
                  "max_length": MAX_LENGTH, "shuffle_prob": 0.0},
         "train": {"output_dir": str(output), "num_gpus": 1, "epochs": 1, "max_steps": None,
                   "global_batch_size": 32, "micro_batch_size": 4, "eval_batch_size": 8,
-                  "lr": 1e-4, "head_lr": 2e-4, "loss": {"ce": 1.0},
+                  "lr": 1e-4, "head_lr": 2e-4, "loss": {"kl": 1.0},
                   "dtype": "bfloat16", "device": "cuda", "seed": seed,
                   "eval_every": 1000000, "save_every": 100, "log_every": 10,
                   "val_max_examples": None, "num_workers": 0,
                   "hf_push": None, "wandb_project": None, "export_vllm": False},
     }
-    # CE is supported upstream. For our one-hot targets, KL has the same
-    # objective; adding both would merely duplicate it. The data is already
+    # KL reads the soft target (upstream's "ce" ignores it) and equals CE on one-hot
+    # rows, so VM14K-only and VM14K+MoH runs share one objective. The data is already
     # shuffled, so disable upstream's additional random option augmentation.
     config_path = work / "vm14k.yaml"
     config_path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
@@ -175,8 +196,8 @@ def train_and_score(splits, model_snapshot, seed, run_id):
         raise ValueError(f"invalid fitted temperature: {temperature}")
     print(f"choice temperature={temperature:.6f}", flush=True)
     records = []
-    for start in range(0, len(native["test"]), 8):
-        batch = native["test"][start:start + 8]
+    for start in range(0, len(native["score"]), 8):
+        batch = native["score"][start:start + 8]
         examples = [JEVExample.from_dict(item) for item in batch]
         try:
             # Use logits rather than predict_batch's text-keyed dict: duplicate
@@ -201,26 +222,75 @@ def train_and_score(splits, model_snapshot, seed, run_id):
                 "probs": probs, "n_options": n, "perm": item["perm"],
                 "medical_topic": item["medical_topic"], "difficulty_level": item["difficulty_level"],
                 "error": error, "provider": "jevtorch", "model": MODEL_ID,
-                "split": "test", "prompt_style": "choice", "temperature": temperature,
+                "split": item["split"], "prompt_style": "choice", "temperature": temperature,
                 "seed": seed, "jevtorch_commit": JEVTORCH_COMMIT, "run_id": run_id,
             })
-    with (work / RESULT_NAME).open("w", encoding="utf-8") as fh:
+    with (work / "scores.jsonl").open("w", encoding="utf-8") as fh:
         for record in records:
             fh.write(json.dumps(record, ensure_ascii=False, allow_nan=False) + "\n")
     cache.commit()
     return records
 
 
+@app.function(image=image, gpu="H100", volumes={"/cache": cache}, timeout=TIMEOUT, retries=0, scaledown_window=2)
+def score_checkpoint(run_id, items):
+    """Original-order probabilities from a saved run's calibrated best checkpoint."""
+    import torch
+    from jev import JEVPredictor
+    from jev.schema import JEVExample, KINDS
+
+    predictor = JEVPredictor(f"/cache/jevtorch-vm14k/{run_id}/run/best", device="cuda",
+                             max_length=MAX_LENGTH, batch_size=8)
+    temperature = float(predictor.temperature[KINDS.index("choice")])
+    probs = []
+    for start in range(0, len(items), 8):
+        logits = predictor.logits([JEVExample.from_dict(item) for item in items[start:start + 8]])
+        probs += [torch.softmax(lg / temperature, dim=-1).tolist() for lg in logits]
+    return probs
+
+
 @app.local_entrypoint()
-def main(data: str = "data/derived/jevtorch", seed: int = 42, limit: int = 0):
-    # --limit N keeps the first N items of every split: a cheap smoke run of image, kernels and scoring.
+def rescore(runs: str, items: str, tag: str):
+    # --items: JSONL rows with question/options/answer_index, kept in their own option order.
     repo_root = Path(__file__).resolve().parents[2]
-    name = RESULT_NAME.replace(".jsonl", f"__n{limit}.jsonl") if limit else RESULT_NAME
+    with open(items, encoding="utf-8") as fh:
+        rows = [json.loads(line) for line in fh if line.strip()]
+    native = [{"id": r["id"], "kind": "choice", "state": r["question"], "question": INSTRUCTION,
+               "options": r["options"], "label": r["answer_index"]} for r in rows]
+    named = dict(pair.split("=") for pair in runs.split(","))
+    calls = {name: score_checkpoint.spawn(run_id, native) for name, run_id in named.items()}
+    for name, call in calls.items():
+        destination = repo_root / "reports/eval/runs" / f"jevtorch__Qwen_Qwen3.5-2B__{tag}__{name}.jsonl"
+        probs = call.get()
+        recs = [{"id": r["id"], "probs": p, "pred": max(range(len(p)), key=p.__getitem__),
+                 "gold": r["answer_index"], "correct": p.index(max(p)) == r["answer_index"], "run": name,
+                 "split": r.get("split"), "medical_topic": r.get("medical_topic")}
+                for r, p in zip(rows, probs)]
+        with destination.open("x", encoding="utf-8") as fh:
+            for rec in recs:
+                fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        print(f"{destination.name}: n={len(recs)} acc={sum(r['correct'] for r in recs) / len(recs):.4f}")
+
+
+@app.local_entrypoint()
+def main(data: str = "data/derived/jevtorch", seed: int = 42, limit: int = 0,
+         score: str = "test", tag: str = "", moh: str = "", moh_repeat: int = 1, moh_only: bool = False):
+    # --limit N keeps the first N items of every split: a cheap smoke run of image, kernels and scoring.
+    import sys
+
+    repo_root = Path(__file__).resolve().parents[2]
+    sys.path.insert(0, str(repo_root / "scripts" / "training"))
+    if score not in ("test", "val"):
+        raise ValueError("--score must be val or test")
+    if moh and score != "val":
+        raise ValueError("--moh is a config experiment: score it on val, never on test")
+    name = RESULT_NAME.format(score=score) + (f"__{tag}" if tag else "") + (f"__n{limit}" if limit else "")
+    name = name.replace(".jsonl", "") + ".jsonl"
     destination = repo_root / "reports" / "eval" / "runs" / name
     if destination.exists():
         raise FileExistsError(f"Refusing to overwrite {destination}; archive it before a new run")
     splits, seen = {}, set()
-    for split in ("train", "val", "test"):
+    for split in ("train", "val") + (("test",) if score == "test" else ()):
         with (Path(data) / f"{split}.jsonl").open(encoding="utf-8") as fh:
             items = [json.loads(line) for line in fh if line.strip()]
         ids = {item["id"] for item in items}
@@ -236,6 +306,24 @@ def main(data: str = "data/derived/jevtorch", seed: int = 42, limit: int = 0):
                 raise ValueError("--seed must match jevtorch_data.py --seed")
         splits[split] = items[:limit or None]
         seen.update(ids)
+    splits["score"] = splits.pop("test") if score == "test" else list(splits["val"])
+    if moh:
+        with open(moh, encoding="utf-8") as fh:
+            rows = [json.loads(line) for line in fh if line.strip()]
+        parts = {part: [moh_item(r, "moh-val" if part == "val" else "train", seed)
+                        for r in rows if r["data_split"] == part][:limit or None] for part in ("train", "val")}
+        if seen.intersection(r["id"] for r in rows):
+            raise ValueError("MoH ids overlap VM14K")
+        for item in parts["train"] + parts["val"]:
+            native_item(item)
+        # --moh-repeat 0 trains without MoH but still scores MoH val; N > 1 oversamples, each copy reshuffled.
+        copies = [moh_item({**r, "id": f"{r['id']}#{k}"}, "train", seed)
+                  for k in range(moh_repeat) for r in rows if r["data_split"] == "train"][:(limit * moh_repeat) or None]
+        for item in copies:
+            native_item(item)
+        splits["train"] = copies if moh_only else splits["train"] + copies
+        splits["moh_val"] = parts["val"]
+        print(f"MoH soft-labelled: {len(copies)} train rows (x{moh_repeat}), {len(parts['val'])} scored only")
     if len(splits["val"]) < 2:
         raise ValueError("Need at least two validation items for development/calibration")
     run_id = uuid.uuid4().hex

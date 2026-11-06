@@ -1,0 +1,338 @@
+{
+  "documents": [
+    {
+      "doc_id": "f23c86607a",
+      "source_path": "data/Chuy├¬n khoa/HIV/QU25D4~1.PDF",
+      "title": "QU25D4~1",
+      "chunks": 0,
+      "rejected": "administrative_document"
+    },
+    {
+      "doc_id": "f07828bc79",
+      "source_path": "data/Chuy├¬n khoa/HIV/Quyet_dinh_so_2674_QD_BYT_ngay_27_4_2021_cua_Bo_Y_te_V_v_Ban_hanh_Huong_dan_quoc_gia_xet_nghiem_HIV.pdf",
+      "title": "Quyet dinh so 2674 QD BYT ngay 27 4 2021 cua Bo Y te V v Ban hanh Huong dan quoc gia xet nghiem HIV",
+      "chunks": 0
+    },
+    {
+      "doc_id": "ad04f173bc",
+      "source_path": "data/Chuy├¬n khoa/HIV/Quyet_dinh_so_2834_QD_BYT_ngay_09_6_2021_cua_Bo_Y_te_V_v_Ban_hanh_Huong_dan_thuc_hien_xet_nghiem_moi_HIV_va_su_dung_so_lieu_xet_nghiem_phat_hien_nhiem_moi_HIV_trong_phong_chong_HIV_AIDS_part01.pdf",
+      "title": "Quyet dinh so 2834 QD BYT ngay 09 6 2021 cua Bo Y te V v Ban hanh Huong dan thuc hien xet nghiem moi HIV va su dung so lieu xet nghiem phat hien nhiem moi HIV trong phong chong HIV AIDS part01",
+      "chunks": 0,
+      "rejected": "incidence_surveillance_document"
+    },
+    {
+      "doc_id": "ae6f77fbca",
+      "source_path": "data/Chuy├¬n khoa/HIV/Quyet_dinh_so_2834_QD_BYT_ngay_09_6_2021_cua_Bo_Y_te_V_v_Ban_hanh_Huong_dan_thuc_hien_xet_nghiem_moi_HIV_va_su_dung_so_lieu_xet_nghiem_phat_hien_nhiem_moi_HIV_trong_phong_chong_HIV_AIDS_part02.pdf",
+      "title": "Quyet dinh so 2834 QD BYT ngay 09 6 2021 cua Bo Y te V v Ban hanh Huong dan thuc hien xet nghiem moi HIV va su dung so lieu xet nghiem phat hien nhiem moi HIV trong phong chong HIV AIDS part02",
+      "chunks": 0,
+      "rejected": "incidence_surveillance_document"
+    },
+    {
+      "doc_id": "7523f9ee30",
+      "source_path": "data/Chuy├¬n khoa/HIV/Quyet_dinh_so_678_QD_BYT_27_02_2025_Quyet_dinh_ve_viec_ban_hanh_Huong_dan_ky_thuat_cac_can_thiep_du_phong_lay_truyen_HIV_viem_gan_B_va_giang_mai_tu_me_sang_con_part02.pdf",
+      "title": "Quyet dinh so 678 QD BYT 27 02 2025 Quyet dinh ve viec ban hanh Huong dan ky thuat cac can thiep du phong lay truyen HIV viem gan B va giang mai tu me sang con part02",
+      "chunks": 14
+    },
+    {
+      "doc_id": "d4cf760d32",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1172_QD_BYT_ngay_13_5_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_san_la_gan_nho.pdf",
+      "title": "Quyet dinh so 1172 QD BYT ngay 13 5 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh san la gan nho",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "bbd6e96fe0",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1202_QD_BYT_ngay_16_5_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_san_day_4974.pdf",
+      "title": "Quyet dinh so 1202 QD BYT ngay 16 5 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh san day 4974",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "58727f7de0",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1203_QD_BYT_ngay_16_5_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_san_la_gan_lon.pdf",
+      "title": "Quyet dinh so 1203 QD BYT ngay 16 5 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh san la gan lon",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "8f917586b0",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1383_QD_BYT_ngay_30_5_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_xhaarn_doan_dieu_tri_va_phong_benh_au_trung_san_day_lon.pdf",
+      "title": "Quyet dinh so 1383 QD BYT ngay 30 5 2022 cua Bo Y te V v ban hanh Huong dan xhaarn doan dieu tri va phong benh au trung san day lon",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "67a63e6fdb",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1384_QD_BYT_ngay_30_5_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_giun_luon.pdf",
+      "title": "Quyet dinh so 1384 QD BYT ngay 30 5 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh giun luon",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "500f3d6a67",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1385_QD_BYT_ngay_30_5_2022_cu_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_au_trung_giun_dua_cho_meo.pdf",
+      "title": "Quyet dinh so 1385 QD BYT ngay 30 5 2022 cu Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh au trung giun dua cho meo",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "4aad1158a2",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1572_QD_BYT_ngay_17_6_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_san_la_ruot_nho.pdf",
+      "title": "Quyet dinh so 1572 QD BYT ngay 17 6 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh san la ruot nho",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "e5fcf4ffef",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1573_QD_BYT_ngay_17_6_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_san_la_phoi.pdf",
+      "title": "Quyet dinh so 1573 QD BYT ngay 17 6 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh san la phoi",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "d4d9a8fb43",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1574_QD_BYT_ngay_17_6_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_au_trung_giun_dau_gai.pdf",
+      "title": "Quyet dinh so 1574 QD BYT ngay 17 6 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh au trung giun dau gai",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "ef620f13b7",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1636_QD_BYT_ngay_24_6_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_san_la_ruot_lon.pdf",
+      "title": "Quyet dinh so 1636 QD BYT ngay 24 6 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh san la ruot lon",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "eaff41446d",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1658_QD_BYT_ngay_24_6_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_san_day_cho_o_nguoi.pdf",
+      "title": "Quyet dinh so 1658 QD BYT ngay 24 6 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh san day cho o nguoi",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "e4895ab032",
+      "source_path": "data/Chuy├¬n khoa/K├╜ sinh tr├╣ng/Quyet_dinh_so_1803_QD_BYT_ngay_30_6_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_viem_da_do_au_trung_giun_moc_cho_meo_o_nguoi.pdf",
+      "title": "Quyet dinh so 1803 QD BYT ngay 30 6 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh viem da do au trung giun moc cho meo o nguoi",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "e7afbe20b4",
+      "source_path": "data/Chuy├¬n khoa/Nhiß╗àm khuß║⌐n hß╗ìc - Vi sinh/Quyet_dinh_so_1526_QD_BYT_ngay_24_03_2023_cua_Bo_Y_te_Ban_hanh_Huong_dan_giam_sat_nhiem_khuan_vet_mo.pdf",
+      "title": "Quyet dinh so 1526 QD BYT ngay 24 03 2023 cua Bo Y te Ban hanh Huong dan giam sat nhiem khuan vet mo",
+      "chunks": 0,
+      "rejected": "surveillance_document"
+    },
+    {
+      "doc_id": "882183f3bf",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5165_QD_BYT_ngay_09_11_2021_cua_BYT_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_benh_Lau.pdf",
+      "title": "Quyet dinh so 5165 QD BYT ngay 09 11 2021 cua BYT V v ban hanh Huong dan chan doan va dieu tri benh Lau",
+      "chunks": 8
+    },
+    {
+      "doc_id": "107ed2211c",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5169_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_Ve_viec_ban_hanh_H_ong_dan_chan_doan_va_dieu_tri_benh_Chlamydia_Trachomatis.pdf",
+      "title": "Quyet dinh so 5169 QD BYT ngay 09 11 2021 cua Bo Y te Ve viec ban hanh H ong dan chan doan va dieu tri benh Chlamydia Trachomatis",
+      "chunks": 7
+    },
+    {
+      "doc_id": "289bb66d6c",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5183_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_nhiem_Herpes_simplex_sinh_duc.pdf",
+      "title": "Quyet dinh so 5183 QD BYT ngay 09 11 2021 cua Bo Y te V v ban hanh Huong dan chan doan va dieu tri nhiem Herpes simplex sinh duc",
+      "chunks": 6
+    },
+    {
+      "doc_id": "91a71b0479",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5185_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_V_v_hanh_Huong_dan_chan_doan_va_dieu_tri_benh_Sui_mao_ga.pdf",
+      "title": "Quyet dinh so 5185 QD BYT ngay 09 11 2021 cua Bo Y te V v hanh Huong dan chan doan va dieu tri benh Sui mao ga",
+      "chunks": 15
+    },
+    {
+      "doc_id": "40c791f251",
+      "source_path": "data/Chuy├¬n khoa/STDs/Quyet_dinh_so_5186_QD_BYT_ngay_09_11_2021_cua_Bo_Y_te_V_v_ban_hanh_H_ong_dan_chan_doan_va_dieu_tri_benh_Giang_mai.pdf",
+      "title": "Quyet dinh so 5186 QD BYT ngay 09 11 2021 cua Bo Y te V v ban hanh H ong dan chan doan va dieu tri benh Giang mai",
+      "chunks": 18
+    },
+    {
+      "doc_id": "12875c1c0b",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/68_Quyet_dinh_so_1003_QD_BYT_ngay_30_3_2012_cua_Bo_Y_te_V_v_ban_hanh_huong_dan_chan_doan_dieu_tri_benh_tay_chan_mieng.pdf",
+      "title": "68 Quyet dinh so 1003 QD BYT ngay 30 3 2012 cua Bo Y te V v ban hanh huong dan chan doan dieu tri benh tay chan mieng",
+      "chunks": 13
+    },
+    {
+      "doc_id": "d084553418",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Cap_nhat_huong_dan_dieu_tri_benh_Lao_khang_thuoc_Bo_Y_te.pdf",
+      "title": "Cap nhat huong dan dieu tri benh Lao khang thuoc Bo Y te",
+      "chunks": 26
+    },
+    {
+      "doc_id": "42b5d84399",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Cong_van_so_3874_SYT_NVY_27_09_2024_V_v_trien_khai_thuc_hien_huong_dan_chan_doan_va_dieu_tri_benh_viem_gan_vi_rut_C_part02 (1).pdf",
+      "title": "Cong van so 3874 SYT NVY 27 09 2024 V v trien khai thuc hien huong dan chan doan va dieu tri benh viem gan vi rut C part02 (1)",
+      "chunks": 0,
+      "rejected": "administrative_document"
+    },
+    {
+      "doc_id": "405c53afe6",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_98_QD_BYT_ngay_14_01_2022_cua_Bo_Y_te_V_v_ban_hanh_Danh_muc_bo_sung_mot_so_ma_ICD_10_lien_quan_den_COVID_19_theo_huong_dan_cua_To_chuc_Y_te_The_gioi.pdf",
+      "title": "Quyet dinh 98 QD BYT ngay 14 01 2022 cua Bo Y te V v ban hanh Danh muc bo sung mot so ma ICD 10 lien quan den COVID 19 theo huong dan cua To chuc Y te The gioi",
+      "chunks": 0,
+      "rejected": "administrative_document"
+    },
+    {
+      "doc_id": "873849f450",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_1019_QD_BYT_ngay_26_3_2025_cua_Bo_Y_te_Ve_viec_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_chan_doan_va_dieu_tri_benh_soi (1).pdf",
+      "title": "Quyet dinh so 1019 QD BYT ngay 26 3 2025 cua Bo Y te Ve viec ban hanh tai lieu chuyen mon Huong dan chan doan va dieu tri benh soi (1)",
+      "chunks": 15
+    },
+    {
+      "doc_id": "830f902af6",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_1242_QD_SYT_ngay_18_5_2022_cua_Bo_Y_te_V_v_ban_hanh_tai_lieu_Huong_dan_Phuc_hoi_chuc_nang_va_tu_cham_soc_cac_benh_co_lien_quan_sau_mac_COVID_19_part02.pdf",
+      "title": "Quyet dinh so 1242 QD SYT ngay 18 5 2022 cua Bo Y te V v ban hanh tai lieu Huong dan Phuc hoi chuc nang va tu cham soc cac benh co lien quan sau mac COVID 19 part02",
+      "chunks": 0,
+      "rejected": "outside_infectious_diseases"
+    },
+    {
+      "doc_id": "38968242b8",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_1856_QD_BYT_ngay_05_7_2022_cua_Bo_Y_te_V_v_Ban_hanh_huong_dan_chan_doan_va_dieu_tri_sau_nhiem_Covid_19_o_tre_em_part01.pdf",
+      "title": "Quyet dinh so 1856 QD BYT ngay 05 7 2022 cua Bo Y te V v Ban hanh huong dan chan doan va dieu tri sau nhiem Covid 19 o tre em part01",
+      "chunks": 0,
+      "rejected": "outside_infectious_diseases"
+    },
+    {
+      "doc_id": "9bb9725474",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2065_QD_BYT_ngay_29_4_2021_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_benh_viem_gan_vi_rut_C.pdf",
+      "title": "Quyet dinh so 2065 QD BYT ngay 29 4 2021 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri benh viem gan vi rut C",
+      "chunks": 15
+    },
+    {
+      "doc_id": "e2ec9a7df8",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2099_QD_BYT_ngay_29_7_2022_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_dau_mua_khi_o_nguoi.pdf",
+      "title": "Quyet dinh so 2099 QD BYT ngay 29 7 2022 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh dau mua khi o nguoi",
+      "chunks": 7
+    },
+    {
+      "doc_id": "8aee052e1b",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2122_QD_BYYT_ngay_01_8_2022_cua_Bo_Y_te_ve_viec_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_sau_nhiem_COVID_19_o_nguoi_lon.pdf",
+      "title": "Quyet dinh so 2122 QD BYYT ngay 01 8 2022 cua Bo Y te ve viec ban hanh Huong dan chan doan va dieu tri sau nhiem COVID 19 o nguoi lon",
+      "chunks": 0,
+      "rejected": "outside_infectious_diseases"
+    },
+    {
+      "doc_id": "76624e74dc",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2201_QD_BYT_ngay_16_05_2023_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_phong_va_kiem_soat_lay_nhiem_benh_sot_xuat_huyet_Marburg_part01.pdf",
+      "title": "Quyet dinh so 2201 QD BYT ngay 16 05 2023 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri phong va kiem soat lay nhiem benh sot xuat huyet Marburg part01",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "a9a85c5794",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2201_QD_BYT_ngay_16_05_2023_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_phong_va_kiem_soat_lay_nhiem_benh_sot_xuat_huyet_Marburg_part02.pdf",
+      "title": "Quyet dinh so 2201 QD BYT ngay 16 05 2023 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri phong va kiem soat lay nhiem benh sot xuat huyet Marburg part02",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "3045471426",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2671_QD_BYT_ngay_26_06_2023_V_v_ban_hanh_Huong_dan_chan_doan_va_dieu_tri_COVID_19_sua_doi_bo_sung.pdf",
+      "title": "Quyet dinh so 2671 QD BYT ngay 26 06 2023 V v ban hanh Huong dan chan doan va dieu tri COVID 19 sua doi bo sung",
+      "chunks": 73
+    },
+    {
+      "doc_id": "6dcc599f9c",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2760_QD_BYT_ngay_06_7_2023_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_Sot_xuat_huyet_Dengue.pdf",
+      "title": "Quyet dinh so 2760 QD BYT ngay 06 7 2023 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri Sot xuat huyet Dengue",
+      "chunks": 59
+    },
+    {
+      "doc_id": "e0495aac4e",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_2855_QD_BYT_ngay_26_9_2024_cua_Bo_Y_Te_V_v_Huong_dan_chan_doan_va_dieu_tri_benh_viem_gan_vi_rut_C.pdf",
+      "title": "Quyet dinh so 2855 QD BYT ngay 26 9 2024 cua Bo Y Te V v Huong dan chan doan va dieu tri benh viem gan vi rut C",
+      "chunks": 0,
+      "rejected": "low_vietnamese_accents"
+    },
+    {
+      "doc_id": "46f795ca37",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_3126_QD_BYT_ngay_23_5_2018_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_va_du_phong_benh_lao.pdf",
+      "title": "Quyet dinh so 3126 QD BYT ngay 23 5 2018 cua Bo Y te V v ban hanh Huong dan chan doan va du phong benh lao",
+      "chunks": 87
+    },
+    {
+      "doc_id": "b8ae87837e",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_4416_QD_BYT_ngay_06_12_2023_cua_Bo_Y_te_ve_viec_ban_hanh_tai_lieu_chuyen_mon_Huong_dan_Chan_doan_va_dieu_tri_cac_benh_Da_lieu.pdf",
+      "title": "Quyet dinh so 4416 QD BYT ngay 06 12 2023 cua Bo Y te ve viec ban hanh tai lieu chuyen mon Huong dan Chan doan va dieu tri cac benh Da lieu",
+      "chunks": 0,
+      "rejected": "outside_infectious_diseases"
+    },
+    {
+      "doc_id": "b8b9fa48ac",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_465_QD_BYT_29_02_2024_cua_Bo_Y_te_V_v_ban_hanh_Huong_dan_chan_doan_dieu_tri_va_phong_benh_Mpox_Dau_mua_khi_o_nguoi.pdf",
+      "title": "Quyet dinh so 465 QD BYT 29 02 2024 cua Bo Y te V v ban hanh Huong dan chan doan dieu tri va phong benh Mpox Dau mua khi o nguoi",
+      "chunks": 9
+    },
+    {
+      "doc_id": "7d66197ca0",
+      "source_path": "data/Chuy├¬n khoa/Truyß╗ün nhiß╗àm/Quyet_dinh_so_4922_QD_BYT_ngay_25_10_2021_cua_Bo_Y_te_V_v_Ban_hanh_Huong_dan_giam_sat_va_phong_chong_benh_sot_ret_part01.pdf",
+      "title": "Quyet dinh so 4922 QD BYT ngay 25 10 2021 cua Bo Y te V v Ban hanh Huong dan giam sat va phong chong benh sot ret part01",
+      "chunks": 0,
+      "rejected": "surveillance_document"
+    }
+  ],
+  "rejected_pages": {
+    "no_clinical_prose": 81,
+    "low_vietnamese_accents": 76,
+    "administrative_section": 8,
+    "table_page": 193,
+    "contents_or_references": 22
+  },
+  "chunks": 372,
+  "seed": 20261105,
+  "target": 60,
+  "max_per_doc": 6,
+  "max_per_disease": 6,
+  "usable": 372,
+  "sampled": 318,
+  "writer": "nvidia/nemotron-3-ultra-550b-a55b",
+  "version": 3,
+  "full": true,
+  "included_splits": [
+    "train",
+    "val"
+  ],
+  "manifest": "F:\\VM14K_Research\\data\\derived\\moh_mcq\\document_split_v1_20261105.json",
+  "manifest_sha256": "6be89cd97e63f61d4fb646c6f02d4bbc3742183eca508546983af3f6629074b2",
+  "accepted": 333,
+  "attempted": 318,
+  "rejected_questions": {
+    "empty_or_malformed_writer_reply": 62,
+    "evidence_not_verbatim": 52,
+    "answer_in_question": 5,
+    "disease_not_in_source": 70,
+    "missing_disease_in_question": 106,
+    "verifier_rejected": 2,
+    "broken_question_text": 4,
+    "administrative_question": 5,
+    "verifier_error": 7,
+    "near_duplicate_knowledge": 6,
+    "document_recall": 3,
+    "heldout_near_copy": 2,
+    "unsupported_ranking": 3,
+    "adjunct_presented_as_complete_regimen": 1
+  },
+  "documents_in_output": {
+    "6dcc599f9c": 94,
+    "3045471426": 66,
+    "46f795ca37": 76,
+    "7523f9ee30": 10,
+    "12875c1c0b": 9,
+    "d084553418": 26,
+    "289bb66d6c": 4,
+    "40c791f251": 19,
+    "91a71b0479": 21,
+    "107ed2211c": 8
+  },
+  "complete": true,
+  "human_review_status": "pending",
+  "full_generation_authorized": false
+}

@@ -1,0 +1,5 @@
+{"id": "moh-full-6dcc599f9c:p39:s0-2", "reason": "d3_with_source_disagrees", "key": "A", "d3_pred": "D"}
+{"id": "moh-full-6dcc599f9c:p63:s0-0", "reason": "d3_with_source_disagrees", "key": "C", "d3_pred": "B"}
+{"id": "moh-full-3045471426:p100:s0-r0", "reason": "d3_with_source_disagrees", "key": "A", "d3_pred": "D"}
+{"id": "moh-full-46f795ca37:p84:s0-r1", "reason": "d3_with_source_disagrees", "key": "B", "d3_pred": "A"}
+{"id": "moh-full-46f795ca37:p9:s0-r0", "reason": "d3_with_source_disagrees", "key": "C", "d3_pred": "B"}
