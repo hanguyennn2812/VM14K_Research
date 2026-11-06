@@ -1,0 +1,566 @@
+{
+  "created_at_utc": "2026-08-20T17:58:12.586955+00:00",
+  "scope": "validation pilot only; frozen test split was not accessed",
+  "model": "qwen3:8b",
+  "rows": 50,
+  "seed": 42,
+  "qwen_metrics": {
+    "micro_f1": 0.4861,
+    "macro_f1": 0.3752,
+    "exact_match_accuracy": 0.16,
+    "hamming_loss": 0.0435
+  },
+  "tfidf_baseline_metrics_on_same_rows": {
+    "micro_f1": 0.7282,
+    "macro_f1": 0.6255,
+    "exact_match_accuracy": 0.36,
+    "hamming_loss": 0.0312
+  },
+  "invalid_or_failed_qwen_responses": [
+    {
+      "id": "0b185d0b64b14dbcbbce33b15f3733bd",
+      "error": "labels outside the allowed list: ['Hepatology']"
+    }
+  ],
+  "examples": [
+    {
+      "id": "1b8fa5479ea549ac887eb6c073300f79",
+      "question": "HPV gây ung thư gì?",
+      "gold": [
+        "Infectious Diseases",
+        "Obstetrics and Gynecology",
+        "Oncology",
+        "Urology"
+      ],
+      "qwen_prediction": [
+        "Oncology"
+      ]
+    },
+    {
+      "id": "fd66f9193f434a9eb01e18f59c389b5d",
+      "question": "Bệnh nhân COPD không nên hoạt động thể dục thể thao?",
+      "gold": [
+        "Internal Medicine",
+        "Preventive Healthcare",
+        "Pulmonology",
+        "Sports Medicine"
+      ],
+      "qwen_prediction": [
+        "Pulmonology"
+      ]
+    },
+    {
+      "id": "cd77224817594c3697b86e3c152283d3",
+      "question": "Dùng phương thuốc nào khi chứng trạng thấy huyễn vựng đầu thống, hung cách bĩ mãn, lợm giọng nôn mửa, rêu lưỡi trắng bẩn, mạch huyền hoạt* Khi điều trị dùng?",
+      "gold": [
+        "Eastern Medicine",
+        "Gastroenterology",
+        "Neurology"
+      ],
+      "qwen_prediction": [
+        "Internal Medicine"
+      ]
+    },
+    {
+      "id": "b35712ed4b434f31865e427b31989897",
+      "question": "Điều trị iốt phóng xạ sau phẫu thuật cắt toàn bộ tuyến giáp điều trị ung thư tuyến giáp là để làm gì?",
+      "gold": [
+        "Endocrinology",
+        "Nuclear Medicine",
+        "Oncology",
+        "Surgery"
+      ],
+      "qwen_prediction": [
+        "Endocrinology"
+      ]
+    },
+    {
+      "id": "195098088fd343edb46ebe7425b53d5e",
+      "question": "Triệu chứng viêm khớp cấp có tổn thương tim:",
+      "gold": [
+        "Cardiology",
+        "General Medicine",
+        "Rheumatology"
+      ],
+      "qwen_prediction": [
+        "Rheumatology"
+      ]
+    },
+    {
+      "id": "cdb8129eecae426cb67974fddfd6263d",
+      "question": "Tác nhân gây shock do truyền nhầm nhóm máu ABO?",
+      "gold": [
+        "Allergy and Immunology",
+        "Emergency Medicine",
+        "Hematology"
+      ],
+      "qwen_prediction": [
+        "Internal Medicine"
+      ]
+    },
+    {
+      "id": "9e615ce260cb45f297485eae39ca701f",
+      "question": "Về mặt giải phẫu bệnh viêm xoang do răng có mấy thể bệnh? Kể tên:",
+      "gold": [
+        "Otolaryngology",
+        "Pathology"
+      ],
+      "qwen_prediction": [
+        "Otolaryngology"
+      ]
+    },
+    {
+      "id": "62b60cd0987e493ca97e3ddb4ed06c3f",
+      "question": "Một nước được gọi là dân số già nếu",
+      "gold": [
+        "Geriatrics",
+        "Public Health"
+      ],
+      "qwen_prediction": []
+    },
+    {
+      "id": "e26aba53d6794fbd9efbefaa71c7bb5e",
+      "question": "Nguyên nhân của khó khăn về vận động, ngoại trừ:",
+      "gold": [
+        "Neurology",
+        "Orthopedics",
+        "Pediatrics"
+      ],
+      "qwen_prediction": [
+        "Neurology"
+      ]
+    },
+    {
+      "id": "f941b24562c8476895505ceaff46a09b",
+      "question": "Tôi cảm thấy rất ........................ bằng cách nào đó. Như thể chẩn đoán đã cắt đứt tôi khỏi môi trường xung quanh và gia đình.",
+      "gold": [
+        "Palliative Medicine",
+        "Psychiatry"
+      ],
+      "qwen_prediction": [
+        "Psychiatry"
+      ]
+    },
+    {
+      "id": "7dded00510cf4af397d46e725b57a729",
+      "question": "Sóng siêu âm có tần số:",
+      "gold": [
+        "Physical Medicine and Rehabilitation",
+        "Radiology"
+      ],
+      "qwen_prediction": []
+    },
+    {
+      "id": "5d235dc83dc14c249ebf0a2a5e4eb40d",
+      "question": "Các tiêu chuẩn sau thuộc 15 tiêu chuẩn phụ chẩn đoán Viêm da cơ địa theo hội bác sĩ gia đình Mỹ 1999 trừ",
+      "gold": [
+        "Allergy and Immunology",
+        "Dermatology"
+      ],
+      "qwen_prediction": [
+        "Dermatology"
+      ]
+    },
+    {
+      "id": "addd33aaf2fc40a994d2e136b82959e3",
+      "question": "Toan hóa nước tiểu có thể làm tan sỏi acid uric đúng hay sai?",
+      "gold": [
+        "Nephrology",
+        "Urology"
+      ],
+      "qwen_prediction": [
+        "Nephrology"
+      ]
+    },
+    {
+      "id": "9b7d89b3f11f4cd4a59338983549c061",
+      "question": "Chỉ định chính của thiopental:",
+      "gold": [
+        "Anesthesiology",
+        "Neurology"
+      ],
+      "qwen_prediction": [
+        "Anesthesiology"
+      ]
+    },
+    {
+      "id": "617fe9ab511b4b93b992a91daed9eee9",
+      "question": "Dấu hiệu nào KHÔNG phải là biểu hiện tại mắt do thiếu Vitamin A?",
+      "gold": [
+        "Ophthalmology",
+        "Preventive Healthcare"
+      ],
+      "qwen_prediction": [
+        "Ophthalmology"
+      ]
+    },
+    {
+      "id": "f457d8ba58a6412ba93617ad31d39421",
+      "question": "Chọn câu đúng: Thể ceton",
+      "gold": [
+        "Endocrinology"
+      ],
+      "qwen_prediction": [
+        "Internal Medicine"
+      ]
+    },
+    {
+      "id": "0b993d10a7e7491dbc26b94d05e222d7",
+      "question": "Chỉ ra lý do chính gây biểu hiện ợ chua trong viêm loét dạ dày tá tràng",
+      "gold": [
+        "Gastroenterology",
+        "Internal Medicine"
+      ],
+      "qwen_prediction": [
+        "Gastroenterology"
+      ]
+    },
+    {
+      "id": "8d01ce4ce8d4413ca4b76716080e5094",
+      "question": "Thực hiện siêu âm khảo sát một khối u buồng trứng to, phương pháp khảo sát đầu tay và có thể cung cấp nhiều thông tin nhất là:",
+      "gold": [
+        "Obstetrics and Gynecology",
+        "Radiology"
+      ],
+      "qwen_prediction": [
+        "Radiology"
+      ]
+    },
+    {
+      "id": "f50bbca07f554df4b10e1335d822071d",
+      "question": "Theo GOLD, COPD được chia làm mấy giai đoạn?",
+      "gold": [
+        "Pulmonology"
+      ],
+      "qwen_prediction": []
+    },
+    {
+      "id": "34b4810ff8464b4e8d1c159c29def705",
+      "question": "Tần số thở của người lớn bình thường:",
+      "gold": [
+        "Internal Medicine",
+        "Pulmonology"
+      ],
+      "qwen_prediction": [
+        "General Medicine"
+      ]
+    },
+    {
+      "id": "a1511eac36c7426d94e32c19635c8320",
+      "question": "Bệnh KST phân bố theo?",
+      "gold": [
+        "Infectious Diseases",
+        "Public Health"
+      ],
+      "qwen_prediction": []
+    },
+    {
+      "id": "dad7a07686384b2398e8d98d40c326c4",
+      "question": "Chẩn đoán chửa trứng khi định l¬ượng bHCG:",
+      "gold": [
+        "Obstetrics and Gynecology"
+      ],
+      "qwen_prediction": [
+        "Obstetrics and Gynecology"
+      ]
+    },
+    {
+      "id": "a93e9936d35b4555aa9ce72cbfd0cfa9",
+      "question": "Kết quả nhóm hoá tế bào thường KHÔNG phù hợp trong bệnh BC cấp dòng lympho",
+      "gold": [
+        "Hematology",
+        "Oncology"
+      ],
+      "qwen_prediction": [
+        "Hematology"
+      ]
+    },
+    {
+      "id": "a54f962f8d2449c78a8be8ec5cf71357",
+      "question": "Vi khuẩn lao gây bệnh cho người nhanh nhất là?",
+      "gold": [
+        "Infectious Diseases",
+        "Pulmonology"
+      ],
+      "qwen_prediction": [
+        "Infectious Diseases"
+      ]
+    },
+    {
+      "id": "8c0e77ecb3b840aea6b22eadff48a77a",
+      "question": "Một trong những nguyên nhân của ung thư khí phế quản là:",
+      "gold": [
+        "Oncology",
+        "Pulmonology"
+      ],
+      "qwen_prediction": [
+        "Oncology"
+      ]
+    },
+    {
+      "id": "116c83efbbe642e382472dc6be5738ac",
+      "question": "Nói về Sulfactant, câu nào đúng",
+      "gold": [
+        "Pulmonology"
+      ],
+      "qwen_prediction": [
+        "Pulmonology"
+      ]
+    },
+    {
+      "id": "56498d2ea0144a97a0396c10e91a9845",
+      "question": "Một trong những nguyên nhân gây ra ung thư phổi là các chất độc hại trong môi trường. Chất Amiant được chứng minh là nguyên nhân gây ra ung thư loại nào của phổi?",
+      "gold": [
+        "Oncology",
+        "Pulmonology"
+      ],
+      "qwen_prediction": [
+        "Oncology"
+      ]
+    },
+    {
+      "id": "1fac2c81ff184bfa8ac34869d1e3f2a2",
+      "question": "Đặc điểm của trẻ của trẻ khoảng 3 tuổi gồm: (1) Phát triển ngôn ngữ, có khả năng giao tiếp nha khoa (2) Có trí tưởng tượng tốt, thích hình ảnh sinh động, thích những câu chuyện (3) Không cần cha mẹ (4) Vẫn gắn bó chặt chẽ với cha mẹ",
+      "gold": [
+        "Pediatrics"
+      ],
+      "qwen_prediction": [
+        "Pediatrics"
+      ]
+    },
+    {
+      "id": "9179561479694230bf42986c558816be",
+      "question": "Cảm giác đầy bụng được mô tả như sau:",
+      "gold": [
+        "Gastroenterology"
+      ],
+      "qwen_prediction": [
+        "Gastroenterology"
+      ]
+    },
+    {
+      "id": "0b6335109d39487886e23bd2bcf61aa0",
+      "question": "Phản ứng thành bụng là đặc trưng của:",
+      "gold": [
+        "Gastroenterology",
+        "Surgery"
+      ],
+      "qwen_prediction": [
+        "Gastroenterology",
+        "General Medicine"
+      ]
+    },
+    {
+      "id": "0b7087cbcb0f43058b098b7c461087b0",
+      "question": "Chửa ngoài tử cung thể huyết tụ thành nang:",
+      "gold": [
+        "Obstetrics and Gynecology"
+      ],
+      "qwen_prediction": [
+        "Obstetrics and Gynecology"
+      ]
+    },
+    {
+      "id": "0a8ccccc32284abc8a6562fc612408ed",
+      "question": "NH3 di chuyển trong máu chủ yếu dưới dạng nào:",
+      "gold": [
+        "Endocrinology"
+      ],
+      "qwen_prediction": [
+        "Internal Medicine"
+      ]
+    },
+    {
+      "id": "b02a07a2d9da4fcdad290ba9c142118f",
+      "question": "Cơ lực lúc đầu khỏe xong giảm dần gặp trong",
+      "gold": [
+        "Endocrinology",
+        "Neurology"
+      ],
+      "qwen_prediction": [
+        "Endocrinology"
+      ]
+    },
+    {
+      "id": "848dd1d01d054462967206b12d7c0ae3",
+      "question": "Phương pháp chẩn đoán hình ảnh tốt nhất với polyp túi mật là",
+      "gold": [
+        "Gastroenterology",
+        "Radiology"
+      ],
+      "qwen_prediction": [
+        "Radiology"
+      ]
+    },
+    {
+      "id": "87f4463b6cd64161ace1adfda667e829",
+      "question": "Insulin tác dụng nhanh, ngắn, NGOẠI TRỪ:",
+      "gold": [
+        "Endocrinology"
+      ],
+      "qwen_prediction": [
+        "Endocrinology"
+      ]
+    },
+    {
+      "id": "fa20066d75c548b99739e6b1070014ca",
+      "question": "Bệnh nhân bị trĩ chấp nhận đi khám và chữa trị rất muộn vì: bệnh không gây chảy máu quá nhiều",
+      "gold": [
+        "Gastroenterology",
+        "Surgery"
+      ],
+      "qwen_prediction": [
+        "General Medicine"
+      ]
+    },
+    {
+      "id": "d86188187cdc4b5cb2b24bb5d2846580",
+      "question": "Các tác nhân gây ung thư dạ dày được xác định hàng đầu là",
+      "gold": [
+        "Gastroenterology",
+        "Oncology"
+      ],
+      "qwen_prediction": [
+        "Oncology"
+      ]
+    },
+    {
+      "id": "0b185d0b64b14dbcbbce33b15f3733bd",
+      "question": "Đau quặn gặp ở các tạng sau ngoại trừ:",
+      "gold": [
+        "Gastroenterology",
+        "Urology"
+      ],
+      "qwen_prediction": []
+    },
+    {
+      "id": "5ddca37a823142c198accb0e759feea3",
+      "question": "Bệnh nhân nữ, 32 tuổi, nhìn thấy các mạch máu nổi xanh, ngoằn ngoèo, tạo thành búi ở vùng khoeo và cẳng chân sau. Hãy cho biết các mạch máu nào không liên quan tới tổn thương:",
+      "gold": [
+        "Surgery"
+      ],
+      "qwen_prediction": [
+        "Dermatology"
+      ]
+    },
+    {
+      "id": "9b69f6f4faff4d67ab70ea88af62a476",
+      "question": "Bệnh nhân nam 30 tuổi đến khám vì nhôn nhốt ở niệu đạo, tiết dịch đục ngày thứ 6 của bệnh. Cần làm xét nghiệm nào để chẩn đoán bệnh?",
+      "gold": [
+        "Infectious Diseases",
+        "Urology"
+      ],
+      "qwen_prediction": [
+        "Urology"
+      ]
+    },
+    {
+      "id": "3610b394cdce4fdb8f9b79601ee6c00d",
+      "question": "Tam chứng trong tắc ruột:",
+      "gold": [
+        "Gastroenterology",
+        "Surgery"
+      ],
+      "qwen_prediction": [
+        "Gastroenterology",
+        "General Medicine"
+      ]
+    },
+    {
+      "id": "f2866faa628243e7b864d9babbb1e48a",
+      "question": "Đặc điểm của cơn đau quặn thận?",
+      "gold": [
+        "Nephrology",
+        "Urology"
+      ],
+      "qwen_prediction": [
+        "Emergency Medicine"
+      ]
+    },
+    {
+      "id": "c190526d1d2b45aab82547ec49a3bb1e",
+      "question": "Thời gian đọc kết quả test da, kết quả dương tính khi xuất hiện sẩn ở vị trí dị nguyên lớn hơn 3mm hoặc trên 75% so với chứng âm:",
+      "gold": [
+        "Allergy and Immunology",
+        "Dermatology"
+      ],
+      "qwen_prediction": [
+        "Dermatology"
+      ]
+    },
+    {
+      "id": "9702397d212c4cfc902317d775a98544",
+      "question": "Rối loạn cương dương nặng",
+      "gold": [
+        "Psychiatry",
+        "Urology"
+      ],
+      "qwen_prediction": [
+        "Urology"
+      ]
+    },
+    {
+      "id": "0108bf97c06f4e0984ca7f24d9954578",
+      "question": "Một bệnh nhân 64 tuổi, là công nhân đã nghỉ hưu. Bệnh nhân có tiền sử uống rượu từ hơn 40 năm nay, mỗi ngày uống khoảng 500ml-1000ml rượu trắng (40 độ cồn). Khoảng 2 năm nay, bệnh nhân bị xơ gan rượu và chỉ còn uống được khoảng 250ml rượu trắng mỗi ngày. 3 ngày trước, bệnh nhân bị bị sốt do viêm họng nên gia đình ép bệnh nhân ngừng uống rượu. Bệnh nhân run tay, buồn nôn, vã mồ hôi như tắm. Ngay trước khi vào viện, bệnh nhân có 1 cơn co giật toàn thân, trong cơn, bệnh nhân tím tái vì ngừng thở và không biết những gì đã xảy ra. Đến ngày thứ 4 từ khi ngừng rượu, bệnh nhân không thể xác định được mình đang ở đâu, giờ là buổi sáng hay buổi chiều. Bệnh nhân được chẩn đoán là sảng rượu cấp. Cần sử dụng nhóm thuốc nào để điều trị cho bệnh nhân này?",
+      "gold": [
+        "Gastroenterology",
+        "Psychiatry"
+      ],
+      "qwen_prediction": [
+        "Internal Medicine"
+      ]
+    },
+    {
+      "id": "7858362dc7a3472da9d3db545661c705",
+      "question": "Một trong những nguyên nhân của ung thư khí phế quản là:",
+      "gold": [
+        "Oncology",
+        "Pulmonology"
+      ],
+      "qwen_prediction": [
+        "Oncology"
+      ]
+    },
+    {
+      "id": "3401b1da146e493aa5363722f5fcf1ee",
+      "question": "Số lượng ổ loét trong viêm dạ dày cấp thường có?",
+      "gold": [
+        "Gastroenterology"
+      ],
+      "qwen_prediction": [
+        "Gastroenterology"
+      ]
+    },
+    {
+      "id": "ea2c48201cf949cd89347a127964a6ec",
+      "question": "LH làm tăng sinh TB Leydig",
+      "gold": [
+        "Endocrinology"
+      ],
+      "qwen_prediction": [
+        "Endocrinology"
+      ]
+    },
+    {
+      "id": "d9a2937da76942d4b793ebc8d186dc9b",
+      "question": "Điều nào sau đây không đúng với đái đường type 1:",
+      "gold": [
+        "Endocrinology",
+        "Internal Medicine"
+      ],
+      "qwen_prediction": [
+        "Endocrinology"
+      ]
+    },
+    {
+      "id": "0c755b0b009b426f8c35f291dddc25f2",
+      "question": "Theo Lôi Công thì bào chế bán hạ như thế nào?",
+      "gold": [
+        "Eastern Medicine"
+      ],
+      "qwen_prediction": [
+        "General Medicine"
+      ]
+    }
+  ]
+}

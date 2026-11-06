@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-08-20T18:33:09.100769+00:00",
+  "source": "data\\cleaned\\clean_final.jsonl",
+  "split": "splits\\split_v1.json",
+  "purpose": "Qwen MCQ SFT/QLoRA data; answer-only chat labels with /no_think",
+  "input_rows": 10628,
+  "excluded": {
+    "answer_key_pending_review": 62
+  },
+  "source_rows_per_split": {
+    "train": 7313,
+    "val": 1595,
+    "test": 1658
+  },
+  "output_examples_per_split": {
+    "train": 21939,
+    "val": 1595,
+    "test": 1658
+  },
+  "train_augmentations": 3,
+  "seed": 42,
+  "leakage_note": "only train is augmented; val/test have one original ordering per source item"
+}

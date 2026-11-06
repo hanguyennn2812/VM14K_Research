@@ -32,6 +32,8 @@ Source: `scripts/analysis/moh_corpus_audit.py`, extractor PyMuPDF 1.28.2.
 
 110 − 2 (not in index) + 1 (missing from disk) = 109, matching the index exactly. Both items are supervisor decisions, not counting errors; the denominator itself is now explained.
 
+**Proposed default from the 2026-08-28 audit (branch `moh-specialty-llm-pilot`), not yet a supervisor decision:** treat `Trạm y tế` as in scope (27th specialty), on the grounds that the `.tex` index is one author's bibliography rather than a scope definition, and log `3902` as `indexed_missing` in the manifest instead of fetching a possibly different revision. No VM14K topic maps to `Trạm y tế`, so the choice only affects corpus-size reporting.
+
 ---
 
 ## 2. Extractability split
@@ -103,8 +105,80 @@ Dedup rule: **content hash, not filename or path.** A folder-walk corpus builder
 
 Current per-document flags are in `data/interim/moh_corpus_manifest.jsonl`.
 
-### 3.3 Mangled short-names — OPEN
-Several files carry Windows 8.3 short-names (`QU25D4~1.PDF`, `QU30C0~1.PDF`, `QU54DF~1.PDF`). The underlying files are intact; only the display name is mangled. **Action:** resolve each to its real title (open + read header, or match by md5/size against the index) before it goes in the manifest. Don't freeze a manifest with unresolved names.
+### 3.5 Garbled-but-not-empty extraction — OPEN
+Found by the 2026-08-28 audit. These files pass a character-count floor while containing wrong text, the silent-corruption risk §4 warns about:
+
+- `Truyền nhiễm/Quyet_dinh_so_1856_..._part01.pdf`: Latin-lookalike glyphs (`"BQYTE CONG HOA xA HOI cmr NGHIA VIET NAM"`), a font/ToUnicode mapping failure.
+- `Thận học/Cong_van_so_5544_..._part02.pdf`: 3 pages, similarly garbled (`"BÒ Y TẾ CON(J HOÀ..."`).
+
+Two more extract to little but a clerk watermark: `Nhi khoa/..._2341_..._part02.pdf` and `Truyền nhiễm/Cong_van_so_3874_..._part02.pdf`.
+
+**Action (not yet decided):** exclude all four from v1 by default (`garbled_extraction` / `watermark_only`, distinct from `scanned_dropped`); re-extract `1856` and `5544` with another extractor only as a verified follow-up. Later retrieval work also met broken Vietnamese in some MoH chunks (e.g. `tru6ng`), so a corpus-wide garbled-text check is worth adding to `moh_corpus_audit.py`.
+
+**18 groups carry a `_partNN` suffix, not 4.** Most turn out to be misleading, not
+broken — a `partNN`-suffixed file is very often a **complete, self-contained
+document** (own `BỘ Y TẾ` decree header through a references/appendix ending);
+the "missing" `part01` was usually just the short one-page decree cover, not
+substantive content. Classification after opening every group:
+
+- **17 groups: complete as a single file**, safe to use as one corpus unit despite
+  the misleading suffix (its sibling part was never substantive, or the file
+  already has both parts and is genuinely a 2-part concat) — includes `2834`
+  (HIV, parts 1+2), `2557` (parts 1+2), `2201` (parts 1+2), and 14 more that are
+  single `partNN` files starting with a decree header and ending in a references/
+  appendix section. Treat `_partNN` in the filename as a naming artifact for
+  these, not a signal to go find a missing sibling.
+- **1 real gap: `2558`** (Nhãn khoa, diabetic retinopathy diagnosis & management).
+  `part01` (25p) is genuinely truncated mid-sentence, mid-image-caption, on its
+  last page. `part02`–`part05` do not exist anywhere in the tree. `part06` (20p)
+  exists but its extractable text is **only** a repeated clerk watermark stamp
+  (`syt_binhdinh_vt_...`), no substantive content — it does not fill the gap.
+  **This document is incomplete on disk; flag `content_incomplete` in the
+  manifest, do not present it as the full guideline.**
+
+**Action:** for the 17 complete groups, treat the single file as the whole corpus
+unit (no concatenation needed — there is nothing to concatenate). For `2558`,
+either mark it `content_incomplete` and keep the 25 usable pages with that flag,
+or exclude it entirely — pick one before freeze (leaning exclude: 25 pages of an
+unknown-length document is a coverage risk, not a usable partial).
+
+### 3.3 Mangled short-names — RESOLVED 2026-08-28
+
+Three files carry Windows 8.3 short-names (`QU25D4~1.PDF`, `QU30C0~1.PDF`,
+`QU54DF~1.PDF`). The author's own `.tex` index also only ever recorded the
+mangled name (checked directly — no better source there), so the only way to
+recover the real title was to open each file and read its own header, exactly as
+this section already proposed:
+
+| File | Specialty | Pages | Real title (from the PDF itself) |
+|---|---|---:|---|
+| `QU25D4~1.PDF` | HIV:AIDS | 26 | *Quy trình kỹ thuật tư vấn về dự phòng lây nhiễm HIV cho người nhiễm HIV và người phơi nhiễm... tại cơ sở y tế* (QĐ-BYT, 2024) — title itself has dropped glyphs on extraction, see §3.5 |
+| `QU30C0~1.PDF` | Ung bướu | 33 | *Tài liệu bổ sung hướng dẫn hoạt động dự phòng, sàng lọc, phát hiện sớm và quản lý ung thư vú, ung thư cổ tử cung tại cộng đồng thuộc Đề án 818 đến năm 2030* (kèm QĐ-BYT, 3/2021) |
+| `QU54DF~1.PDF` | Ung bướu | 12 | *Phòng chống ung thư vú, ung thư cổ tử cung* — tài liệu tuyên truyền nội bộ Đề án 818 (`dean818k.vn`) |
+
+### 3.5 Garbled-but-not-empty extraction — NEW, OPEN
+
+Two files are more dangerous than the scanned/0-char case §2 already excludes,
+because they **do** produce a non-trivial character count and would slip past a
+naive char-per-page floor while containing wrong text, not absent text — exactly
+the "silent numeric/character corruption" risk §4 already warns about:
+
+- `Truyền nhiễm/Quyet_dinh_so_1856_..._part01.pdf` — extracted text is garbled
+  Latin-lookalike glyphs (`"BQYTE CONG HOA xA HOI cmr NGHIA VIET NAM"`), a
+  font/ToUnicode mapping failure, not real Vietnamese text.
+- `Thận học/Cong_van_so_5544_..._part02.pdf` — 3 pages, similarly garbled
+  (`"BÒ Y TẾ CON(J HOÀ..."`, `"...á.h giá ,h,'„ „ă„g thậ„..."`).
+
+Two more files pass the char-count floor trivially because they extract to
+**almost nothing but a clerk watermark** (no real corruption risk since there is
+effectively no text to be wrong, but also no usable content):
+`Nhi khoa/..._2341_..._part02.pdf` and `Truyền nhiễm/Cong_van_so_3874_..._part02.pdf`.
+
+**Action (not yet decided — do not freeze past this):** exclude all four from v1
+by default (`garbled_extraction` / `watermark_only` drop reasons, distinct from
+`scanned_dropped`), and re-attempt `1856`/`5544` with a different extractor
+(`pdfplumber`, or `pymupdf` with `flags=fitz.TEXTFLAGS_TEXT` / a font-remap pass)
+only as a deliberate follow-up, verified before it re-enters the corpus.
 
 ### 3.4 Cross-filing — NOTE
 The `4416` case shows a document can be filed under more than one specialty folder. The manifest must allow a document to carry **multiple specialty tags** rather than assuming folder = single label. Deduplicate the *content*; preserve *all* folder memberships as tags.
@@ -141,6 +215,8 @@ Between 0 and 50 the count moves by only 52 pages, so the exact cutoff barely ma
 **Coverage gap found — supervisor decision needed.** `Cấp cứu - Sơ cứu` (Emergency Medicine) holds exactly one document, `636`, and it is a scan: 68 characters across 136 pages. The specialty has **zero usable documents**. This is precisely the rule-3 trigger. Emergency Medicine cannot support question generation from this corpus, and any claim of specialty coverage must either exclude it or state the gap outright.
 
 Usable pages by specialty range from **0** (`Cấp cứu - Sơ cứu`) to **1,196** (`Truyền nhiễm`) — a spread that makes "sample evenly across the specialties" impossible as literally stated. Whatever sampling rule is used, state it and report the resulting per-specialty distribution. Full table: `reports/analysis/moh_corpus_audit.md` §4.
+
+Besides `Cấp cứu - Sơ cứu`, four specialties lose one document each to the scanned filter but keep usable coverage: `Dinh dưỡng` (2/3), `HIV` (4/5), `Nhi khoa` (5/6), `Ung bướu` (6/7, before the §3.5 decision).
 
 ---
 
@@ -205,13 +281,14 @@ When MoH text is eventually mixed into training:
 | # | Item | Blocks | Status |
 |---|---|---|---|
 | 1 | Reconcile on-disk vs in-index file count | freeze | **CLOSED** — 110 on disk vs 109 in index, fully explained (§1). Two `Trạm y tế` files are extra, `3902` methadone is missing. Both now items 7 and 8 below. |
-| 2 | Resolve 8.3 short-names to real titles | freeze | OPEN — 3 files: `QU25D4~1.PDF` (HIV), `QU30C0~1.PDF`, `QU54DF~1.PDF` (both Ung bướu) |
+| 2 | Resolve 8.3 short-names to real titles | freeze | **CLOSED** — titles read from the PDFs (§3.3) |
 | 3 | Set char/page floor for scanned cutoff | classification | **CLOSED** — 50 non-ws chars/page, applied per page not per file; sensitivity curve in §4 shows the choice is not load-bearing |
 | 4 | Confirm any specialty left at zero usable docs | supervisor flag | **CLOSED** — `Cấp cứu - Sơ cứu` has **zero** usable documents; its only file is a 136-page scan (§4). Needs a supervisor decision, not more measurement. |
 | 5 | Choose intended use (A) vs (B) | all downstream generation | OPEN |
 | 6 | Exact token count on final born-digital set | freeze | OPEN — needs the tokenizer pinned first |
-| 7 | Decide whether `Trạm y tế` is in scope (2 files, not in the index) | freeze | OPEN — supervisor |
-| 8 | Obtain `3902` methadone PDF, or record as a known gap | freeze | OPEN — supervisor |
-| 9 | Decide scope for the 16 incomplete-part documents (§3.2b) | question generation | OPEN — 15 orphan fragments + `2558` with parts 02–05 missing |
+| 7 | Decide whether `Trạm y tế` is in scope (2 files, not in the index) | freeze | OPEN — supervisor; proposed default: in scope (§1) |
+| 8 | Obtain `3902` methadone PDF, or record as a known gap | freeze | OPEN — supervisor; proposed default: log as `indexed_missing` (§1) |
+| 9 | Decide scope for the 16 incomplete-part documents (§3.2b) | question generation | OPEN — 15 lone parts + `2558`; a content check found most lone parts complete (§3.2), reconcile first |
+| 10 | Exclude or re-extract the 4 garbled / watermark-only files (§3.5) | freeze | OPEN |
 
 Items 1, 3 and 4 were closed by `scripts/analysis/moh_corpus_audit.py`. Rerun it after any change to the corpus on disk; it recomputes every figure in this spec.

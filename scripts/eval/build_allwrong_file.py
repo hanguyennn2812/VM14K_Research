@@ -188,6 +188,9 @@ def write_guide(ws, n_wrong, n_test):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--force", action="store_true", help="overwrite the workbook (it may already be filled in)")
+    ap.add_argument("--complete-only", action="store_true",
+                    help="show only models with an explanation for every question (cleaner file to send out); "
+                         "the status table still lists the others")
     args = ap.parse_args()
     if XLSX.exists() and not args.force:
         sys.exit(f"{XLSX.relative_to(REPO_ROOT)} exists and may hold reviewer input — pass --force to overwrite")
@@ -202,7 +205,8 @@ def main():
     # Nemotron (the only explainer covering all questions from the start); the others are extra evidence.
     order = ["gpt-oss-20b"] + [label for label, _, _ in MODELS]
     others = {label: reasoning[label] for label in sorted(reasoning, key=lambda l: order.index(l) if l in order else 99)
-              if label != EXPLAINER and any(q in reasoning[label] for q in wrong)}
+              if label != EXPLAINER and any(q in reasoning[label] for q in wrong)
+              and (not args.complete_only or all(q in reasoning[label] for q in wrong))}
 
     info = {}
     for qid in wrong:
@@ -408,6 +412,18 @@ def analysis(rows, runs, test_ids, wrong, info):
                    "Nemotron và gpt-oss-20b bật thinking (qua NVIDIA). Các model local chạy trên CPU với thinking tắt "
                    "nên chỉ có phần giải thích; model nào chưa chạy xong thì số câu ít hơn 125."))
 
+    # The two explainers that ran with thinking on and cover every question: where do they agree?
+    second = "gpt-oss-20b"
+    if all(second in info[q]["explained"] and EXPLAINER in info[q]["explained"] for q in wrong):
+        cross = collections.Counter(
+            (outcome_of(info[q]["explained"][EXPLAINER], rows[q]["answer"], info[q]["top"]),
+             outcome_of(info[q]["explained"][second], rows[q]["answer"], info[q]["top"])) for q in wrong)
+        blocks.append((f"{EXPLAINER} (hàng) × {second} (cột) khi lập luận — số câu",
+                       [f"{EXPLAINER} \\ {second}"] + OUTCOMES,
+                       [[o1] + [cross[o1, o2] for o2 in OUTCOMES] for o1 in OUTCOMES],
+                       "Đường chéo = hai model cùng kết luận. Cả hai cùng giữ đáp án sai của đa số → nghi khoá sai mạnh hơn; "
+                       "cả hai cùng chọn đúng khoá → nhiều khả năng lỗi do trả lời nhanh; cả hai cùng từ chối → nghi câu hỏi lỗi."))
+
     count = collections.Counter(info[q]["sources"] for q in wrong)
     kept = collections.Counter(info[q]["sources"] for q in wrong if info[q]["exp_outcome"] == "Giữ đáp án sai của đa số")
     blocks.append(("Nguồn Nemotron viện dẫn trong lời giải thích",
@@ -474,11 +490,11 @@ def model_status(reasoning, wrong):
         if n == len(wrong):
             state = "Đủ"
         elif n:
-            state = "Đang chạy"
+            state = "Chưa xong"
         elif where.startswith("NVIDIA"):
-            state = "Chưa lấy được — NVIDIA đang quá tải, sẽ thử lại"
+            state = "Chưa lấy được (máy chủ NVIDIA quá tải) — sẽ bổ sung sau"
         else:
-            state = "Đang chờ (các model local chạy lần lượt)"
+            state = "Chưa chạy — sẽ bổ sung sau"
         rows_out.append([label, where, thinking, f"{n}/{len(wrong)}", state])
     return rows_out
 
@@ -489,16 +505,26 @@ def summary_lines(rows, test_ids, wrong, info, status):
     hint = collections.Counter(info[q]["hint"] for q in wrong)
     outcome = collections.Counter(info[q]["exp_outcome"] for q in wrong)
     ready = [r[0] for r in status if r[4] == "Đủ"]
-    running = [f"{r[0]} ({r[3]})" for r in status if r[4] == "Đang chạy"]
+    running = [f"{r[0]} ({r[3]})" for r in status if r[4] == "Chưa xong"]
     level = {lv: (sum(rows[q]["difficulty_level"] == lv for q in wrong),
                   sum(rows[q]["difficulty_level"] == lv for q in test_ids)) for lv in ("Easy", "Medium", "Challenging")}
     two = sum(len(rows[q]["options"]) == 2 for q in wrong), sum(len(rows[q]["options"]) == 2 for q in test_ids)
+    both = []
+    if all({EXPLAINER, "gpt-oss-20b"} <= info[q]["explained"].keys() for q in wrong):
+        agree = collections.Counter(
+            outcome_of(info[q]["explained"][EXPLAINER], rows[q]["answer"], info[q]["top"])
+            for q in wrong
+            if outcome_of(info[q]["explained"][EXPLAINER], rows[q]["answer"], info[q]["top"])
+            == outcome_of(info[q]["explained"]["gpt-oss-20b"], rows[q]["answer"], info[q]["top"]))
+        both = [(f"• Hai model có thinking ({EXPLAINER} và gpt-oss-20b) cùng kết luận: cùng giữ đáp án sai của đa số ở "
+                 f"{agree[OUTCOMES[1]]} câu (nghi khoá sai mạnh nhất), cùng chọn đúng khoá ở {agree[OUTCOMES[0]]} câu, "
+                 f"cùng từ chối chọn ở {agree[OUTCOMES[3]]} câu (bảng chéo bên dưới).", False)]
     return [
         ("Tóm tắt kết quả — các câu mà cả 7 model đều trả lời sai", True),
         ("", False),
         (f"• {n_w}/{n_t} câu test ({100 * n_w / n_t:.1f}%) bị cả 7 model chọn khác đáp án chuẩn.", False),
         (f"• Model có lời giải thích đầy đủ cho cả {n_w} câu: {', '.join(ready) or 'chưa có'}"
-         + (f"; đang chạy: {', '.join(running)}" if running else "") + " (chi tiết ở bảng bên dưới).", False),
+         + (f"; chưa xong: {', '.join(running)}" if running else "") + " (chi tiết ở bảng bên dưới).", False),
         ("", False),
         ("Phân nhóm tự động (chỉ để ưu tiên duyệt, không phải kết luận):", True),
         (f"• {hint['nghi_khoa_sai']} câu nghi đáp án chuẩn sai: từ 5/7 model trở lên cùng chọn một đáp án khác, và "
@@ -508,6 +534,7 @@ def summary_lines(rows, test_ids, wrong, info, status):
          "khi được phép lập luận: một phần các câu 'toàn bộ sai' có thể do cách chấm chỉ cho trả lời 1 chữ cái.", False),
         (f"• {hint['dong_thuan_manh'] + hint['dong_thuan_vua']} câu các model đồng thuận vào một đáp án khác khoá ở mức "
          f"vừa/mạnh; {hint['phan_tan']} câu model chọn phân tán (câu khó hoặc mơ hồ).", False),
+        *both,
         ("", False),
         ("Đặc điểm của các câu này so với toàn bộ tập test (xem bảng 'Đặc điểm câu'):", True),
         ("• Gặp nhiều hơn bình thường: câu hỏi đếm số lượng ('có bao nhiêu…'), có hai phương án gần giống nhau, "
