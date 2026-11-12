@@ -1,0 +1,384 @@
+[
+  {
+    "id": "moh-full-6dcc599f9c:p24:s0-2",
+    "accepted": true,
+    "evidence": "Tiểu cầu < 50.000/mm3 kèm đang xuất huyết nặng hoặc có chỉ định",
+    "reasoning": "Mục truyền tiểu cầu nêu hai chỉ định: < 5.000/mm3 (xem xét từng trường hợp) và < 50.000/mm3 kèm xuất huyết nặng hoặc có chỉ định chọc màng phổi, màng bụng. Câu hỏi nêu đúng bối cảnh kèm điều kiện nên chọn < 50.000/mm3. Ngưỡng 20.000 và 100.000 nguồn không nêu cho chỉ định này."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p86:s0-0",
+    "accepted": true,
+    "evidence": "Theo dõi, lấy kết quả và báo ngay bác sĩ các xét nghiệm sau: Hct, tiểu",
+    "reasoning": "Mục theo dõi xét nghiệm ghi cần theo dõi, lấy kết quả và báo ngay bác sĩ hai xét nghiệm là Hct và tiểu cầu, kèm ngưỡng Hct tăng > 20% và tiểu cầu ≤ 100.000/mm3. Điện giải, CRP và AST/ALT không được nguồn nêu trong yêu cầu báo ngay này."
+  },
+  {
+    "id": "moh-full-46f795ca37:p65:s0-0",
+    "accepted": true,
+    "evidence": "Phác đồ 2RHZ/4RH có thể áp dụng điều trị lao cho người bệnh suy thận.",
+    "reasoning": "Mục 4.4 về người bệnh lao có suy thận nêu trực tiếp phác đồ 2RHZ/4RH có thể áp dụng. Nguồn giải thích thêm rifampicin, isoniazid, pyrazinamid chuyển hóa qua gan nên dùng được liều thường. Các phác đồ có streptomycin hoặc ethambutol (2SHRZ, 2HRZE) không được nêu cho trường hợp này."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p94:s0-2",
+    "accepted": true,
+    "evidence": "Cung cấp lượng dịch bổ sung khối lượng tuần hoàn bị thiếu hụt do",
+    "reasoning": "Mục đích tiêm truyền tĩnh mạch trong SXHD được nguồn nêu là bổ sung thể tích tuần hoàn thiếu hụt do thoát huyết tương, cùng một lượng điện giải và glucose. Hạ nhiệt nhanh, truyền tiểu cầu dự phòng cho mọi bệnh nhân hay điều trị nhiễm trùng thứ phát không nằm trong các mục đích đó."
+  },
+  {
+    "id": "moh-full-46f795ca37:p53:s1-1",
+    "accepted": true,
+    "evidence": "phác đồ điều trị chuẩn 20 tháng có thời gian tấn",
+    "reasoning": "Nguồn nói với lao đa kháng, phác đồ chuẩn 20 tháng có giai đoạn tấn công 8 tháng (số 8 nằm ở dòng kế tiếp, nên trích dẫn bị cắt ở chữ 'tấn'). Phác đồ ngắn hạn 9-11 tháng mới có tấn công 4-6 tháng. Mốc 10 tháng không được nguồn nêu cho phác đồ 20 tháng."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p14:s0-1",
+    "accepted": true,
+    "evidence": "tốc độ truyền Ringer lactate, Ringer acetate hoặc NaCl 0,9% 1,5ml/kg/giờ",
+    "reasoning": "Mục người lớn nêu: nếu mạch, HA ổn định, Hct giảm, nước tiểu ≥ 0,5-1ml/kg/giờ thì giảm tốc độ truyền xuống 1,5ml/kg/giờ trong 6-18 giờ. Các mức 6ml/kg/giờ trong 1-2 giờ và 3ml/kg/giờ là bước truyền ban đầu; 5ml/kg/giờ x 2-4 giờ thuộc phác đồ trẻ em, không phải bước này."
+  },
+  {
+    "id": "moh-full-d084553418:p8:s0-2",
+    "accepted": true,
+    "evidence": "Khuyến cáo 14: Không sử dụng Clavulanic acid đơn độc như thuốc điều trị lao",
+    "reasoning": "Khuyến cáo 14 (mạnh mẽ) nêu không dùng Clavulanic acid đơn độc như một thuốc điều trị lao, nên đáp án là 'như thuốc điều trị lao'. Nguồn không nói về phối hợp với carbapenem, tăng hiệu quả Meropenem hay đối tượng người lớn tuổi; các ý này chỉ là phương án nhiễu."
+  },
+  {
+    "id": "moh-full-46f795ca37:p74:s0-1",
+    "accepted": true,
+    "evidence": "Kháng sinh đồ: trước điều trị và làm kháng sinh đồ nếu người bệnh có kết",
+    "reasoning": "Mục theo dõi lao đa kháng quy định kháng sinh đồ trước điều trị và làm lại nếu nuôi cấy vẫn dương tính sau 4 tháng. Nuôi cấy hàng tháng ở giai đoạn tấn công và hàng quý ở giai đoạn củng cố là lịch nuôi cấy, không phải lịch kháng sinh đồ."
+  },
+  {
+    "id": "moh-full-3045471426:p113:s0-1",
+    "accepted": true,
+    "evidence": "Xử trí: đặt dẫn lưu màng phổi cấp cứu.",
+    "reasoning": "Mục biến chứng thở máy ghi chấn thương áp lực (tràn khí màng phổi) có biểu hiện chống máy, SpO2 tụt, tràn khí dưới da; xử trí là đặt dẫn lưu màng phổi cấp cứu. Truyền dịch, vận mạch thuộc xử trí tụt huyết áp; kháng sinh thuộc nhiễm khuẩn liên quan thở máy. Nguồn không nêu tăng PEEP, FiO2 cho trường hợp này."
+  },
+  {
+    "id": "moh-full-3045471426:p77:s0-2",
+    "accepted": true,
+    "evidence": "Bệnh nền kèm theo: đái tháo đường, tăng huyết áp, hen phế quản, bệnh phổi",
+    "reasoning": "Phần nhận định mức độ nhẹ và trung bình liệt kê mục bệnh nền kèm theo gồm đái tháo đường, tăng huyết áp, hen phế quản, bệnh phổi. Glucolyte, natriclorua thuộc đặt đường truyền; sốc, hôn mê, co giật và bóp bóng, đặt nội khí quản thuộc cấp cứu, không phải bệnh nền."
+  },
+  {
+    "id": "moh-full-12875c1c0b:p4:s1-0",
+    "accepted": true,
+    "evidence": "Khám, điều trị bệnh tay chân miệng tất cả các độ.",
+    "reasoning": "Mục 2.3 về bệnh viện đa khoa, đa khoa khu vực, chuyên khoa Nhi tuyến tỉnh ghi khám, điều trị tay chân miệng tất cả các độ. Độ 3, 4 chỉ phải chuyển tuyến khi không đủ điều kiện hồi sức tích cực Nhi, nên các phương án giới hạn theo độ không đúng với nguồn."
+  },
+  {
+    "id": "moh-full-12875c1c0b:p6:s1-0",
+    "accepted": true,
+    "evidence": "Không sốt ít nhất 24 giờ liên tục (không sử dụng thuốc hạ sốt)",
+    "reasoning": "Tiêu chuẩn xuất viện của tay chân miệng điều trị nội trú gồm 4 điều kiện, điều kiện đầu là không sốt ít nhất 24 giờ liên tục khi không dùng thuốc hạ sốt. Con số 48 giờ trong nguồn thuộc điều kiện khác (không còn biểu hiện phân độ từ 2a trở lên), nên không phải đáp án."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p88:s0-0",
+    "accepted": true,
+    "evidence": "Mạch, huyết áp, tần số và biên độ thở 15-30 phút/lần hoặc 1 giờ/lần.",
+    "reasoning": "Mục theo dõi dấu hiệu sinh tồn của sốc SXHD người lớn trong giai đoạn chống sốc nêu mạch, huyết áp, tần số và biên độ thở theo dõi 15-30 phút/lần hoặc 1 giờ/lần. Mức 3-6 giờ/lần chỉ áp dụng sau 24 giờ khi dấu hiệu ổn định dần; các khoảng còn lại không có trong nguồn."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p22:s1-1",
+    "accepted": true,
+    "evidence": "dịch đã được truyền từ tuyến trước để tính toán lượng dịch sắp đưa vào.",
+    "reasoning": "Nguồn nêu người bệnh đến trong tình trạng sốc đã được chống sốc từ tuyến trước thì xử trí như tái sốc, cần lưu ý số lượng dịch đã truyền từ tuyến trước để tính lượng dịch sắp đưa vào. Hct, nước tiểu và tiểu cầu không được nguồn nêu làm yếu tố tính lượng dịch này."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p32:s0-1",
+    "accepted": true,
+    "evidence": "một trong các yếu tố như Lactate động mạch ≥ 4 mmol/l, Lactate động mạch",
+    "reasoning": "Nguồn nêu xem xét điều trị thay thế thận khi toan chuyển hóa mất bù (pH < 7,35 và HCO3- < 17) kèm một trong các yếu tố như lactate động mạch ≥ 4 mmol/l. Các tổ hợp ngưỡng khác (pH 7,30, 7,40, 7,25; lactate 2, 3, 5) không có trong nguồn."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p20:s0-0",
+    "accepted": true,
+    "evidence": "với ban đầu thì giảm tốc độ truyền CPT 7,5ml/kg/giờ trong 1 - 2 giờ",
+    "reasoning": "Ở nhánh mạch rõ, huyết áp bình thường: sau CPT 10ml/kg/giờ trong 1 giờ, nếu cải thiện lâm sàng và Hct giảm ≤ 10% so với ban đầu thì giảm CPT xuống 7,5ml/kg/giờ trong 1-2 giờ, rồi 5ml/kg/giờ. CPT 15-20ml/kg/giờ thuộc nhánh mạch nhanh, huyết áp kẹt hoặc hạ."
+  },
+  {
+    "id": "moh-full-3045471426:p84:s1-2",
+    "accepted": true,
+    "evidence": "khí quản (NKQ) ở người bệnh thở máy để tránh dẫn xuất và tiếp xúc với vi rút",
+    "reasoning": "Nguồn nêu rõ lý do tránh ngắt kết nối không cần thiết với ống NKQ ở người thở máy là để tránh dẫn xuất và tiếp xúc với vi rút ra môi trường. Tổn thương niêm mạc, giữ PEEP ổn định và giảm VAP không được nguồn nêu làm lý do cho khuyến cáo này."
+  },
+  {
+    "id": "moh-full-46f795ca37:p72:s0-2",
+    "accepted": true,
+    "evidence": "thuộc các tỉnh lân cận – cán bộ Tổ chống lao quận huyện sẽ mời người bệnh",
+    "reasoning": "Nguồn phân biệt hai trường hợp: người bệnh cùng tỉnh do cán bộ chống lao tuyến quận huyện mời tư vấn, còn người bệnh thuộc tỉnh lân cận do cán bộ Tổ chống lao quận huyện mời rồi chuyển tới Phòng CĐT BVLBP tỉnh. Câu hỏi nêu tỉnh lân cận nên đáp án là Tổ chống lao quận huyện."
+  },
+  {
+    "id": "moh-full-46f795ca37:p53:s0-2",
+    "accepted": true,
+    "evidence": "Với bệnh lao đa kháng: phối hợp ít nhất 5 thuốc có hiệu lực, bao gồm",
+    "reasoning": "Nguyên tắc phối hợp thuốc ghi với bệnh lao đa kháng cần phối hợp ít nhất 5 thuốc có hiệu lực, gồm Pyrazinamid và 4 thuốc lao hàng hai có hiệu lực. Con số 3 thuốc trong nguồn là cho lao còn nhạy cảm ở giai đoạn tấn công, không phải lao đa kháng."
+  },
+  {
+    "id": "moh-full-3045471426:p109:s0-1",
+    "accepted": true,
+    "evidence": "xuống thang khi xuất hiện nhiễm khuẩn.",
+    "reasoning": "Mục biến chứng thở máy ghi nhiễm khuẩn liên quan thở máy cần tuân thủ vô khuẩn để dự phòng và điều trị kháng sinh sớm, theo nguyên tắc xuống thang khi xuất hiện nhiễm khuẩn. Nguồn không nêu nguyên tắc lên thang, liệu trình 14 ngày hay chỉ dùng khi có kháng sinh đồ."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p40:s0-2",
+    "accepted": true,
+    "evidence": "Có ≥ 1 trong các dấu hiệu cần truyền dịch:",
+    "reasoning": "Sơ đồ Phụ lục 4 liệt kê các dấu hiệu cần truyền dịch: lừ đừ, có dấu hiệu mất nước, không uống được nước, Hct tăng cao, nôn ói nhiều, đau bụng. Danh sách khớp phương án B; các phương án khác chứa dấu hiệu không có trong danh sách. Văn bản sơ đồ bị rời rạc nên liên kết với liều 10-20ml/kg/giờ chủ yếu suy ra từ bố cục."
+  },
+  {
+    "id": "moh-full-46f795ca37:p58:s0-0",
+    "accepted": true,
+    "evidence": "Pyrazinamid. Trường hợp không có đủ các thuốc có hiệu lực để xây dựng",
+    "reasoning": "Nguyên tắc xây dựng phác đồ lao kháng thuốc yêu cầu ít nhất 5 thuốc có hiệu lực, gồm 4 thuốc hàng hai chủ đạo (nhóm A, B, ít nhất 2 nhóm C) và Pyrazinamid. Ethambutol, isoniazid, rifampicin không được nêu là thành phần bắt buộc; kháng R/MDR nghĩa là rifampicin không còn hiệu lực."
+  },
+  {
+    "id": "moh-full-46f795ca37:p94:s0-0",
+    "accepted": true,
+    "evidence": "Nhẹ: viêm thần kinh ngoại vi. Xử lí bằng vitamin B6 liều lượng",
+    "reasoning": "Nguồn phân mức độ: nhẹ là viêm thần kinh ngoại vi, xử lý bằng vitamin B6 liều 100mg/ngày (số liều ở dòng kế tiếp). Vitamin B1 và B12 không được nguồn nêu; B6 50mg/ngày sai liều. Mức nặng là tổn thương gan, cần ngừng INH."
+  },
+  {
+    "id": "moh-full-12875c1c0b:p2:s1-0",
+    "accepted": true,
+    "evidence": "Viêm loét miệng (áp-tơ): Vết loét sâu, có dịch tiết, hay tái phát.",
+    "reasoning": "Phần chẩn đoán phân biệt các bệnh loét miệng mô tả viêm loét miệng (áp-tơ) có vết loét sâu, có dịch tiết, hay tái phát. Phỏng nước ở miệng, lòng bàn tay, bàn chân, gối, mông là lâm sàng của tay chân miệng. Phương án vết loét nông, ít tái phát trái với nguồn."
+  },
+  {
+    "id": "moh-full-3045471426:p70:s0-0",
+    "accepted": true,
+    "evidence": "Kiểm soát tốt các triệu chứng đặc biệt là khó thở (dùng opioid như sơ đồ",
+    "reasoning": "Chăm sóc giảm nhẹ mức độ nguy kịch nêu kiểm soát triệu chứng, đặc biệt khó thở, bằng opioid theo sơ đồ và bổ sung benzodiazepin nếu cần. Corticoid, thuốc giãn phế quản và kháng sinh không được nguồn nêu cho mục đích kiểm soát khó thở trong chăm sóc giảm nhẹ."
+  },
+  {
+    "id": "moh-full-46f795ca37:p8:s1-0",
+    "accepted": true,
+    "evidence": "Luôn tìm kiếm xem có lao phổi phối hợp không, sàng lọc ngay bằng Xquang",
+    "reasoning": "Mục chẩn đoán lao ngoài phổi yêu cầu luôn tìm lao phổi phối hợp và sàng lọc ngay bằng X-quang phổi (chữ 'phổi' ở dòng kế); nếu có lao phổi thì là cơ sở quan trọng cho chẩn đoán. CT ngực, siêu âm ổ bụng và nội soi phế quản không được nguồn nêu để sàng lọc ngay."
+  },
+  {
+    "id": "moh-full-3045471426:p31:s0-0",
+    "accepted": true,
+    "evidence": "(RSV), rhinovirus, myxovirus, adenovirus: xét nghiệm nhanh phát hiện kháng",
+    "reasoning": "Trong chẩn đoán phân biệt, nhóm vi rút cúm mùa, á cúm, RSV, rhinovirus, myxovirus, adenovirus đi kèm xét nghiệm nhanh phát hiện kháng nguyên (cúm A/B, H1N1, RSV) hoặc PCR đa mồi. Các nhóm coronavirus thông thường, vi khuẩn không điển hình, cúm gia cầm không gắn với xét nghiệm kháng nguyên này."
+  },
+  {
+    "id": "moh-full-46f795ca37:p57:s0-2",
+    "accepted": true,
+    "evidence": "Tiêu chuẩn thu nhận: Lao phổi kháng R, chưa có tiền sử dùng",
+    "reasoning": "Tiêu chuẩn thu nhận vào phác đồ 9 tháng là lao phổi kháng R, chưa có tiền sử dùng thuốc hàng hai có trong phác đồ hoặc dùng dưới 1 tháng. Lao ngoài phổi, có thai hoặc cho con bú và kháng một thuốc trong phác đồ (trừ H) đều thuộc tiêu chuẩn loại trừ."
+  },
+  {
+    "id": "moh-full-d084553418:p2:s1-0",
+    "accepted": true,
+    "evidence": "tấn công kéo dài 2, 3 tháng nhằm tiêu diệt nhanh số lượng lớn vi khuẩn có trong các",
+    "reasoning": "Với lao còn nhạy cảm với thuốc, giai đoạn tấn công kéo dài 2, 3 tháng nhằm tiêu diệt nhanh số lượng lớn vi khuẩn. Khoảng 4 đến 10 tháng là giai đoạn duy trì; 6 tháng chỉ xuất hiện cho thời gian tấn công của một số phác đồ dài hạn có thuốc tiêm ở lao đa kháng."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p31:s0-0",
+    "accepted": true,
+    "evidence": "Sử dụng N Acetyl Cystein liều 100 mg/kg/24 giờ pha trong 1000 ml",
+    "reasoning": "Mục suy gan cấp do SXHD nêu N Acetyl Cystein liều 100 mg/kg/24 giờ pha trong 1000 ml Glucose 5% hoặc Natriclorid 0,9%, dùng 3-5 ngày. Các liều 150, 200 và 50 mg/kg/24 giờ hoặc thể tích 500 ml không xuất hiện trong nguồn."
+  },
+  {
+    "id": "moh-full-3045471426:p42:s0-1",
+    "accepted": true,
+    "evidence": "Sốc điện khi cơn nhịp nhanh gây nên tụt huyết áp.",
+    "reasoning": "Mục điều trị loạn nhịp ghi: điều chỉnh rối loạn K+, Mg2+, dùng thuốc điều trị loạn nhịp và sốc điện khi cơn nhịp nhanh gây tụt huyết áp. Truyền dịch tinh thể và tăng noradrenalin thuộc mục bồi phụ thể tích và vận mạch của sốc; amiodaron không được nguồn nêu cho tình huống này."
+  },
+  {
+    "id": "moh-full-46f795ca37:p78:s1-1",
+    "accepted": true,
+    "evidence": "dương tính trở lại trong giai đoạn duy trì.",
+    "reasoning": "Chú thích định nghĩa dương tính trở lại là có ít nhất 2 mẫu nuôi cấy dương tính liên tiếp sau khi đã âm hóa, và chỉ dùng kết luận thất bại nếu xảy ra trong giai đoạn duy trì. Vì vậy các phương án nêu bất kỳ giai đoạn nào, giai đoạn tập trung, hoặc chỉ 1 mẫu đều trái nguồn."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p61:s1-0",
+    "accepted": true,
+    "evidence": "Vẫn nên ăn thực phẩm mềm sau 3 ngày để phòng xuất huyết tiêu hóa.",
+    "reasoning": "Mục giai đoạn hồi phục ghi vẫn nên ăn thực phẩm mềm sau 3 ngày để phòng xuất huyết tiêu hóa, khớp phương án 'Sau 3 ngày'. Nguồn không nêu mốc 1, 5 hay 7 ngày cho việc này. Cách diễn đạt nguồn hơi mơ hồ về việc 3 ngày là thời gian duy trì hay mốc bắt đầu."
+  },
+  {
+    "id": "moh-full-d084553418:p5:s0-1",
+    "accepted": true,
+    "evidence": "và dùng Streptomycin (thay cho E)",
+    "reasoning": "Phác đồ B1 (2RHZE (S)/10RHE) chỉ định cho lao màng não, lao xương khớp và lao hạch người lớn; nguồn ghi dùng Streptomycin thay cho E trong giai đoạn tấn công. Isoniazid, Rifampicin, Pyrazinamide là các thuốc nền của phác đồ, không phải thuốc thay thế Ethambutol."
+  },
+  {
+    "id": "moh-full-46f795ca37:p11:s1-0",
+    "accepted": true,
+    "evidence": "trường lỏng), nhuộm soi trực tiếp AFB(+) với tỷ lệ rất thấp.",
+    "reasoning": "Chẩn đoán xác định lao tiết niệu-sinh dục dựa trên nuôi cấy, với tỷ lệ dương tính cao hơn khi cấy trên môi trường lỏng; nhuộm soi trực tiếp AFB(+) có tỷ lệ rất thấp. Nguồn không nói môi trường rắn tốt hơn, và Xpert chỉ được nhắc cho dịch mủ."
+  },
+  {
+    "id": "moh-full-46f795ca37:p7:s1-0",
+    "accepted": true,
+    "evidence": "Lao phổi AFB(-): khi có ít nhất 2 mẫu đờm AFB(-), người bệnh cần được",
+    "reasoning": "Phân loại theo soi đờm trực tiếp nêu lao phổi AFB(-) là khi có ít nhất 2 mẫu đờm AFB(-), người bệnh cần thực hiện quy trình chẩn đoán lao phổi AFB(-) (phụ lục 2). Các số 1, 3, 4 mẫu không phải ngưỡng nguồn nêu."
+  },
+  {
+    "id": "moh-full-d084553418:p3:s0-0",
+    "accepted": true,
+    "evidence": "Người bệnh lao đa kháng nên điều trị nội trú (khoảng 2 tuần) tại các cơ sở y tế",
+    "reasoning": "Nguyên tắc quản lý ghi người bệnh lao đa kháng nên điều trị nội trú khoảng 2 tuần tại cơ sở y tế hoặc điểm điều trị để theo dõi dung nạp, sau đó ngoại trú có kiểm soát (DOT), tái khám hàng tháng. Không phải nội trú suốt liệu trình hay tái khám hàng quý; ngoại trú ngay từ đầu chỉ là ngoại lệ có điều kiện."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p36:s0-1",
+    "accepted": true,
+    "evidence": "Hct trở về bình thường và số lượng tiểu cầu khuynh hướng hồi phục >",
+    "reasoning": "Tiêu chuẩn xuất viện nêu Hct trở về bình thường và số lượng tiểu cầu có khuynh hướng hồi phục > 50.000/mm3 (ngưỡng ở dòng kế). Các ngưỡng tiểu cầu 20.000, 100.000, 150.000 và điều kiện Hct dưới 30% không có trong danh sách tiêu chuẩn của nguồn."
+  },
+  {
+    "id": "moh-full-46f795ca37:p83:s1-1",
+    "accepted": true,
+    "evidence": "gồm RMP, PZA, EMB.",
+    "reasoning": "Với bệnh nhân không mắc lao đa kháng, nguồn ghi nếu không thể sử dụng INH thì cân nhắc phác đồ 9 tháng gồm RMP, PZA, EMB. Phác đồ SM, EMB và fluoroquinolon dành cho trường hợp cả INH và RMP đều không dùng được; 2SHE/10HE dành cho viêm gan do rifampicin."
+  },
+  {
+    "id": "moh-full-289bb66d6c:p5:s0-0",
+    "accepted": true,
+    "evidence": "thuốc kháng vi rút đường uống nếu bệnh nhân vẫn xuất hiện tổn thương mới",
+    "reasoning": "Nguyên tắc điều trị nêu nên điều trị sớm trong 72 giờ; tuy nhiên sau 72 giờ vẫn nên dùng thuốc kháng vi rút đường uống nếu bệnh nhân vẫn xuất hiện tổn thương mới và/hoặc triệu chứng đau đáng kể. PCR HSV-2, số lần tái phát và tổn thương đã khô vảy không phải điều kiện nguồn nêu."
+  },
+  {
+    "id": "moh-full-3045471426:p18:s0-0",
+    "accepted": true,
+    "evidence": "phát tán vi rút từ 2 ngày trước khi có triệu chứng đầu tiên và phát tán mạnh nhất",
+    "reasoning": "Phần đại cương ghi người bệnh COVID-19 có thể phát tán vi rút từ 2 ngày trước khi có triệu chứng đầu tiên và phát tán mạnh nhất trong 3 ngày đầu từ khi có triệu chứng. Con số 3 ngày là thời gian sau khi khởi phát, không phải trước triệu chứng; 1 và 5 ngày không có trong nguồn."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p13:s0-2",
+    "accepted": true,
+    "evidence": "Khi tổng dịch truyền > 60ml/kg: chuyển sang cao phân tử truyền tĩnh",
+    "reasoning": "Mục trẻ em nêu nếu mạch nhanh, HA tụt hoặc kẹt, Hct tăng: khi tổng dịch truyền > 60ml/kg thì chuyển sang cao phân tử truyền tĩnh mạch 10-20ml/kg/giờ trong 1 giờ, rồi tiếp tục theo phác đồ sốc. Tăng tốc độ điện giải 10-20ml/kg/giờ áp dụng khi tổng dịch ≤ 60ml/kg."
+  },
+  {
+    "id": "moh-full-46f795ca37:p24:s0-0",
+    "accepted": true,
+    "evidence": "thuộc nhóm Fluoroquinolone hoặc với ít nhất một trong ba thuốc tiêm hàng",
+    "reasoning": "Nguồn định nghĩa tiền siêu kháng là lao đa kháng có kháng thêm với bất cứ thuốc nào thuộc nhóm Fluoroquinolone hoặc với ít nhất một trong ba thuốc tiêm hàng hai, không cần đồng thời cả hai loại. Kháng đồng thời cả hai là định nghĩa siêu kháng (XDR-TB)."
+  },
+  {
+    "id": "moh-full-3045471426:p101:s0-1",
+    "accepted": true,
+    "evidence": "Nhịp thở ≤ 30 lần/phút",
+    "reasoning": "Sơ đồ quy trình thở HFNC nêu mục tiêu đạt gồm SpO2 > 96%, PaO2 > 60 mmHg và nhịp thở ≤ 30 lần/phút. Nhịp thở tăng > 30 lần/phút dù đã điều chỉnh tối ưu được xếp vào nhóm không đáp ứng. Các ngưỡng 20, 25, 35 lần/phút không được nguồn nêu."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p13:s0-1",
+    "accepted": true,
+    "evidence": "Truyền Ringer lactate, Ringer acetate hoặc NaCl 0,9% 6 - 7ml/kg/giờ",
+    "reasoning": "Mục phương thức truyền dịch cho trẻ em có dấu hiệu cảnh báo ghi bước đầu là Ringer lactate, Ringer acetate hoặc NaCl 0,9% 6-7ml/kg/giờ trong 1-3 giờ, sau đó 5ml/kg/giờ. Mức 3ml/kg/giờ chỉ dùng khi đã ổn định, và 10-20ml/kg/giờ dùng khi mạch nhanh, HA tụt hoặc kẹt, Hct tăng."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p52:s0-1",
+    "accepted": false,
+    "reason": "Nguồn không hỗ trợ giả định của câu hỏi. Ngưỡng Hct ≥ 50% hoặc ≤ 35% nằm ở mục 1 (chỉ định hội chẩn tại khoa, bệnh viện); mục 2 (hội chẩn với bệnh viện tuyến trên) không có tiêu chí Hct nào. Câu hỏi nhầm tuyến hội chẩn nên khóa không đáng tin."
+  },
+  {
+    "id": "moh-full-d084553418:p10:s1-0",
+    "accepted": true,
+    "evidence": "KSĐ với Bdq, Lzd, Cfz: Khi chưa sẵn có KSĐ, chỉ định phác đồ căn cứ vào",
+    "reasoning": "Nguồn nêu với kháng sinh đồ Bdq, Lzd, Cfz: khi chưa sẵn có kết quả thì chỉ định phác đồ căn cứ vào tiền sử dùng thuốc và số liệu quốc gia. Nguồn không nói chỉ dùng khi thất bại phác đồ ngắn hạn hay chờ LPA hàng hai; lưu ý đoạn trích cắt giữa mục nên tiêu đề phác đồ dài hạn không hiện rõ."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p30:s0-0",
+    "accepted": true,
+    "evidence": "nhanh Ringer lactate hoặc NaCl 0,9% 15ml/kg trong vòng 15 phút, rồi chuyển",
+    "reasoning": "Mục điều trị sốc SXHD nặng ghi: nếu nhập viện trong tình trạng mạch không bắt được và HA không đo được thì truyền nhanh Ringer lactate hoặc NaCl 0,9% 15ml/kg trong 15 phút, rồi chuyển sang cao phân tử 15ml/kg/giờ. Các liều 10, 20, 30 ml/kg không có trong bước này."
+  },
+  {
+    "id": "moh-full-46f795ca37:p65:s0-2",
+    "accepted": false,
+    "reason": "Đoạn nguồn bị cắt ngay trước nội dung trả lời ('Trong suy thận...'). Câu ethionamide/prothionamide 'hiệu chỉnh liều khi có suy thận nặng' chỉ nói chung về bệnh nhân đa kháng, trong khi nguồn cũng nói thuốc này chuyển hóa qua gan, dùng liều thường được. Không đủ căn cứ cho thuốc cần chỉnh liều khi chạy thận; khóa đáng nghi."
+  },
+  {
+    "id": "moh-full-46f795ca37:p85:s0-1",
+    "accepted": true,
+    "evidence": "Biểu hiện lâm sàng: Đau khớp chân, vai, đầu gối…(thường ở mức độ",
+    "reasoning": "Mục đau khớp týp 1 nêu nguyên nhân Pyrazinamid >> Ethambutol > Isoniazid và biểu hiện lâm sàng là đau khớp chân, vai, đầu gối, thường ở mức độ nhẹ; không bắt buộc dừng thuốc, có thể dùng NSAID liều thấp. Nguồn không mô tả đau khớp nhỏ đối xứng, sưng nóng đỏ hay sốt cao."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p26:s0-1",
+    "accepted": true,
+    "evidence": "Chống co giật (nếu có): Diazepam 0,2mg/kg tĩnh mạch chậm, có thể",
+    "reasoning": "SXHD thể não: chống co giật bằng Diazepam 0,2mg/kg tĩnh mạch chậm; có thể bơm hậu môn 0,5mg/kg khi không tiêm tĩnh mạch được. Mức 10-20mg/kg là liều Phenobarbital truyền tĩnh mạch khi thất bại, còn 0,5mg/kg là đường hậu môn, nên không phải đáp án."
+  },
+  {
+    "id": "moh-full-46f795ca37:p6:s0-0",
+    "accepted": true,
+    "evidence": "Ho kéo dài trên 2 tuần (ho khan, ho có đờm, ho ra máu) là triệu chứng nghi",
+    "reasoning": "Nguồn nêu ho kéo dài trên 2 tuần (ho khan, ho có đờm, ho ra máu) là triệu chứng nghi lao quan trọng nhất; gầy sút, sốt nhẹ về chiều, ra mồ hôi đêm chỉ là triệu chứng 'ngoài ra có thể' đi kèm."
+  },
+  {
+    "id": "moh-full-46f795ca37:p73:s0-1",
+    "accepted": true,
+    "evidence": "lao/Trạm y tế để dùng thuốc (6 ngày/tuần, trừ Chủ nhật), cán bộ đơn vị chống",
+    "reasoning": "Tại Đơn vị chống lao tuyến quận huyện hoặc xã phường, người bệnh lao đa kháng hàng ngày đến đơn vị chống lao hoặc trạm y tế dùng thuốc 6 ngày/tuần, trừ Chủ nhật, và tái khám hàng tháng. Các lịch 5 ngày/tuần, 7 ngày/tuần hay 3 ngày/tuần không được nguồn nêu."
+  },
+  {
+    "id": "moh-full-46f795ca37:p89:s0-0",
+    "accepted": true,
+    "evidence": "từ người bệnh đến cán bộ y tế. (Sơ đồ buồng khám bệnh – xem phụ lục",
+    "reasoning": "Kiểm soát vệ sinh môi trường yêu cầu bố trí vị trí làm việc hợp lý theo chiều thông gió: không để không khí đi từ người bệnh đến cán bộ y tế (sơ đồ buồng khám, phụ lục 15). Nguồn cũng nói không đặt nơi lấy đờm ở phòng nhỏ kín, nên các phương án trái chiều thông gió đều sai."
+  },
+  {
+    "id": "moh-full-46f795ca37:p64:s0-2",
+    "accepted": true,
+    "evidence": "Bệnh nhân có bệnh gan mạn tính không nên dùng pyrazinamid, isoniazid",
+    "reasoning": "Mục lao có bệnh gan mạn tính ghi bệnh nhân có bệnh gan mạn tính không nên dùng pyrazinamid, isoniazid. Rifampicin, ethambutol và streptomycin không được nguồn liệt kê trong câu này. Lưu ý đoạn trích kết thúc ngay sau chữ isoniazid nên có thể còn nội dung tiếp theo."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p87:s1-0",
+    "accepted": true,
+    "evidence": "Khuyên người bệnh nghỉ tại giường, tránh đi lại nhiều và tránh xúc động.",
+    "reasoning": "Mục chăm sóc SXHD ghi khuyên người bệnh nghỉ tại giường, tránh đi lại nhiều và tránh xúc động, đồng thời trấn an người bệnh. Nguồn không khuyến cáo tập thể dục nhẹ, ngồi dậy sớm hay đi lại bình thường."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p9:s0-2",
+    "accepted": true,
+    "evidence": "là ở vùng gan.",
+    "reasoning": "Giai đoạn nguy hiểm: đau bụng nhiều và liên tục hoặc tăng cảm giác đau nhất là ở vùng gan (cụm 'là ở vùng gan' ở dòng kế); nguồn cũng ghi gan to > 2cm dưới bờ sườn, có thể đau. Vùng dạ dày, ruột thừa và thận không được nguồn nêu cho dấu hiệu này."
+  },
+  {
+    "id": "moh-full-46f795ca37:p71:s0-1",
+    "accepted": true,
+    "evidence": "Tư vấn và thu nhận điều trị cho bệnh nhân lao đa kháng tại tỉnh.",
+    "reasoning": "Nhiệm vụ của Trung tâm điều trị gồm tầm soát, chẩn đoán lao kháng thuốc, tư vấn và thu nhận điều trị cho bệnh nhân lao đa kháng tại tỉnh, và thu nhận điều trị thời gian đầu bệnh nhân tỉnh lân cận được phân công. Tiêm BCG, cấp phát thuốc tuyến đầu và quản lý tại xã không nằm trong nhiệm vụ nêu."
+  },
+  {
+    "id": "moh-full-6dcc599f9c:p23:s0-0",
+    "accepted": true,
+    "evidence": "Hồng cầu lắng 5 - 10ml/kg, hoặc",
+    "reasoning": "Mục truyền máu nêu ưu tiên hồng cầu lắng 5-10ml/kg, hoặc máu toàn phần (mới lấy < 7 ngày) 10-20ml/kg. Vì vậy 10-20ml/kg là liều máu toàn phần, không phải hồng cầu lắng; các mức 20-30 và 15-25ml/kg không có trong nguồn."
+  },
+  {
+    "id": "moh-full-3045471426:p77:s0-0",
+    "accepted": true,
+    "evidence": "Hô hấp: sự thông thoáng đường thở, tần số thở, kiểu thở, mức độ khó thở,",
+    "reasoning": "Phần nhận định mức độ nhẹ và trung bình liệt kê mục hô hấp gồm thông thoáng đường thở, tần số thở, kiểu thở, mức độ khó thở, âm thở, SpO2, ho, khạc đàm, đau họng, đau tức ngực. Các phương án còn lại là mục tiêu hóa, tuần hoàn và toàn trạng."
+  },
+  {
+    "id": "moh-full-12875c1c0b:p1:s0-0",
+    "accepted": true,
+    "evidence": "Bệnh tay-chân-miệng là bệnh truyền nhiễm lây từ người sang người, dễ gây thành dịch do vi rút",
+    "reasoning": "Phần đại cương ghi bệnh tay-chân-miệng là bệnh truyền nhiễm lây từ người sang người, dễ gây thành dịch do vi rút. Nguồn không nêu vector truyền bệnh hay động vật làm nguồn lây trong đoạn này. Lưu ý đoạn trích dừng giữa câu nên chưa thấy chi tiết đường lây cụ thể."
+  },
+  {
+    "id": "moh-full-46f795ca37:p72:s0-0",
+    "accepted": true,
+    "evidence": "quản lý điều trị nội trú ngay càng sớm càng tốt tại một trung tâm/điểm điều",
+    "reasoning": "Sau khi chẩn đoán xác định, người bệnh lao đa kháng được đăng ký quản lý điều trị nội trú ngay càng sớm càng tốt tại một trung tâm hoặc điểm điều trị lao đa kháng. Bệnh viện tuyến tỉnh không chuyên lao, tuyến huyện và trạm y tế xã không được nguồn nêu cho bước này."
+  },
+  {
+    "id": "moh-full-3045471426:p115:s0-1",
+    "accepted": true,
+    "evidence": "Áp lực cao nguyên (P plateau) PPlateau ≤ 30cm H2O, hoặc Driving",
+    "reasoning": "Mục tiêu thông khí trong CARDS nêu áp lực cao nguyên PPlateau ≤ 30cm H2O hoặc Driving Pressure < 15 cmH2O. Nếu Pplateau > 30 thì giảm Vt 1ml/kg; Pplateau < 25 mới xét tăng Vt. Các ngưỡng 20, 25, 35cm H2O không được nguồn nêu làm mục tiêu."
+  },
+  {
+    "id": "moh-full-d084553418:p15:s0-0",
+    "accepted": true,
+    "evidence": "Phác đồ D1: Bdq Lfx Lzd Cfz + 1 thuốc nhóm C",
+    "reasoning": "Nguồn nêu phác đồ D1 dùng khi không có chống chỉ định với Bdq gồm Bdq Lfx Lzd Cfz + 1 thuốc nhóm C. Phác đồ D2 (Lfx Cfz Lzd Cs + 1 thuốc nhóm C) dành cho trường hợp có chống chỉ định hoặc chưa khuyến cáo Bdq, nên các phương án có Cs hoặc thiếu Bdq không phải D1."
+  }
+]

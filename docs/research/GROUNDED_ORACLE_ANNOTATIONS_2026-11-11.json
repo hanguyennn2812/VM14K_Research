@@ -1,0 +1,432 @@
+[
+  {
+    "id": "8e844e0779e849dfb35cd0af85b2291f",
+    "coverage": "partial",
+    "chunk_ids": [
+      "6bfc959cf7:w105750",
+      "ydmekong_13_benh_truyen_nhiem:w24450"
+    ],
+    "external_sources": [],
+    "note": "Có phác đồ viêm âm đạo và điều trị lậu, nhưng không có câu 'liều cao kết hợp' tương ứng."
+  },
+  {
+    "id": "0ba0322b0e9642cbba4811d6901f30c1",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w9750",
+      "bvtwtn_3312_nhi_khoa:w96750"
+    ],
+    "external_sources": [],
+    "note": "Giáo trình nêu nơi amip sống, sinh sản và thể bệnh ở ruột."
+  },
+  {
+    "id": "e90aaeb4567f4b3cbcd1405ff22f45da",
+    "coverage": "partial",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w394800",
+      "bvtwtn_3312_nhi_khoa:w96900"
+    ],
+    "external_sources": [],
+    "note": "Có thuốc điều trị amip mô và thuốc diệt nang; thiếu so sánh từng thuốc trong đáp án."
+  },
+  {
+    "id": "46e8adcf1c554ec3ad8b066377fcf824",
+    "coverage": "partial",
+    "chunk_ids": [
+      "46f795ca37:w6900",
+      "46f795ca37:w2250"
+    ],
+    "external_sources": [],
+    "note": "Mô tả lao hạch nhưng không dùng khái niệm tiên phát/thứ phát."
+  },
+  {
+    "id": "9cbbc750a8884a8f97c7d086cd66205f",
+    "coverage": "partial",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w8250",
+      "ydmekong_13_benh_truyen_nhiem:w8850"
+    ],
+    "external_sources": [],
+    "note": "Nguồn nêu nguồn truyền nhiễm theo từng thời kỳ; đối chiếu mệnh đề cần cẩn thận."
+  },
+  {
+    "id": "4b06b234f88d4496a7e0f0b603e85d92",
+    "coverage": "partial",
+    "chunk_ids": [
+      "bvdktwtn_315_QD_BYT_san_phu_khoa:w39150",
+      "bvdktwtn_315_QD_BYT_san_phu_khoa:w39450"
+    ],
+    "external_sources": [],
+    "note": "Có công thức máu, CRP, cấy; không thấy VSS, fibrin hay huyết thanh chẩn đoán."
+  },
+  {
+    "id": "dd7ead92d1f149b1a8f65a869d3c54cd",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Không có tài liệu phân loại AAP 1999; chỉ có danh mục ICD và OpenStax chung."
+  },
+  {
+    "id": "5410d15db69744ae93ede5dbff5ae6eb",
+    "coverage": "partial",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w262200"
+    ],
+    "external_sources": [],
+    "note": "Chỉ có số ca và số tử vong toàn cầu, không nêu tỷ lệ tử vong trực tiếp."
+  },
+  {
+    "id": "2a26dd0796624688bd12ece69e9f7c8f",
+    "coverage": "partial",
+    "chunk_ids": [
+      "bvdktwtn_315_QD_BYT_san_phu_khoa:w39000",
+      "bvdktwtn_315_QD_BYT_san_phu_khoa:w39300"
+    ],
+    "external_sources": [],
+    "note": "Có nguyên nhân, triệu chứng, áp xe phần phụ; không bàn về nạo buồng tử cung."
+  },
+  {
+    "id": "14432ea3061243bdb5a00a197b4a18be",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w25500",
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w25650"
+    ],
+    "external_sources": [],
+    "note": "Giáo trình nêu các nguyên tắc đặt tên khoa học, gồm ví dụ riêng cho Anopheles minimus."
+  },
+  {
+    "id": "6c040a00296a453fa45e30e39d6b6565",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "kcb_truyen_nhiem_1:w5550",
+      "ydmekong_13_benh_truyen_nhiem:w36150"
+    ],
+    "external_sources": [],
+    "note": "Hướng dẫn nêu tác nhân gây thủy đậu và đặc điểm bệnh."
+  },
+  {
+    "id": "f922ac8fece540709259323f5d13ff4b",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Quét corpus không thấy đoạn về diễn tiến viêm phổi thùy."
+  },
+  {
+    "id": "4f191770a3074c819a1c089634615d21",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Ca lâm sàng thiếu dữ kiện, không có đoạn nào quyết định được chẩn đoán."
+  },
+  {
+    "id": "40c21bdce962465e9a621823c18275ae",
+    "coverage": "partial",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w39750",
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w39900"
+    ],
+    "external_sources": [],
+    "note": "Nêu vật chủ là ốc nhưng không có tên loài ốc."
+  },
+  {
+    "id": "22a8379e3a174452b96f9d5b1134002c",
+    "coverage": "partial",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w87900",
+      "bv103_mot_so_benh_truyen_nhiem:w10350"
+    ],
+    "external_sources": [],
+    "note": "Liệt kê yếu tố thuận lợi nhưng không xếp hạng mức thường gặp tại Việt Nam."
+  },
+  {
+    "id": "f0fb692ae39245fea091de76c4eec7c8",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w174000",
+      "openstax_microbiology_2016_en:w226050"
+    ],
+    "external_sources": [],
+    "note": "Nêu cơ chế chuyển gen kháng thuốc qua plasmid và chuyển gen ngang."
+  },
+  {
+    "id": "44900adb9d64475985f35e5ca256805b",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w20550",
+      "ydmekong_13_benh_truyen_nhiem:w20400"
+    ],
+    "external_sources": [],
+    "note": "Bài giun kim mô tả hình thể: miệng 3 môi, thân có hình lăng trụ."
+  },
+  {
+    "id": "f87e64d5385c435896e0eb24112f478b",
+    "coverage": "partial",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w45450"
+    ],
+    "external_sources": [],
+    "note": "Chỉ nêu đường lây tiêu hóa của viêm gan A, không nói về mang trùng mạn."
+  },
+  {
+    "id": "981bbe0099454b82a3adb28b040ca6d5",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "e3e8f302f2:w5700",
+      "ydmekong_13_benh_truyen_nhiem:w7350"
+    ],
+    "external_sources": [],
+    "note": "Danh mục ICD ghi bệnh tả do Vibrio cholerae; có bài bệnh tả."
+  },
+  {
+    "id": "990b9a96e39a4d3587154b485c8b8c90",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "6bfc959cf7:w22800"
+    ],
+    "external_sources": [],
+    "note": "Hướng dẫn nêu thời gian dùng kháng sinh cho viêm hô hấp trên do vi khuẩn."
+  },
+  {
+    "id": "3a4fd8343cd24f5bbf22fafb48936442",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Câu dùng 'phân nhóm 2' không định nghĩa; không có đoạn nào xác định."
+  },
+  {
+    "id": "a53193b19b1f4851ae5322c405428b46",
+    "coverage": "partial",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w6150",
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w9000"
+    ],
+    "external_sources": [],
+    "note": "Nêu bản chất protein của capsid và kháng nguyên vỏ capsid; thiếu mô tả so sánh."
+  },
+  {
+    "id": "e1470b3add74471a872ab0867c6faee6",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Có lao màng phổi nhưng không có dữ kiện lứa tuổi hay gặp."
+  },
+  {
+    "id": "a63e185e1db74a55bd1e4f9401ea6064",
+    "coverage": "partial",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w8100",
+      "bvtwtn_tai_lieu_dao_tao_ksnk:w2700"
+    ],
+    "external_sources": [],
+    "note": "Có nhiễm trùng tiềm tàng và nội sinh/ngoại sinh; thuật ngữ không khớp hoàn toàn."
+  },
+  {
+    "id": "4ab6629340e1431296adbf368c1d7a62",
+    "coverage": "partial",
+    "chunk_ids": [
+      "666afb29b4:w25800",
+      "666afb29b4:w27000"
+    ],
+    "external_sources": [],
+    "note": "Có thuốc NA và đổi thuốc; không phát biểu nguyên tắc dạng tóm tắt."
+  },
+  {
+    "id": "138f5b33fef347b785de2473adda53f2",
+    "coverage": "partial",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w382650",
+      "openstax_microbiology_2016_en:w381900"
+    ],
+    "external_sources": [],
+    "note": "OpenStax nêu mảng bám sinh học và bệnh nha chu do nhiễm khuẩn; thiếu giáo trình Việt."
+  },
+  {
+    "id": "c856dc785ec647fbb6ec8570ed719085",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Câu dùng 'phân nhóm 1' không định nghĩa; không có đoạn nào xác định."
+  },
+  {
+    "id": "042dabfc9b72476a8166090caf3646b7",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Câu hỏi mơ hồ, không có đoạn liên quan đến thuốc phải uống nhiều nước."
+  },
+  {
+    "id": "a18d01a1b6d141e7811aae07f9b4718f",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Không thấy hướng dẫn chu kỳ thay túi nước tiểu."
+  },
+  {
+    "id": "8e5856dc987f4e6580001629cea1272c",
+    "coverage": "partial",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w35550",
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w35700"
+    ],
+    "external_sources": [],
+    "note": "Có yếu tố nguy cơ viêm phổi nhưng không trả lời trực tiếp 'không thuận lợi'."
+  },
+  {
+    "id": "9530fe2c3d5d47afaa9a96171ae520b8",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "bvtwtn_3312_nhi_khoa:w234900",
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w8400"
+    ],
+    "external_sources": [],
+    "note": "Hai giáo trình nêu cơ chế macrolid tại ribosom 50S."
+  },
+  {
+    "id": "9d7c9cc611bb4c85bc2b69d0e64e135d",
+    "coverage": "partial",
+    "chunk_ids": [
+      "40c791f251:w300",
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w19500"
+    ],
+    "external_sources": [],
+    "note": "Có giang mai lây người-người và ổ chứa viêm não Nhật Bản; thiếu dại, than."
+  },
+  {
+    "id": "68639979cce6419d85942e4db7916328",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Không có đoạn giải thích nguồn gốc tên tuberculosis theo tổn thương cơ bản."
+  },
+  {
+    "id": "fae1adf7647645e5b527a516d573ed31",
+    "coverage": "partial",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w35100",
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w35250"
+    ],
+    "external_sources": [],
+    "note": "Có đường lây giun đũa, giun móc; thiếu giun xoắn và sán lá gan lớn."
+  },
+  {
+    "id": "de054813576146d282e277806a3f45fd",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Không có đoạn mô tả khuẩn lạc nấm Epidermophyton floccosum."
+  },
+  {
+    "id": "49f848f493224e51b1a3e2ba748e182a",
+    "coverage": "partial",
+    "chunk_ids": [
+      "b8ae87837e:w22200",
+      "b8ae87837e:w22050"
+    ],
+    "external_sources": [],
+    "note": "Có tác nhân nấm da và việc giữ khô ráo; yếu tố thuận lợi chưa liệt kê đầy đủ."
+  },
+  {
+    "id": "153a303790ca4b458d560ce00ab3ee93",
+    "coverage": "sufficient",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w30900",
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w27750"
+    ],
+    "external_sources": [],
+    "note": "Hướng dẫn nêu điều trị nguyên nhân bằng kháng sinh, hỗ trợ là phụ."
+  },
+  {
+    "id": "ce3e25dd6a08404ebcf3c91b034acc1f",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Chỉ có muỗi Anopheles truyền sốt rét; không có đặc điểm hình thái, tập tính."
+  },
+  {
+    "id": "334e64d8cf774e579082c3d246cbd6a3",
+    "coverage": "partial",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w27000"
+    ],
+    "external_sources": [],
+    "note": "Có dịch tễ viêm phổi cộng đồng; không riêng viêm phổi thùy hay nguyên nhân tử vong hàng đầu."
+  },
+  {
+    "id": "e10b7428ca03432c8a4d2bd28f970ca7",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Có lây truyền và nhiễm lao; không thấy phân loại mức lây lan, gây bệnh, độc tính."
+  },
+  {
+    "id": "d3b7b20afb684b45ace327746c7575c7",
+    "coverage": "partial",
+    "chunk_ids": [
+      "b8ae87837e:w29100"
+    ],
+    "external_sources": [],
+    "note": "Có phác đồ kháng virus cho zona không biến chứng; chưa có zona mắt."
+  },
+  {
+    "id": "18a31dc3891240449c280ede43175e56",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Không thấy mô tả hình ảnh X-quang viêm phổi thùy."
+  },
+  {
+    "id": "0af7da8e7379431c98158154051605b0",
+    "coverage": "partial",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w24300"
+    ],
+    "external_sources": [],
+    "note": "Định nghĩa ký sinh trùng chiếm dinh dưỡng của sinh vật khác; không dùng đúng từ trong đáp án."
+  },
+  {
+    "id": "6fe83994de8b4bf4976dcdb09e43530a",
+    "coverage": "partial",
+    "chunk_ids": [
+      "46f795ca37:w16350"
+    ],
+    "external_sources": [],
+    "note": "Mô tả hình ảnh hang lao trên X-quang; không nói rõ một hay nhiều hang."
+  },
+  {
+    "id": "b344ca1956f2457a8cb79e2b4c6fd980",
+    "coverage": "partial",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w238500"
+    ],
+    "external_sources": [],
+    "note": "Chỉ gián tiếp đề cập mất và phục hồi độc lực qua gen độc tố."
+  },
+  {
+    "id": "7c70ac7277e3405394711e41111fa92d",
+    "coverage": "absent",
+    "chunk_ids": [],
+    "external_sources": [],
+    "note": "Không có tỷ lệ tràn khí màng phổi ở bệnh nhân lao."
+  },
+  {
+    "id": "826a5df2eb9841e983b5694e3495ea08",
+    "coverage": "partial",
+    "chunk_ids": [
+      "cdc_hoi_dap_benh_lao_2021_vi:w6900",
+      "cdc_hoi_dap_benh_lao_2021_vi:w7500"
+    ],
+    "external_sources": [],
+    "note": "CDC nói thuốc diệt hết mầm bệnh; không nói về di chứng."
+  },
+  {
+    "id": "5dec599fb003420d9b5d16167e771384",
+    "coverage": "partial",
+    "chunk_ids": [
+      "kcb_truyen_nhiem_1:w14100",
+      "kcb_truyen_nhiem_1:w24750"
+    ],
+    "external_sources": [],
+    "note": "Có tử vong lỵ và tiêu chảy riêng lẻ; không có so sánh ba bệnh."
+  }
+]

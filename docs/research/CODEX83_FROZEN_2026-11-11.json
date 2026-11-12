@@ -1,0 +1,19 @@
+{
+ "F": "F1",
+ "conds": [
+  "shots+docs_c",
+  "shotsemb+docs_c"
+ ],
+ "cfg": {
+  "zero": true
+ },
+ "tau": null,
+ "tune_acc": 412,
+ "n_tune": 540,
+ "accs": {
+  "F1": 412,
+  "F2": 407,
+  "F3": 405
+ },
+ "frozen_at": "2026-11-11 19:33"
+}

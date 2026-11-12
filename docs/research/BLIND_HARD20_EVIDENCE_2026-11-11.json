@@ -1,0 +1,175 @@
+[
+  {
+    "id": "68639979cce6419d85942e4db7916328",
+    "chunk_ids": [
+      "b8ae87837e:w7350"
+    ],
+    "coverage": "absent",
+    "note": "Chỉ nhắc nang lao trong mô bệnh học lao da, không có đoạn nào nêu tổn thương cơ bản của viêm lao để chọn giữa nang, củ, hang, chất bã đậu."
+  },
+  {
+    "id": "682a73a671b94dcba1999d403efe4e37",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w391950",
+      "openstax_microbiology_2016_en:w82650"
+    ],
+    "coverage": "partial",
+    "note": "Nguồn nói HAV là ssRNA(+) thuộc họ picornavirus (bảng 6.2 ghi Hepatovirus thuộc Picornaviridae), loại được Rhabdo và Flavi; nhưng không phân xử được 'Picornavirus' với 'Enterovirus (nhóm Picornavirus)'."
+  },
+  {
+    "id": "c896a0b1a7b74d5f872fe44e4bffb95d",
+    "chunk_ids": [
+      "46f795ca37:w1800",
+      "f53af12a41:w6900"
+    ],
+    "coverage": "absent",
+    "note": "Mục chẩn đoán phân biệt lao phổi không liệt kê ứ huyết phổi, bụi phổi hay di căn thể kê; chỉ có đoạn chung về nốt nhỏ phân bố bạch huyết (silic, di căn) ở bệnh phổi kẽ, không gắn với lao kê."
+  },
+  {
+    "id": "8392ceb93cc245de8d7af6e085e2bcb1",
+    "chunk_ids": [
+      "f53af12a41:w11700"
+    ],
+    "coverage": "absent",
+    "note": "Chỉ nhắc viêm phế quản-phổi như một nguyên nhân lấp đầy phế nang; không có hạt Charcot-Rindfleisch hay mô tả tổn thương điển hình."
+  },
+  {
+    "id": "376c03f98a9343c696201b825ea4356f",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w349050",
+      "ydmekong_13_benh_truyen_nhiem:w33150"
+    ],
+    "coverage": "partial",
+    "note": "Viêm họng liên cầu có đau họng dữ dội (intense pharyngeal pain), còn hắt hơi, khô rát họng thuộc cúm/virus; nhưng không có câu nói thẳng triệu chứng thường có của viêm họng vi khuẩn, và 'nuốt đau' với 'đau họng nhiều' đều gần nghĩa."
+  },
+  {
+    "id": "826a5df2eb9841e983b5694e3495ea08",
+    "chunk_ids": [
+      "cdc_hoi_dap_benh_lao_2021_vi:w6900",
+      "cdc_hoi_dap_benh_lao_2021_vi:w6600"
+    ],
+    "coverage": "partial",
+    "note": "Nguồn nói lao hầu như luôn chữa khỏi, thuốc diệt toàn bộ mầm bệnh; nhưng không đoạn nào đề cập có hay không để lại di chứng."
+  },
+  {
+    "id": "e23e74dbdb914691a50c87a72bdfb4ac",
+    "chunk_ids": [
+      "46f795ca37:w16650",
+      "46f795ca37:w16200"
+    ],
+    "coverage": "partial",
+    "note": "Có vị trí hay gặp ở đỉnh-hạ đòn và định nghĩa nốt, thâm nhiễm; nhưng không có đoạn mô tả hình ảnh lao thâm nhiễm sớm để chọn giữa các phương án."
+  },
+  {
+    "id": "bf14c36372384f3fb9c855bdccc2a5d5",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w21000",
+      "ydmekong_13_benh_truyen_nhiem:w20700"
+    ],
+    "coverage": "partial",
+    "note": "Ngứa hậu môn về đêm là lúc giun cái đẻ trứng ở nếp hậu môn rồi teo lại và chết; nguồn không nói thẳng 'nhột hậu môn là dấu hiệu' của giun cái đẻ hay kết thúc đời sống."
+  },
+  {
+    "id": "4b16e61b562c4277ab818eaed4dd9424",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w53850",
+      "ydmekong_13_benh_truyen_nhiem:w27900"
+    ],
+    "coverage": "partial",
+    "note": "Áp xe gan có sốt cao 39-40°C, rét run, gan to; sốt rét cũng có rét run và gan to. Hai đoạn khớp với hai phương án khác nhau, không phân biệt được."
+  },
+  {
+    "id": "f87cb4bf3d284cfc9f015ef86caea899",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w40350"
+    ],
+    "coverage": "absent",
+    "note": "Chỉ liệt kê nhiều vi khuẩn gây tràn mủ màng phổi (phế cầu, tụ cầu, E. coli...), không có tỷ lệ 9/10 do tụ cầu."
+  },
+  {
+    "id": "76ef59177c8d4eb39cde8983106e6f6a",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w43200",
+      "ydmekong_13_benh_truyen_nhiem:w43050"
+    ],
+    "coverage": "partial",
+    "note": "Có Aedes aegypti đốt ban ngày, đẻ trứng ở nước trong; không có hình thái (băng ngang, đốm trắng, vảy cánh) hay kiểu trứng (kết bè/rời/có phao) như các phương án."
+  },
+  {
+    "id": "ff5f25b2d56a41a99315d3a6f3602e82",
+    "chunk_ids": [
+      "d16a232b4b:w1500",
+      "bvtwtn_viem_gan_B:w300"
+    ],
+    "coverage": "absent",
+    "note": "Chỉ có HBV phổ biến toàn cầu và Việt Nam xuất độ cao; không có so sánh theo châu lục (Á, Mỹ, ĐNA, Âu)."
+  },
+  {
+    "id": "e10b7428ca03432c8a4d2bd28f970ca7",
+    "chunk_ids": [
+      "kcb_bai_giang_lao_ksnk:w2100",
+      "46f795ca37:w30000"
+    ],
+    "coverage": "absent",
+    "note": "Mô tả lây qua khí dung và nguy cơ từ nhiễm lao sang bệnh lao, nhưng không có bộ ba lây lan/gây bệnh/độc tính để chọn phương án."
+  },
+  {
+    "id": "0c71c8043181434ab0cbd470ec14ed43",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w10800",
+      "bvtwtn_3312_nhi_khoa:w75150"
+    ],
+    "coverage": "sufficient",
+    "note": "Độ II khó thở thanh quản: liên tục, bứt rứt, kích thích, vật vã (tương ứng phương án đầu); độ I là khó thở từng cơn, độ III lơ mơ tím tái nên loại các phương án còn lại."
+  },
+  {
+    "id": "a0902395b9664818b3cfbf894a848ccc",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w11850"
+    ],
+    "coverage": "sufficient",
+    "note": "Cơn ho gà điển hình là ho liên tiếp 5-20 lần rồi hít sâu như gà gáy, sau cơn nôn; loại các phương án có đờm. 'Ho một cơn 15-20 lần' chỉ gần đúng, nguồn ghi 5-20 và lại tiếp cơn khác."
+  },
+  {
+    "id": "2feb63ade382454eb26721828fbcfca5",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w15450",
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w15300"
+    ],
+    "coverage": "absent",
+    "note": "Chỉ có nguyên tắc chỉnh liều theo Child-Pugh và bảng cơ quan bài xuất; không có danh sách kháng sinh an toàn cho suy gan, không có aminoglycosid, rifampicin, cloramphenicol, metronidazol."
+  },
+  {
+    "id": "381be70b3bb64b7f8f943d67af800b0f",
+    "chunk_ids": [
+      "3045471426:w9450",
+      "3045471426:w9300"
+    ],
+    "coverage": "sufficient",
+    "note": "Phân loại mức độ dùng hô hấp (nhịp thở, SpO2, suy hô hấp), ý thức và tổn thương phổi X-quang/CT; 'cơ địa' không phải tiêu chí. Câu NGOẠI TRỪ nên dựa vào việc vắng mặt tiêu chí này."
+  },
+  {
+    "id": "b344ca1956f2457a8cb79e2b4c6fd980",
+    "chunk_ids": [
+      "bvtwtn_vai_tro_xet_nghiem_vi_sinh:w3300"
+    ],
+    "coverage": "partial",
+    "note": "Phế cầu khuẩn lạc S độc lực cao, cấy chuyển nhiều lần thành R độc lực kém, tức độc lực có thể thay đổi; nhưng không nói rõ 'tăng, giảm hoặc mất' hay khả năng phục hồi."
+  },
+  {
+    "id": "0af7da8e7379431c98158154051605b0",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w24300"
+    ],
+    "coverage": "partial",
+    "note": "Định nghĩa KST là sinh vật chiếm chất dinh dưỡng của sinh vật khác đang sống; ngụ ý dị dưỡng và sống nhưng không dùng từ 'dị dưỡng', còn chỗ trống không rõ nghĩa nên không phân biệt chắc các phương án."
+  },
+  {
+    "id": "353e321384b74a05a1e661c246bfbfe0",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w67950"
+    ],
+    "coverage": "absent",
+    "note": "Chỉ nhắc viêm giác mạc kẽ trong giang mai bẩm sinh muộn (nhức mắt, sợ ánh sáng, có thể mù); không mô tả hình thái thẩm lậu giác mạc."
+  }
+]

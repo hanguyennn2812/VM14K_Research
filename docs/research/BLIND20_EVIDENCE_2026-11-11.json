@@ -1,0 +1,164 @@
+[
+  {
+    "id": "d8f510a1c1414f7d91c2ea3e42b9ef19",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w6150",
+      "ydmekong_13_benh_truyen_nhiem:w3750"
+    ],
+    "coverage": "partial",
+    "note": "Nêu người bệnh thải khuẩn và người mang mầm là nguồn lây; không chunk nào nói gia súc có hay không là nguồn nên chưa loại hẳn các phương án có gia súc."
+  },
+  {
+    "id": "7ec4d959baa944389208a159a4232247",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w7500"
+    ],
+    "coverage": "sufficient",
+    "note": "Người bệnh tả thải vi khuẩn qua phân/chất nôn, thường sạch sau một tuần; người lành mang khuẩn thì rất lâu."
+  },
+  {
+    "id": "9ab2337e7a594a62a095b2101dac1feb",
+    "chunk_ids": [
+      "3045471426:w10350",
+      "3045471426:w10500"
+    ],
+    "coverage": "sufficient",
+    "note": "Bảng nguyên tắc điều trị COVID-19 theo mức độ, đủ để đối chiếu từng nhóm thuốc (corticoid, chống đông, kháng sinh, oxy, kháng virus) với ca nhẹ."
+  },
+  {
+    "id": "443d5bc57cf84ecc8aba661e8f42e659",
+    "chunk_ids": [],
+    "coverage": "absent",
+    "note": "Không có đoạn nào nói tính địa phương/mùa của nhiễm khuẩn máu; chỉ có đặc điểm dịch theo đường truyền chung."
+  },
+  {
+    "id": "e0000f7e9241445785939f5831dc50e1",
+    "chunk_ids": [
+      "6bfc959cf7:w104850",
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w70050"
+    ],
+    "coverage": "partial",
+    "note": "Có mủ nhầy, đỏ, phù nề; 'lộ tuyến' không được gắn với viêm cổ tử cung do lậu nên phương án có lộ tuyến chưa chốt."
+  },
+  {
+    "id": "9233eadfa41b47258db6765e0640d776",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w750"
+    ],
+    "coverage": "partial",
+    "note": "Chỉ mục lục bài Tả liệt kê ủ bệnh, khởi phát, toàn phát, phục hồi; không có câu nói thẳng 'thể điển hình có mấy thời kỳ'."
+  },
+  {
+    "id": "32431a4da39446ebb6b1f99b9d2a3a80",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w21600",
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w41250"
+    ],
+    "coverage": "sufficient",
+    "note": "Sán dải heo có 800–1000 đốt (khoảng 900) và tử cung 7–12 nhánh; đủ loại các phương án 300, 600, 700 đốt. Chiều dài chunk ghi 2–4 m nên chưa khớp 2–8 m."
+  },
+  {
+    "id": "4b64c753e0f34bfdb1020b64dbcafdd8",
+    "chunk_ids": [
+      "openstax_microbiology_2016_en:w301200",
+      "itrithuc_la10.0783.3:w300"
+    ],
+    "coverage": "sufficient",
+    "note": "Tuberculin là chiết xuất protein từ vi khuẩn lao; PPD = Purified protein derivative."
+  },
+  {
+    "id": "2167c98b345f4c0b813876c306f04461",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w6150",
+      "ydmekong_13_benh_truyen_nhiem:w7500"
+    ],
+    "coverage": "partial",
+    "note": "Có thương hàn thải qua phân và nước tiểu, tả qua phân và chất nôn (phương án 3); phương án 1 ('chỉ một lối ra/vào') và 2 (ỉa chảy) không được xác nhận trực tiếp."
+  },
+  {
+    "id": "13403afdee2e470e94bff9da16f55c43",
+    "chunk_ids": [
+      "46f795ca37:w2400",
+      "46f795ca37:w7050"
+    ],
+    "coverage": "partial",
+    "note": "Triệu chứng lao màng phổi chỉ liệt kê đau ngực, khó thở, hội chứng 3 giảm, không nhắc ho; thiếu bằng chứng khẳng định rõ 'ho không gặp'."
+  },
+  {
+    "id": "e79c47f942884522934a6ec52d5cfa82",
+    "chunk_ids": [],
+    "coverage": "absent",
+    "note": "Chỉ nói 'viêm tuyến tiền liệt cấp có phác đồ riêng'; không có thời gian điều trị kháng sinh cho viêm tuyến tiền liệt cấp."
+  },
+  {
+    "id": "ea05e9b47306434092047d70acbdf065",
+    "chunk_ids": [],
+    "coverage": "absent",
+    "note": "Các đoạn nói về viêm phổi kẽ trong viêm cơ tự miễn, không phải hướng tiến triển của viêm phổi thùy."
+  },
+  {
+    "id": "7139ac4eefa14b9783e3941e70e2743c",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w28350"
+    ],
+    "coverage": "sufficient",
+    "note": "Lớp trùng lông cử động bằng lông chuyển, chỉ có Balantidium coli ký sinh ở người; Giardia/Trichomonas thuộc lớp trùng roi."
+  },
+  {
+    "id": "3c0e923e32a24d2592846df72b5a1f04",
+    "chunk_ids": [
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w35100",
+      "bvtwtn_3312_nhi_khoa:w94800"
+    ],
+    "coverage": "partial",
+    "note": "Câu hỏi cụt; chunk nêu đường lây của từng loại giun nhưng không phân loại 'bệnh truyền nhiễm đường tiêu hóa' (giun móc qua da, giun xoắn do ăn thịt heo); giun chỉ không được mô tả."
+  },
+  {
+    "id": "887b109d4c884a72b95fd9816890c286",
+    "chunk_ids": [
+      "bvtwtn_708_huong_dan_su_dung_khang_sinh:w70050",
+      "882183f3bf:w750"
+    ],
+    "coverage": "partial",
+    "note": "Lậu nữ: viêm cổ tử cung và lỗ niệu đạo viêm đỏ; viêm nội mạc tử cung, vòi trứng được xếp là biến chứng; trực tràng thường không triệu chứng. Chưa có câu nói thẳng 'hai triệu chứng'."
+  },
+  {
+    "id": "a33d64ab69aa469b86ecb10546368ec7",
+    "chunk_ids": [],
+    "coverage": "absent",
+    "note": "Không có đoạn nào nói quần thể vi khuẩn mảng bám răng thay đổi khi lâu ngày; chỉ nêu Streptococcus/Actinomyces gây sâu răng nói chung."
+  },
+  {
+    "id": "3332b4437b5a451d97a8e69928e843cd",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w34950",
+      "cdyt_sonla_vi_sinh_ky_sinh_trung:w23250"
+    ],
+    "coverage": "partial",
+    "note": "Chỉ xác nhận sởi có miễn dịch bền vững; miễn dịch của đậu mùa, ho gà, nhiễm khuẩn hô hấp cấp không có trong top10 nên chưa phân biệt được ba phương án còn lại."
+  },
+  {
+    "id": "80fe809d4a494c69b1275b3f06420f96",
+    "chunk_ids": [
+      "ba0899246f:w1800",
+      "bvdktwtn_315_QD_BYT_san_phu_khoa:w49350"
+    ],
+    "coverage": "sufficient",
+    "note": "HPV liên quan ung thư cổ tử cung, âm đạo, dương vật (w1800) và âm hộ (w49350); không đoạn nào gắn HPV với ung thư tinh hoàn."
+  },
+  {
+    "id": "54fc944520684794a66d1eb86689aef8",
+    "chunk_ids": [],
+    "coverage": "absent",
+    "note": "Cả top10 không nhắc thang điểm PSI (đã tìm từ khóa), chỉ có CURB65 và qSOFA; không đối chiếu được các phát biểu về PSI."
+  },
+  {
+    "id": "21d01e6b976a4d419a0b7c3524d54335",
+    "chunk_ids": [
+      "ydmekong_13_benh_truyen_nhiem:w46050",
+      "ydmekong_13_benh_truyen_nhiem:w46200"
+    ],
+    "coverage": "partial",
+    "note": "Thời kỳ hồi phục 'thường kéo dài 2–8 tuần'; không đoạn nào nêu mốc 4–x tuần nên không khớp rõ phương án nào."
+  }
+]

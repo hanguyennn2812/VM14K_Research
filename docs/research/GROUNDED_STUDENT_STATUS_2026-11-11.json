@@ -1,0 +1,18 @@
+{
+  "checked_on": "2026-11-12",
+  "experiment_date": "2026-11-11",
+  "kernel": "trcnguynontrung/vm14k-grounded-student",
+  "model": "Qwen/Qwen3.5-9B",
+  "status": "failed_before_training",
+  "failure_stage": "baseline_evaluation",
+  "exception": "AssertionError: training EOS is not a generation stop token",
+  "assertion": "tok.eos_token_id in end_ids",
+  "baseline_output_bytes": 0,
+  "optimizer_steps": 0,
+  "trained_adapter_available": false,
+  "prepared_training_rows": 52,
+  "planned_evaluation_rows": 48,
+  "source_log": "D:/tmp/vm14k-grounded/student_calibration_fail/vm14k-grounded-student.log",
+  "next_action": "Align the training assistant-turn terminator with the model generation configuration, validate it before generation, then rerun the matched baseline and two LoRA conditions.",
+  "source_log_sha256": "1eb37b2c7636d8d395c0bbd8a7c1e1b0caa566fdfdb16c82336d179109c99260"
+}
