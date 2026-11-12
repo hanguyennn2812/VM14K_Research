@@ -1,0 +1,110 @@
+{
+  "reviewed": 64,
+  "included": 52,
+  "rejected": [
+    {
+      "id": "moh-full-12875c1c0b:p4:s1-0",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-6dcc599f9c:p22:s1-1",
+      "reason": "insufficient_positive_grounded_explanation"
+    },
+    {
+      "id": "moh-full-46f795ca37:p72:s0-2",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-6dcc599f9c:p40:s0-2",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-6dcc599f9c:p61:s1-0",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-6dcc599f9c:p52:s0-1",
+      "reason": "Nguồn không hỗ trợ giả định của câu hỏi. Ngưỡng Hct ≥ 50% hoặc ≤ 35% nằm ở mục 1 (chỉ định hội chẩn tại khoa, bệnh viện); mục 2 (hội chẩn với bệnh viện tuyến trên) không có tiêu chí Hct nào. Câu hỏi nhầm tuyến hội chẩn nên khóa không đáng tin."
+    },
+    {
+      "id": "moh-full-d084553418:p10:s1-0",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-46f795ca37:p65:s0-2",
+      "reason": "Đoạn nguồn bị cắt ngay trước nội dung trả lời ('Trong suy thận...'). Câu ethionamide/prothionamide 'hiệu chỉnh liều khi có suy thận nặng' chỉ nói chung về bệnh nhân đa kháng, trong khi nguồn cũng nói thuốc này chuyển hóa qua gan, dùng liều thường được. Không đủ căn cứ cho thuốc cần chỉnh liều khi chạy thận; khóa đáng nghi."
+    },
+    {
+      "id": "moh-full-46f795ca37:p73:s0-1",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-46f795ca37:p64:s0-2",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-46f795ca37:p71:s0-1",
+      "reason": "weak_or_administrative"
+    },
+    {
+      "id": "moh-full-12875c1c0b:p1:s0-0",
+      "reason": "weak_or_administrative"
+    }
+  ],
+  "ids": [
+    "moh-full-6dcc599f9c:p24:s0-2",
+    "moh-full-6dcc599f9c:p86:s0-0",
+    "moh-full-46f795ca37:p65:s0-0",
+    "moh-full-6dcc599f9c:p94:s0-2",
+    "moh-full-46f795ca37:p53:s1-1",
+    "moh-full-6dcc599f9c:p14:s0-1",
+    "moh-full-d084553418:p8:s0-2",
+    "moh-full-46f795ca37:p74:s0-1",
+    "moh-full-3045471426:p113:s0-1",
+    "moh-full-3045471426:p77:s0-2",
+    "moh-full-12875c1c0b:p6:s1-0",
+    "moh-full-6dcc599f9c:p88:s0-0",
+    "moh-full-6dcc599f9c:p32:s0-1",
+    "moh-full-6dcc599f9c:p20:s0-0",
+    "moh-full-3045471426:p84:s1-2",
+    "moh-full-46f795ca37:p53:s0-2",
+    "moh-full-3045471426:p109:s0-1",
+    "moh-full-46f795ca37:p58:s0-0",
+    "moh-full-46f795ca37:p94:s0-0",
+    "moh-full-12875c1c0b:p2:s1-0",
+    "moh-full-3045471426:p70:s0-0",
+    "moh-full-46f795ca37:p8:s1-0",
+    "moh-full-3045471426:p31:s0-0",
+    "moh-full-46f795ca37:p57:s0-2",
+    "moh-full-d084553418:p2:s1-0",
+    "moh-full-6dcc599f9c:p31:s0-0",
+    "moh-full-3045471426:p42:s0-1",
+    "moh-full-46f795ca37:p78:s1-1",
+    "moh-full-d084553418:p5:s0-1",
+    "moh-full-46f795ca37:p11:s1-0",
+    "moh-full-46f795ca37:p7:s1-0",
+    "moh-full-d084553418:p3:s0-0",
+    "moh-full-6dcc599f9c:p36:s0-1",
+    "moh-full-46f795ca37:p83:s1-1",
+    "moh-full-289bb66d6c:p5:s0-0",
+    "moh-full-3045471426:p18:s0-0",
+    "moh-full-6dcc599f9c:p13:s0-2",
+    "moh-full-46f795ca37:p24:s0-0",
+    "moh-full-3045471426:p101:s0-1",
+    "moh-full-6dcc599f9c:p13:s0-1",
+    "moh-full-6dcc599f9c:p30:s0-0",
+    "moh-full-46f795ca37:p85:s0-1",
+    "moh-full-6dcc599f9c:p26:s0-1",
+    "moh-full-46f795ca37:p6:s0-0",
+    "moh-full-46f795ca37:p89:s0-0",
+    "moh-full-6dcc599f9c:p87:s1-0",
+    "moh-full-6dcc599f9c:p9:s0-2",
+    "moh-full-6dcc599f9c:p23:s0-0",
+    "moh-full-3045471426:p77:s0-0",
+    "moh-full-46f795ca37:p72:s0-0",
+    "moh-full-3045471426:p115:s0-1",
+    "moh-full-d084553418:p15:s0-0"
+  ],
+  "clinical_expert_review": false,
+  "recipe": "Positive grounded explanation; absence-based contrasts removed; matched contexts."
+}

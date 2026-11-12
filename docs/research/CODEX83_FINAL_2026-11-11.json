@@ -1,0 +1,72 @@
+{
+  "n": 540,
+  "right": 412,
+  "accuracy": 76.29629629629629,
+  "wilson_95": [
+    72.53151348680747,
+    79.68957441820017
+  ],
+  "delta_vs_zero": [
+    5.0,
+    1.4814814814814814,
+    8.518518518518519,
+    31,
+    58,
+    0.005544959035344678
+  ],
+  "delta_vs_R6_plus_zero": [
+    0.0,
+    0.0,
+    0.0,
+    0,
+    0,
+    1.0
+  ],
+  "screen_stop_upper_below83": true,
+  "hold_scored": false,
+  "test_scored": false,
+  "configuration": {
+    "F": "F1",
+    "conds": [
+      "shots+docs_c",
+      "shotsemb+docs_c"
+    ],
+    "cfg": {
+      "zero": true
+    },
+    "tau": null,
+    "tune_acc": 412,
+    "n_tune": 540,
+    "accs": {
+      "F1": 412,
+      "F2": 407,
+      "F3": 405
+    },
+    "frozen_at": "2026-11-11 19:33"
+  },
+  "inputs": {
+    "bodies\\bodies.jsonl": "4fa9555bec8d0b1d2fea2dc3a7c010b1d97f3474cf25a1e6e63823f1f4a23ca0",
+    "shift_bodies\\bodies.jsonl": "8b33f29eaaa28fded03ffe5d21c76a933bf2b21d6a3ec33ac2ad80bbd1b21a23",
+    "kernel\\experiment.py": "d3bfee1ebbf2f9020d2f7c41d17bf5dcbfc6f22f93304e684b38c9a873e142ad"
+  },
+  "analysis_sources": {
+    "analyze_push.py": "3146ee58bba12531df6d85b3adb526637e2e2516cea1534c482e7981c3027a6d",
+    "export_push_bodies.py": "763688dd0d5ed98ad7d35f156c9c420b1a6feabee607db75d7f3754d40bc523b",
+    "export_open_bodies.py": "82ca1b36344b27ff54f63f8cac7f26d6ba583b90cacacfb8256f8840607c6699"
+  },
+  "reference_policy": "Use shift-0 predictions for every detected option-reference item (44/540 tune).",
+  "evaluation_regime": "Development leave-one-out from train. Pseudo-hold labels occur in the tune example bank; not an independent-bank validation.",
+  "independent_hold_validation_eligible": false,
+  "compute": {
+    "new_out": {
+      "requests_including_gate": 1561,
+      "inference_seconds": 2137.1,
+      "errors": 0
+    },
+    "shift_out": {
+      "requests_including_gate": 1325,
+      "inference_seconds": 1297.86,
+      "errors": 0
+    }
+  }
+}

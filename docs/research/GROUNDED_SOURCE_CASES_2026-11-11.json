@@ -1,0 +1,46 @@
+[
+  {
+    "id": "dd7ead92d1f149b1a8f65a869d3c54cd",
+    "source_status": "supported",
+    "gold": "D",
+    "predictions": {
+      "safe_shots": "D",
+      "safe_retrieved": "D",
+      "oracle_curated": "D",
+      "oracle_augmented": "D"
+    }
+  },
+  {
+    "id": "de054813576146d282e277806a3f45fd",
+    "source_status": "partial",
+    "gold": "D",
+    "predictions": {
+      "safe_shots": "A",
+      "safe_retrieved": "D",
+      "oracle_curated": "D",
+      "oracle_augmented": "B"
+    }
+  },
+  {
+    "id": "ce3e25dd6a08404ebcf3c91b034acc1f",
+    "source_status": "supported",
+    "gold": "B",
+    "predictions": {
+      "safe_shots": "D",
+      "safe_retrieved": "D",
+      "oracle_curated": "D",
+      "oracle_augmented": "D"
+    }
+  },
+  {
+    "id": "a18d01a1b6d141e7811aae07f9b4718f",
+    "source_status": "conflict",
+    "gold": "C",
+    "predictions": {
+      "safe_shots": "B",
+      "safe_retrieved": "B",
+      "oracle_curated": "B",
+      "oracle_augmented": "C"
+    }
+  }
+]

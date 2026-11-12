@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VM14K báo cáo nhóm 11/11/2026</title>
+<style>
+/* One 16:9 slide at a time on a quiet clinical-blue ground; phone width stacks slides as a document; print gives one slide per landscape page. */
+:root {
+  --bg: #F3F5F8; --surface: #FCFDFE; --fg: #142334; --muted: #4E5D6E; --line: #D6DDE5;
+  --accent: #1F6FB2; --accent-soft: #E3EDF7; --accent-mid: #8DB6DE;
+  --warn: #C2571A; --warn-soft: #FBEDE4; --warn-ink: #7A3410; --neutral: #8A979C;
+  --hero-bg: #13263D; --hero-fg: #F1F5F9; --hero-muted: #B5C3D3; --hero-accent: #F2A46B;
+  --font-body: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+  --font-data: "JetBrains Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1620; --surface: #15202C; --fg: #E6EDF4; --muted: #A2B2C3; --line: #273546;
+    --accent: #3F8AD8; --accent-soft: #1A2E46; --accent-mid: #2E5F91; --warn: #D06A2E; --warn-soft: #34221A; --warn-ink: #F3C3A3;
+    --neutral: #7E8E93; --hero-bg: #0A1A2C; color-scheme: dark;
+  }
+}
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.5; padding-inline: 16px; }
+* { box-sizing: border-box; }
+h1, h2, h3, p, ul, ol, table { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--font-data); }
+
+.slide {
+  container-type: inline-size;
+  --fs-eyebrow: 1.0cqw; --fs-title: 2.6cqw; --fs-big: 4cqw; --fs-h3: 1.5cqw;
+  --fs-body: 1.28cqw; --fs-small: 1.04cqw; --gap: 1.9cqw; --pad-y: 3.2cqw; --pad-x: 4.6cqw;
+}
+.app { height: 100%; display: flex; flex-direction: column; padding-block: 12px; gap: 10px; }
+.stage-wrap { flex: 1; min-height: 0; display: grid; place-items: center; }
+.stage { position: relative; width: min(100%, calc((100vh - 96px) * 16 / 9)); aspect-ratio: 16 / 9; max-width: 100%; }
+.app.notes-open .stage { width: min(100%, calc((70vh - 120px) * 16 / 9)); }
+.slide {
+  position: absolute; inset: 0; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: var(--pad-y) var(--pad-x) calc(var(--pad-y) + 1.4cqw); display: flex; flex-direction: column; gap: var(--gap);
+  visibility: hidden; opacity: 0; transition: opacity .25s ease; font-size: var(--fs-body);
+}
+.slide.active { visibility: visible; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .slide { transition: none; } }
+
+.eyebrow { font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.title { font-size: var(--fs-title); font-weight: 700; line-height: 1.12; letter-spacing: -.01em; max-width: 32em; }
+.head { display: flex; flex-direction: column; gap: .5cqw; }
+.lead { color: var(--muted); max-width: 62em; }
+.foot { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 1.6cqw; font-size: var(--fs-small); color: var(--muted); display: flex; justify-content: space-between; gap: 2cqw; }
+.foot .pg { font-family: var(--font-data); white-space: nowrap; }
+h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; }
+.muted { color: var(--muted); }
+.small { font-size: var(--fs-small); }
+.cols { display: grid; grid-template-columns: 1.45fr 1fr; gap: 3cqw; flex: 1; min-height: 0; }
+.cols.even { grid-template-columns: 1fr 1fr; }
+.cols > * { min-width: 0; }
+.stack { display: flex; flex-direction: column; gap: 1.2cqw; }
+
+table.data { border-collapse: collapse; width: 100%; font-size: var(--fs-body); }
+table.data th, table.data td { padding: .5cqw .8cqw; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+table.data th { font-size: var(--fs-small); font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+table.data td.r, table.data th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.data tr.hl td { background: var(--accent-soft); }
+.tbl-wrap { overflow-x: auto; min-width: 0; }
+
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4cqw; }
+.tile { border: 1px solid var(--line); border-radius: 8px; padding: 1.4cqw 1.5cqw; display: flex; flex-direction: column; gap: .6cqw; background: var(--bg); }
+.tile .big { font-size: var(--fs-big); font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.tile.warn .big { color: var(--warn); }
+.tile h3 { font-size: var(--fs-body); }
+.tile p { font-size: var(--fs-small); color: var(--muted); }
+.fact { display: flex; flex-direction: column; gap: .3cqw; padding-left: 1.2cqw; border-left: 3px solid var(--line); }
+.fact b.v { font-size: calc(var(--fs-h3) * 1.1); font-variant-numeric: tabular-nums; }
+.fact.acc { border-left-color: var(--accent); }
+.fact.warn { border-left-color: var(--warn); }
+.fact.warn b.v { color: var(--warn); }
+.callout { border-radius: 8px; padding: 1.2cqw 1.5cqw; background: var(--accent-soft); display: flex; flex-direction: column; gap: .4cqw; }
+.callout.warn { background: var(--warn-soft); color: var(--warn-ink); }
+ul.plain { padding-left: 1.2em; display: flex; flex-direction: column; gap: .5cqw; }
+code.chip { font-family: var(--font-data); font-size: .92em; background: var(--accent-soft); color: var(--fg); padding: .1em .45em; border-radius: 4px; overflow-wrap: anywhere; }
+
+/* CSS bars (no chart library) */
+.bars { display: flex; flex-direction: column; gap: .7cqw; }
+.bar-row { display: grid; grid-template-columns: 34% 1fr 11cqw; gap: 1cqw; align-items: center; font-size: var(--fs-small); }
+.bar-track { height: 1.9cqw; background: var(--bg); border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+.bar-fill { display: block; height: 100%; background: var(--accent-mid); }
+.bar-row.final .bar-fill { background: var(--accent); }
+.bar-row.neg .bar-fill { background: var(--neutral); }
+.bar-v { font-family: var(--font-data); font-size: var(--fs-small); white-space: nowrap; }
+.seg3 { display: flex; height: 3.2cqw; border-radius: 6px; overflow: hidden; gap: 2px; }
+.seg3 span { display: grid; place-items: center; color: #fff; font-weight: 700; font-family: var(--font-data); font-size: var(--fs-small); }
+.seg3 .s { background: var(--accent); } .seg3 .p { background: var(--accent-mid); color: var(--fg); } .seg3 .a { background: var(--warn); }
+
+.slide.hero { background: var(--hero-bg); color: var(--hero-fg); border-color: var(--hero-bg); justify-content: center; }
+.slide.hero .eyebrow { color: var(--hero-accent); }
+.slide.hero .lead, .slide.hero .foot, .slide.hero .muted { color: var(--hero-muted); }
+.slide.hero .title { font-size: calc(var(--fs-title) * 1.5); max-width: 18em; }
+.slide.hero h3 { color: var(--hero-accent); }
+
+.bar { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.bar button { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer; min-height: 34px; }
+.bar button:hover { border-color: var(--accent); }
+.bar .count { font-family: var(--font-data); min-width: 64px; text-align: center; }
+.bar kbd { font-family: var(--font-data); font-size: 11px; border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; margin-left: 4px; color: var(--muted); }
+.notes-panel { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 12px 16px; max-height: 28vh; overflow: auto; font-size: 15px; line-height: 1.55; max-width: 1100px; width: 100%; margin-inline: auto; }
+.notes-panel h4 { margin: 0 0 6px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+aside.notes { display: none; }
+
+@media (max-width: 760px) {
+  html, body { height: auto; }
+  .app { height: auto; }
+  .stage { width: 100%; aspect-ratio: auto; display: flex; flex-direction: column; gap: 14px; }
+  .slide { position: relative; inset: auto; visibility: visible; opacity: 1; overflow: visible;
+    --fs-eyebrow: 11.5px; --fs-title: 22px; --fs-big: 32px; --fs-h3: 16px; --fs-body: 14.5px; --fs-small: 12.5px; --gap: 14px; --pad-y: 18px; --pad-x: 16px; }
+  .foot { position: static; flex-direction: column; gap: 4px; }
+  .cols, .cols.even, .tiles { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 1fr 90px; } .bar-row > :first-child { grid-column: 1 / -1; } .bar-track { height: 14px; } .seg3 { height: 28px; }
+  .bar, .notes-panel { display: none !important; }
+  .slide.hero .title { font-size: 28px; }
+}
+
+@page { size: 297mm 167mm; margin: 0; }
+@media print {
+  html, body { height: auto; background: #fff; padding: 0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .app { display: block; height: auto; padding: 0; }
+  .stage-wrap { display: block; }
+  .stage { width: 100%; aspect-ratio: auto; display: block; }
+  .bar, .notes-panel { display: none !important; }
+  .slide { position: relative; inset: auto; visibility: visible; opacity: 1; width: 297mm; height: 167mm; border: 0; border-radius: 0; break-after: page; page-break-after: always; overflow: hidden; transition: none; }
+  .slide:last-child { break-after: auto; page-break-after: auto; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="stage-wrap">
+<main class="stage" id="deck" aria-roledescription="bài trình bày">
+
+<!-- 1 -->
+<section class="slide hero active" id="s1" aria-label="Trang bìa">
+  <div class="head" style="gap:1.6cqw">
+    <p class="eyebrow">VM14K · Báo cáo nhóm · 11/11/2026 (cập nhật 12/11)</p>
+    <h1 class="title">Hướng 83–85% trên câu hỏi Truyền nhiễm — kết quả tới nay</h1>
+    <p class="lead" style="max-width:44em">Model tối đa 9B, tài nguyên miễn phí. Đây là báo cáo phát triển — chưa có bằng chứng đạt 83–85%, và student distillation chưa được huấn luyện xong.</p>
+  </div>
+  <div class="foot"><span>Nguồn — docs/research/TONG_HOP_2026-11-11.md và các báo cáo liên kết</span><span class="pg">01</span></div>
+  <aside class="notes">Hôm nay em báo cáo kết quả tới nay của hướng thử đạt 83 đến 85 phần trăm trên câu hỏi Truyền nhiễm của VM14K, với model tối đa 9B và tài nguyên miễn phí. Em nói trước kết luận để mọi người đọc đúng các con số sau đó — chúng ta chưa có bằng chứng đạt 83 đến 85 phần trăm, và việc huấn luyện student để distillation chưa chạy xong. Những gì đã làm được là một kết quả phát triển 76,3 phần trăm, một phát hiện về tính độc lập của đánh giá, một pilot nhỏ về thêm nguồn, và bộ dữ liệu 52 mẫu MoH đã chuẩn bị. Mỗi con số thuộc một tập đánh giá khác nhau, em sẽ luôn nói kèm mẫu số. Báo cáo gồm mười hai trang, kết thúc bằng giới hạn và bước tiếp theo.</aside>
+</section>
+
+<!-- 2 -->
+<section class="slide" id="s2" aria-label="Tóm tắt">
+  <div class="head"><p class="eyebrow">Tóm tắt</p><h2 class="title">Ba kết quả và một việc còn dở</h2></div>
+  <div class="tiles">
+    <div class="tile"><span class="big">412/540</span><h3>76,3% trên dev-tune</h3><p>Wilson 95% 72,5–79,7%. Là kết quả phát triển, chưa phải điểm xác nhận độc lập.</p></div>
+    <div class="tile warn"><span class="big">347/540</span><h3>Câu tune từng dùng ví dụ pseudo-hold</h3><p>499 lượt ví dụ. Ảnh hưởng tính độc lập của đánh giá.</p></div>
+    <div class="tile"><span class="big">24 vs 23</span><h3>Trên 32 câu ngẫu nhiên</h3><p>Thêm nguồn ngoài 24/32 so với truy hồi thường 23/32. McNemar p = 1 — chưa chứng minh cải thiện.</p></div>
+  </div>
+  <div class="callout warn"><b>Chưa hoàn tất:</b><span>Lượt Kaggle Qwen3.5-9B đầu tiên lỗi EOS trước bước optimizer — file baseline rỗng — chưa có student hay adapter đã học. Chuẩn bị xong 52 mẫu MoH.</span></div>
+  <div class="foot"><span>Mẫu số các tập khác nhau — đọc cùng bảng ở các trang sau</span><span class="pg">02</span></div>
+  <aside class="notes">Ba kết quả và một việc còn dở. Một — cấu hình cuối trên tập dev-tune 540 câu đúng 412 câu, tức 76,3 phần trăm, khoảng Wilson 95 phần trăm từ 72,5 đến 79,7. Hai — khi kiểm metadata, em thấy 347 trong 540 câu tune từng dùng ít nhất một câu pseudo-hold có đáp án làm ví dụ, tổng 499 lượt. Vì vậy 76,3 phần trăm là kết quả phát triển, chưa phải điểm xác nhận độc lập. Ba — trên 32 câu ngẫu nhiên, thêm nguồn ngoài đúng 24 câu, truy hồi thường đúng 23 câu. Chênh một câu, McNemar p bằng 1, nên chưa chứng minh cải thiện. Việc còn dở — lượt Kaggle Qwen3.5-9B đầu tiên lỗi kiểm tra EOS trước bước optimizer, file baseline rỗng, nên chưa có student hay adapter đã học. Em đã chuẩn bị 52 mẫu MoH cho lượt chạy lại.</aside>
+</section>
+
+<!-- 3 -->
+<section class="slide" id="s3" aria-label="Các tập đánh giá và mẫu số">
+  <div class="head"><p class="eyebrow">Cách đọc số</p><h2 class="title">Bốn nhóm dữ liệu với vai trò khác nhau</h2></div>
+  <div class="tbl-wrap"><table class="data">
+    <tr><th>Tập</th><th class="r">Số câu</th><th>Vai trò</th><th>Số chính</th></tr>
+    <tr><td>Dev-tune</td><td class="r">540</td><td>Phát triển, chọn cấu hình</td><td class="mono">412/540 = 76,3%</td></tr>
+    <tr><td>Pilot ngẫu nhiên</td><td class="r">32</td><td>So bốn điều kiện nguồn</td><td class="mono">23–25/32</td></tr>
+    <tr><td>Pilot nhóm sai cũ</td><td class="r">16</td><td>Chọn vì model đã sai, báo riêng</td><td class="mono">2–3/16</td></tr>
+    <tr><td>MoH có lời giải</td><td class="r">52</td><td>Dữ liệu distillation, chưa bác sĩ duyệt</td><td>Chưa có kết quả student</td></tr>
+  </table></div>
+  <div class="callout"><b>Pilot 48 = 32 + 16.</b><span>Nhóm 16 câu được chọn có điều kiện (model đã sai) nên không gộp vào tỷ lệ chung. Annotation nguồn — 9 sufficient, 25 partial, 14 absent (tổng 48).</span></div>
+  <div class="foot"><span>TONG_HOP · mục Kết quả chính, mục 3</span><span class="pg">03</span></div>
+  <aside class="notes">Slide này để tránh nhầm mẫu số. Có bốn tập. Dev-tune 540 câu dùng để phát triển và chọn cấu hình, số chính là 412 trên 540. Pilot ngẫu nhiên 32 câu dùng so bốn điều kiện nguồn. Pilot nhóm sai cũ 16 câu — đây là các câu đã biết model sai, được chọn có điều kiện, nên em báo riêng và không gộp vào tỷ lệ chung. Hai nhóm này tạo thành mẫu pilot 48 câu, 32 cộng 16. Cuối cùng là 52 mẫu MoH có lời giải, dùng cho distillation, chưa có kết quả student. Cũng ở mẫu 48 câu, annotation độ phủ nguồn gồm 9 sufficient, 25 partial và 14 absent. Em đề nghị không so trực tiếp phần trăm giữa các hàng, vì mẫu số và cách chọn khác nhau.</aside>
+</section>
+
+<!-- 4 -->
+<section class="slide" id="s4" aria-label="Kết quả dev-tune">
+  <div class="head"><p class="eyebrow">Dev-tune · 540 câu</p><h2 class="title">Reranker và đổi thứ tự chưa đưa tới 83–85%</h2></div>
+  <div class="cols">
+    <div class="bars" role="img" aria-label="Số câu đúng trên 540: zero-shot 385; ba ví dụ TF-IDF và tài liệu 407; ví dụ embedding và tài liệu 411; reranker top-3 thứ tự gốc 414; ensemble cuối F1 412; ensemble thêm reranker F2 407; reranker hai thứ tự bổ sung 397 và 393.">
+      <div class="bar-row"><span>Zero-shot</span><span class="bar-track"><i class="bar-fill" style="width:71.3%"></i></span><span class="bar-v">385 · 71,3%</span></div>
+      <div class="bar-row"><span>3 ví dụ TF-IDF + tài liệu</span><span class="bar-track"><i class="bar-fill" style="width:75.4%"></i></span><span class="bar-v">407 · 75,4%</span></div>
+      <div class="bar-row"><span>Ví dụ embedding + tài liệu</span><span class="bar-track"><i class="bar-fill" style="width:76.1%"></i></span><span class="bar-v">411 · 76,1%</span></div>
+      <div class="bar-row"><span>Reranker top-3, thứ tự gốc</span><span class="bar-track"><i class="bar-fill" style="width:76.7%"></i></span><span class="bar-v">414 · 76,7%</span></div>
+      <div class="bar-row neg"><span>Reranker, thứ tự bổ sung 1</span><span class="bar-track"><i class="bar-fill" style="width:73.5%"></i></span><span class="bar-v">397 · 73,5%</span></div>
+      <div class="bar-row neg"><span>Reranker, thứ tự bổ sung 2</span><span class="bar-track"><i class="bar-fill" style="width:72.8%"></i></span><span class="bar-v">393 · 72,8%</span></div>
+      <div class="bar-row final"><span><b>Ensemble cuối F1 (R6 + zero)</b></span><span class="bar-track"><i class="bar-fill" style="width:76.3%"></i></span><span class="bar-v"><b>412 · 76,3%</b></span></div>
+      <div class="bar-row neg"><span>Ensemble thêm reranker F2</span><span class="bar-track"><i class="bar-fill" style="width:75.4%"></i></span><span class="bar-v">407 · 75,4%</span></div>
+      <p class="small muted">Thanh vẽ theo tỷ lệ trên 540 câu, trục 0–100%.</p>
+    </div>
+    <div class="stack" style="justify-content:center">
+      <div class="fact acc"><b class="v">412/540 = 76,3%</b><span class="small muted">Wilson 95% — 72,5–79,7%</span></div>
+      <div class="fact"><b class="v">Top-2 hỏi lại — 401–409/540</b><span class="small muted">bốn ngưỡng, không ổn định hơn</span></div>
+      <div class="fact acc"><b class="v">2.886 request, không lỗi</b><span class="small muted">gồm 490 request kiểm tái lập — hai cổng khớp 245/245, chênh xác suất 0 — khoảng 57,25 phút suy luận</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Quy tắc dừng ghi trước khi xem điểm cuối · giữ nguyên hold/test · CODEX83_FINAL_2026-11-11.json</span><span class="pg">04</span></div>
+  <aside class="notes">Đây là các cấu hình trên cùng 540 câu. Zero-shot đúng 385, 71,3 phần trăm. Thêm ba ví dụ TF-IDF và tài liệu lên 407. Ví dụ embedding và tài liệu 411. Reranker top-3 với thứ tự gốc 414, nhưng hai thứ tự bổ sung chỉ 397 và 393. Ensemble cuối F1, gồm R6 cộng zero, đúng 412, tức 76,3 phần trăm. Thêm reranker F2 vào ensemble còn 407. Hỏi lại top-2 với bốn ngưỡng chỉ đạt 401 đến 409. Tức là các lượt rerank, đổi thứ tự và hỏi lại chưa tạo cải thiện ổn định tới mục tiêu. Về tái lập — hai job Kaggle với 2.886 request, gồm 490 request kiểm tái lập, không có lỗi suy luận; hai cổng khớp 245 trên 245 câu, chênh xác suất bằng 0; khoảng 57,25 phút suy luận, chưa gồm khởi tạo. Quy tắc dừng được ghi trước khi xem điểm cuối, và hold/test giữ nguyên.</aside>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="s5" aria-label="Tính độc lập của đánh giá">
+  <div class="head"><p class="eyebrow">Phát hiện về đánh giá</p><h2 class="title">76,3% là kết quả phát triển, chưa phải điểm xác nhận</h2></div>
+  <div class="cols even">
+    <div class="stack">
+      <div class="fact warn"><b class="v">347/540 câu tune</b><span class="small muted">từng dùng ít nhất một câu pseudo-hold có đáp án làm ví dụ, tổng 499 lượt ví dụ</span></div>
+      <div class="fact"><b class="v">Nguyên nhân</b><span class="small muted">bank cũ lấy từ toàn train, chỉ loại tự thân hoặc câu gần trùng</span></div>
+      <div class="fact acc"><b class="v">Kết luận</b><span class="small muted">leave-one-out để phát triển — không đủ làm điểm xác nhận trên tập độc lập</span></div>
+    </div>
+    <div class="stack">
+      <div class="callout"><b>Bank an toàn của pilot mới</b><span>Loại toàn bộ pseudo-hold cũ, 48 câu đánh giá và các nhóm gần trùng — <b>593 ID bị chặn, còn 6.720 câu</b>.</span></div>
+      <div class="callout warn"><b>Lưu ý khi đọc</b><span>Việc tách bank ở pilot mới phải đọc cùng lịch sử dữ liệu đã dùng trước đó.</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>TONG_HOP · mục 2</span><span class="pg">05</span></div>
+  <aside class="notes">Đây là phát hiện quan trọng nhất về phương pháp. Kiểm metadata cho thấy 347 trên 540 câu tune từng dùng ít nhất một câu pseudo-hold có đáp án làm ví dụ, tổng 499 lượt ví dụ. Nguyên nhân là bank cũ lấy từ toàn bộ train và chỉ loại câu tự thân hoặc gần trùng. Do đó 76,3 phần trăm là kết quả phát triển leave-one-out, chưa đủ làm điểm xác nhận trên tập độc lập. Với pilot mới, em đã loại toàn bộ pseudo-hold cũ, 48 câu đánh giá và các nhóm gần trùng khỏi bank — 593 ID bị chặn, còn 6.720 câu. Nhưng cần đọc việc tách bank này cùng lịch sử dữ liệu đã được dùng trước đó, nên nó chưa làm sạch hoàn toàn các kết luận cũ.</aside>
+</section>
+
+<!-- 6 -->
+<section class="slide" id="s6" aria-label="Pilot bốn điều kiện nguồn">
+  <div class="head"><p class="eyebrow">Pilot 32 + 16 · D3-flash 9B</p><h2 class="title">Thêm nguồn ngoài hơn truy hồi thường đúng một câu</h2></div>
+  <div class="tbl-wrap"><table class="data">
+    <tr><th>Điều kiện</th><th class="r">Ngẫu nhiên, đúng / 32</th><th class="r">Nhóm sai cũ, đúng / 16</th></tr>
+    <tr><td>Bank an toàn, chỉ ví dụ</td><td class="r">25 (78,1%)</td><td class="r">3 (18,8%)</td></tr>
+    <tr><td>Bank an toàn và nguồn truy hồi</td><td class="r">23 (71,9%)</td><td class="r">2 (12,5%)</td></tr>
+    <tr><td>Claude2 chọn nguồn sẵn có</td><td class="r">23 (71,9%)</td><td class="r">3 (18,8%)</td></tr>
+    <tr class="hl"><td>Bổ sung nguồn ngoài đã kiểm</td><td class="r">24 (75,0%)</td><td class="r">2 (12,5%)</td></tr>
+  </table></div>
+  <div class="cols even">
+    <div class="callout warn"><b>Không kết luận được</b><span>24/32 so với 23/32 — McNemar p = 1. Wilson 95% của 24/32 là 57,9–86,7%. Điều kiện “chỉ ví dụ” còn cao nhất (25/32).</span></div>
+    <div class="callout"><b>Tên <span class="mono">oracle</span></b><span>Chỉ là điều kiện được trợ giúp chọn nguồn, với độ phủ ở trang sau. Nhóm 16 câu đã chọn vì model sai nên báo riêng.</span></div>
+  </div>
+  <div class="foot"><span>GROUNDED_ORACLE_RESULTS_2026-11-11.json · 437 request không lỗi, cổng 245/245</span><span class="pg">06</span></div>
+  <aside class="notes">Bốn điều kiện chạy trên D3-flash 9B. Với 32 câu ngẫu nhiên — bank an toàn chỉ ví dụ đúng 25, 78,1 phần trăm; bank an toàn cộng nguồn truy hồi 23, 71,9; Claude2 chọn nguồn sẵn có 23, 71,9; bổ sung nguồn ngoài đã kiểm 24, 75,0. Với 16 câu nhóm sai cũ — lần lượt 3, 2, 3, 2. Điều kiện bổ sung nguồn có Wilson 95 phần trăm từ 57,9 đến 86,7, rất rộng. So với truy hồi thường chỉ hơn một câu, McNemar p bằng 1. Và điều kiện chỉ ví dụ còn cao nhất, 25 trên 32. Vậy pilot không xác nhận mốc 83 đến 85 phần trăm. Tên &quot;oracle&quot; trong file chỉ có nghĩa điều kiện được trợ giúp chọn nguồn. Job hoàn tất 437 request, gồm 192 pilot và 245 kiểm tái lập, không lỗi, cổng khớp 245 trên 245.</aside>
+</section>
+
+<!-- 7 -->
+<section class="slide" id="s7" aria-label="Độ phủ nguồn">
+  <div class="head"><p class="eyebrow">Audit nguồn che đáp án</p><h2 class="title">Các đoạn đã lấy đủ bằng chứng cho 9/48 câu</h2></div>
+  <div class="seg3" role="img" aria-label="48 annotations: 9 sufficient, 25 partial, 14 absent"><span class="s" style="flex:9">9</span><span class="p" style="flex:25">25</span><span class="a" style="flex:14">14</span></div>
+  <div class="seg3" style="height:auto;background:none;font-size:var(--fs-small)"><span style="flex:9;background:none;color:var(--fg)">sufficient</span><span style="flex:25;background:none;color:var(--fg)">partial</span><span style="flex:14;background:none;color:var(--fg)">absent</span></div>
+  <div class="cols even">
+    <div class="stack">
+      <div class="fact acc"><b class="v">Phân công</b><span class="small muted">Claude2 đọc câu, phương án, đoạn nguồn trong file đã che gold và prediction. Codex kiểm ID nguồn, đối chiếu nguồn gốc, chạy GPU, tính kết quả.</span></div>
+    </div>
+    <div class="callout warn"><b>Giới hạn</b><span>Đây là đánh giá nguồn của LLM (48 annotations), cần chuyên gia y khoa duyệt thêm.</span></div>
+  </div>
+  <div class="foot"><span>GROUNDED_ORACLE_ANNOTATIONS_2026-11-11.json</span><span class="pg">07</span></div>
+  <aside class="notes">Claude2 đọc câu hỏi, phương án và các đoạn nguồn trong file đã che đáp án và prediction. Codex kiểm ID nguồn, đối chiếu nguồn gốc, chạy GPU và tính kết quả. Trong 48 annotations có 9 sufficient, 25 partial và 14 absent. Trong các đoạn đã đưa cho Claude2, 9 câu có đủ bằng chứng, 25 câu có một phần và 14 câu thiếu bằng chứng trả lời. Phạm vi audit là các đoạn đã lấy cho từng câu. Việc kết luận toàn corpus có đủ hay thiếu kiến thức cần khảo sát rộng hơn. Đánh giá nguồn do LLM thực hiện và còn cần chuyên gia y khoa duyệt thêm.</aside>
+</section>
+
+<!-- 8 -->
+<section class="slide" id="s8" aria-label="Câu cần chuyên gia">
+  <div class="head"><p class="eyebrow">Cần chuyên gia phân xử</p><h2 class="title">Ba câu nguồn và khoá có thể mâu thuẫn</h2></div>
+  <div class="tbl-wrap"><table class="data">
+    <tr><th style="width:24%">Câu</th><th>Vấn đề</th><th style="width:26%">Nguồn chính</th></tr>
+    <tr><td>Đặc điểm Anopheles</td><td>Khoá B, cả bốn điều kiện chọn D. Nguồn CDC mô tả các đặc điểm phù hợp D. Nghi vấn khoá.</td><td>CDC DPDx (malaria)</td></tr>
+    <tr><td>Lịch thay túi dẫn lưu</td><td>Khoá 7 ngày — CDC khuyến cáo thay theo chỉ định lâm sàng, không có lịch cố định. Model đổi sang khoá khi thêm nguồn, dù nguồn chưa hỗ trợ.</td><td>CDC CAUTI, mục III.E</td></tr>
+    <tr><td>Màu khuẩn lạc Epidermophyton</td><td>Thiếu chỉ định mặt trên hay mặt trái, trong khi tài liệu phân biệt hai mặt.</td><td>University of Adelaide</td></tr>
+  </table></div>
+  <div class="callout"><b>Xử lý hiện tại</b><span>Giữ các câu trong điểm chính, giữ nguyên gold — chưa có phân xử của bác sĩ. ID, nguồn, prediction ở GROUNDED_SOURCE_CASES_2026-11-11.json.</span></div>
+  <div class="foot"><span>Liên kết đầy đủ trong ghi chú trang 8</span><span class="pg">08</span></div>
+  <aside class="notes">Trong quá trình kiểm nguồn có ba câu nghi vấn. Một — câu đặc điểm Anopheles có khoá B, trong khi cả bốn điều kiện đều chọn D, và nguồn CDC mô tả các đặc điểm phù hợp D. Hai — câu lịch thay túi dẫn lưu có khoá 7 ngày, nhưng CDC khuyến cáo thay theo chỉ định lâm sàng, không đưa lịch cố định; model đổi sang khoá khi có thêm nguồn, dù nguồn chưa hỗ trợ lựa chọn đó. Ba — câu màu khuẩn lạc Epidermophyton thiếu chỉ định mặt trên hay mặt trái, trong khi tài liệu phân biệt hai mặt. Chưa có phân xử của bác sĩ, nên em giữ các câu này trong điểm chính và giữ nguyên gold.</aside>
+</section>
+
+<!-- 9 -->
+<section class="slide" id="s9" aria-label="Chuẩn bị distillation">
+  <div class="head"><p class="eyebrow">Chuẩn bị distillation có nguồn</p><h2 class="title">52 mẫu MoH có lời giải và trích dẫn kiểm nguyên văn</h2></div>
+  <div class="tiles">
+    <div class="tile"><span class="big">64 → 62 → 52</span><h3>Annotations → quote nguyên văn → mẫu giữ lại</h3><p>Từ 6 văn bản. Phân bố đáp án A15 / B13 / C13 / D11.</p></div>
+    <div class="tile"><span class="big">≈ 0,194</span><h3>Cosine tối đa với 48 câu đánh giá</h3><p>Kiểm rò rỉ giữa dữ liệu học và dữ liệu đánh giá.</p></div>
+    <div class="tile"><span class="big">152 / 256</span><h3>Target dài nhất (token)</h3><p>Đã kiểm tokenizer thật cho 52 câu ở hai thứ tự nguồn và 48 câu đánh giá.</p></div>
+  </div>
+  <div class="cols even">
+    <div class="stack">
+      <div class="fact"><b class="v">Vì sao dùng Claude2</b><span class="small muted">Teacher NVIDIA cho chữ rác/JSON hỏng, vài model trả 404 hoặc timeout.</span></div>
+      <div class="fact acc"><b class="v">Lỗi đã sửa qua review chéo</b><span class="small muted">quote bị lặp ở đầu context train — nay dùng passage gốc, cửa sổ quanh quote vị trí biến thiên, xáo vị trí nguồn đúng.</span></div>
+    </div>
+    <div class="callout warn"><b>Chưa bác sĩ duyệt</b><span>Thiết kế — hai LoRA Qwen3.5-9B cùng dữ liệu và siêu tham số — một bản học đáp án, một bản học lời giải có nguồn. Cả hai chưa chạy xong.</span></div>
+  </div>
+  <div class="foot"><span>GROUNDED_TRAIN_AUDIT_2026-11-11.json</span><span class="pg">09</span></div>
+  <aside class="notes">Teacher NVIDIA cho đầu ra chữ rác hoặc JSON hỏng, một số model trả 404 hoặc timeout. Đường dự phòng là Claude2 tạo 64 annotations từ bộ MoH cố định. Codex kiểm 62 quote nguyên văn, lọc tiếp còn 52 mẫu từ 6 văn bản, phân bố đáp án A 15, B 13, C 13, D 11. Cosine tối đa với 48 câu đánh giá khoảng 0,194. Review chéo của Claude2 phát hiện quote bị lặp ở đầu context train; Codex đã sửa bằng passage gốc, cửa sổ quanh quote có vị trí biến thiên và xáo vị trí nguồn đúng. Đã kiểm tokenizer thật, target dài nhất 152 token trong ngân sách 256. Thiết kế là hai LoRA Qwen3.5-9B cùng dữ liệu, một học đáp án, một học lời giải có nguồn. Các mẫu chưa được bác sĩ duyệt.</aside>
+</section>
+
+<!-- 10 -->
+<section class="slide" id="s10" aria-label="Trạng thái train">
+  <div class="head"><p class="eyebrow">Trạng thái huấn luyện</p><h2 class="title">Lượt Kaggle đầu lỗi EOS — chưa train student</h2></div>
+  <div class="cols even">
+    <div class="stack">
+      <div class="fact warn"><b class="v">FAILED</b><span class="small muted">Model đã tải, dừng ở assertion <code class="chip">training EOS is not a generation stop token</code></span></div>
+      <div class="fact warn"><b class="v">Chưa có bước optimizer</b><span class="small muted">Không có adapter đã học</span></div>
+      <div class="fact warn"><b class="v">Baseline rỗng</b><span class="small muted">File dự đoán baseline trống — không có số trước/sau</span></div>
+    </div>
+    <div class="stack">
+      <div class="callout"><b>Việc cần làm</b><span>Hiệu chỉnh token kết thúc lượt hội thoại theo generation config, rồi chạy lại.</span></div>
+      <div class="callout warn"><b>Hiệu quả distillation còn chờ kiểm chứng</b><span>Cần hoàn tất baseline và cả hai LoRA để so sánh kết quả trước/sau.</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>TONG_HOP · mục 5 · đường train là việc dở sau 11/11</span><span class="pg">10</span></div>
+  <aside class="notes">Lượt Kaggle đầu tiên trạng thái FAILED. Model đã tải nhưng dừng ở assertion &quot;training EOS is not a generation stop token&quot;, trước khi có bước optimizer nào. File dự đoán baseline rỗng. Hệ quả — chưa có adapter đã học, chưa có số trước và sau LoRA, và vì vậy chưa có kết luận gì về hiệu quả distillation. Em cũng không khẳng định student đã được huấn luyện. Việc cần làm là hiệu chỉnh token kết thúc lượt hội thoại theo generation config rồi chạy lại. Kernel và dataset student private vẫn được giữ để làm việc này.</aside>
+</section>
+
+<!-- 11 -->
+<section class="slide" id="s11" aria-label="Giới hạn">
+  <div class="head"><p class="eyebrow">Giới hạn</p><h2 class="title">Điều các số này chưa cho phép kết luận</h2></div>
+  <ul class="plain">
+    <li><b>Độc lập đánh giá:</b> 347/540 câu tune từng dùng ví dụ pseudo-hold — 76,3% là kết quả phát triển.</li>
+    <li><b>Mẫu nhỏ:</b> pilot 32 câu ngẫu nhiên — chênh một câu, p = 1, Wilson 57,9–86,7%.</li>
+    <li><b>Nguồn:</b> chỉ 9/48 sufficient — đánh giá nguồn do LLM, chưa chuyên gia duyệt.</li>
+    <li><b>Nhóm 16 câu:</b> chọn vì model đã sai, báo riêng, không suy ra tỷ lệ chung.</li>
+    <li><b>Khoá nghi vấn:</b> ba câu chưa có phân xử bác sĩ — gold giữ nguyên.</li>
+    <li><b>Distillation:</b> 52 mẫu từ 6 văn bản, chưa bác sĩ duyệt — train lỗi EOS, không có kết quả student.</li>
+    <li><b>Mục tiêu:</b> chưa có bằng chứng đạt 83–85% từ các thử nghiệm đã hoàn tất.</li>
+  </ul>
+  <div class="foot"><span>Tổng hợp từ TONG_HOP_2026-11-11.md</span><span class="pg">11</span></div>
+  <aside class="notes">Tổng hợp các giới hạn. Độc lập đánh giá — 347 trên 540 câu tune từng dùng ví dụ pseudo-hold. Mẫu nhỏ — pilot 32 câu, chênh một câu, p bằng 1. Nguồn — chỉ 9 trên 48 sufficient, và do LLM đánh giá. Nhóm 16 câu chọn vì model sai, nên không suy ra tỷ lệ chung. Ba câu khoá nghi vấn chưa có phân xử. Distillation — 52 mẫu từ 6 văn bản chưa bác sĩ duyệt, train lỗi EOS. Và quan trọng nhất, chưa có bằng chứng đạt 83 đến 85 phần trăm từ những thử nghiệm đã hoàn tất.</aside>
+</section>
+
+<!-- 12 -->
+<section class="slide hero" id="s12" aria-label="Bước tiếp theo">
+  <div class="head"><p class="eyebrow">Bước tiếp theo</p><h2 class="title">Bốn việc trước khi nói về 83–85%</h2></div>
+  <ul class="plain" style="gap:1cqw">
+    <li><b>1.</b> Sửa calibration EOS rồi chạy đủ đối chứng trước/sau LoRA.</li>
+    <li><b>2.</b> Nhờ chuyên gia phân xử các câu nguồn/khoá mâu thuẫn.</li>
+    <li><b>3.</b> Thiết kế tập xác nhận độc lập, tách khỏi mọi dữ liệu đã dùng làm ví dụ.</li>
+    <li><b>4.</b> Chuyên gia duyệt 52 mẫu MoH và đánh giá nguồn.</li>
+  </ul>
+  <p class="muted small">Dọn dẹp — giữ scratch D:/tmp/vm14k-grounded/ và kernel/dataset student private đến khi xử lý xong lượt train EOS.</p>
+  <div class="foot"><span>Phím — ← → · N ghi chú · F toàn màn hình · Ctrl+P in</span><span class="pg">12</span></div>
+  <aside class="notes">Bốn việc. Một — sửa calibration EOS rồi chạy đủ đối chứng trước và sau LoRA. Hai — nhờ chuyên gia phân xử các câu nguồn và khoá mâu thuẫn. Ba — thiết kế tập xác nhận độc lập, tách khỏi mọi dữ liệu đã dùng làm ví dụ. Bốn — chuyên gia duyệt 52 mẫu MoH và đánh giá nguồn. Về dọn dẹp — tài nguyên cloud và scratch của vòng 83–85 đã xoá; giữ `D:/tmp/vm14k-grounded/` và kernel/dataset student private để xử lý lượt train EOS còn dở. Em rất mong nhận góp ý của nhóm, đặc biệt về thiết kế tập xác nhận độc lập.</aside>
+</section>
+
+</main>
+</div>
+
+<div class="notes-panel" id="notesPanel" hidden aria-live="polite"><h4>Ghi chú người nói</h4><div id="notesText"></div></div>
+<nav class="bar" aria-label="Điều khiển trình chiếu">
+  <button type="button" id="prevBtn" aria-label="Trang trước">← Trước</button>
+  <span class="count" id="counter">1 / 12</span>
+  <button type="button" id="nextBtn" aria-label="Trang sau">Sau →</button>
+  <button type="button" id="notesBtn" aria-pressed="false">Ghi chú<kbd>N</kbd></button>
+  <button type="button" id="fsBtn">Toàn màn hình<kbd>F</kbd></button>
+</nav>
+</div>
+
+<script>
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const counter = document.getElementById('counter');
+  const notesPanel = document.getElementById('notesPanel');
+  const notesText = document.getElementById('notesText');
+  const notesBtn = document.getElementById('notesBtn');
+  let cur = 0;
+  function show(n) {
+    cur = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, i) => { s.classList.toggle('active', i === cur); s.setAttribute('aria-hidden', i === cur ? 'false' : 'true'); });
+    counter.textContent = (cur + 1) + ' / ' + slides.length;
+    const note = slides[cur].querySelector('aside.notes');
+    notesText.textContent = note ? note.textContent : '';
+    try { history.replaceState(null, '', '#s' + (cur + 1)); } catch (e) {}
+  }
+  function toggleNotes() {
+    notesPanel.hidden = !notesPanel.hidden;
+    document.querySelector('.app').classList.toggle('notes-open', !notesPanel.hidden);
+    notesBtn.setAttribute('aria-pressed', String(!notesPanel.hidden));
+  }
+  function fullscreen() {
+    try {
+      if (document.fullscreenElement) { document.exitFullscreen().catch(() => {}); }
+      else if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen().catch(() => {}); }
+    } catch (e) {}
+  }
+  document.getElementById('prevBtn').addEventListener('click', () => show(cur - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => show(cur + 1));
+  notesBtn.addEventListener('click', toggleNotes);
+  document.getElementById('fsBtn').addEventListener('click', fullscreen);
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.target.closest('input, textarea')) return;
+    const k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(slides.length - 1);
+    else if (k === 'n' || k === 'N') toggleNotes();
+    else if (k === 'f' || k === 'F') fullscreen();
+  });
+  const m = /^#s(\d+)$/.exec(location.hash || '');
+  show(m ? parseInt(m[1], 10) - 1 : 0);
+})();
+</script>
+</body>
+</html>

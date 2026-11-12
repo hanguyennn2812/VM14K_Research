@@ -1,0 +1,34 @@
+[
+  {
+    "id": "dd7ead92d1f149b1a8f65a869d3c54cd",
+    "url": "https://aap.onlinelibrary.wiley.com/doi/abs/10.1902/annals.1999.4.1.20",
+    "title": "Holmstrup 1999, Non-Plaque-Induced Gingival Lesions",
+    "status": "supported",
+    "text": "Bài gốc năm 1999 về tổn thương lợi không do mảng bám mô tả nhiễm khuẩn đặc hiệu tại lợi do Neisseria gonorrhoeae, Treponema pallidum, liên cầu và các vi sinh vật khác. Nhóm này có căn nguyên khác viêm lợi thông thường liên quan mảng bám.",
+    "usage": "Paraphrase of publicly readable primary abstract; diagnostic inference only, not training."
+  },
+  {
+    "id": "de054813576146d282e277806a3f45fd",
+    "url": "https://mycology.adelaide.edu.au/fungal-descriptions-and-antifungal-susceptibility/dermatophytes/epidermophyton",
+    "title": "Adelaide University Mycology Online: Epidermophyton",
+    "status": "partial",
+    "text": "Epidermophyton floccosum: khuẩn lạc thường mọc chậm, màu nâu lục hoặc kaki, bề mặt như da lộn, vùng giữa nổi cao có nếp gấp. Mặt trái thường có sắc tố nâu vàng đậm. Cần phân biệt màu mặt khuẩn lạc với sắc tố mặt trái; nguồn không dùng đúng cụm màu tiếng Việt trong các phương án.",
+    "usage": "Paraphrase of university description; diagnostic inference only, not training."
+  },
+  {
+    "id": "ce3e25dd6a08404ebcf3c91b034acc1f",
+    "url": "https://www.cdc.gov/dpdx/malaria/index.html",
+    "title": "CDC DPDx Malaria: Anopheles mosquitoes",
+    "status": "supported",
+    "text": "Muỗi Anopheles có palps dài bằng vòi, các mảng vảy đen trắng rõ trên cánh. Trứng được đẻ riêng lẻ trên mặt nước, có phao hai bên. Khi nghỉ, bụng muỗi chếch lên khỏi mặt đậu, không nằm song song với mặt đậu.",
+    "usage": "Paraphrase verified against CDC DPDx text; diagnostic inference only."
+  },
+  {
+    "id": "a18d01a1b6d141e7811aae07f9b4718f",
+    "url": "https://www.cdc.gov/infection-control/hcp/cauti/summary-of-recommendations.html",
+    "title": "CDC CAUTI Summary of Recommendations, III.E",
+    "status": "conflict",
+    "text": "CDC không khuyến cáo thay ống thông tiểu hoặc túi dẫn lưu theo khoảng thời gian cố định. Khuyến cáo thay dựa vào chỉ định lâm sàng như nhiễm khuẩn, tắc nghẽn hoặc hệ thống kín bị hở. Nguồn này không hỗ trợ một lịch cố định tính bằng số ngày.",
+    "usage": "Paraphrase of official recommendation; conflicts with fixed-interval question, gold not changed."
+  }
+]

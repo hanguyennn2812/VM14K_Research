@@ -1,0 +1,51 @@
+{
+  "method": "Targeted keyword search over the existing corpus, no gold used; absence is not a proof of corpus-wide absence.",
+  "queries": {
+    "PSI": {
+      "chunk_matches": 18,
+      "chunk_ids": [
+        "b89ba1f1d4:w1500",
+        "b89ba1f1d4:w1650",
+        "6082635c06:w13500",
+        "6082635c06:w13800",
+        "6082635c06:w13950",
+        "6082635c06:w14100",
+        "6082635c06:w14250",
+        "6082635c06:w14400",
+        "6082635c06:w14550",
+        "openstax_microbiology_2016_en:w113550",
+        "openstax_microbiology_2016_en:w113700",
+        "openstax_microbiology_2016_en:w113850",
+        "openstax_microbiology_2016_en:w114000",
+        "openstax_microbiology_2016_en:w117750",
+        "openstax_microbiology_2016_en:w197250",
+        "openstax_microbiology_2016_en:w478800",
+        "openstax_microbiology_2016_en:w478950",
+        "openstax_microbiology_2016_en:w490350"
+      ]
+    },
+    "prostatitis": {
+      "chunk_matches": 4,
+      "chunk_ids": [
+        "7eb7266656:w8400",
+        "e3e8f302f2:w76950",
+        "bvtwtn_708_huong_dan_su_dung_khang_sinh:w88350",
+        "bvtwtn_708_huong_dan_su_dung_khang_sinh:w88500"
+      ]
+    },
+    "lobar_pneumonia": {
+      "chunk_matches": 2,
+      "chunk_ids": [
+        "e3e8f302f2:w55050",
+        "e3e8f302f2:w55200"
+      ]
+    },
+    "dental_plaque": {
+      "chunk_matches": 2,
+      "chunk_ids": [
+        "openstax_microbiology_2016_en:w147150",
+        "openstax_microbiology_2016_en:w484200"
+      ]
+    }
+  }
+}
